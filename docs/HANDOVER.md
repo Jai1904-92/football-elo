@@ -35,7 +35,7 @@ covers how everything works; this note covers where things stand and what's next
   plus the `SUPABASE_DB_URL` secret) or `scripts/weekly_update.ps1` with Task Scheduler.
 - The update's re-rating path is covered by unit tests but hasn't run against the live database yet. The
   first weekly run after new matches is the real test: compare it with a full rebuild.
-- The repo has never been committed (`git init` was done, with no commits).
+- Git is local only: everything up to this note is committed on `master`, and there is no remote yet.
 
 ## Gap backlog, biggest effect on rankings first
 
