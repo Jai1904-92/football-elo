@@ -1,0 +1,4881 @@
+source,source_name,club
+engsoccerdata,Barrow AFC,Barrow
+engsoccerdata,Chester City,Chester
+engsoccerdata,Macclesfield Town,Macclesfield
+engsoccerdata,Harrogate Town,Harrogate Town A.F.C.
+engsoccerdata,Brighton and Hove Albion,Brighton & Hove Albion
+engsoccerdata,Cheltenham Town,Cheltenham
+engsoccerdata,Rushden and Diamonds,Rushden & Diamonds
+engsoccerdata,Yeovil Town,Yeovil
+engsoccerdata,Workington Town,Workington
+engsoccerdata,Aldershot Town,Aldershot
+engsoccerdata,St. Albans City,St Albans City
+engsoccerdata,Nuneaton Borough AFC,Nuneaton Borough
+football_data,AFC Wimbledon,AFC Wimbledon
+football_data,Accrington,Accrington
+football_data,Aldershot,Aldershot
+football_data,Arsenal,Arsenal
+football_data,Aston Villa,Aston Villa
+football_data,Barnet,Barnet
+football_data,Barnsley,Barnsley
+football_data,Barrow,Barrow
+football_data,Birmingham,Birmingham City
+football_data,Blackburn,Blackburn Rovers
+football_data,Blackpool,Blackpool
+football_data,Bolton,Bolton Wanderers
+football_data,Boston,Boston United
+football_data,Bournemouth,AFC Bournemouth
+football_data,Bradford,Bradford City
+football_data,Brentford,Brentford
+football_data,Brighton,Brighton & Hove Albion
+football_data,Bristol City,Bristol City
+football_data,Bristol Rvs,Bristol Rovers
+football_data,Bromley,Bromley
+football_data,Burnley,Burnley
+football_data,Burton,Burton Albion
+football_data,Bury,Bury
+football_data,Cambridge,Cambridge United
+football_data,Cardiff,Cardiff City
+football_data,Carlisle,Carlisle United
+football_data,Charlton,Charlton Athletic
+football_data,Chelsea,Chelsea
+football_data,Cheltenham,Cheltenham
+football_data,Chester,Chester
+football_data,Chesterfield,Chesterfield
+football_data,Colchester,Colchester United
+football_data,Coventry,Coventry City
+football_data,Crawley Town,Crawley Town
+football_data,Crewe,Crewe Alexandra
+football_data,Crystal Palace,Crystal Palace
+football_data,Dag and Red,Dagenham and Redbridge
+football_data,Darlington,Darlington
+football_data,Derby,Derby County
+football_data,Doncaster,Doncaster Rovers
+football_data,Everton,Everton
+football_data,Exeter,Exeter City
+football_data,Fleetwood Town,Fleetwood Town
+football_data,Forest Green,Forest Green Rovers
+football_data,Fulham,Fulham
+football_data,Gillingham,Gillingham
+football_data,Grimsby,Grimsby Town
+football_data,Halifax,Halifax Town
+football_data,Harrogate,Harrogate Town A.F.C.
+football_data,Hartlepool,Hartlepool United
+football_data,Hereford,Hereford United
+football_data,Huddersfield,Huddersfield Town
+football_data,Hull,Hull City
+football_data,Ipswich,Ipswich Town
+football_data,Kidderminster,Kidderminster Harriers
+football_data,Leeds,Leeds United
+football_data,Leicester,Leicester City
+football_data,Leyton Orient,Leyton Orient
+football_data,Lincoln,Lincoln City
+football_data,Liverpool,Liverpool
+football_data,Luton,Luton Town
+football_data,Macclesfield,Macclesfield
+football_data,Man City,Manchester City
+football_data,Man United,Manchester United
+football_data,Mansfield,Mansfield Town
+football_data,Middlesbrough,Middlesbrough
+football_data,Millwall,Millwall
+football_data,Milton Keynes Dons,Milton Keynes Dons
+football_data,Morecambe,Morecambe
+football_data,Newcastle,Newcastle United
+football_data,Newport County,Newport County
+football_data,Northampton,Northampton Town
+football_data,Norwich,Norwich City
+football_data,Nott'm Forest,Nottingham Forest
+football_data,Notts County,Notts County
+football_data,Oldham,Oldham Athletic
+football_data,Oxford,Oxford United
+football_data,Peterboro,Peterborough United
+football_data,Plymouth,Plymouth Argyle
+football_data,Port Vale,Port Vale
+football_data,Portsmouth,Portsmouth
+football_data,Preston,Preston North End
+football_data,QPR,Queens Park Rangers
+football_data,Reading,Reading
+football_data,Rochdale,Rochdale
+football_data,Rotherham,Rotherham United
+football_data,Rushden & D,Rushden & Diamonds
+football_data,Salford,Salford City
+football_data,Scarborough,Scarborough
+football_data,Scunthorpe,Scunthorpe United
+football_data,Sheffield United,Sheffield United
+football_data,Sheffield Weds,Sheffield Wednesday
+football_data,Shrewsbury,Shrewsbury Town
+football_data,Southampton,Southampton
+football_data,Southend,Southend United
+football_data,Stevenage,Stevenage Borough
+football_data,Stockport,Stockport County
+football_data,Stoke,Stoke City
+football_data,Sunderland,Sunderland
+football_data,Sutton,Sutton United
+football_data,Swansea,Swansea City
+football_data,Swindon,Swindon Town
+football_data,Torquay,Torquay United
+football_data,Tottenham,Tottenham Hotspur
+football_data,Tranmere,Tranmere Rovers
+football_data,Walsall,Walsall
+football_data,Watford,Watford
+football_data,West Brom,West Bromwich Albion
+football_data,West Ham,West Ham United
+football_data,Wigan,Wigan Athletic
+football_data,Wimbledon,Wimbledon
+football_data,Wolves,Wolverhampton Wanderers
+football_data,Wrexham,Wrexham
+football_data,Wycombe,Wycombe Wanderers
+football_data,Yeovil,Yeovil
+football_data,York,York City
+datarozhlas,%C3%85bo_IFK,Åbo IFK
+datarozhlas,%C3%85tvidabergs_FF,Atvidabergs FF
+datarozhlas,%C3%8D%C3%BEr%C3%B3ttabandalag_Akraness,IA Akranes
+datarozhlas,%C3%8D%C3%BEr%C3%B3ttabandalag_Vestmannaeyja,IB Vestmannaeyja
+datarozhlas,%C3%8DBV_men%27s_football,ÍBV
+datarozhlas,%C3%8DB_Akureyri,ÍB Akureyri
+datarozhlas,%C3%8DF_Fuglafj%C3%B8r%C3%B0ur,ÍF
+datarozhlas,%C3%96rebro_SK,Örebro
+datarozhlas,%C3%96rgryte_IS,Orgryte IS
+datarozhlas,%C3%96sters_IF,Osters IF
+datarozhlas,%C3%96stersunds_FK,Östersunds FK
+datarozhlas,%C3%9Ajpest_FC,Ujpesti Dozsa SC
+datarozhlas,%C3%9E%C3%B3r_Akureyri,Þór Akureyri
+datarozhlas,%C4%A6amrun_Spartans_F.C.,Hamrun Spartans
+datarozhlas,%C4%B0stanbul_Ba%C5%9Fak%C5%9Fehir_F.K.,Istanbul Basaksehir
+datarozhlas,%C4%B0stanbulspor_A.%C5%9E.,İstanbulspor
+datarozhlas,%C5%81KS_%C5%81%C3%B3d%C5%BA,LKS Lodz
+datarozhlas,%C5%9Al%C4%85sk_Wroc%C5%82aw,Slask Wroclaw
+datarozhlas,%C5%A0K_Futura_Humenn%C3%A9,Chemlon Humenné
+datarozhlas,%C5%A0K_Slovan_Bratislava,SK Slovan Bratislava
+datarozhlas,%C5%BBurrieq_F.C.,Żurrieq
+datarozhlas,1. FC Köln,Koln
+datarozhlas,1.FC_Kaiserslautern,Kaiserslautern
+datarozhlas,1._FC_Brno,Zbrojovka Brno
+datarozhlas,1._FC_Frankfurt,ASK Vorwarts Berlin
+datarozhlas,1._FC_Heidenheim,1. FC Heidenheim
+datarozhlas,1._FC_K%C3%B6ln,Koln
+datarozhlas,1._FC_Kaiserslautern,Kaiserslautern
+datarozhlas,1._FC_Lokomotive_Leipzig,Lokomotive Leipzig
+datarozhlas,1._FC_Magdeburg,Magdeburg
+datarozhlas,1._FC_N%C3%BCrnberg,Nurnberg
+datarozhlas,1._FC_Saarbr%C3%BCcken,Saarbrucken
+datarozhlas,1._FC_Slov%C3%A1cko,Slovacko
+datarozhlas,1._FC_Tatran_Pre%C5%A1ov,Tatran Prešov
+datarozhlas,1._FC_Union_Berlin,1. FC Union Berlin
+datarozhlas,1._FSV_Mainz_05,1. FSV Mainz 05
+datarozhlas,1._Wiener_Neust%C3%A4dter_SC,Wiener Neustadt
+datarozhlas,1899 Hoffenheim,1899 Hoffenheim
+datarozhlas,91 Dudelange,91 Dudelange
+datarozhlas,A.C._Cesena,AC Cesena
+datarozhlas,A.C._ChievoVerona,AC Chievo Verona
+datarozhlas,A.C._Chievo_Verona,Chievo
+datarozhlas,A.C._Juvenes/Dogana,Juvenes/Dogana
+datarozhlas,A.C._Libertas,Libertas
+datarozhlas,A.C._Milan,AC Milan
+datarozhlas,A.C._Perugia_Calcio,AC Perugia
+datarozhlas,A.S._Livorno_Calcio,AS Livorno
+datarozhlas,A.S._Roma,AS Roma
+datarozhlas,ACF_Fiorentina,ACF Fiorentina
+datarozhlas,ACF_Gloria_Bistri%C8%9Ba,Gloria Bistrița
+datarozhlas,AC_Allianssi,AC Allianssi
+datarozhlas,AC_Bellinzona,Bellinzona
+datarozhlas,AC_Horsens,Horsens
+datarozhlas,AC_Lugano,Lugano
+datarozhlas,AC_Milan,AC Milan
+datarozhlas,AC_Omonia,Omonia Nicosia
+datarozhlas,AC_Sparta_Prague,Sparta Praha
+datarozhlas,AC_Sparta_Praha,Sparta Praha
+datarozhlas,AC_Virtus,AC Virtus
+datarozhlas,ADO_Den_Haag,ADO Den Haag
+datarozhlas,AEK Athens,AEK Athens
+datarozhlas,AEK Larnaca,AEK Larnaca
+datarozhlas,AEK_Athens_F.C.,AEK Athens
+datarozhlas,AEK_Athens_FC,AEK Athens
+datarozhlas,AEK_Larnaca_F.C.,AEK Larnaca
+datarozhlas,AEK_Larnaca_FC,AEK Larnaca
+datarozhlas,AEL Limassol,AEL Limassol
+datarozhlas,AEL_Limassol,AEL Limassol
+datarozhlas,AFC_Ajax,AFC Ajax
+datarozhlas,AFC_DWS,DWS Amsterdam
+datarozhlas,AF_Gloria_Bistri%C8%9Ba,Gloria Bistrița
+datarozhlas,AGF,AGF
+datarozhlas,AIK,AIK
+datarozhlas,AIK_Fotboll,AIK Solna
+datarozhlas,AJ_Auxerre,AJ Auxerre
+datarozhlas,APOEL,APOEL Nikosia
+datarozhlas,APOEL_F.C.,APOEL Nikosia
+datarozhlas,APOEL_FC,APOEL Nikosia
+datarozhlas,APOP_Kinyras_Peyias_FC,APOP Kinyras
+datarozhlas,ASA_2013_T%C3%A2rgu_Mure%C8%99,Târgu Mureș
+datarozhlas,ASA_T%C3%A2rgu_Mure%C8%99_(1962),ASA Târgu Mureș
+datarozhlas,ASC_O%C8%9Belul_Gala%C8%9Bi,Otelul Galati
+datarozhlas,ASK Vorwärts Berlin,ASK Vorwarts Berlin
+datarozhlas,ASK%C3%96_Pasching,Pasching
+datarozhlas,AS_Angoul%C3%AAme,AS Angouleme
+datarozhlas,AS_Cannes,AS Cannes
+datarozhlas,AS_Monaco_FC,AS Monaco
+datarozhlas,AS_Nancy,AS Nancy
+datarozhlas,AS_Nancy_Lorraine,AS Nancy
+datarozhlas,AS_Progresul_Bucure%C8%99ti,National București
+datarozhlas,AS_Roma,AS Roma
+datarozhlas,AS_Saint-%C3%89tienne,AS Saint-Etienne
+datarozhlas,AS_Tren%C4%8D%C3%ADn,AS Trencin
+datarozhlas,AZ,AZ
+datarozhlas,AZAL_PFC_Baku,AZAL Baku
+datarozhlas,AZ_(football_club),AZ Alkmaar
+datarozhlas,AZ_Alkmaar,AZ Alkmaar
+datarozhlas,AaB_Fodbold,Aalborg BK
+datarozhlas,AaB_Football,Aalborg BK
+datarozhlas,Aalborg_BK,Aalborg BK
+datarozhlas,Aalesunds_FK,Aalesund
+datarozhlas,Aarhus,Aarhus
+datarozhlas,Aarhus_Gymnastik_Forening,AGF Aarhus
+datarozhlas,Aarhus_Gymnastikforening,Aarhus GF
+datarozhlas,Aberdeen,Aberdeen
+datarozhlas,Aberdeen_F.C.,Abderden
+datarozhlas,Aberystwyth_Town_F.C.,Aberystwyth Town
+datarozhlas,Acad%C3%A9mica_de_Coimbra_(football),Academica
+datarozhlas,Adana Demirspor,Adana Demirspor
+datarozhlas,Adana_Demirspor,Adana Demirspor
+datarozhlas,Adanaspor,Adanaspor
+datarozhlas,Admira Wacker Mödling,FC Admira Wacker Modling
+datarozhlas,Afan_Lido_F.C.,Afan Lido
+datarozhlas,Airbus UK Broughton,Airbus UK Broughton
+datarozhlas,Airbus_UK_Broughton_F.C.,Airbus UK Broughton
+datarozhlas,Airdrieonians_F.C._(1878),Airdrieonians
+datarozhlas,Ajax,AFC Ajax
+datarozhlas,Akademija Pandev,Akademija Pandev
+datarozhlas,Akademisk_Boldklub,Akademisk BK
+datarozhlas,Akhisar_Belediyespor,Akhisar Belediyespor
+datarozhlas,Aktobe,Aktobe
+datarozhlas,Alanyaspor,Alanyaspor
+datarozhlas,Alashkert,Alashkert FC
+datarozhlas,Alashkert_FC,Alashkert FC
+datarozhlas,Alemannia_Aachen,Alemannia Aachen
+datarozhlas,Alki_Larnaca_FC,Alki Larnaca
+datarozhlas,Alliance_Dudelange,Alliance Dudelange
+datarozhlas,Altay_S.K.,Altay
+datarozhlas,Altay_SK,Altay
+datarozhlas,Amica_Wronki,Amica Wronki
+datarozhlas,Anderlecht,Anderlecht
+datarozhlas,Angers_SCO,Angers
+datarozhlas,Angoul%C3%AAme_Charente_FC,AS Angouleme
+datarozhlas,Ankarag%C3%BCc%C3%BC,Ankaragücü
+datarozhlas,Anorthosis Famagusta,Anorthosis Famagusta
+datarozhlas,Anorthosis_Famagusta_F.C.,Anorthosis Famagusta
+datarozhlas,Anorthosis_Famagusta_FC,Anorthosis Famagusta
+datarozhlas,Antalyaspor,Antalyaspor
+datarozhlas,Antwerp,Antwerp
+datarozhlas,Apollon Limassol,Apollon Limassol
+datarozhlas,Apollon_Limassol,Apollon Limassol
+datarozhlas,Apollon_Limassol_FC,Apollon Limassol
+datarozhlas,Apollon_Smyrnis_F.C.,Apollon Athens
+datarozhlas,Apolonia_Fier,Apolonia
+datarozhlas,Araks_Ararat_FC,Araks Ararat
+datarozhlas,Ararat Yerevan,Ararat Yerevan
+datarozhlas,Ararat-Armenia,Ararat-Armenia
+datarozhlas,Arda,Arda
+datarozhlas,Ards_F.C.,Ards
+datarozhlas,Aris,Aris
+datarozhlas,Aris Limassol,Aris Limassol
+datarozhlas,Aris Thessaloniki,Aris Thessaloniki
+datarozhlas,Aris_F.C._(Thessaloniki),Aris
+datarozhlas,Aris_Limassol_FC,Aris Limassol
+datarozhlas,Aris_Thessaloniki_F.C.,Aris
+datarozhlas,Arka Gdynia,Arka Gdynia
+datarozhlas,Arka_Gdynia,Arka Gdynia
+datarozhlas,Arouca,Arouca
+datarozhlas,Arsenal,Arsenal
+datarozhlas,Arsenal Tivat,Arsenal Tivat
+datarozhlas,Arsenal Tula,FC Arsenal Tula
+datarozhlas,Arsenal_F.C.,Arsenal
+datarozhlas,Ashdod,Moadon Sport Ashdod
+datarozhlas,Associa%C3%A7%C3%A3o_Acad%C3%A9mica_de_Coimbra_%E2%80%93_O.A.F.,Academica
+datarozhlas,Astana,Astana
+datarozhlas,Asteras Tripolis,Asteras Tripoli
+datarozhlas,Asteras_Tripoli_F.C.,Asteras Tripoli
+datarozhlas,Asteras_Tripolis_F.C.,Asteras Tripoli
+datarozhlas,Aston Villa,Aston Villa
+datarozhlas,Aston_Villa,Aston Villa
+datarozhlas,Aston_Villa_F.C.,Aston Villa
+datarozhlas,Astra Giurgiu,FK Astra Giurgiu
+datarozhlas,Atalanta,Atalanta
+datarozhlas,Atalanta_B.C.,Atalanta
+datarozhlas,Atalanta_BC,Atalanta
+datarozhlas,Athinaikos_F.C.,Athinaikos
+datarozhlas,Athletic Bilbao,Athletic Bilbao
+datarozhlas,Athletic_Bilbao,Athletic Bilbao
+datarozhlas,Athlitiki_Enosi_Larissa_F.C.,AE Larisa
+datarozhlas,Athlone_Town_A.F.C.,Athlone Town
+datarozhlas,Athlone_Town_F.C.,Athlone Town
+datarozhlas,Atl%C3%A8tic_Club_d%27Escaldes,Atlètic Club d'Escaldes
+datarozhlas,Atl%C3%A9tico_Madrid,Atletico Madrid
+datarozhlas,Atlantas,FK Atlantas
+datarozhlas,Atlètic Club d'Escaldes,Atlètic Club d'Escaldes
+datarozhlas,Atlètic d'Escaldes,Atlètic Club d'Escaldes
+datarozhlas,Atlético Madrid,Atletico Madrid
+datarozhlas,Atromitos,Atromitos
+datarozhlas,Atromitos_F.C.,Atromitos
+datarozhlas,Auda,FK Auda
+datarozhlas,Augsburg,FC Augsburg
+datarozhlas,Austria Wien,Austria Wien
+datarozhlas,Austria_Wien,Austria Wien
+datarozhlas,B%C3%A9k%C3%A9scsaba_1912_El%C5%91re,Békéscsabai Előre
+datarozhlas,B%C3%A9k%C3%A9scsaba_1912_El%C5%91re_SE,Békéscsabai Előre
+datarozhlas,B36 Tórshavn,B36 Torshavn
+datarozhlas,B36_T%C3%B3rshavn,B36 Torshavn
+datarozhlas,B68_Toftir,B68 Toftir
+datarozhlas,B71_Sandoy,B71
+datarozhlas,BATE Borisov,BATE Borisov
+datarozhlas,BATE_Borisov,BATE Borisov
+datarozhlas,BFC_Dynamo,BFC Dynamo
+datarozhlas,BFC_Si%C3%B3fok,Siófoki Bányász
+datarozhlas,BK Häcken,BK Häcken
+datarozhlas,BK_H%C3%A4cken,BK Häcken
+datarozhlas,BSC_Young_Boys,BSC Young Boys
+datarozhlas,BSG_Chemie_Leipzig_(1950),BSG Chemie Leipzig
+datarozhlas,Bala Town,Bala Town
+datarozhlas,Bala_Town_F.C.,Bala Town
+datarozhlas,Ballkani,Ballkani
+datarozhlas,Ballymena United,Ballymena
+datarozhlas,Ballymena_United_F.C.,Ballymena
+datarozhlas,Balzan,Balzan FC
+datarozhlas,Balzan_F.C.,Balzan FC
+datarozhlas,Ban%C3%ADk_Ostrava,Banik Ostrava
+datarozhlas,Banants,Banants
+datarozhlas,Banants_F.C.,Banants
+datarozhlas,Bangor City,Bangor City
+datarozhlas,Bangor_City_F.C.,Bangor City
+datarozhlas,Bangor_F.C.,Bangor
+datarozhlas,Banik_Ostrava,Banik Ostrava
+datarozhlas,Baník Ostrava,Banik Ostrava
+datarozhlas,Barcelona,Barcelona
+datarozhlas,Barcelona_C.F.,Barcelona
+datarozhlas,Barry Town United,Barry Town United
+datarozhlas,Barry_Town_F.C.,Barry Town
+datarozhlas,Barry_Town_United_F.C.,Barry Town
+datarozhlas,Basel,Basel
+datarozhlas,Bayer Leverkusen,Bayer Leverkusen
+datarozhlas,Bayer_04_Leverkusen,Bayer Leverkusen
+datarozhlas,Bayern Munich,Bayern Munich
+datarozhlas,Bayern_Munich,Bayern Munich
+datarozhlas,Be%C5%9Fikta%C5%9F_J.K.,Besiktas
+datarozhlas,Be%C5%9Fikta%C5%9F_JK,Besiktas
+datarozhlas,Beerschot_A.C.,Germinal Ekeren
+datarozhlas,Beerschot_AC,Germinal Ekeren
+datarozhlas,Beitar Jerusalem,Beitar Jerusalem
+datarozhlas,Beitar_Jerusalem_F.C.,Beitar Jerusalem
+datarozhlas,Belenenses,Belenenses
+datarozhlas,Belgrade,Belgrade XI
+datarozhlas,Benfica,SL Benfica
+datarozhlas,Berliner_FC_Dynamo,BFC Dynamo
+datarozhlas,Beroe Stara Zagora,Beroe Stara Zagora
+datarozhlas,Besa_Kavaj%C3%AB,Besa Kavajë
+datarozhlas,Beşiktaş,Besiktas
+datarozhlas,Birkirkara,Birkirkara
+datarozhlas,Birkirkara_F.C.,Birkirkara
+datarozhlas,Birmingham_City_F.C.,Birmingham City
+datarozhlas,Blackburn_Rovers,Blackburn
+datarozhlas,Blackburn_Rovers_F.C.,Blackburn Rovers
+datarozhlas,Bnei Yehuda,Bnei Yehuda
+datarozhlas,Bnei_Sakhnin_F.C.,Bnei Sakhnin
+datarozhlas,Bnei_Yehuda_Tel_Aviv_F.C.,Bnei Yehuda
+datarozhlas,Boavista_F.C.,Boavista
+datarozhlas,Bodø/Glimt,Bodo/Glimt
+datarozhlas,Bohemian F.C.,Bohemian F.C.
+datarozhlas,Bohemian_F.C.,Bohemians
+datarozhlas,Bohemians 1905,Bohemians 1905
+datarozhlas,Bohemians_1905,Bohemians EKD Praha
+datarozhlas,Bohemians_CKD_Praha,Bohemians (TCH)
+datarozhlas,Bokelj,Bokelj
+datarozhlas,Boldklubben_1901,B1901
+datarozhlas,Boldklubben_1903,B 1903 Kobenhavn
+datarozhlas,Boldklubben_1909,B 1909 Odense
+datarozhlas,Boldklubben_1913,B 1913 Odense
+datarozhlas,Boldklubben_Frem,BK Frem
+datarozhlas,Boldklubben_af_1893,B.93
+datarozhlas,Bologna_F.C._1909,Bologna
+datarozhlas,Bologna_FC_1909,Bologna
+datarozhlas,Bolton_Wanderers_F.C.,Bolton Wanderers
+datarozhlas,Boluspor,Boluspor
+datarozhlas,Borac Banja Luka,Borac Banja Luka
+datarozhlas,Bordeaux,Girondins Bordeaux
+datarozhlas,Borough_United_F.C.,Borough United
+datarozhlas,Borussia Dortmund,Borussia Dortmund
+datarozhlas,Borussia Mönchengladbach,Borussia Monchengladbach
+datarozhlas,Borussia_Dortmund,Borussia Dortmund
+datarozhlas,Borussia_M%C3%B6nchengladbach,Borussia Monchengladbach
+datarozhlas,Botev Plovdiv,Botev Plovdiv
+datarozhlas,Botev_Plovdiv,Botev Plovdiv
+datarozhlas,Botoșani,FC Botosani
+datarozhlas,Br%C3%B8ndby_IF,Brondby IF
+datarozhlas,Braga,Sporting Braga
+datarozhlas,Brann,Brann
+datarozhlas,Bravo,NK Bravo
+datarozhlas,Bray_Wanderers_F.C.,Bray Wanderers
+datarozhlas,Brei%C3%B0ablik_UBK,Breiðablik
+datarozhlas,Brei%C3%B0ablik_men%27s_football,Breidablik
+datarozhlas,Breiðablik,Breiðablik
+datarozhlas,Brighton & Hove Albion,Brighton & Hove Albion
+datarozhlas,Brighton_%26_Hove_Albion_F.C.,Brighton & Hove Albion
+datarozhlas,Bruno's Magpies,Magpies
+datarozhlas,Bryne_F.K.,Bryne
+datarozhlas,Bryne_FK,Bryne
+datarozhlas,Brøndby,Brøndby
+datarozhlas,Budapest_Honv%C3%A9d_FC,Budapest Honved SE
+datarozhlas,Budapesti_VSC,BVSC Budapest
+datarozhlas,Budu%C4%87nost_Podgorica,Budućnost Podgorica
+datarozhlas,Budućnost Podgorica,Budućnost Podgorica
+datarozhlas,Burnley,Burnley
+datarozhlas,Burnley_F.C.,Burnley
+datarozhlas,Bursaspor,Bursaspor
+datarozhlas,C.D._Nacional,Nacional
+datarozhlas,C.D._Santa_Clara,Santa Clara
+datarozhlas,C.F._Estrela_da_Amadora,Estrela da Amadora
+datarozhlas,C.F._Os_Belenenses,Belenenses
+datarozhlas,C.S._Mar%C3%ADtimo,Maritimo
+datarozhlas,CA_Osasuna,Osasuna
+datarozhlas,CA_Spora_Luxembourg,Spora Luxemburg
+datarozhlas,CD_Tenerife,CD Tenerife
+datarozhlas,CE_Principat,Principat
+datarozhlas,CFR Cluj,CFR Cluj
+datarozhlas,CFR_Cluj,CFR Cluj
+datarozhlas,CSA_Steaua_Bucure%C8%99ti_(football),Steaua Bucuresti
+datarozhlas,CSKA 1948,CSKA 1948 Sofia
+datarozhlas,CSKA Moscow,CSKA Moskva
+datarozhlas,CSKA Sofia,CSKA Sofia
+datarozhlas,CSKA_Sofia,CSKA Sofia
+datarozhlas,CSM Politehnica Iași,Politehnica Iasi
+datarozhlas,CSM_Flac%C4%83ra_Moreni,Flacăra Moreni
+datarozhlas,CSM_Politehnica_Ia%C8%99i,Politehnica Iasi
+datarozhlas,CS_Corvinul_Hunedoara,Corvinul Hunedoara
+datarozhlas,CS_Fola_Esch,Fola Esch
+datarozhlas,CS_Gaz_Metan_Media%C8%99,Gaz Metan Mediaș
+datarozhlas,CS_Grevenmacher,Grevenmacher
+datarozhlas,CS_Minaur_Baia_Mare_(football),FC Baia Mare
+datarozhlas,CS_P%C3%A9tange,Pétange
+datarozhlas,CS_Pandurii_T%C3%A2rgu_Jiu,Pandurii Targu-Jiu
+datarozhlas,CS_Petrocub_H%C3%AEnce%C8%99ti,Petrocub
+datarozhlas,CS_Sedan_Ardennes,Sedan
+datarozhlas,CS_Sporting_Vaslui,Vaslui
+datarozhlas,CS_Tiligul-Tiras_Tiraspol,Tiligul Tiraspol
+datarozhlas,CS_Universitatea_Craiova,FC Universitatea Craiova
+datarozhlas,Caernarfon Town,Caernarfon Town
+datarozhlas,Caernarfon_Town_F.C.,Caernarfon Town
+datarozhlas,Cagliari_Calcio,Cagliari Calcio
+datarozhlas,Cardiff Metropolitan University,Cardiff MU
+datarozhlas,Cardiff_City_F.C.,Cardiff City
+datarozhlas,Cardiff_Metropolitan_University_F.C.,Cardiff MU
+datarozhlas,Carmarthen_Town_A.F.C.,Carmarthen Town
+datarozhlas,Carmarthen_Town_F.C.,Carmarthen Town
+datarozhlas,Carrick_Rangers_F.C.,Carrick Rangers
+datarozhlas,Cefn Druids,Cefn Druids
+datarozhlas,Cefn_Druids_A.F.C.,Cefn Druids
+datarozhlas,Celje,NK Celje
+datarozhlas,Celta Vigo,Celta Vigo
+datarozhlas,Celta_de_Vigo,Celta Vigo
+datarozhlas,Celtic,Celtic
+datarozhlas,Celtic_F.C.,Celtic
+datarozhlas,Cercle Brugge,Cercle Brugge KSV
+datarozhlas,Cercle_Brugge_K.S.V.,Cercle Brugge KSV
+datarozhlas,Charleroi,Royal Charleroi SC
+datarozhlas,Chelsea,Chelsea
+datarozhlas,Chelsea_F.C,Chelsea
+datarozhlas,Chelsea_F.C.,Chelsea
+datarozhlas,Chemnitzer_FC,FC Karl-Marx-Stadt
+datarozhlas,Cherno More,Cherno More
+datarozhlas,Cherno More Varna,Cherno More Varna
+datarozhlas,Chikhura Sachkhere,Chikhura Sachkhere
+datarozhlas,Chimia_R%C3%A2mnicu_V%C3%A2lcea,Chimia Râmnicu Vâlcea
+datarozhlas,Cliftonville,Cliftonville
+datarozhlas,Cliftonville_F.C.,Cliftonville
+datarozhlas,Club Brugge,Club Brugge
+datarozhlas,Club_Brugge,Club Brugge
+datarozhlas,Club_Brugge_K.V.,Club Brugge
+datarozhlas,Club_Brugge_KV,Club Brugge
+datarozhlas,Coleraine,Coleraine
+datarozhlas,Coleraine_F.C.,Coleraine
+datarozhlas,Cologne,Cologne XI
+datarozhlas,Connah%27s_Quay_Nomads_F.C.,Connah's Quay
+datarozhlas,Connah's Quay Nomads,Connah's Quay
+datarozhlas,Constel%C2%B7laci%C3%B3_Esportiva,Constel·lació
+datarozhlas,Constructorul_Chisinau,Constructorul Chisinau
+datarozhlas,Copenhagen,Kobenhavn
+datarozhlas,Cork City,Cork City
+datarozhlas,Cork_Celtic_F.C.,Cork Celtic
+datarozhlas,Cork_City_F.C.,Cork City
+datarozhlas,Cork_Hibernians_F.C.,Cork Hibernians
+datarozhlas,Corvinul Hunedoara,Corvinul Hunedoara
+datarozhlas,Cosmos,Cosmos
+datarozhlas,Coventry_City_F.C.,Coventry City
+datarozhlas,Cracovia,Cracovia
+datarozhlas,Crusaders,Crusaders
+datarozhlas,Crusaders_F.C.,Crusaders
+datarozhlas,Crusaders_FC,Crusaders
+datarozhlas,Csepel_SC,Csepel SC
+datarozhlas,Cwmbr%C3%A2n_Town_A.F.C.,Cwmbran Town
+datarozhlas,DAC Dunajská Streda,Dunajska Streda
+datarozhlas,DHSC_(football_club),DOS Utrecht
+datarozhlas,Dacia Chișinău,Dacia Chisinau
+datarozhlas,Debrecen,Debrecen
+datarozhlas,Debreceni_VSC,Debreceni VSC
+datarozhlas,Degerfors_IF,Degerfors
+datarozhlas,Denizlispor,Denizlispor
+datarozhlas,Deportivo_Alav%C3%A9s,Deportivo Alavés
+datarozhlas,Deportivo_de_La_Coru%C3%B1a,Deportivo La Coruna
+datarozhlas,Derby_County_F.C.,Derby County
+datarozhlas,Derry City,Derry City
+datarozhlas,Derry_City_F.C.,Derry City
+datarozhlas,Dečić,Decic
+datarozhlas,Di%C3%B3sgy%C5%91ri_VTK,Diósgyőr
+datarozhlas,Differdange,Differdange
+datarozhlas,Differdange 03,FC Differdange 03
+datarozhlas,Digenis_Akritas_Morphou_FC,Akritas
+datarozhlas,Dila Gori,Dila Gori
+datarozhlas,Dinaburg_FC,Dinaburg
+datarozhlas,Dinamo Batumi,Dinamo Batumi
+datarozhlas,Dinamo Brest,Dinamo Brest
+datarozhlas,Dinamo București,Dinamo Bucuresti
+datarozhlas,Dinamo Minsk,Dinamo Minsk
+datarozhlas,Dinamo Tbilisi,Dinamo Tbilisi
+datarozhlas,Dinamo Zagreb,Dinamo Zagreb
+datarozhlas,Dinamo_Zagreb,Dinamo Zagreb
+datarozhlas,Djurg%C3%A5rdens_IF_Fotboll,Djurgardens IF
+datarozhlas,Djurgården,Djurgården
+datarozhlas,Djurgårdens IF,Djurgardens IF
+datarozhlas,Dnipro-1,SC Dnipro-1
+datarozhlas,Domžale,NK Domzale
+datarozhlas,Drita,Drita Gjilan
+datarozhlas,Drogheda_United_F.C.,Drogheda United
+datarozhlas,Drumcondra_F.C.,Drumcondra Dublin
+datarozhlas,Drumcondra_FC,Drumcondra FC
+datarozhlas,Dudelange,Dudelange
+datarozhlas,Dukagjini,Dukagjini
+datarozhlas,Dukla_Bansk%C3%A1_Bystrica,Dukla Banská Bystrica
+datarozhlas,Dukla_Prague,Dukla Praha
+datarozhlas,Duna%C3%BAjv%C3%A1ros_FC,Dunaujvaros
+datarozhlas,Dunaferr_SE,Dunaferr
+datarozhlas,Dunakanyar-V%C3%A1c_FC,Vác FC Samsung
+datarozhlas,Dunav Ruse,Dunav Ruse
+datarozhlas,Dundalk,Dundalk
+datarozhlas,Dundalk_F.C.,Dundalk
+datarozhlas,Dundalk_FC,Dundalk
+datarozhlas,Dundee United,Dundee United
+datarozhlas,Dundee_F.C.,Dundee
+datarozhlas,Dundee_FC,Dundee
+datarozhlas,Dundee_United_F.C.,Dundee United
+datarozhlas,Dundee_United_FC,Dundee United
+datarozhlas,Dunfermline_Athletic,Dunfermline Athletic
+datarozhlas,Dunfermline_Athletic_F.C.,Dunfermline
+datarozhlas,Dungannon_Swifts_F.C.,Dungannon Swifts
+datarozhlas,Dynamo Brest,Dynamo Brest
+datarozhlas,Dynamo Kyiv,Dinamo Kiev
+datarozhlas,Dynamo_Brest,Dynamo Brest
+datarozhlas,Dynamo_Dresden,Dynamo Dresden
+datarozhlas,Dyskobolia_Grodzisk_Wielkopolski,Groclin
+datarozhlas,EB/Streymur,EB / Streymur
+datarozhlas,EPA_Larnaca_FC,EPA Larnaca
+datarozhlas,Egaleo_F.C.,Egaleo
+datarozhlas,Egaleo_FC,Egaleo
+datarozhlas,Egnatia,Egnatia
+datarozhlas,Eintracht Frankfurt,Eintracht Frankfurt
+datarozhlas,Eintracht_Braunschweig,Eintracht Braunschweig
+datarozhlas,Eintracht_Frankfurt,Eintracht Frankfurt
+datarozhlas,Eisenh%C3%BCttenst%C3%A4dter_FC_Stahl,Stahl Eisenhüttenstadt
+datarozhlas,Elfsborg,Elfsborg
+datarozhlas,Empoli_F.C.,Empoli FC
+datarozhlas,En_Avant_Guingamp,EA Guingamp
+datarozhlas,En_Avant_de_Guingamp,EA Guingamp
+datarozhlas,Engordany,UE Engordany
+datarozhlas,Enosis_Neon_Paralimni_FC,Enosis Neon Paralimni
+datarozhlas,Ermis_Aradippou,Ermis Aradippou
+datarozhlas,Esbjerg,Esbjerg
+datarozhlas,Esbjerg_fB,Esbjerg fB
+datarozhlas,Eski%C5%9Fehirspor,Eskişehirspor
+datarozhlas,Espanyol,Espanyol Barcelona
+datarozhlas,Ethnikos_Achna_FC,Ethnikos Achna
+datarozhlas,Europa,Europa FC
+datarozhlas,Europa_F.C.,Europa FC
+datarozhlas,Europa_FC,Europa FC
+datarozhlas,Everton,Everton
+datarozhlas,Everton_F.C.,Everton
+datarozhlas,F.C._Arouca,Arouca
+datarozhlas,F.C._Ashdod,Moadon Sport Ashdod
+datarozhlas,F.C._Barcelona,F.C. Barcelona
+datarozhlas,F.C._Barreirense,Barreirense
+datarozhlas,F.C._Bruno%27s_Magpies,Magpies
+datarozhlas,F.C._Copenhagen,Kobenhavn
+datarozhlas,F.C._Dinamo_Bucure%C8%99ti,Dinamo Bucuresti
+datarozhlas,F.C._Domagnano,Domagnano
+datarozhlas,F.C._Hansa_Rostock,Hansa Rostock
+datarozhlas,F.C._Internazionale_Milano,Internazionale
+datarozhlas,F.C._Pa%C3%A7os_de_Ferreira,Pacos de Ferreira
+datarozhlas,F.C._Porto,FC Porto
+datarozhlas,F.C._Rustavi_Metalurgist,Metalurgist Rustavi
+datarozhlas,F.C._Utrecht,FC Utrecht
+datarozhlas,F.K._Bod%C3%B8/Glimt,F.K. Bodø/Glimt
+datarozhlas,F91 Dudelange,F91 Dudelange
+datarozhlas,F91_Dudelange,F91 Dudelange
+datarozhlas,FA_%C5%A0iauliai,FA Siauliai
+datarozhlas,FA_Red_Boys_Differdange,Red Boys Differdange
+datarozhlas,FBK_Kaunas,FBK Kaunas
+datarozhlas,FC Lucerne,FC Lucerne
+datarozhlas,FC Santa Coloma,FC Santa Coloma
+datarozhlas,FC Utrecht,FC Utrecht
+datarozhlas,FCI Levadia,FCI Levadia
+datarozhlas,FCI Tallinn,FCI Tallinn
+datarozhlas,FCI_Levadia_Tallinn,Levadia
+datarozhlas,FCI_Tallinn,FCI Tallinn
+datarozhlas,FCM_Bac%C4%83u,Bacău
+datarozhlas,FCM_Dun%C4%83rea_Gala%C8%9Bi,CSU Galați
+datarozhlas,FCSB,Steaua Bucuresti
+datarozhlas,FCV_Farul_Constan%C8%9Ba,Farul Constanța
+datarozhlas,FC_%C5%BDalgiris,Žalgiris
+datarozhlas,FC_AP_Brera,Akademija Pandev
+datarozhlas,FC_Aarau,FC Aarau
+datarozhlas,FC_Admira_Wacker_M%C3%B6dling,FC Admira Wacker Modling
+datarozhlas,FC_Akhmat_Grozny,Terek Grozny
+datarozhlas,FC_Aktobe,Aktobe
+datarozhlas,FC_Alania_Vladikavkaz,Alania Vladikavkaz
+datarozhlas,FC_Alashkert,Alashkert FC
+datarozhlas,FC_Alma-Ata,Alma-Ata
+datarozhlas,FC_Ameri_Tbilisi,Ameri Tbilisi
+datarozhlas,FC_Amkar_Perm,Amkar Perm
+datarozhlas,FC_Amsterdam,FC Amsterdam
+datarozhlas,FC_Anzhi_Makhachkala,Anzhi Makhachkala
+datarozhlas,FC_Ararat-Armenia,Ararat-Armenia
+datarozhlas,FC_Ararat_Yerevan,FC Ararat
+datarozhlas,FC_Arda_Kardzhali,Arda
+datarozhlas,FC_Arge%C5%9F_Pite%C5%9Fti,Arges Pitesti
+datarozhlas,FC_Arge%C8%99_Pite%C8%99ti,Arges Pitesti
+datarozhlas,FC_Aris_Bonnevoie,Aris Bonnevoie
+datarozhlas,FC_Arsenal_Kyiv,Arsenal Kyiv
+datarozhlas,FC_Arsenal_Tula,FC Arsenal Tula
+datarozhlas,FC_Artmedia_Bratislava,Artmedia Bratislava
+datarozhlas,FC_Artmedia_Petr%C5%BEalka,Artmedia
+datarozhlas,FC_Astana,Astana
+datarozhlas,FC_Astana-1964,Astana-64
+datarozhlas,FC_Astana-64,Zhenis
+datarozhlas,FC_Astra_Giurgiu,FK Astra Giurgiu
+datarozhlas,FC_Atyrau,Atyrau
+datarozhlas,FC_Augsburg,FC Augsburg
+datarozhlas,FC_Avenir_Beggen,Avenir Beggen
+datarozhlas,FC_BATE_Borisov,BATE Borisov
+datarozhlas,FC_Baku,Baku
+datarozhlas,FC_Ballkani,Ballkani
+datarozhlas,FC_Balzers,Balzers
+datarozhlas,FC_Ban%C3%ADk_Ostrava,Banik Ostrava
+datarozhlas,FC_Banants,Banants
+datarozhlas,FC_Barcelona,Barcelona
+datarozhlas,FC_Barreirense,Barreirense
+datarozhlas,FC_Basel,Basel
+datarozhlas,FC_Bayern_Munich,Bayern Munich
+datarozhlas,FC_Belshina_Bobruisk,Belshina Bobruisk
+datarozhlas,FC_Bobruisk,Fandok Bobruisk
+datarozhlas,FC_Boto%C8%99ani,FC Botosani
+datarozhlas,FC_Bra%C8%99ov_(1936),Brașov
+datarozhlas,FC_CSKA_1948_Sofia,CSKA 1948 Sofia
+datarozhlas,FC_Caracal_(2004),Electroputere Craiova
+datarozhlas,FC_Carl_Zeiss_Jena,FC Carl Zeiss Jena
+datarozhlas,FC_Chernomorets_Burgas,Chernomorets
+datarozhlas,FC_Chernomorets_Novorossiysk,Chernomorets Novorossiysk
+datarozhlas,FC_Chikhura_Sachkhere,Chikhura Sachkhere
+datarozhlas,FC_Chornomorets_Odesa,Chornomorets Odesa
+datarozhlas,FC_Copenhagen,Copenhagen
+datarozhlas,FC_Corvinul_Hunedoara,Corvinul Hunedoara
+datarozhlas,FC_DAC_1904_Dunajsk%C3%A1_Streda,Dunajska Streda
+datarozhlas,FC_Dacia_Chi%C5%9Fin%C4%83u,Dacia
+datarozhlas,FC_Dacia_Chi%C8%99in%C4%83u,Dacia Chisinau
+datarozhlas,FC_Daugava,Daugava Daugavpils
+datarozhlas,FC_Den_Haag,FC Den Haag
+datarozhlas,FC_Desna_Chernihiv,Desna Chernihiv
+datarozhlas,FC_Differdange_03,FC Differdange 03
+datarozhlas,FC_Dila_Gori,Dila Gori
+datarozhlas,FC_Dinamo-93_Minsk,Dinamo-93 Minsk
+datarozhlas,FC_Dinamo-Auto_Tiraspol,FC Dinamo-Auto
+datarozhlas,FC_Dinamo_Batumi,Dinamo Batumi
+datarozhlas,FC_Dinamo_Brest,Dinamo Brest
+datarozhlas,FC_Dinamo_Bucure%C8%99ti,Dinamo Bucuresti
+datarozhlas,FC_Dinamo_Minsk,Dinamo Minsk
+datarozhlas,FC_Dinamo_Tbilisi,Dinamo Tbilisi
+datarozhlas,FC_Dnepr_Mogilev,Dnepr Mogilev
+datarozhlas,FC_Dnipro,Dnepr Dnepropetrovsk
+datarozhlas,FC_Dnipro_Dnipropetrovsk,Dnepr Dnepropetrovsk
+datarozhlas,FC_Drita,Drita Gjilan
+datarozhlas,FC_Dunav_Ruse,Dunav Ruse
+datarozhlas,FC_Dynamo_Brest,Dynamo Brest
+datarozhlas,FC_Dynamo_Kyiv,Dinamo Kiev
+datarozhlas,FC_Dynamo_Moscow,Dinamo Moskva
+datarozhlas,FC_Encamp,Encamp
+datarozhlas,FC_Erzgebirge_Aue,SC Wismut Karl-Marx-Stadt
+datarozhlas,FC_Etar_(Veliko_Tarnovo),Etar Tarnovo
+datarozhlas,FC_Etar_Veliko_Tarnovo,Etar
+datarozhlas,FC_Etzella_Ettelbruck,Etzella Ettelbruck
+datarozhlas,FC_Fastav_Zl%C3%ADn,FC Zlín
+datarozhlas,FC_Flora,Flora Tallinn
+datarozhlas,FC_Flora_Tallinn,Flora Tallinn
+datarozhlas,FC_Gagra,FC Gagra
+datarozhlas,FC_Gandzasar_Kapan,Gandzasar Kapan
+datarozhlas,FC_Girondins_de_Bordeaux,Girondins Bordeaux
+datarozhlas,FC_Gomel,Gomel
+datarozhlas,FC_Groningen,FC Groningen
+datarozhlas,FC_Gueugnon,FC Gueugnon
+datarozhlas,FC_Haka,Haka Valkeakoski
+datarozhlas,FC_Hansa_Rostock,Hansa Rostock
+datarozhlas,FC_Hegelmann,Hegelmann
+datarozhlas,FC_Honka,FC Honka
+datarozhlas,FC_Hradec_Kr%C3%A1lov%C3%A9,DSO Spartak Hradec Kralove
+datarozhlas,FC_Iberia_1999,Iberia 1999
+datarozhlas,FC_Ilves,Ilves Tampere
+datarozhlas,FC_Inter_Baku,Inter Baku PIK
+datarozhlas,FC_Inter_Turku,Inter Turku
+datarozhlas,FC_Irtysh_Pavlodar,Irtysh Pavlodar
+datarozhlas,FC_Iskra-Stal,Iskra-Stal
+datarozhlas,FC_Iskra-Stal_R%C3%AEbni%C5%A3a,Iskra-Stal
+datarozhlas,FC_Iskra-Stal_R%C3%AEbni%C8%9Ba,Iskra-Stal
+datarozhlas,FC_Isloch_Minsk_Raion,Isloch Minsk
+datarozhlas,FC_Jazz,FC Jazz
+datarozhlas,FC_Jazz_Pori,FC Jazz
+datarozhlas,FC_Jokerit,Jokerit
+datarozhlas,FC_K%C3%A4rnten,Kärnten
+datarozhlas,FC_K%C9%99p%C9%99z,Kapaz Ganja
+datarozhlas,FC_Kairat,Kairat
+datarozhlas,FC_Kaisar,Kaisar
+datarozhlas,FC_Karpaty_Lviv,Karpaty Lviv
+datarozhlas,FC_Kolkheti-1913_Poti,Kolkheti Poti
+datarozhlas,FC_Kolos_Kovalivka,FC Kolos Kovalivka
+datarozhlas,FC_Koper,Koper
+datarozhlas,FC_Kotayk,Kotayk Abovyan
+datarozhlas,FC_Krasnodar,Krasnodar
+datarozhlas,FC_Krylia_Sovetov_Samara,Krylia Sovetov
+datarozhlas,FC_Krylya_Sovetov_Samara,Krylya Sovetov Samara
+datarozhlas,FC_Kryvbas_Kryvyi_Rih_(1959%E2%80%932013),Kryvbas
+datarozhlas,FC_Kryvbas_Kryvyi_Rih_(2020),Kryvbas KR
+datarozhlas,FC_Kuban_Krasnodar,Kuban Krasnodar
+datarozhlas,FC_Kuusysi,FC Kuusysi
+datarozhlas,FC_Kyzylzhar,Kyzylzhar
+datarozhlas,FC_La_Chaux-de-Fonds,FC La Chaux-de-Fonds
+datarozhlas,FC_Lahti,FC Reipas Lahti
+datarozhlas,FC_Lantana,FC Lantana
+datarozhlas,FC_Lantana_Tallinn,FC Lantana
+datarozhlas,FC_Lausanne-Sport,Carlisle United
+datarozhlas,FC_Levadia_Tallinn,Levadia
+datarozhlas,FC_Linz,SK VOEST Linz
+datarozhlas,FC_Locomotive_Tbilisi,Lokomotiv Tbilisi
+datarozhlas,FC_Lokomot%C3%ADva_Ko%C5%A1ice,Lokomotíva Košice
+datarozhlas,FC_Lokomotiv_1929_Sofia,Lokomotiv Sofia
+datarozhlas,FC_Lokomotiv_Moscow,Lokomotiv Moskva
+datarozhlas,FC_Lorient,FC Lorient
+datarozhlas,FC_Lucerne,FC Lucerne
+datarozhlas,FC_Lugano,Lugano
+datarozhlas,FC_Lusitanos,Lusitanos
+datarozhlas,FC_Luzern,FC Luzern
+datarozhlas,FC_Lyn_Oslo,Lyn Oslo
+datarozhlas,FC_MIKA,Mika
+datarozhlas,FC_Marek_Dupnitsa,Marek Stanke Dimitrov
+datarozhlas,FC_Margveti_Zestafoni,Margveti Zestafoni
+datarozhlas,FC_Mariupol,FC Mariupol
+datarozhlas,FC_Mecklenburg_Schwerin,PSV Schwerin
+datarozhlas,FC_Metalist_Kharkiv,Metalist Kharkiv
+datarozhlas,FC_Metalurgi_Rustavi,Metalurgi Rustavi
+datarozhlas,FC_Metalurh_Donetsk,Metalurh Donetsk
+datarozhlas,FC_Metalurh_Zaporizhya,Metalurh Zaporizhya
+datarozhlas,FC_Metalurh_Zaporizhzhya,Metalurh Zaporizhzhya
+datarozhlas,FC_Metz,Metz
+datarozhlas,FC_Midtjylland,Midtjylland
+datarozhlas,FC_Mika,Mika
+datarozhlas,FC_Milsami,Milsami Orhei
+datarozhlas,FC_Milsami_Orhei,Milsami Orhei
+datarozhlas,FC_Minsk,Minsk
+datarozhlas,FC_Mondercange,Mondercange
+datarozhlas,FC_Moscow,FC Moscow
+datarozhlas,FC_Naftan_Novopolotsk,Naftan Novopolotsk
+datarozhlas,FC_Nantes,Nantes
+datarozhlas,FC_Narva_Trans,JK Narva Trans
+datarozhlas,FC_Neman_Grodno,Neman Grodno
+datarozhlas,FC_Nikol_Tallinn,Nikol Tallinn
+datarozhlas,FC_Nistru_Otaci,Nistru Otaci
+datarozhlas,FC_Nitra,Nitra
+datarozhlas,FC_Noah,FC Noah
+datarozhlas,FC_Nordsj%C3%A6lland,Nordsjaelland
+datarozhlas,FC_Norma_Tallinn,FC Norma Tallinn
+datarozhlas,FC_O%C5%A3elul_Gala%C5%A3i,Otelul Galati
+datarozhlas,FC_O%C8%9Belul_Gala%C8%9Bi,Otelul Galati
+datarozhlas,FC_Okzhetpes,Okzhetpes
+datarozhlas,FC_Oleksandriya,FC Olexandriya
+datarozhlas,FC_Olimpi_Rustavi,Metalurgi Rustavi
+datarozhlas,FC_Olimpia_B%C4%83l%C8%9Bi,Olimpia
+datarozhlas,FC_Olimpik_Donetsk,FC Olimpik Donetsk
+datarozhlas,FC_Ordabasy,Ordabasy Shymkent
+datarozhlas,FC_Partizan_Minsk,MTZ-RIPO Minsk
+datarozhlas,FC_Pasching,Pasching
+datarozhlas,FC_Petr%C5%BEalka,Petrzalka Akademia
+datarozhlas,FC_Petr%C5%BEalka_1898,Artmedia Bratislava
+datarozhlas,FC_Petr%C5%BEalka_akad%C3%A9mia,Petrzalka Akademia
+datarozhlas,FC_Petrocub_H%C3%AEnce%C8%99ti,Petrocub
+datarozhlas,FC_Petrolul_Ploie%C8%99ti,Petrolul Ploiesti
+datarozhlas,FC_Polissya_Zhytomyr,Polissya Zhitomir
+datarozhlas,FC_Politehnica_Timi%C8%99oara,Timișoara
+datarozhlas,FC_Porto,FC Porto
+datarozhlas,FC_Prishtina,Prishtina
+datarozhlas,FC_Progr%C3%A8s_Niedercorn,Progres Niedercorn
+datarozhlas,FC_Progr%C3%A8s_Niederkorn,Progres Niederkorn
+datarozhlas,FC_Progresul_Bucure%C8%99ti,National București
+datarozhlas,FC_Pyunik,Pyunik
+datarozhlas,FC_R%C3%A0nger%27s,Ranger's
+datarozhlas,FC_Rapid_Bucure%C8%99ti,Rapid Bucuresti
+datarozhlas,FC_Red_Bull_Salzburg,Salzburg
+datarozhlas,FC_Rostov,Rostov
+datarozhlas,FC_Rot-Wei%C3%9F_Erfurt,Rot-Weiß Erfurt
+datarozhlas,FC_Rotor_Volgograd,Rotor Volgograd
+datarozhlas,FC_Rubin_Kazan,Rubin Kazan
+datarozhlas,FC_SKA_Rostov-on-Don,SKA Rostov
+datarozhlas,FC_Saburtalo_Tbilisi,Saburtalo Tbilisi
+datarozhlas,FC_Samtredia,FC Samtredia
+datarozhlas,FC_Santa_Coloma,FC Santa Coloma
+datarozhlas,FC_Santos_Tartu,Santos Tartu
+datarozhlas,FC_Saxan,Saxan
+datarozhlas,FC_Schaan,Schaan
+datarozhlas,FC_Schalke_04,Schalke 04
+datarozhlas,FC_Senec,Koba Senec
+datarozhlas,FC_Sf%C3%A2ntul_Gheorghe_Suruceni,Sfintul Gheorghe
+datarozhlas,FC_Sf%C3%AEntul_Gheorghe,Sfintul Gheorghe
+datarozhlas,FC_Shakhtar_Donetsk,Shakhtar Donetsk
+datarozhlas,FC_Shakhter_Karagandy,Shakhter Karagandy
+datarozhlas,FC_Shakhtyor_Soligorsk,Shakhtyor Soligorsk
+datarozhlas,FC_Sheriff_Tiraspol,Sheriff Tiraspol
+datarozhlas,FC_Shirak,Shirak
+datarozhlas,FC_Sibir_Novosibirsk,Sibir Novosibirsk
+datarozhlas,FC_Sion,Sion
+datarozhlas,FC_Sioni_Bolnisi,Sioni Bolnisi
+datarozhlas,FC_Slavia_Mozyr,FC Slavia Mozyr
+datarozhlas,FC_Slovan_Liberec,Slovan Liberec
+datarozhlas,FC_Sochaux-Montb%C3%A9liard,FC Sochaux
+datarozhlas,FC_Sopron,Sopron
+datarozhlas,FC_Spartak_Moscow,Spartak Moskva
+datarozhlas,FC_Spartak_Plovdiv,Spartak Plovdiv
+datarozhlas,FC_Spartak_Trnava,Spartak TAZ Trnava
+datarozhlas,FC_Spartak_Varna,Spartak Varna
+datarozhlas,FC_Spartak_Vladikavkaz,Spartak Vladikavkaz
+datarozhlas,FC_Sportul_Studen%C5%A3esc_Bucure%C8%99ti,Sportul Studenţesc
+datarozhlas,FC_Sportul_Studen%C8%9Besc_Bucure%C8%99ti,Sportul Studenţesc
+datarozhlas,FC_St._Gallen,St. Gallen
+datarozhlas,FC_Stahl_Brandenburg,Stahl Brandenburg
+datarozhlas,FC_Steaua_Bucure%C8%99ti,Steaua Bucuresti
+datarozhlas,FC_Struga,Struga
+datarozhlas,FC_Stumbras,FC Stumbras
+datarozhlas,FC_Swarovski_Tirol,FC Tirol
+datarozhlas,FC_Swift_Hesperange,Swift Hesperange
+datarozhlas,FC_TVMK,TVMK
+datarozhlas,FC_TVMK_Tallinn,TVMK
+datarozhlas,FC_Tatab%C3%A1nya,Tatabányai Bányász
+datarozhlas,FC_Tbilisi,Tbilisi
+datarozhlas,FC_Tekstilshchik_Kamyshin,Tekstilshchik Kamyshin
+datarozhlas,FC_Terek_Grozny,Terek Grozny
+datarozhlas,FC_Thun,Thun
+datarozhlas,FC_Timi%C8%99oara,FC Politehnica Timisoara
+datarozhlas,FC_Tiraspol,FC Tiraspol
+datarozhlas,FC_Tirol_Innsbruck,SSW Innsbruck
+datarozhlas,FC_Tobol,Tobol
+datarozhlas,FC_Torpedo-BelAZ_Zhodino,Torpedo-BelAZ Zhodino
+datarozhlas,FC_Torpedo_Kutaisi,Torpedo Kutaisi
+datarozhlas,FC_Torpedo_Moscow,Torpedo Moskva
+datarozhlas,FC_Torpedo_Zhodino,Torpedo Zhodino
+datarozhlas,FC_Trinity_Zl%C3%ADn,TJ Gottwaldov
+datarozhlas,FC_Tskhinvali,Tskhinvali
+datarozhlas,FC_Twente,Twente
+datarozhlas,FC_UNA_Strassen,UNA Strassen
+datarozhlas,FC_UTA_Arad,UT Arad
+datarozhlas,FC_U_Craiova_1948,FC Universitatea Craiova
+datarozhlas,FC_Ufa,FC Ufa
+datarozhlas,FC_Unirea_Urziceni,Unirea Urziceni
+datarozhlas,FC_Universitatea_Cluj,Universitatea Cluj
+datarozhlas,FC_Universitatea_Craiova,FC Universitatea Craiova
+datarozhlas,FC_Urartu,Urartu
+datarozhlas,FC_Utrecht,FC Utrecht
+datarozhlas,FC_VSS_Ko%C5%A1ice,Kosice
+datarozhlas,FC_Vaduz,FC Vaduz
+datarozhlas,FC_Vaslui,Vaslui
+datarozhlas,FC_Veris_Chi%C8%99in%C4%83u,Veris Chișinău
+datarozhlas,FC_ViOn_Zlat%C3%A9_Moravce,Zlaté Moravce
+datarozhlas,FC_Viitorul_Constan%C8%9Ba,Viitorul Constanta
+datarozhlas,FC_Viktoria_Frankfurt,ASK Vorwarts Berlin
+datarozhlas,FC_Viktoria_Plze%C5%88,Viktoria Plzen
+datarozhlas,FC_Vitebsk,FC Vitebsk
+datarozhlas,FC_Volov_Shumen,Shumen
+datarozhlas,FC_Vorskla_Poltava,Vorskla
+datarozhlas,FC_Vorw%C3%A4rts_Frankfurt,Vorwärts Frankfurt
+datarozhlas,FC_WIT_Georgia,WIT Georgia
+datarozhlas,FC_Wacker_Innsbruck,SSW Innsbruck
+datarozhlas,FC_Wettingen,Wettingen
+datarozhlas,FC_Wil,Wil
+datarozhlas,FC_Yerevan,FC Yerevan
+datarozhlas,FC_Z%C3%BCrich,FC Zurich
+datarozhlas,FC_Zaria_B%C4%83l%C8%9Bi,FC Zaria Balti
+datarozhlas,FC_Zbrojovka_Brno,Boby Brno
+datarozhlas,FC_Zenit_Saint_Petersburg,Zenit St. Petersburg
+datarozhlas,FC_Zestafoni,Zestafoni
+datarozhlas,FC_Zestaponi,Zestaponi
+datarozhlas,FC_Zhetysu,Zhetysu
+datarozhlas,FC_Zimbru_Chi%C5%9Fin%C4%83u,Zimbru Chisinau
+datarozhlas,FC_Zimbru_Chi%C8%99in%C4%83u,Zimbru Chisinau
+datarozhlas,FC_Zorya_Luhansk,Zorya Voroshilovgrad
+datarozhlas,FH,FH
+datarozhlas,FHK_Liep%C4%81jas_Metalurgs,FHK Liepājas Metalurgs
+datarozhlas,FH_men%27s_football,FH
+datarozhlas,FK_%C4%8Celik_Nik%C5%A1i%C4%87,Čelik Nikšić
+datarozhlas,FK_%C4%8Cukari%C4%8Dki,Cukaricki Belgrade
+datarozhlas,FK_%C5%A0iauliai,FA Siauliai
+datarozhlas,FK_%C5%BDalgiris,FK Zalgiris Vilnius
+datarozhlas,FK_%C5%BDalgiris_Vilnius,Zalgiris Vilnius (LTU)
+datarozhlas,FK_%C5%BDeleznik,Železnik
+datarozhlas,FK_%C5%BDeljezni%C4%8Dar_Sarajevo,Zeljeznicar Sarajevo
+datarozhlas,FK_AS_Tren%C4%8D%C3%ADn,AS Trencin
+datarozhlas,FK_Arsenal_Tivat,Arsenal Tivat
+datarozhlas,FK_Atlantas,FK Atlantas
+datarozhlas,FK_Auda,FK Auda
+datarozhlas,FK_Austria_Wien,Austria Wien
+datarozhlas,FK_Baku,Baku
+datarozhlas,FK_Banga_Garg%C5%BEdai,Banga
+datarozhlas,FK_Bashkimi_(1947%E2%80%932008),Baskimi
+datarozhlas,FK_Baumit_Jablonec,Jablonec
+datarozhlas,FK_Be%C5%BEanija,Bežanija
+datarozhlas,FK_Belasica,Belasica
+datarozhlas,FK_Bod%C3%B8/Glimt,Bodo/Glimt
+datarozhlas,FK_Bokelj,Bokelj
+datarozhlas,FK_Bor,FK Bor
+datarozhlas,FK_Borac_%C4%8Ca%C4%8Dak,Borac Čačak
+datarozhlas,FK_Borac_Banja_Luka,Borac Banja Luka
+datarozhlas,FK_Budu%C4%87nost_Banatski_Dvor,Budućnost Banatski Dvor
+datarozhlas,FK_Budu%C4%87nost_Banovi%C4%87i,Budućnost Banovići
+datarozhlas,FK_Budu%C4%87nost_Podgorica,Buducnost
+datarozhlas,FK_Cementarnica_55,Cementarnica 55
+datarozhlas,FK_DAC_1904_Dunajsk%C3%A1_Streda,Dunajska Streda
+datarozhlas,FK_Daugava_(2003),Daugava Rīga
+datarozhlas,FK_De%C4%8Di%C4%87,Decic
+datarozhlas,FK_Dinamo_Tirana,Dinamo Tirana
+datarozhlas,FK_Drnovice,Drnovice
+datarozhlas,FK_Dukla_Bansk%C3%A1_Bystrica,Dukla Banská Bystrica
+datarozhlas,FK_Ekranas,FK Ekranas
+datarozhlas,FK_Gj%C3%B8vik-Lyn,Gjøvik-Lyn
+datarozhlas,FK_Hajduk_Kula,Hajduk Kula
+datarozhlas,FK_Haugesund,Haugesund
+datarozhlas,FK_Inkaras_Kaunas,Inkaras Kaunas
+datarozhlas,FK_Inter_Bratislava,FK Inter Bratislava
+datarozhlas,FK_Iskra_Danilovgrad,Iskra
+datarozhlas,FK_Jablonec,Jablonec
+datarozhlas,FK_Jablonec_97,Jablonec 97
+datarozhlas,FK_Jagodina,Jagodina
+datarozhlas,FK_Jelgava,FK Jelgava
+datarozhlas,FK_Karabakh,Karabakh
+datarozhlas,FK_Kareda_Kaunas,FK Kareda Kaunas
+datarozhlas,FK_Karvan,Karvan
+datarozhlas,FK_Kauno_%C5%BDalgiris,Kauno Zalgiris
+datarozhlas,FK_Khazar_Lankaran,Khazar Lankaran
+datarozhlas,FK_Khazar_Lenkoran,Khazar Lenkoran
+datarozhlas,FK_Kruoja_Pakruojis,Kruoja Pakruojis
+datarozhlas,FK_Kuk%C3%ABsi,FK Kukesi
+datarozhlas,FK_Leotar,FK Leotar
+datarozhlas,FK_Liep%C4%81ja,FK Liepaja
+datarozhlas,FK_Liep%C4%81jas_Metalurgs,Liepajas Metalurgs
+datarozhlas,FK_Lov%C4%87en,Lovćen Cetinje
+datarozhlas,FK_Lyn,Lyn
+datarozhlas,FK_MKT_Araz,MKT Araz
+datarozhlas,FK_Makedonija_G.P.,Makedonija
+datarozhlas,FK_Metalurg_Skopje,Metalurg Skopje
+datarozhlas,FK_Mlad%C3%A1_Boleslav,Mlada Boleslav
+datarozhlas,FK_Mladost_Lu%C4%8Dani,Mladost Lucani
+datarozhlas,FK_Mladost_Podgorica,Mladost Pogorica
+datarozhlas,FK_Modri%C4%8Da,FK Modrica
+datarozhlas,FK_Mogren,FK Mogren
+datarozhlas,FK_Mornar,Mornar
+datarozhlas,FK_Napredak_Kru%C5%A1evac,Napredak Kruševac
+datarozhlas,FK_Obili%C4%87,FK Obilic
+datarozhlas,FK_Olimpic,Olimpic
+datarozhlas,FK_Olimpik_Baku,Olimpik Baku
+datarozhlas,FK_P%C3%BAchov,Matador Púchov
+datarozhlas,FK_P%C5%99%C3%ADbram,Marila Příbram
+datarozhlas,FK_Panev%C4%97%C5%BEys,Panevezys
+datarozhlas,FK_Partizan,Partizan Belgrade
+datarozhlas,FK_Partizani,Partizani
+datarozhlas,FK_Partizani_Tirana,FK Partizani Tirana
+datarozhlas,FK_Pelister,Pelister Bitola
+datarozhlas,FK_Pobeda,FK Pobeda
+datarozhlas,FK_Podgorica,Podgorika
+datarozhlas,FK_Qaraba%C4%9F,Qarabag FK
+datarozhlas,FK_R%C4%ABga,Rīga
+datarozhlas,FK_RFS,Rigas Futbola Skola
+datarozhlas,FK_Rabotni%C4%8Dki,Rabotnicki
+datarozhlas,FK_Rad,Rad
+datarozhlas,FK_Radni%C4%8Dki_1923,Radnicki 1923
+datarozhlas,FK_Radni%C4%8Dki_Ni%C5%A1,Radnicki Nis
+datarozhlas,FK_Radnik_Bijeljina,Radnik Bijeljina
+datarozhlas,FK_Red_Star,FK Red Star
+datarozhlas,FK_Renova,Renova
+datarozhlas,FK_Riteriai,Riteriai
+datarozhlas,FK_Rudar_Pljevlja,FK Rudar Pljevlja
+datarozhlas,FK_S%C5%ABduva,FK Suduva
+datarozhlas,FK_S%C5%ABduva_Marijampol%C4%97,FK Suduva
+datarozhlas,FK_Sarajevo,FK Sarajevo
+datarozhlas,FK_Sartid_Smederevo,Sartid
+datarozhlas,FK_Senica,Senica
+datarozhlas,FK_Sevojno,Sevojno
+datarozhlas,FK_Shk%C3%ABndija,Shkendija
+datarozhlas,FK_Shkupi,Shkupi
+datarozhlas,FK_Sileks,FK Sileks
+datarozhlas,FK_Simurq_Zaqatala,Simurq Zaqatala
+datarozhlas,FK_Slavija_Sarajevo,Slavija
+datarozhlas,FK_Sloboda_Tuzla,Sloboda Tuzla
+datarozhlas,FK_Sloga_Jugomagnat,Sloga Jugomagnat Skopje
+datarozhlas,FK_Smederevo,Sartid
+datarozhlas,FK_Spartak_Subotica,Spartak Subotica
+datarozhlas,FK_Spartak_Zlatibor_Voda,Spartak Zlatibor Voda
+datarozhlas,FK_Spartaks_J%C5%ABrmala,FK Spartaks Jurmala
+datarozhlas,FK_Struga,Struga
+datarozhlas,FK_Sutjeska_Nik%C5%A1i%C4%87,Sutjeska Niksic
+datarozhlas,FK_TSC,FK TSC
+datarozhlas,FK_TSC_Ba%C4%8Dka_Topola,TSC Bačka Topola
+datarozhlas,FK_Tauras_Taurag%C4%97,Tauras Tauragė
+datarozhlas,FK_Teplice,Teplice
+datarozhlas,FK_Teteks,Teteks
+datarozhlas,FK_Tomori_Berat,Tomori
+datarozhlas,FK_Trakai,Trakai
+datarozhlas,FK_TransINVEST,TransINVEST Vilnius
+datarozhlas,FK_Turnovo,Turnovo
+datarozhlas,FK_Tuzla_City,Tuzla City
+datarozhlas,FK_V%C4%97tra,Vėtra
+datarozhlas,FK_Vardar,Vardar Skopje
+datarozhlas,FK_Vele%C5%BE_Mostar,Velez Mostar
+datarozhlas,FK_Ventspils,Ventspils
+datarozhlas,FK_Viktoria_%C5%BDi%C5%BEkov,Viktoria Žižkov
+datarozhlas,FK_Vojvodina,Vojvodina
+datarozhlas,FK_Zeta,FK Zeta
+datarozhlas,FSV_Zwickau,Sachsenring Zwickau
+datarozhlas,Falkirk_F.C.,Falkirk
+datarozhlas,Farul Constanța,Farul Constanța
+datarozhlas,Feh%C3%A9rv%C3%A1r_FC,Videoton
+datarozhlas,Fehérvár,Fehérvár
+datarozhlas,Fenerbah%C3%A7e_S.K.,Fenerbahce
+datarozhlas,Fenerbah%C3%A7e_S.K._(football),Fenerbahce
+datarozhlas,Fenerbah%C3%A7e_SK,Fenerbahce
+datarozhlas,Fenerbahçe,Fenerbahce
+datarozhlas,Ferencv%C3%A1rosi_TC,Ferencvaros
+datarozhlas,Ferencv%C3%A1rosi_TC_(football),Ferencvaros
+datarozhlas,Ferencv%C3%A1rosi_Torna_Club,Ferencvaros
+datarozhlas,Ferencváros,Ferencvaros
+datarozhlas,Feronikeli,Feronikeli
+datarozhlas,Feyenoord,Feyenoord
+datarozhlas,Fimleikaf%C3%A9lag_Hafnarfjar%C3%B0ar,FH
+datarozhlas,FinnPa,FinnPa
+datarozhlas,Finn_Harps_F.C.,Finn Harps
+datarozhlas,Fiorentina,ACF Fiorentina
+datarozhlas,First_Vienna_FC,First Vienna
+datarozhlas,Flamurtari_FC,KS Flamurtari Vlore
+datarozhlas,Flamurtari_Vlor%C3%AB,Flamurtari
+datarozhlas,Flora,Flora
+datarozhlas,Flora Tallinn,Flora Tallinn
+datarozhlas,Floriana,Floriana
+datarozhlas,Floriana_F.C.,Floriana
+datarozhlas,Fola Esch,Fola Esch
+datarozhlas,Folgore,Folgore
+datarozhlas,Fortuna_D%C3%BCsseldorf,Fortuna Dusseldorf
+datarozhlas,Fortuna_Sittard,Fortuna Sittard
+datarozhlas,Frankfurt,Frankfurt XI
+datarozhlas,Fredrikstad_FK,Fredrikstad FK
+datarozhlas,Fremad_Amager,Fremad Amager
+datarozhlas,Frigg_Oslo_FK,SK Frigg
+datarozhlas,Fulham_F.C.,Fulham
+datarozhlas,Fussballclub_Z%C3%BCrich,FC Zurich
+datarozhlas,Fylkir,Fylkir
+datarozhlas,Fyllingen_Fotball,Fyllingen
+datarozhlas,G%C3%8D_G%C3%B8ta,GI Gota
+datarozhlas,G%C3%B3rnik_Zabrze,Gornik Zabrze
+datarozhlas,G%C3%B6ztepe_A.%C5%9E.,Göztepe A.Ş.
+datarozhlas,G%C3%B6ztepe_S.K.,Göztepe
+datarozhlas,G%C3%B8tu_%C3%8Dtr%C3%B3ttarfelag,GÍ
+datarozhlas,G%C5%BCira_United_F.C.,Gzira United
+datarozhlas,G.D._Chaves,Chaves
+datarozhlas,G.D._Estoril_Praia,Estoril
+datarozhlas,G.D._Fabril,GD CUF
+datarozhlas,GAIS,GAIS
+datarozhlas,GFK_Tikvesh,Tikvesh
+datarozhlas,GKS_Be%C5%82chat%C3%B3w,Bełchatów
+datarozhlas,GKS_Katowice,GKS Katowice
+datarozhlas,GKS_Tychy,Tychy
+datarozhlas,GNK_Dinamo_Zagreb,Dinamo Zagreb
+datarozhlas,Gabala,FK Qabala
+datarozhlas,Gabala_FK,FK Qabala
+datarozhlas,Gagra,FC Gagra
+datarozhlas,Galatasaray,Galatasaray
+datarozhlas,Galatasaray_S.K._(football),Galatasaray
+datarozhlas,Galatasaray_S.K._(football_team),Galatasaray
+datarozhlas,Galway_United_F.C.,Galway United
+datarozhlas,Gandzasar Kapan,Gandzasar Kapan
+datarozhlas,Gandzasar_F.C.,Gandzasar
+datarozhlas,Gandzasar_FC,Gandzasar
+datarozhlas,Gaziantepspor,Gaziantepspor
+datarozhlas,Gefle_IF,Gefle
+datarozhlas,Gen%C3%A7lerbirli%C4%9Fi,Gençlerbirliği
+datarozhlas,Gen%C3%A7lerbirli%C4%9Fi_S.K.,Gençlerbirliği
+datarozhlas,Gen%C3%A7lerbirligi,Gençlerbirliği
+datarozhlas,Genk,Genk
+datarozhlas,Genoa_C.F.C.,Genoa
+datarozhlas,Genoa_CFC,Genoa
+datarozhlas,Gent,Gent
+datarozhlas,Getafe,Getafe CF
+datarozhlas,Getafe_CF,Getafe CF
+datarozhlas,Gil Vicente,Gil Vicente
+datarozhlas,Gil_Vicente_F.C.,Gil Vicente
+datarozhlas,Girondins_Bordeaux,Girondins Bordeaux
+datarozhlas,Gjilani,Gjilani
+datarozhlas,Glenavon,Glenavon FC
+datarozhlas,Glenavon_F.C.,Glenavon FC
+datarozhlas,Glentoran,Glentoran
+datarozhlas,Glentoran_F.C.,Glentoran
+datarozhlas,Go Ahead Eagles,Go Ahead Eagles
+datarozhlas,Go_Ahead_Eagles,Go Ahead Eagles
+datarozhlas,Gomel,Gomel
+datarozhlas,Gorica,Gorica
+datarozhlas,Granada,Granada CF
+datarozhlas,Granada_CF,Granada CF
+datarozhlas,Grasshopper,Grasshopper
+datarozhlas,Grasshopper_Club_Z%C3%BCrich,Grasshoppers Zurich
+datarozhlas,Grasshopper_Club_Zurich,Grasshoppers
+datarozhlas,Grazer_AK,Grazer AK
+datarozhlas,Gretna_F.C.,Gretna
+datarozhlas,Grindav%C3%ADk_men%27s_football,Grindavík
+datarozhlas,Groclin_Grodzisk_Wielkopolski,Groclin
+datarozhlas,Grupo_Desportivo_Fabril,GD CUF
+datarozhlas,Gwardia_Warsaw,Gwardia Warszawa
+datarozhlas,Gwardia_Warszawa,Gwardia Warszawa
+datarozhlas,Gy%C5%91ri_ETO_FC,Gyori ETO
+datarozhlas,Górnik Zabrze,Gornik Zabrze
+datarozhlas,Gżira United,Gzira United
+datarozhlas,H%C5%A0K_Zrinjski_Mostar,HSK Zrinjski Mostar
+datarozhlas,HB,HB
+datarozhlas,HB Tórshavn,HB Tórshavn
+datarozhlas,HFC_Haarlem,HFC Haarlem
+datarozhlas,HIFK_Fotboll,Helsingfors IFK
+datarozhlas,HJK,HJK Helsinki
+datarozhlas,HJK_Helsinki,HJK Helsinki
+datarozhlas,HNK_%C5%A0ibenik,Šibenik
+datarozhlas,HNK_Cibalia,Cibalia
+datarozhlas,HNK_Hajduk_Split,Hajduk Split
+datarozhlas,HNK_Ora%C5%A1je,Orašje
+datarozhlas,HNK_Rijeka,HNK Rijeka
+datarozhlas,Hajduk Split,Hajduk Split
+datarozhlas,Hajduk_Split,Hajduk Split
+datarozhlas,Haka,FC Haka
+datarozhlas,Halad%C3%A1s_VSE,Haladás VSE
+datarozhlas,Hallescher_FC,Hallescher FC
+datarozhlas,Halmstads_BK,Halmstads BK
+datarozhlas,Hamburger_SV,Hamburger SV
+datarozhlas,Hammarby,Hammarby
+datarozhlas,Hammarby IF,Hammarby IF
+datarozhlas,Hammarby_Fotboll,Hammarby
+datarozhlas,Hamrun_Spartans_F.C.,Hamrun Spartans
+datarozhlas,Hannover_96,Hannover 96
+datarozhlas,Hapoel Be'er Sheva,Hapoel Be'er
+datarozhlas,Hapoel Haifa,Hapoel Haifa
+datarozhlas,Hapoel_Be%27er_Sheva,Hapoel Be'er
+datarozhlas,Hapoel_Be%27er_Sheva_F.C.,Hapoel Be'er
+datarozhlas,Hapoel_Be%27er_Sheva_FC,Hapoel Be'er
+datarozhlas,Hapoel_Bnei_Sakhnin_FC,Hapoel Bnei Sakhnin
+datarozhlas,Hapoel_Haifa_F.C.,Hapoel Haifa
+datarozhlas,Hapoel_Ironi_Kiryat_Shmona_F.C.,Hapoel Ironi Kiryat Shmona
+datarozhlas,Hapoel_Ironi_Rishon_LeZion_F.C.,Hapoel Ironi Rishon LeZion
+datarozhlas,Hapoel_Petah_Tikva_F.C.,Hapoel Petah Tikva
+datarozhlas,Hapoel_Ramat_Gan_F.C.,Hapoel Ramat Gan
+datarozhlas,Hapoel_Ramat_Gan_Giv%27atayim_F.C.,Hapoel Ramat Gan
+datarozhlas,Hapoel_Tel_Aviv_F.C.,Hapoel Tel Aviv
+datarozhlas,Hapoel_Tel_Aviv_FC,Hapoel Tel Aviv
+datarozhlas,Haugesund,Haugesund
+datarozhlas,Haverfordwest County,Haverfordwest
+datarozhlas,Haverfordwest_County_A.F.C.,Haverfordwest
+datarozhlas,Havnar_B%C3%B3ltfelag,HB
+datarozhlas,Heart of Midlothian,Heart of Midlothian
+datarozhlas,Heart_of_Midlothian_F.C.,Heart of Midlothian
+datarozhlas,Hegelmann,Hegelmann
+datarozhlas,Hellas_Verona_F.C.,Hellas Verona
+datarozhlas,Helsingborgs_IF,Helsingborgs IF
+datarozhlas,Helsingin_Jalkapalloklubi,HJK Helsinki
+datarozhlas,Helsingin_Palloseura,HPS Helsinki
+datarozhlas,Heracles Almelo,Heracles
+datarozhlas,Heracles_Almelo,Heracles
+datarozhlas,Herf%C3%B8lge_Boldklub,HB Koge
+datarozhlas,Hertha BSC,Hertha BSC
+datarozhlas,Hertha_BSC,Hertha BSC
+datarozhlas,Hibernian,Hibernian FC
+datarozhlas,Hibernian_F.C.,Hibernian FC
+datarozhlas,Hibernians,Hibernians
+datarozhlas,Hibernians_F.C.,Hibernians
+datarozhlas,Hibernians_FC,Hibernians
+datarozhlas,Holb%C3%A6k_B%26I,Holbæk
+datarozhlas,Home_Farm_F.C.,Home Farm
+datarozhlas,Honka,FC Honka
+datarozhlas,Honvéd,Honvéd
+datarozhlas,Hull_City_A.F.C.,Hull City
+datarozhlas,Hutnik_Krak%C3%B3w,Hutnik Kraków
+datarozhlas,Hvidovre_IF,Hvidovre IF
+datarozhlas,Häcken,BK Häcken
+datarozhlas,IF Elfsborg,IF Elfsborg
+datarozhlas,IFK Göteborg,IFK Goteborg
+datarozhlas,IFK Mariehamn,IFK Mariehamn
+datarozhlas,IFK Norrköping,IFK Norrkoping
+datarozhlas,IFK_G%C3%B6teborg,IFK Goteborg
+datarozhlas,IFK_Malm%C3%B6_(football_team),IFK Malmo
+datarozhlas,IFK_Malm%C3%B6_Fotboll,IFK Malmo
+datarozhlas,IFK_Mariehamn,IFK Mariehamn
+datarozhlas,IFK_Norrk%C3%B6ping,IFK Norrkoping
+datarozhlas,IFK_Norrkoping,IFK Norrkoping
+datarozhlas,IF_Brommapojkarna,Brommapojkarna
+datarozhlas,IF_Elfsborg,Elfsborg
+datarozhlas,IK_Brage,IK Brage
+datarozhlas,IK_Start,IK Start
+datarozhlas,IL_H%C3%B8dd,Hødd
+datarozhlas,Iberia 1999,Iberia 1999
+datarozhlas,Ikast_FC,Ikast
+datarozhlas,Ikast_FS,Ikast
+datarozhlas,Ilves,FC Ilves
+datarozhlas,Ilves-Kissat,Ilves-Kissat
+datarozhlas,Ilves_(football),FC Ilves
+datarozhlas,Infonet Tallinn,Infonet Tallinn
+datarozhlas,Inter Baku,Inter Baku
+datarozhlas,Inter Club d'Escaldes,Inter D'Escaldes
+datarozhlas,Inter Milan,Inter Milan
+datarozhlas,Inter Turku,Inter Turku
+datarozhlas,Inter_Baku_PFC,Inter Baku
+datarozhlas,Inter_Baku_PIK,Inter Baku
+datarozhlas,Inter_Club_d%27Escaldes,Inter D'Escaldes
+datarozhlas,Inter_Milan,Internazionale
+datarozhlas,Interblock_Ljubljana,Interblock Ljubljana
+datarozhlas,Internazionale,Internazionale
+datarozhlas,Inverness CT,Inverness CT
+datarozhlas,Inverness_Caledonian_Thistle_F.C.,Inverness CT
+datarozhlas,Ionikos_F.C.,Ionikos
+datarozhlas,Ipswich_Town_F.C.,Ipswich Town
+datarozhlas,Iraklis_F.C.,Iraklis
+datarozhlas,Iraklis_F.C._(Thessaloniki),Iraklis
+datarozhlas,Iraklis_Thessaloniki_F.C.,Iraklis
+datarozhlas,Ironi Kiryat Shmona,Ironi Kiryat Shmona
+datarozhlas,Irtysh Pavlodar,Irtysh Pavlodar
+datarozhlas,Iskra,Iskra
+datarozhlas,Isloch Minsk Raion,Isloch Minsk
+datarozhlas,JFK_Olimps/RFS,Olimps/RFS
+datarozhlas,JK_N%C3%B5mme_Kalju,Nomme Kalju
+datarozhlas,JK_Narva_Trans,JK Narva Trans
+datarozhlas,JK_Sillam%C3%A4e_Kalev,Sillamäe Kalev
+datarozhlas,JK_Tallinna_Kalev,Tallinna Kalev
+datarozhlas,JK_Tallinna_Sadam,Tallinna Sadam
+datarozhlas,JK_Viljandi_Tulevik,Viljandi Tulevik
+datarozhlas,JSD_Partizan,Partizan Belgrade
+datarozhlas,Jablonec,Jablonec
+datarozhlas,Jagiellonia Białystok,Jagiellonia Bialystok
+datarozhlas,Jagiellonia_Bia%C5%82ystok,Jagiellonia Bialystok
+datarozhlas,Jelgava,FK Jelgava
+datarozhlas,Jeunesse Esch,Jeunesse Esch
+datarozhlas,Jeunesse_Esch,Jeunesse Esch
+datarozhlas,Jeunesse_Hautcharage,Jeunesse Hautcharage
+datarozhlas,Juvenes/Dogana,Juvenes/Dogana
+datarozhlas,Juventus,Juventus
+datarozhlas,Juventus_F.C.,Juventus
+datarozhlas,Juventus_FC,Juventus
+datarozhlas,Jyv%C3%A4skyl%C3%A4n_Jalkapalloklubi,JJK
+datarozhlas,K%C3%8D_Klaksv%C3%ADk,KI Klaksvik
+datarozhlas,K%C3%B8ge_BK,Koge BK
+datarozhlas,K.A.A._Gent,Gent
+datarozhlas,K.F.C._Germinal_Beerschot,Germinal Beerschot
+datarozhlas,K.R.C._Genk,KRC Genk
+datarozhlas,K.S.C._Lokeren_Oost-Vlaanderen,Lokeren
+datarozhlas,K.S.K._Beveren,KSK Beveren
+datarozhlas,K.S.V._Waregem,Waregem
+datarozhlas,K.V.C._Westerlo,Westerlo
+datarozhlas,K.V._Mechelen,KV Mechelen
+datarozhlas,K.V._Oostende,KV Oostende
+datarozhlas,K._Beerschot_V.A.C.,Beerschot
+datarozhlas,K._Waterschei_S.V._Thor_Genk,Waterschei Thor
+datarozhlas,KA,KA
+datarozhlas,KFC_Uerdingen_05,KFC Uerdingen 05
+datarozhlas,KF_Albpetrol_Patos,Albpetrol Patos
+datarozhlas,KF_Apolonia,Apolonia
+datarozhlas,KF_Bylis_Ballsh,Bylis
+datarozhlas,KF_Dukagjini,Dukagjini
+datarozhlas,KF_Egnatia,Egnatia
+datarozhlas,KF_Elbasani,KS Elbasani
+datarozhlas,KF_Feronikeli,Feronikeli
+datarozhlas,KF_La%C3%A7i,KF Laci
+datarozhlas,KF_Llapi,Llapi
+datarozhlas,KF_Malisheva,KF Malisheva
+datarozhlas,KF_Milano_Kumanov%C3%AB,Milano
+datarozhlas,KF_Partizani_Tirana,FK Partizani Tirana
+datarozhlas,KF_Renova,Renova
+datarozhlas,KF_Shk%C3%ABndija,Shkendija
+datarozhlas,KF_Shkupi,Shkupi
+datarozhlas,KF_Sk%C3%ABnderbeu_Kor%C3%A7%C3%AB,Skenderbeu Korce
+datarozhlas,KF_Teuta,KS Teuta
+datarozhlas,KF_Teuta_Durr%C3%ABs,KS Teuta
+datarozhlas,KF_Tirana,KF Tirana
+datarozhlas,KF_Trep%C3%A7a%2789,Trepca 89
+datarozhlas,KF_Vllaznia_Shkod%C3%ABr,FK Vllaznia
+datarozhlas,KR,KR
+datarozhlas,KR_Reykjav%C3%ADk,KR Reykjavik
+datarozhlas,KR_Reykjavik,KR Reykjavik
+datarozhlas,KSV_Roeselare,Roeselare
+datarozhlas,KS_Besa_Kavaj%C3%AB,Besa Kavajë
+datarozhlas,KS_Cracovia_(football),Cracovia
+datarozhlas,KS_Dinamo_Tirana,Dinamo Tirana
+datarozhlas,KS_Elbasani,Elbasani
+datarozhlas,KS_Flamurtari,Flamurtari Vlorë
+datarozhlas,KS_Flamurtari_Vlor%C3%AB,Flamurtari Vlorë
+datarozhlas,KS_Sk%C3%ABnderbeu_Kor%C3%A7%C3%AB,Skenderbeu Korce
+datarozhlas,KS_Teuta,Teuta Durrës
+datarozhlas,KS_Vllaznia_Shkod%C3%ABr,FK Vllaznia
+datarozhlas,KV_Mechelen,KV Mechelen
+datarozhlas,Kairat,Kairat
+datarozhlas,Kalmar FF,Kalmar FF
+datarozhlas,Kalmar_FF,Kalmar FF
+datarozhlas,Kapaz,Kapaz
+datarozhlas,Kapaz_PFC,Kapaz
+datarozhlas,Kapaz_PFK,Kapaz
+datarozhlas,Kardemir_Karab%C3%BCkspor,Karabükspor
+datarozhlas,Karlsruher_SC,Karlsruhe
+datarozhlas,Kastoria_FC,Kastoria
+datarozhlas,Kauno Žalgiris,Kauno Zalgiris
+datarozhlas,Kayseri_Erciyesspor,Kayseri Erciyesspor
+datarozhlas,Kayserispor,Kayserispor
+datarozhlas,Ke%C5%9Fla_FK,Keşla
+datarozhlas,Kecskem%C3%A9ti_TE,Kecskemeti TE
+datarozhlas,Kecskemét,Kecskemeti TE
+datarozhlas,Keflav%C3%ADk_%C3%8DF,Keflavík
+datarozhlas,Keflav%C3%ADk_Football_Club,IB Keflavik
+datarozhlas,Keflavik_%C3%8DF,Keflavik ÍF
+datarozhlas,Keshla_FK,Keşla
+datarozhlas,Keşla,Keşla
+datarozhlas,Khazar_Lankaran_FK,Khazar Lankaran
+datarozhlas,Khazri_Buzovna,Khazri Buzovna
+datarozhlas,Kickers_Offenbach,Kickers Offenbach
+datarozhlas,Kilmarnock,Kilmarnock
+datarozhlas,Kilmarnock_F.C.,Kilmarnock
+datarozhlas,Kilmarnock_FC,Kilmarnock
+datarozhlas,Kisv%C3%A1rda_FC,Kisvárda FC
+datarozhlas,Kisvárda,Kisvárda FC
+datarozhlas,Kj%C3%B8benhavns_Boldklub,KB Kobenhavn
+datarozhlas,Klaksv%C3%ADkar_%C3%8Dtr%C3%B3ttarfelag,KI Klaksvik
+datarozhlas,Knattspyrnudeild_Keflav%C3%ADk,IB Keflavik
+datarozhlas,Knattspyrnuf%C3%A9lag_Akureyrar,KA Akureyri
+datarozhlas,Knattspyrnuf%C3%A9lag_Reykjav%C3%ADkur,KR Reykjavik
+datarozhlas,Knattspyrnuf%C3%A9lagi%C3%B0_Fram,Fram Reykjavik
+datarozhlas,Knattspyrnuf%C3%A9lagi%C3%B0_V%C3%ADkingur,Vikingur Reykjavik
+datarozhlas,Kocaelispor,Kocaelispor
+datarozhlas,Kokkolan_Palloveikot,KPV Kokkola
+datarozhlas,Kolos Kovalivka,FC Kolos Kovalivka
+datarozhlas,Koml%C3%B3i_B%C3%A1ny%C3%A1sz_SK,Komlói Bányász
+datarozhlas,Kongsvinger_IL_Toppfotball,Kongsvinger
+datarozhlas,Konyaspor,Konyaspor
+datarozhlas,Koparit,KPT Kuopio
+datarozhlas,Koper,Koper
+datarozhlas,Kotkan_Ty%C3%B6v%C3%A4en_Palloilijat,KTP
+datarozhlas,Krasnodar,Krasnodar
+datarozhlas,Kremser_SC,Kremser SC
+datarozhlas,Kruoja Pakruojis,Kruoja Pakruojis
+datarozhlas,Kryvbas Kryvyi Rih,Kryvbas KR
+datarozhlas,KuPS,Kuopion PS
+datarozhlas,Kukësi,FK Kukesi
+datarozhlas,Kuopion_Palloseura,Kuopion PS
+datarozhlas,Kyzylzhar,Kyzylzhar
+datarozhlas,KÍ,KÍ
+datarozhlas,KÍ Klaksvík,KI Klaksvik
+datarozhlas,L.B._Ch%C3%A2teauroux,Châteauroux
+datarozhlas,L.R._Vicenza_Virtus,Vicenza Calcio
+datarozhlas,LASK,LASK Linz
+datarozhlas,LASK_Linz,Linzer ASK
+datarozhlas,LR_Vicenza,Vicenza Calcio
+datarozhlas,La Fiorita,La Fiorita
+datarozhlas,Lahti,Lahti
+datarozhlas,Landskrona_BoIS,Landskrona BoIS
+datarozhlas,Larne,Larne
+datarozhlas,Larne_F.C.,Larne
+datarozhlas,Lausanne_Sports,Lausanne Sports
+datarozhlas,Lazio,Lazio
+datarozhlas,Laçi,KF Laci
+datarozhlas,Lech Poznań,Lech Poznan
+datarozhlas,Lech_Pozna%C5%84,Lech Poznan
+datarozhlas,Lechia Gdańsk,Lechia Gdansk
+datarozhlas,Lechia_Gda%C5%84sk,Lechia Gdansk
+datarozhlas,Leeds_United_A.F.C.,Leeds United
+datarozhlas,Leeds_United_F.C.,Leeds United
+datarozhlas,Legia Warsaw,Legia Warsaw
+datarozhlas,Legia_Warsaw,Legia Warsaw
+datarozhlas,Legia_Warszawa,Legia Warsaw
+datarozhlas,Leicester City,Leicester City
+datarozhlas,Leicester_City_F.C.,Leicester City
+datarozhlas,Leiftur_%C3%93lafsfj%C3%B6r%C3%B0ur,Leiftur
+datarozhlas,Leipzig,Leipzig XI
+datarozhlas,Leix%C3%B5es_S.C.,Leixoes
+datarozhlas,Lens,RC Lens
+datarozhlas,Levadia Tallinn,Levadia Tallinn
+datarozhlas,Levante_UD,Levante UD
+datarozhlas,Levski Sofia,Levski Sofia
+datarozhlas,Levski_Sofia,Levski Sofia
+datarozhlas,Liep%C4%81jas_Metalurgs,Liepajas Metalurgs
+datarozhlas,Liepāja,FK Liepaja
+datarozhlas,Lierse_S.K.,Lierse
+datarozhlas,Lille,Lille
+datarozhlas,Lille_OSC,Lille OSC
+datarozhlas,Lillestr%C3%B8m_S.K.,Lillestrøm
+datarozhlas,Lillestr%C3%B8m_SK,Lillestrom
+datarozhlas,Lillestrøm,Lillestrøm
+datarozhlas,Limerick_F.C.,Limerick FC
+datarozhlas,Limerick_United_F.C.,Limerick United
+datarozhlas,Lincoln Red Imps,Lincoln Red Imps
+datarozhlas,Lincoln_Red_Imps_F.C.,Lincoln Red Imps
+datarozhlas,Linfield,Linfield
+datarozhlas,Linfield_F.C.,Linfield
+datarozhlas,Lisburn_Distillery_F.C.,Lisburn Distillery
+datarozhlas,Litex Lovech,PFC Litex Lovech
+datarozhlas,Litex_Lovech,PFC Litex Lovech
+datarozhlas,Liverpool,Liverpool
+datarozhlas,Liverpool_F.C.,Liverpool
+datarozhlas,Livingston_F.C.,Livingston
+datarozhlas,Llandudno,Llandudno Town
+datarozhlas,Llandudno_F.C.,Llandudno Town
+datarozhlas,Llanelli_A.F.C.,Llanelli
+datarozhlas,Llanelli_AFC,Llanelli
+datarozhlas,Llanelli_Town_A.F.C.,Llanelli
+datarozhlas,Llapi,Llapi
+datarozhlas,Lokomotiv Moscow,Lokomotiv Moscow
+datarozhlas,Lokomotiv Plovdiv,PFC Lokomotiv Plovdiv
+datarozhlas,Lokomotiv_Plovdiv,PFC Lokomotiv Plovdiv
+datarozhlas,Lokomotiva,NK Lokomotiva
+datarozhlas,Lolland-Falster_Alliancen,B 1901 Nykøbing
+datarozhlas,London_XI,London XI
+datarozhlas,Longford_Town_F.C.,Longford Town
+datarozhlas,Ludogorets Razgrad,PFC Ludogorets Razgrad
+datarozhlas,Luft%C3%ABtari_Gjirokast%C3%ABr,Luftëtari Gjirokastër
+datarozhlas,Luftëtari,Luftëtari Gjirokastër
+datarozhlas,Lugano,Lugano
+datarozhlas,Lusitanos,Lusitanos
+datarozhlas,Luzern,FC Luzern
+datarozhlas,Lyn_Fotball,Lyn Oslo
+datarozhlas,Lyngby,Lyngby BK
+datarozhlas,Lyngby_Boldklub,Lyngby BK
+datarozhlas,Lyon,Olympique Lyon
+datarozhlas,M%C3%A1laga_CF,Malaga CF
+datarozhlas,M%C5%A0K_%C5%BDilina,MSK Zilina
+datarozhlas,M%C5%A0K_P%C3%BAchov,Matador Púchov
+datarozhlas,MFK_Ko%C5%A1ice,Kosice
+datarozhlas,MFK_Petr%C5%BEalka,Artmedia Bratislava
+datarozhlas,MFK_Ru%C5%BEomberok,MFK Ruzomberok
+datarozhlas,MFK_V%C3%ADtkovice,TJ Vitkovice
+datarozhlas,MKE_Ankarag%C3%BCc%C3%BC,Ankaragücü
+datarozhlas,MOL_Feh%C3%A9rv%C3%A1r_FC,Fehérvár
+datarozhlas,MSV_Duisburg,MSV Duisburg
+datarozhlas,MTK Budapest,MTK Budapest
+datarozhlas,MTK_Budapest,MTK
+datarozhlas,MTK_Budapest_FC,MTK
+datarozhlas,MTK_Hung%C3%A1ria_FC,MTK
+datarozhlas,MYPA,MYPA
+datarozhlas,Maccabi Haifa,Maccabi Haifa
+datarozhlas,Maccabi Netanya,Maccabi Netanya
+datarozhlas,Maccabi Petah Tikva,Maccabi Petah-Tikva
+datarozhlas,Maccabi Tel Aviv,Maccabi Tel Aviv
+datarozhlas,Maccabi_Haifa_F.C.,Maccabi Haifa
+datarozhlas,Maccabi_Netanya_F.C.,Maccabi Netanya
+datarozhlas,Maccabi_Petah_Tikva_F.C.,Maccabi Petah-Tikva
+datarozhlas,Maccabi_Petah_Tikva_FC,Maccabi Petah-Tikva
+datarozhlas,Maccabi_Tel_Aviv_F.C.,Maccabi Tel Aviv
+datarozhlas,Maccabi_Tel_Aviv_FC,Maccabi Tel Aviv
+datarozhlas,Makedonija GP,Makedonija GP
+datarozhlas,Malatyaspor,Malatyaspor
+datarozhlas,Malisheva,KF Malisheva
+datarozhlas,Malm%C3%B6_FF,Malmo FF
+datarozhlas,Malmö FF,Malmo FF
+datarozhlas,Manchester City,Manchester City
+datarozhlas,Manchester United,Manchester United
+datarozhlas,Manchester_City_F.C.,Manchester City
+datarozhlas,Manchester_United_F.C.,Manchester United
+datarozhlas,Maribor,NK Maribor
+datarozhlas,Mariupol,FC Mariupol
+datarozhlas,Marsa_F.C.,Marsa
+datarozhlas,Marsaxlokk,Marsaxlokk
+datarozhlas,Marsaxlokk_F.C.,Marsaxlokk
+datarozhlas,Marseille,Olympique Marseille
+datarozhlas,Marítimo,Maritimo
+datarozhlas,Mersin_%C4%B0dmanyurdu_SK,Mersin
+datarozhlas,Merthyr_Tydfil_F.C.,Merthyr Tydfil
+datarozhlas,Middlesbrough_F.C.,Middlesbrough
+datarozhlas,Midtjylland,Midtjylland
+datarozhlas,Mied%C5%BA_Legnica,Miedź Legnica
+datarozhlas,Mika_F.C.,Mika
+datarozhlas,Mikkelin_Palloilijat,MP
+datarozhlas,Milan,AC Milan
+datarozhlas,Millwall_F.C.,Millwall
+datarozhlas,Milsami Orhei,Milsami Orhei
+datarozhlas,Mj%C3%B8ndalen_IF_Fotball,Mjøndalen
+datarozhlas,Mladost Lučani,Mladost Lucani
+datarozhlas,Mladost Podgorica,Mladost Pogorica
+datarozhlas,Mladá Boleslav,Mlada Boleslav
+datarozhlas,Molde,Molde FK
+datarozhlas,Molde_FK,Molde FK
+datarozhlas,Monaco,AS Monaco
+datarozhlas,Mons Calpe,Mons Calpe
+datarozhlas,Mons_Calpe_S.C.,Mons Calpe
+datarozhlas,Montpellier_HSC,Montpellier HSC
+datarozhlas,Mornar Bar,Mornar
+datarozhlas,Moss_FK,Moss FK
+datarozhlas,Mosta,Mosta FC
+datarozhlas,Mosta_F.C.,Mosta FC
+datarozhlas,Motherwell,Motherwell
+datarozhlas,Motherwell_F.C.,Motherwell
+datarozhlas,Mura,NS Mura
+datarozhlas,MyPa,MYPA
+datarozhlas,Myllykosken_Pallo_%E2%88%9247,MYPA
+datarozhlas,Málaga,Malaga CF
+datarozhlas,N%C3%A6stved_BK,Næstved
+datarozhlas,N%C3%A6stved_Boldklub,Næstved
+datarozhlas,N%C3%AEmes_Olympique,Nimes Olympique
+datarozhlas,N%C3%B5mme_Kalju_FC,Nomme Kalju
+datarozhlas,N%C5%A0_Mura,NS Mura
+datarozhlas,N.E.C._(football_club),NEC
+datarozhlas,NAC_Breda,NAC Breda
+datarozhlas,ND_Gorica,HNK Gorica
+datarozhlas,ND_Mura_05,Mura 05
+datarozhlas,NEC_Nijmegen,NEC
+datarozhlas,NK_%C5%A0iroki_Brijeg,NK Siroki Brijeg
+datarozhlas,NK_%C5%BDep%C4%8De,Žepče
+datarozhlas,NK_Bravo,NK Bravo
+datarozhlas,NK_Bravo1_Interblock,Interblock
+datarozhlas,NK_Brotnjo,NK Brotnjo
+datarozhlas,NK_Celje,NK Celje
+datarozhlas,NK_Dinamo_Zagreb,Dinamo Zagreb
+datarozhlas,NK_Dom%C5%BEale,NK Domzale
+datarozhlas,NK_Inter_Zapre%C5%A1i%C4%87,Inter Zaprešić
+datarozhlas,NK_Interblock,Interblock
+datarozhlas,NK_Izola,Belvedur Izola
+datarozhlas,NK_Kamen_Ingrad,Kamen Ingrad
+datarozhlas,NK_Lokomotiva,NK Lokomotiva
+datarozhlas,NK_Maribor,NK Maribor
+datarozhlas,NK_Mura,NS Mura
+datarozhlas,NK_Olimpija_Ljubljana,Olimpija Ljubljana
+datarozhlas,NK_Olimpija_Ljubljana_(1911%E2%80%932004),Olimpija Ljubljana
+datarozhlas,NK_Olimpija_Ljubljana_(1911),Olimpija Ljubljana
+datarozhlas,NK_Olimpija_Ljubljana_(1945%E2%80%932005),Olimpija Ljubljana
+datarozhlas,NK_Olimpija_Ljubljana_(1945),Olimpija Ljubljana
+datarozhlas,NK_Olimpija_Ljubljana_(2005),Olimpija Ljubljana
+datarozhlas,NK_Olimpija_Ljubljana_(defunct),Olimpija Ljubljana
+datarozhlas,NK_Osijek,Osijek
+datarozhlas,NK_Primorje,Primorje
+datarozhlas,NK_Rijeka,Rijeka
+datarozhlas,NK_Rudar_Velenje,Rudar Velenje
+datarozhlas,NK_Slaven_Belupo,Slaven Belupo
+datarozhlas,NK_Tre%C5%A1njevka,Trešnjevka Zagreb
+datarozhlas,NK_Vara%C5%BEdin_(1931%E2%80%932015),Varteks
+datarozhlas,NK_Zagreb,NK Zagreb
+datarozhlas,NS%C3%8D_Runav%C3%ADk,NSI
+datarozhlas,NSÍ Runavík,NSÍ Runavík
+datarozhlas,Naestved_BK,Naestved BK
+datarozhlas,Nantes,Nantes
+datarozhlas,Napoli,SSC Napoli
+datarozhlas,Narva Trans,JK Narva Trans
+datarozhlas,Nea_Salamis_Famagusta_FC,Nea Salamis
+datarozhlas,Neath_F.C.,Neath
+datarozhlas,Neft%C3%A7i_PFK,Neftchi PFC Baku
+datarozhlas,Neftchi Baku,Neftchi PFC Baku
+datarozhlas,Neftchi_Baku_PFC,Neftchi PFC Baku
+datarozhlas,Neftchi_Baku_PFK,Neftchi PFC Baku
+datarozhlas,Neftchi_PFK,Neftchi PFC Baku
+datarozhlas,Neftçi,Neftçi
+datarozhlas,Neftçi Baku,Neftçi Baku
+datarozhlas,Neman Grodno,Neman Grodno
+datarozhlas,Neuch%C3%A2tel_Xamax,Neuchatel Xamax FC
+datarozhlas,Neuch%C3%A2tel_Xamax_FCS,Neuchatel Xamax FC
+datarozhlas,Newcastle_United,Newcastle United
+datarozhlas,Newcastle_United_F.C.,Newcastle United
+datarozhlas,Newport_County_F.C.,Newport County
+datarozhlas,Newtown,Newtown
+datarozhlas,Newtown_A.F.C.,Newtown
+datarozhlas,Newtown_F.C.,Newtown
+datarozhlas,Nice,Nice
+datarozhlas,Noah,FC Noah
+datarozhlas,Nordsj%C3%A6lland,Nordsjælland
+datarozhlas,Nordsjælland,Nordsjælland
+datarozhlas,Norwich_City_F.C.,Norwich City
+datarozhlas,Nottingham_Forest,Nottingham Forest
+datarozhlas,Nottingham_Forest_F.C.,Nottingham Forest
+datarozhlas,Nõmme Kalju,Nomme Kalju
+datarozhlas,OFC_Pirin_Blagoevgrad,Pirin Blagoevgrad
+datarozhlas,OFC_Sliven_2000,Sliven
+datarozhlas,OFI_Crete,OFI Crete
+datarozhlas,OFI_Crete_F.C.,OFI
+datarozhlas,OFK_Be%C4%8Dej_1918,Bečej
+datarozhlas,OFK_Beograd,OFK Beograd
+datarozhlas,OFK_Petrovac,Petrovac
+datarozhlas,OFK_Titograd,Titograd
+datarozhlas,OFK_Titograd_Podgorica,Titograd Podgorica
+datarozhlas,OGC_Nice,OGC Nice
+datarozhlas,Odd,Odds BK
+datarozhlas,Odd_Grenland,Odd Grenland
+datarozhlas,Odds_BK,Odds BK
+datarozhlas,Odense,Odense XI
+datarozhlas,Odense_BK,Odense BK
+datarozhlas,Odense_Boldklub,Odense BK
+datarozhlas,Odra_Opole,Odra Opole
+datarozhlas,Odra_Wodzis%C5%82aw,Odra Wodzisław
+datarozhlas,Oleksandriya,FC Olexandriya
+datarozhlas,Olimpic,Olimpic
+datarozhlas,Olimpija Ljubljana,Olimpija Ljubljana
+datarozhlas,Olimpija_R%C4%ABga,Olimpija Rīga
+datarozhlas,Olimpik Donetsk,FC Olimpik Donetsk
+datarozhlas,Olimps/RFS,Olimps/RFS
+datarozhlas,Olympiacos,Olympiacos
+datarozhlas,Olympiacos_F.C.,Olympiacos
+datarozhlas,Olympiacos_FC,Olympiacos
+datarozhlas,Olympiacos_Volos_F.C.,Olympiacos Volos
+datarozhlas,Olympiakos_Nicosia,Omonia Nicosia
+datarozhlas,Olympique_Lyonnais,Olympique Lyon
+datarozhlas,Olympique_de_Marseille,Olympique Marseille
+datarozhlas,Omonia,Omonia
+datarozhlas,Omonia_Nicosia,Omonia Nicosia
+datarozhlas,Oostende,KV Oostende
+datarozhlas,Ordabasy,Ordabasy Shymkent
+datarozhlas,Orduspor,Orduspor
+datarozhlas,Osasuna,Osasuna
+datarozhlas,Osijek,Osijek
+datarozhlas,Osmanl%C4%B1spor,Osmanlispor
+datarozhlas,Osmanlıspor,Osmanlispor
+datarozhlas,Oulun_Palloseura,OPS Oulu
+datarozhlas,P%C3%A9csi_MFC,Pécsi Munkás
+datarozhlas,P.A.O.K._F.C.,PAOK
+datarozhlas,PAOK,PAOK
+datarozhlas,PAOK_F.C.,PAOK
+datarozhlas,PAOK_FC,PAOK
+datarozhlas,PAS Giannina,Pas Giannina
+datarozhlas,PAS_Giannina_F.C.,Pas Giannina
+datarozhlas,PEC_Zwolle,PEC Zwolle
+datarozhlas,PFC_Akademik_Sofia,Akademik Sofia
+datarozhlas,PFC_Beroe_Stara_Zagora,PFC Beroe
+datarozhlas,PFC_Botev_Plovdiv,Trakia Plovdiv
+datarozhlas,PFC_CSKA_Moscow,CSKA Moskva
+datarozhlas,PFC_CSKA_Sofia,CSKA Sofia
+datarozhlas,PFC_Cherno_More_Varna,Cherno More
+datarozhlas,PFC_Levski_Sofia,Levski Sofia
+datarozhlas,PFC_Litex_Lovech,PFC Litex Lovech
+datarozhlas,PFC_Lokomotiv_Plovdiv,PFC Lokomotiv Plovdiv
+datarozhlas,PFC_Lokomotiv_Sofia,Lokomotiv Sofia
+datarozhlas,PFC_Ludogorets_Razgrad,PFC Ludogorets Razgrad
+datarozhlas,PFC_Naftex_Burgas,Naftex Burgas
+datarozhlas,PFC_Nyva_Vinnytsia,Nyva Vinnytsia
+datarozhlas,PFC_Slavia_Sofia,PFC Slavia Sofia
+datarozhlas,PFC_Sochi,Sochi
+datarozhlas,PFC_Spartak_1918,Spartak Varna
+datarozhlas,PFC_Spartak_Plovdiv,Spartak Plovdiv
+datarozhlas,POFC_Botev_Vratsa,Botev Vratsa
+datarozhlas,PSV Eindhoven,PSV Eindhoven
+datarozhlas,PSV_Eindhoven,PSV Eindhoven
+datarozhlas,Pafos,Pafos
+datarozhlas,Pafos_FC,Pafos
+datarozhlas,Paide Linnameeskond,Paide Linnameeskond
+datarozhlas,Paide_Linnameeskond,Paide Linnameeskond
+datarozhlas,Paks,Paksi SE
+datarozhlas,Paksi_FC,Paksi SE
+datarozhlas,Paksi_SE,Paksi SE
+datarozhlas,Palermo_F.C.,Palermo
+datarozhlas,Panachaiki_F.C.,Panachaiki
+datarozhlas,Panathinaikos,Panathinaikos
+datarozhlas,Panathinaikos_F.C.,Panathinaikos
+datarozhlas,Panathinaikos_FC,Panathinaikos
+datarozhlas,Pandurii Târgu Jiu,Pandurii Targu-Jiu
+datarozhlas,Panevėžys,Panevezys
+datarozhlas,Panionios,Panionios
+datarozhlas,Panionios_F.C.,Panionios
+datarozhlas,Panionios_G.S.S.,Panionios
+datarozhlas,Panionios_NFC,Panionios
+datarozhlas,Paris Saint-Germain,Paris Saint-Germain
+datarozhlas,Paris_Saint-Germain_F.C.,Paris Saint-Germain
+datarozhlas,Paris_Saint-Germain_FC,Paris Saint-Germain
+datarozhlas,Parma_Calcio_1913,Parma
+datarozhlas,Parma_F.C.,Parma
+datarozhlas,Partick_Thistle_F.C.,Partick Thistle
+datarozhlas,Partizan,Partizan
+datarozhlas,Partizani,Partizani
+datarozhlas,Partizani_Tirana,FK Partizani Tirana
+datarozhlas,Paços de Ferreira,Pacos de Ferreira
+datarozhlas,Pelister,Pelister Bitola
+datarozhlas,Penybont,Penybont FC
+datarozhlas,Penybont_F.C.,Penybont FC
+datarozhlas,Perugia_Calcio,AC Perugia
+datarozhlas,Petrocub Hîncești,Petrocub
+datarozhlas,Pezoporikos_Larnaca_FC,Pezoporikos Larnaca
+datarozhlas,Piast Gliwice,Piast Gliwice
+datarozhlas,Piast_Gliwice,Piast Gliwice
+datarozhlas,Podgorica,Podgorika
+datarozhlas,Pogo%C5%84_Szczecin,Pogon Szczecin
+datarozhlas,Pogoń Szczecin,Pogon Szczecin
+datarozhlas,Polissya Zhytomyr,Polissya Zhitomir
+datarozhlas,Polonia_Bytom,Polonia Bytom
+datarozhlas,Polonia_Warsaw,Polonia Warszawa
+datarozhlas,Port_Talbot_Town_F.C.,Port Talbot Town
+datarozhlas,Portadown_F.C.,Portadown
+datarozhlas,Portimonense_S.C.,Portimonense
+datarozhlas,Porto,FC Porto
+datarozhlas,Portsmouth_F.C.,Portsmouth
+datarozhlas,Prestatyn_Town_F.C.,Prestatyn Town
+datarozhlas,Prishtina,Prishtina
+datarozhlas,Progrès Niederkorn,Progres Niederkorn
+datarozhlas,Pusk%C3%A1s_Akad%C3%A9mia_FC,Puskas Akademia
+datarozhlas,Puskás Akadémia,Puskas Akademia
+datarozhlas,Pyunik,Pyunik
+datarozhlas,Pyunik_F.C.,Pyunik
+datarozhlas,Pyunik_FC,Pyunik
+datarozhlas,Qaraba%C4%9F_FK,Qarabag FK
+datarozhlas,Qarabağ,Qarabag FK
+datarozhlas,Queen_of_the_South_F.C.,Queen of the South
+datarozhlas,Queens_Park_Rangers_F.C.,Queens Park Rangers
+datarozhlas,R.A.A._Louvi%C3%A9roise,La Louvière
+datarozhlas,R.E._Mouscron,Mouscron
+datarozhlas,R.F.C._Seraing_(1904),Seraing
+datarozhlas,R.F.C._de_Li%C3%A8ge,RFC Liegeois
+datarozhlas,R.S.C._Anderlecht,RSC Anderlecht
+datarozhlas,R.W.D._Molenbeek_(1909),RWD Molenbeek
+datarozhlas,R._Antwerp_F.C.,R. Antwerp F.C.
+datarozhlas,R._Charleroi_S.C.,Royal Charleroi SC
+datarozhlas,R._Union_Saint-Gilloise,R. Union Saint-Gilloise
+datarozhlas,RAF_Jelgava,Universitate Riga
+datarozhlas,RB Leipzig,RasenBallsport Leipzig
+datarozhlas,RB_Leipzig,RasenBallsport Leipzig
+datarozhlas,RCD_Espanyol,Espanyol Barcelona
+datarozhlas,RCD_Mallorca,RCD Mallorca
+datarozhlas,RC_Celta_de_Vigo,Celta Vigo
+datarozhlas,RC_Lens,RC Lens
+datarozhlas,RC_Strasbourg,RC Strasbourg
+datarozhlas,RC_Strasbourg_Alsace,RC Strasbourg
+datarozhlas,RFC_Li%C3%A8ge,RFC Liège
+datarozhlas,RFS,Rigas Futbola Skola
+datarozhlas,RNK_Split,RNK Split
+datarozhlas,ROMAR_Ma%C5%BEeikiai,ROMAR Mažeikiai
+datarozhlas,RSC_Anderlecht,RSC Anderlecht
+datarozhlas,Rabat_Ajax_F.C.,Rabat Ajax
+datarozhlas,Rabotnički,Rabotnicki
+datarozhlas,Racing FC,Racing FC
+datarozhlas,Racing Luxembourg,Racing Luxembourg
+datarozhlas,Racing Union,Racing Union
+datarozhlas,Racing_FC_Union_Luxembourg,Racing FC
+datarozhlas,Racing_de_Santander,Racing Santander
+datarozhlas,Radnik Bijeljina,Radnik Bijeljina
+datarozhlas,Radnički 1923,Radnicki 1923
+datarozhlas,Radnički Niš,Radnicki Nis
+datarozhlas,Raith_Rovers_F.C.,Raith Rovers
+datarozhlas,Rak%C3%B3w_Cz%C4%99stochowa,Raków Czestochowa
+datarozhlas,Raków Częstochowa,Raków Czestochowa
+datarozhlas,Randers,Randers FC
+datarozhlas,Randers_FC,Randers FC
+datarozhlas,Randers_Freja,Randers FC
+datarozhlas,Rangers,Rangers
+datarozhlas,Rangers_F.C.,Rangers
+datarozhlas,Rangers_FC,Rangers
+datarozhlas,Rapid Wien,Rapid Wien
+datarozhlas,Rayo_Vallecano,Rayo Vallecano
+datarozhlas,Real Betis,Real Betis
+datarozhlas,Real Madrid,Real Madrid
+datarozhlas,Real Sociedad,Real Sociedad
+datarozhlas,Real_Betis,Real Betis
+datarozhlas,Real_Madrid_C.F.,Real Madrid
+datarozhlas,Real_Madrid_CF,Real Madrid
+datarozhlas,Real_Oviedo,Oviedo
+datarozhlas,Real_Sociedad,Real Sociedad
+datarozhlas,Real_Valladolid,Real Valladolid
+datarozhlas,Real_Zaragoza,Zaragoza
+datarozhlas,Real_Zaragoza_CD,Real Zaragoza
+datarozhlas,Red Bull Salzburg,Salzburg
+datarozhlas,Red Star Belgrade,Red Star Belgrade
+datarozhlas,Red_Boys_Differdange,Red Boys Differdange
+datarozhlas,Red_Star_Belgrade,Crvena Zvezda
+datarozhlas,Reipas_Lahti,FC Reipas Lahti
+datarozhlas,Rennes,Stade Rennes
+datarozhlas,Renova,Renova
+datarozhlas,Rheindorf Altach,SC Rheindorf Altach
+datarozhlas,Rhyl_F.C.,Rhyl
+datarozhlas,Riga,Riga FC
+datarozhlas,Riga_FC,Riga FC
+datarozhlas,Rijeka,Rijeka
+datarozhlas,Rio Ave,Rio Ave
+datarozhlas,Rio_Ave_F.C.,Rio Ave
+datarozhlas,Riteriai,Riteriai
+datarozhlas,RoPS,RoPS
+datarozhlas,Roda_JC,Roda JC
+datarozhlas,Roda_JC_Kerkrade,Roda
+datarozhlas,Roma,AS Roma
+datarozhlas,Rosenborg,Rosenborg BK
+datarozhlas,Rosenborg_BK,Rosenborg BK
+datarozhlas,Rostov,Rostov
+datarozhlas,Rot-Weiss_Essen,Rot-Weiss Essen
+datarozhlas,Rovaniemen_Palloseura,RoPS
+datarozhlas,Royal_Antwerp_F.C.,Antwerp
+datarozhlas,Royal_Antwerp_FC,Royal Antwerp FC
+datarozhlas,Royal_Charleroi_S.C.,Royal Charleroi SC
+datarozhlas,Royale_Union_Saint-Gilloise,Union St.-Gilloise
+datarozhlas,Rubin Kazan,Rubin Kazan
+datarozhlas,Ruch_Chorz%C3%B3w,Ruch Chorzow
+datarozhlas,Rud%C3%A1_Hv%C4%9Bzda_Brno,Rudá Hvězda Brno
+datarozhlas,Rudar Pljevlja,FK Rudar Pljevlja
+datarozhlas,Rudar Velenje,Rudar Velenje
+datarozhlas,Rudá Hvězda Brno,Rudá Hvězda Brno
+datarozhlas,Ružomberok,Ružomberok
+datarozhlas,S%C3%B8nderjyskE_Fodbold,Sønderjyske Fodbold
+datarozhlas,S.C._Beira-Mar,Beira Mar
+datarozhlas,S.C._Braga,Sporting Braga
+datarozhlas,S.C._Eendracht_Aalst,Eendracht Aalst
+datarozhlas,S.C._Faetano,Faetano
+datarozhlas,S.C._Farense,Farense
+datarozhlas,S.C._Salgueiros,Salgueiros
+datarozhlas,S.C_Braga,Sporting Braga
+datarozhlas,S.K._Brann,Brann
+datarozhlas,S.L._Benfica,SL Benfica
+datarozhlas,S.P._La_Fiorita,La Fiorita
+datarozhlas,S.P._Tre_Fiori,Tre Fiori
+datarozhlas,S.P._Tre_Penne,Tre Penne
+datarozhlas,S.S.C._Napoli,SSC Napoli
+datarozhlas,S.S.D._Parma_Calcio_1913,Parma
+datarozhlas,S.S._Cosmos,Cosmos
+datarozhlas,S.S._Folgore_Falciano_Calcio,S.S. Folgore Falciano Calcio
+datarozhlas,S.S._Lazio,Lazio
+datarozhlas,S.S._Murata,Murata
+datarozhlas,S.S._Pennarossa,Pennarossa
+datarozhlas,S.V._Zulte_Waregem,Zulte-Waregem
+datarozhlas,SBV_Vitesse,Vitesse
+datarozhlas,SC Freiburg,SC Freiburg
+datarozhlas,SC_Bastia,SC Bastia
+datarozhlas,SC_Braga,Sporting Braga
+datarozhlas,SC_Dnipro-1,SC Dnipro-1
+datarozhlas,SC_Freiburg,SC Freiburg
+datarozhlas,SC_Gjilani,Gjilani
+datarozhlas,SC_Heerenveen,sc Heerenveen
+datarozhlas,SC_Jiul_Petro%C5%9Fani,Jiul Petroşani
+datarozhlas,SC_Leipzig,SC Leipzig
+datarozhlas,SC_Rheindorf_Altach,SC Rheindorf Altach
+datarozhlas,SC_Tavriya_Simferopol,Tavriya Simferopol
+datarozhlas,SC_Vaslui,Vaslui
+datarozhlas,SFK_Lyn,SFK Lyn
+datarozhlas,SJK,SJK
+datarozhlas,SKN_St._P%C3%B6lten,St. Pölten
+datarozhlas,SK_Brann,Brann
+datarozhlas,SK_Haugar,Haugar
+datarozhlas,SK_Rapid_Wien,Rapid Wien
+datarozhlas,SK_Sigma_Olomouc,Sigma Olomouc
+datarozhlas,SK_Slavia_Prague,Slavia Praha
+datarozhlas,SK_Slovan_Bratislava,SK Slovan Bratislava
+datarozhlas,SK_Sturm_Graz,Sturm Graz
+datarozhlas,SP_La_Fiorita,La Fiorita
+datarozhlas,SP_Tre_Penne,Tre Penne
+datarozhlas,SR_Bra%C8%99ov,Steagul Roșu Brașov
+datarozhlas,SSC_Napoli,SSC Napoli
+datarozhlas,SS_Lazio,Lazio
+datarozhlas,SV_Gr%C3%B6dig,Grödig
+datarozhlas,SV_Mattersburg,Mattersburg
+datarozhlas,SV_Pasching,Pasching
+datarozhlas,SV_Ried,Ried
+datarozhlas,SV_Stockerau,Stockerau
+datarozhlas,SV_Werder_Bremen,Werder Bremen
+datarozhlas,Sabah,Sabah FK
+datarozhlas,Sabah_FC_(Azerbaijan),Sabah FK
+datarozhlas,Sabail,Sabail
+datarozhlas,Sabail_FK,Sabail
+datarozhlas,Saburtalo Tbilisi,Saburtalo Tbilisi
+datarozhlas,Saint-Étienne,AS Saint-Etienne
+datarozhlas,Sakaryaspor,Sakaryaspor
+datarozhlas,Salg%C3%B3tarj%C3%A1ni_BTC,Salgótarján
+datarozhlas,Sampdoria,Sampdoria
+datarozhlas,Samtredia,FC Samtredia
+datarozhlas,Sant Julià,Sant Julià
+datarozhlas,Santa Clara,Santa Clara
+datarozhlas,Sarajevo,FK Sarajevo
+datarozhlas,Sarpsborg 08,Sarpsborg FK
+datarozhlas,Sarpsborg_08_FF,Sarpsborg FK
+datarozhlas,Sarpsborg_FK,Sarpsborg FK
+datarozhlas,Sassuolo,Sassuolo Calcio
+datarozhlas,Saxan,Saxan
+datarozhlas,Schalke 04,Schalke 04
+datarozhlas,Sein%C3%A4joen_Jalkapallokerho,SJK
+datarozhlas,Sepsi OSK,Sepsi Sfantu Gheorghe
+datarozhlas,Sepsi Sfântu Gheorghe,Sepsi Sfantu Gheorghe
+datarozhlas,Sepsi_OSK_Sf%C3%A2ntu_Gheorghe,Sepsi Sfantu Gheorghe
+datarozhlas,Servette,Servette
+datarozhlas,Servette_FC,Servette Geneve
+datarozhlas,Sevilla,Sevilla
+datarozhlas,Sevilla_FC,Sevilla
+datarozhlas,Sfîntul Gheorghe,Sfintul Gheorghe
+datarozhlas,Shafa_Baku,Shafa Baku
+datarozhlas,Shakhtar Donetsk,Shakhtar Donetsk
+datarozhlas,Shakhter Karagandy,Shakhter Karagandy
+datarozhlas,Shakhtyor Soligorsk,Shakhtyor Soligorsk
+datarozhlas,Shamkir_FC,Shamkir
+datarozhlas,Shamrock Rovers,Shamrock Rovers
+datarozhlas,Shamrock_Rovers,Shamrock Rovers
+datarozhlas,Shamrock_Rovers_F.C.,Shamrock Rovers
+datarozhlas,Sheffield_Wednesday_F.C.,Sheffield Wednesday
+datarozhlas,Shelbourne,Shelbourne
+datarozhlas,Shelbourne_F.C.,Shelbourne
+datarozhlas,Sheriff Tiraspol,Sheriff Tiraspol
+datarozhlas,Shirak,Shirak
+datarozhlas,Shirak_F.C.,Shirak
+datarozhlas,Shirak_FC,Shirak
+datarozhlas,Shirak_SC,Shirak
+datarozhlas,Shkupi,Shkupi
+datarozhlas,Shkëndija,Shkendija
+datarozhlas,Sigma Olomouc,Sigma Olomouc
+datarozhlas,Sileks,FK Sileks
+datarozhlas,Silkeborg,Silkeborg
+datarozhlas,Silkeborg_IF,Silkeborg IF
+datarozhlas,Sillamäe Kalev,Sillamäe Kalev
+datarozhlas,Sion,Sion
+datarozhlas,Sirens_F.C.,Sirens FC
+datarozhlas,Sivasspor,Sivasspor
+datarozhlas,Sk%C3%A1la_%C3%8DF,Skála
+datarozhlas,Skeid_Fotball,Skeid
+datarozhlas,Skoda_Xanthi,Skoda Xanthi
+datarozhlas,Skoda_Xanthi_F.C.,Xanthi
+datarozhlas,Skonto,Skonto
+datarozhlas,Skonto_FC,Skonto
+datarozhlas,Skonto_Riga,Skonto Riga
+datarozhlas,Skënderbeu,Skënderbeu
+datarozhlas,Slavia Prague,Slavia Prague
+datarozhlas,Slavia Sofia,PFC Slavia Sofia
+datarozhlas,Slavia_Prague,Slavia Prague
+datarozhlas,Sliema Wanderers,Sliema Wanderers
+datarozhlas,Sliema_Wanderers_F.C.,Sliema Wanderers
+datarozhlas,Sligo Rovers,Sligo Rovers
+datarozhlas,Sligo_Rovers_F.C.,Sligo Rovers
+datarozhlas,Sloboda Tuzla,Sloboda Tuzla
+datarozhlas,Slovan Bratislava,SK Slovan Bratislava
+datarozhlas,Slovan Liberec,Slovan Liberec
+datarozhlas,Slovan_Liberec,Slovan Liberec
+datarozhlas,Slovácko,Slovacko
+datarozhlas,Sochi,Sochi
+datarozhlas,Southampton,Southampton
+datarozhlas,Southampton_F.C.,Southampton
+datarozhlas,Sparta Prague,Sparta Praha
+datarozhlas,Sparta_Prague,Sparta Prague
+datarozhlas,Sparta_Rotterdam,Sparta Rotterdam
+datarozhlas,Spartak Moscow,Spartak Moscow
+datarozhlas,Spartak Myjava,Spartak Myjava
+datarozhlas,Spartak Subotica,Spartak Subotica
+datarozhlas,Spartak Trnava,Spartak Trnava
+datarozhlas,Spartak_Brno_KPS,Spartak KPS Brno
+datarozhlas,Spartak_Myjava,Spartak Myjava
+datarozhlas,Spartak_Trnava,Spartak Trnava
+datarozhlas,Spartak_Yerevan_FC,Araks Ararat
+datarozhlas,Spartaks Jūrmala,FK Spartaks Jurmala
+datarozhlas,Speran%C8%9Ba_Nisporeni,Speranta Nisporeni
+datarozhlas,Speranța Nisporeni,Speranta Nisporeni
+datarozhlas,Sporting CP,Sporting CP
+datarozhlas,Sporting_CP,Sporting CP
+datarozhlas,Sporting_Club_de_Portugal,Sporting CP
+datarozhlas,Sporting_Clube_de_Portugal,Sporting CP
+datarozhlas,Sporting_Fingal_F.C.,Sporting Fingal
+datarozhlas,Sporting_de_Gij%C3%B3n,Sporting Gijon
+datarozhlas,St Johnstone,St Johnstone
+datarozhlas,St Joseph's,St. Joseph's
+datarozhlas,St Mirren,St Mirren
+datarozhlas,St Patrick's Athletic,St Patrick's Athletic
+datarozhlas,St%C3%A6vnet,Copenhagen XI
+datarozhlas,St. Gallen,St. Gallen
+datarozhlas,St._Patrick%27s_Athletic,St Patrick's Athletic
+datarozhlas,St._Patrick%27s_Athletic_F.C.,St Patrick's Athletic
+datarozhlas,St_Johnstone_F.C.,St Johnstone
+datarozhlas,St_Joseph%27s_F.C.,St. Joseph's
+datarozhlas,St_Mirren_F.C.,St Mirren
+datarozhlas,St_Patrick%27s_Athletic_F.C.,St Patrick's Athletic
+datarozhlas,Stab%C3%A6k_Fotball,Stabaek
+datarozhlas,Stabæk,Stabæk
+datarozhlas,Stade_Dudelange,Stade Dudelange
+datarozhlas,Stade_Fran%C3%A7ais_(association_football),Stade Francais FC
+datarozhlas,Stade_Lavallois,Stade Laval
+datarozhlas,Stade_Malherbe_Caen,Caen
+datarozhlas,Stade_Reims,Stade Reims
+datarozhlas,Stade_Rennais_F.C.,Stade Rennes
+datarozhlas,Stade_Rennais_FC,Stade Rennes
+datarozhlas,Stade_de_Reims,Stade Reims
+datarozhlas,Stal_Mielec,Stal Mielec
+datarozhlas,Stal_Rzesz%C3%B3w_(football),Stal Rzeszów
+datarozhlas,Standard Liège,Standard Liege
+datarozhlas,Standard_Li%C3%A8ge,Standard Liege
+datarozhlas,Steaua București,Steaua Bucuresti
+datarozhlas,Stjarnan,Stjarnan
+datarozhlas,Stjarnan_men%27s_football,Stjarnan
+datarozhlas,Stoke_City_F.C.,Stoke City
+datarozhlas,Str%C3%B8msgodset_IF,Strømsgodset
+datarozhlas,Str%C3%B8msgodset_Toppfotball,Stromsgodset IF
+datarozhlas,Strasbourg,RC Strasbourg
+datarozhlas,Struga,Struga
+datarozhlas,Strømsgodset,Strømsgodset
+datarozhlas,Stumbras,FC Stumbras
+datarozhlas,Sturm Graz,Sturm Graz
+datarozhlas,Sumgayit,Sumgayit
+datarozhlas,Sumgayit_FK,Sumgayit
+datarozhlas,Sunderland_A.F.C.,Sunderland
+datarozhlas,Sutjeska,Sutjeska
+datarozhlas,Sutjeska Nikšić,Sutjeska Niksic
+datarozhlas,Swansea_City_A.F.C.,Swansea City
+datarozhlas,Swift Hesperange,Swift Hesperange
+datarozhlas,Szombathelyi_Halad%C3%A1s,Haladás
+datarozhlas,Szombierki_Bytom,Szombierki Bytom
+datarozhlas,SønderjyskE,Sønderjyske Fodbold
+datarozhlas,Sūduva,FK Suduva
+datarozhlas,Sūduva Marijampolė,FK Suduva
+datarozhlas,TSC,FK TSC
+datarozhlas,TSG_1899_Hoffenheim,1899 Hoffenheim
+datarozhlas,TSV_1860_M%C3%BCnchen,1860 Munchen
+datarozhlas,TSV_1860_Munich,1860 Munchen
+datarozhlas,TSV_Hartberg,TSV Hartberg
+datarozhlas,Tallinna Kalev,Tallinna Kalev
+datarozhlas,Tampere_United,Tampere United
+datarozhlas,Tampereen_Pallo-Veikot,TPV
+datarozhlas,Tasmania_1900_Berlin,Tasmania Berlin
+datarozhlas,Tatab%C3%A1nya_FC,Tatabányai Bányász
+datarozhlas,Tatab%C3%A1nyai_B%C3%A1ny%C3%A1sz_SC,Tatabányai Bányász
+datarozhlas,Teuta,KS Teuta
+datarozhlas,Teuta_Durr%C3%ABs,KS Teuta
+datarozhlas,The New Saints,The New Saints
+datarozhlas,The_New_Saints_F.C.,The New Saints
+datarozhlas,Thun,Thun
+datarozhlas,Tikvesh,Tikvesh
+datarozhlas,Tirana,KF Tirana
+datarozhlas,Titograd,Titograd
+datarozhlas,Titograd Podgorica,Titograd Podgorica
+datarozhlas,Tobol,Tobol
+datarozhlas,Torino,Torino
+datarozhlas,Torino_F.C.,Torino
+datarozhlas,Torino_FC,Torino
+datarozhlas,Torpedo Kutaisi,Torpedo Kutaisi
+datarozhlas,Torpedo Zhodino,Torpedo Zhodino
+datarozhlas,Torpedo-BelAZ Zhodino,Torpedo-BelAZ Zhodino
+datarozhlas,Torpedo_R%C4%ABga,Daugava Rīga
+datarozhlas,Tottenham Hotspur,Tottenham Hotspur
+datarozhlas,Tottenham_Hotspur_F.C.,Tottenham Hotspur
+datarozhlas,Toulouse,Toulouse
+datarozhlas,Toulouse_FC,Toulouse
+datarozhlas,Toulouse_FC_(1937),Toulouse
+datarozhlas,Trabzonspor,Trabzonspor
+datarozhlas,Trakai,Trakai
+datarozhlas,TransINVEST,TransINVEST Vilnius
+datarozhlas,Tre Fiori,Tre Fiori
+datarozhlas,Tre Penne,Tre Penne
+datarozhlas,Trelleborgs_FF,Trelleborg
+datarozhlas,Trenčín,AS Trencin
+datarozhlas,Trepça'89,Trepca 89
+datarozhlas,Troms%C3%B8_IL,Tromso
+datarozhlas,Tromsø,Tromso
+datarozhlas,Troyes_AC,ESTAC Troyes
+datarozhlas,Tskhinvali,Tskhinvali
+datarozhlas,Turan_Tovuz,Turan Tovuz
+datarozhlas,Turun_Palloseura,TPS Turku
+datarozhlas,Tuzla City,Tuzla City
+datarozhlas,Twente,Twente
+datarozhlas,Târgu Mureș,Târgu Mureș
+datarozhlas,U.C._Sampdoria,Sampdoria
+datarozhlas,U.D._Leiria,União de Leiria
+datarozhlas,U.S._Citt%C3%A0_di_Palermo,Palermo
+datarozhlas,U.S._Sassuolo_Calcio,Sassuolo Calcio
+datarozhlas,UCD,UCD
+datarozhlas,UC_Sampdoria,Sampdoria
+datarozhlas,UD_Las_Palmas,Las Palmas
+datarozhlas,UE Santa Coloma,UE Santa Coloma
+datarozhlas,UE_Engordany,UE Engordany
+datarozhlas,UE_Sant_Juli%C3%A0,UE Sant Julia
+datarozhlas,UE_Santa_Coloma,UE Santa Coloma
+datarozhlas,UNA Strassen,UNA Strassen
+datarozhlas,UN_K%C3%A4erj%C3%A9ng_97,Käerjéng 97
+datarozhlas,USV_Eschen/Mauren,Eschen/Mauren
+datarozhlas,US_Luxembourg,US Luxembourg
+datarozhlas,US_Rumelange,Rumelange
+datarozhlas,UWIC_Inter_Cardiff_F.C.,Inter CableTel AFC
+datarozhlas,Udinese_Calcio,Udinese
+datarozhlas,Ufa,FC Ufa
+datarozhlas,Ulisses,Ulisses
+datarozhlas,Ulisses_F.C.,Ulisses
+datarozhlas,Ulisses_FC,Ulisses
+datarozhlas,Uni%C3%A3o_de_Leiria,União de Leiria
+datarozhlas,Union Berlin,1. FC Union Berlin
+datarozhlas,Union Saint-Gilloise,Union St.-Gilloise
+datarozhlas,Union_Luxembourg,Union Luxembourg
+datarozhlas,Union_Titus_P%C3%A9tange,Union Titus Petange
+datarozhlas,Universitatea Craiova,FC Universitatea Craiova
+datarozhlas,University_College_Dublin_A.F.C.,UCD
+datarozhlas,Urartu,Urartu
+datarozhlas,Utrecht,FC Utrecht
+datarozhlas,Utrecht_(city),Utrecht XI
+datarozhlas,V%C3%A1c_FC,Dunakanyar-Vac
+datarozhlas,V%C3%A5lerenga_Fotball,Valerenga IF
+datarozhlas,V%C3%A5lerenga_IF_Fotball,Valerenga IF
+datarozhlas,V%C3%ADkingur_G%C3%B8ta,Víkingur Gøta
+datarozhlas,VB_V%C3%A1gur,VB Vágur
+datarozhlas,VMFD_%C5%BDalgiris_Vilnius,Zalgiris Vilnius
+datarozhlas,VPS,VPS Vaasa
+datarozhlas,Vaasan_Palloseura,VPS Vaasa
+datarozhlas,Vaduz,FC Vaduz
+datarozhlas,Valencia,Valencia CF
+datarozhlas,Valencia_CF,Valencia CF
+datarozhlas,Valletta,Valletta
+datarozhlas,Valletta_F.C.,Valletta
+datarozhlas,Valletta_FC,Valletta
+datarozhlas,Valmiera,Valmiera
+datarozhlas,Valmiera_FC,Valmiera
+datarozhlas,Valmieras_FK,Valmiera
+datarozhlas,Valur,Valur
+datarozhlas,Valur_(club),Valur Reykjavik
+datarozhlas,Valur_(men%27s_football),Valur Reykjavik
+datarozhlas,Valur_Football_Club,Valur
+datarozhlas,Valur_men%27s_football,Valur Reykjavik
+datarozhlas,Vanl%C3%B8se_IF,Vanløse
+datarozhlas,Vardar,Vardar Skopje
+datarozhlas,Vasas,Vasas
+datarozhlas,Vasas_SC,Budapesti Vasas
+datarozhlas,Vejle_Boldklub,Vejle BK
+datarozhlas,Velež Mostar,Velez Mostar
+datarozhlas,Ventspils,Ventspils
+datarozhlas,VfB Stuttgart,VfB Stuttgart
+datarozhlas,VfB_Admira_Wacker_M%C3%B6dling,Admira Wien
+datarozhlas,VfB_Leipzig,Lokomotive Leipzig
+datarozhlas,VfB_Stuttgart,VfB Stuttgart
+datarozhlas,VfL Wolfsburg,VfL Wolfsburg
+datarozhlas,VfL_Bochum,Bochum
+datarozhlas,VfL_Wolfsburg,VfL Wolfsburg
+datarozhlas,Viborg,Viborg FF
+datarozhlas,Viborg_FF,Viborg FF
+datarozhlas,Victoria_Bucure%C8%99ti,Victoria București
+datarozhlas,Videoton,Videoton
+datarozhlas,Videoton_FC,Videoton
+datarozhlas,Videoton_FC_Feh%C3%A9rv%C3%A1r,Videoton
+datarozhlas,Vidi,Vidi
+datarozhlas,Vidi_FC,Vidi
+datarozhlas,Viitorul Constanța,Viitorul Constanta
+datarozhlas,Viking,Viking FK
+datarozhlas,Viking_F.K.,Viking FK
+datarozhlas,Viking_FK,Viking FK
+datarozhlas,Viktoria Plzeň,Viktoria Plzen
+datarozhlas,Viktoria_K%C3%B6ln,Viktoria Köln
+datarozhlas,Viljandi_JK_Tulevik,Viljandi Tulevik
+datarozhlas,Villarreal,Villarreal
+datarozhlas,Villarreal_CF,Villarreal
+datarozhlas,Virtus,AC Virtus
+datarozhlas,Vit%C3%B3ria_F.C.,Vitória de Setúbal
+datarozhlas,Vit%C3%B3ria_FC,Vitória de Setúbal
+datarozhlas,Vit%C3%B3ria_S.C.,Vitoria Guimaraes
+datarozhlas,Vit%C3%B3ria_SC,Vitoria Guimaraes
+datarozhlas,Vitebsk,FC Vitebsk
+datarozhlas,Vitesse,Vitesse
+datarozhlas,Vitesse_Arnhem,Vitesse
+datarozhlas,Vitória de Guimarães,Vitoria Guimaraes
+datarozhlas,Vllaznia,FK Vllaznia
+datarozhlas,Vojvodina,Vojvodina
+datarozhlas,Vorskla Poltava,Vorskla
+datarozhlas,Vålerenga,Vålerenga
+datarozhlas,Víkingur,Víkingur
+datarozhlas,Víkingur Gøta,Víkingur Gøta
+datarozhlas,Víkingur Reykjavík,Vikingur Reykjavik
+datarozhlas,Waterford_F.C.,Waterford AFC
+datarozhlas,Waterford_United_F.C.,Waterford AFC
+datarozhlas,Watford_F.C.,Watford
+datarozhlas,Werder_Bremen,Werder Bremen
+datarozhlas,West Ham United,West Ham United
+datarozhlas,West_Berlin,West Berlin XI
+datarozhlas,West_Bromwich_Albion_F.C.,West Bromwich Albion
+datarozhlas,West_Ham_United_F.C.,Reading
+datarozhlas,Widzew_%C5%81%C3%B3d%C5%BA,Widzew Lodz
+datarozhlas,Wiener_Sport-Club,Wiener Sport-Club
+datarozhlas,Wiener_Sportclub,Wiener Sportclub
+datarozhlas,Wigan_Athletic_F.C.,Wigan Athletic
+datarozhlas,Willem_II_(football_club),Willem II
+datarozhlas,Wis%C5%82a_Krak%C3%B3w,Wisla Krakow
+datarozhlas,Wis%C5%82a_P%C5%82ock,Wisła Płock
+datarozhlas,Wisła Kraków,Wisła Kraków
+datarozhlas,Wolfsberger AC,Wolfsberger
+datarozhlas,Wolfsberger_AC,Wolfsberger
+datarozhlas,Wolverhampton Wanderers,Wolverhampton Wanderers
+datarozhlas,Wolverhampton_Wanderers_F.C.,Wolverhampton Wanderers
+datarozhlas,Wrexham_A.F.C.,Wrexham
+datarozhlas,Wrexham_F.C.,Wrexham
+datarozhlas,Wuppertaler_SV,Wuppertaler SV
+datarozhlas,Xanthi_F.C.,Skoda Xanthi
+datarozhlas,Yeni Malatyaspor,Yeni Malatyaspor
+datarozhlas,Yeni_Malatyaspor,Yeni Malatyaspor
+datarozhlas,Young Boys,BSC Young Boys
+datarozhlas,Zag%C5%82%C4%99bie_Lubin,Zaglebie Lubin
+datarozhlas,Zag%C5%82%C4%99bie_Sosnowiec,Zagłębie Sosnowiec
+datarozhlas,Zag%C5%82%C4%99bie_Wa%C5%82brzych,Zagłębie Wałbrzych
+datarozhlas,Zagreb,Zagreb XI
+datarozhlas,Zagłębie Lubin,Zagłębie Lubin
+datarozhlas,Zalaegerszeg,Zalaegerszeg
+datarozhlas,Zalaegerszegi_TE,Zalaegerszegi TE
+datarozhlas,Zaria Bălți,FC Zaria Balti
+datarozhlas,Zawisza_Bydgoszcz,Zawisza Bydgoszcz
+datarozhlas,Zenit Saint Petersburg,Zenit St. Petersburg
+datarozhlas,Zeta,FK Zeta
+datarozhlas,Zimbru Chișinău,Zimbru Chisinau
+datarozhlas,Zira,Zira FK
+datarozhlas,Zira_FK,Zira FK
+datarozhlas,Zorya Luhansk,Zorya Luhansk
+datarozhlas,Zrinjski,Zrinjski
+datarozhlas,Zrinjski Mostar,Zrinjski Mostar
+datarozhlas,Zvartnots-AAL_FC,Zvartnots Yerevan
+datarozhlas,Zürich,FC Zurich
+datarozhlas,ÍBV,ÍBV
+datarozhlas,Östersund,Östersunds FK
+datarozhlas,Újpest,Újpest
+datarozhlas,Čukarički,Cukaricki Belgrade
+datarozhlas,Ħamrun Spartans,Ħamrun Spartans
+datarozhlas,İstanbul Başakşehir,Istanbul Basaksehir
+datarozhlas,Śląsk Wrocław,Śląsk Wrocław
+datarozhlas,Šiauliai,FA Siauliai
+datarozhlas,Široki Brijeg,NK Siroki Brijeg
+datarozhlas,Žalgiris,Žalgiris
+datarozhlas,Žalgiris Vilnius,FK Zalgiris Vilnius
+datarozhlas,Željezničar,Željezničar
+datarozhlas,Željezničar Sarajevo,Zeljeznicar Sarajevo
+datarozhlas,Žilina,Žilina
+transfermarkt,1002,Flora Tallinn
+transfermarkt,1003,Leicester City
+transfermarkt,1004,FK Zeta
+transfermarkt,1008,HJK Helsinki
+transfermarkt,1010,Watford
+transfermarkt,10131,Grödig
+transfermarkt,10157,Aktobe
+transfermarkt,1017,Hapoel Tel Aviv
+transfermarkt,1020,Portsmouth
+transfermarkt,10217,Sarpsborg FK
+transfermarkt,1025,Bologna FC
+transfermarkt,10262,Birkirkara
+transfermarkt,1027,Bradford City
+transfermarkt,1028,Millwall
+transfermarkt,10301,Pyunik
+transfermarkt,1031,Luton Town
+transfermarkt,1032,Reading
+transfermarkt,1033,Valur
+transfermarkt,1034,Grimsby Town
+transfermarkt,1035,Sheffield Wednesday
+transfermarkt,1038,Sampdoria
+transfermarkt,1039,Queens Park Rangers
+transfermarkt,10391,Eastleigh
+transfermarkt,1041,Olympique Lyon
+transfermarkt,1042,Crewe Alexandra
+transfermarkt,1043,Skonto
+transfermarkt,1044,Djurgardens IF
+transfermarkt,1045,Notts County
+transfermarkt,10480,Shakhter Karagandy
+transfermarkt,10481,Tobol
+transfermarkt,10482,Kairat
+transfermarkt,1049,Valencia CF
+transfermarkt,1050,Villarreal
+transfermarkt,1051,Coalville Town
+transfermarkt,1053,Aalborg BK
+transfermarkt,10531,Sioni Bolnisi
+transfermarkt,10532,B36 Torshavn
+transfermarkt,10540,Irtysh Pavlodar
+transfermarkt,1058,Odds BK
+transfermarkt,10586,Aris Limassol
+transfermarkt,1059,Hammarby
+transfermarkt,1060,Colchester United
+transfermarkt,10603,Floriana
+transfermarkt,10604,Hibernians
+transfermarkt,10605,Marsaxlokk
+transfermarkt,10607,Juvenes/Dogana
+transfermarkt,10613,AC Virtus
+transfermarkt,10616,Libertas
+transfermarkt,10617,Tre Fiori
+transfermarkt,10625,Qarabag FK
+transfermarkt,1063,Viborg FF
+transfermarkt,10639,Mika
+transfermarkt,1064,Maccabi Haifa
+transfermarkt,10690,Zorya Voroshilovgrad
+transfermarkt,10693,Baku
+transfermarkt,10694,Gomel
+transfermarkt,10695,Shakhtyor Soligorsk
+transfermarkt,1071,Wigan Athletic
+transfermarkt,10719,Zestafoni
+transfermarkt,1072,Peterborough United
+transfermarkt,10734,The New Saints
+transfermarkt,1074,Tranmere Rovers
+transfermarkt,10747,Tre Penne
+transfermarkt,1075,Sporting Braga
+transfermarkt,10752,EB / Streymur
+transfermarkt,1078,Oldham Athletic
+transfermarkt,10791,Renova
+transfermarkt,1082,Lille OSC
+transfermarkt,1083,Rostov
+transfermarkt,1084,Malaga CF
+transfermarkt,10854,FC Santa Coloma
+transfermarkt,1088,Rochdale
+transfermarkt,10883,Mladost Pogorica
+transfermarkt,10895,Buxton
+transfermarkt,1090,AZ Alkmaar
+transfermarkt,1091,PAOK
+transfermarkt,1092,Brommapojkarna
+transfermarkt,10956,Staines Town
+transfermarkt,1096,Antwerp
+transfermarkt,1098,Stockport County
+transfermarkt,11,Arsenal
+transfermarkt,1100,Brann
+transfermarkt,1101,Elfsborg
+transfermarkt,1102,VPS Vaasa
+transfermarkt,11040,Radnik Bijeljina
+transfermarkt,11065,Decic
+transfermarkt,1109,BK Häcken
+transfermarkt,1110,Huddersfield Town
+transfermarkt,11107,Videoton
+transfermarkt,1112,Wrexham
+transfermarkt,11143,Bishop's Stortford
+transfermarkt,1115,Barry Town
+transfermarkt,11177,Fleetwood Town
+transfermarkt,11194,NK Lokomotiva
+transfermarkt,11215,Olimpic
+transfermarkt,1123,Norwich City
+transfermarkt,1127,Halifax Town
+transfermarkt,11282,Alanyaspor
+transfermarkt,11310,Slough Town
+transfermarkt,1132,Burnley
+transfermarkt,11344,Dinamo Batumi
+transfermarkt,114,Besiktas
+transfermarkt,11407,Gloucester City
+transfermarkt,11411,Banants
+transfermarkt,11435,Chikhura Sachkhere
+transfermarkt,11438,Harrow Borough
+transfermarkt,11479,S.S. Folgore Falciano Calcio
+transfermarkt,1148,Brentford
+transfermarkt,1150,Leyton Orient
+transfermarkt,11540,NSI
+transfermarkt,1167,Shkendija
+transfermarkt,1177,Silkeborg IF
+transfermarkt,1180,Dinamo Minsk
+transfermarkt,1181,Blackpool
+transfermarkt,1184,KRC Genk
+transfermarkt,1185,FH
+transfermarkt,1189,St Patrick's Athletic
+transfermarkt,119,Maccabi Tel Aviv
+transfermarkt,11907,Dacia Chisinau
+transfermarkt,11910,UE Sant Julia
+transfermarkt,11912,FC Ararat
+transfermarkt,11914,FC Differdange 03
+transfermarkt,11915,Llanelli
+transfermarkt,1194,Rotherham United
+transfermarkt,1195,Kidderminster Harriers
+transfermarkt,11976,Fola Esch
+transfermarkt,1198,Lincoln City
+transfermarkt,12,AS Roma
+transfermarkt,12020,Harrogate Town A.F.C.
+transfermarkt,121,Dinamo Moskva
+transfermarkt,1211,Port Vale
+transfermarkt,12132,Jagodina
+transfermarkt,12163,Paksi SE
+transfermarkt,1218,Torquay United
+transfermarkt,1219,Chesterfield
+transfermarkt,122,Sturm Graz
+transfermarkt,1220,Carlisle United
+transfermarkt,1225,FC Haka
+transfermarkt,12321,Girona
+transfermarkt,12335,Solihull
+transfermarkt,12346,Progres Niederkorn
+transfermarkt,1237,Brighton & Hove Albion
+transfermarkt,124,Rangers
+transfermarkt,1242,NK Siroki Brijeg
+transfermarkt,12423,Kecskemeti TE
+transfermarkt,12460,Flamurtari
+transfermarkt,12469,Skenderbeu Korce
+transfermarkt,1251,Cliftonville
+transfermarkt,1252,York City
+transfermarkt,1257,Jeunesse Esch
+transfermarkt,12658,Guiseley AFC
+transfermarkt,1269,PEC Zwolle
+transfermarkt,1274,Stabaek
+transfermarkt,128,Xanthi
+transfermarkt,12859,Lovćen Cetinje
+transfermarkt,12869,Nantwich Town
+transfermarkt,1293,Tromso
+transfermarkt,13,Atletico Madrid
+transfermarkt,1301,Maritimo
+transfermarkt,1302,Northampton Town
+transfermarkt,1304,Heracles
+transfermarkt,131,Barcelona
+transfermarkt,1322,Jablonec
+transfermarkt,13278,FC Tiraspol
+transfermarkt,13286,Chorley
+transfermarkt,13418,ÍF
+transfermarkt,13467,Racing FC
+transfermarkt,13499,FK Astra Giurgiu
+transfermarkt,13556,Curzon Ashton
+transfermarkt,1391,Zalaegerszegi TE
+transfermarkt,14,Austria Wien
+transfermarkt,141,Galatasaray
+transfermarkt,14178,Neman Grodno
+transfermarkt,1421,Stade Reims
+transfermarkt,14344,Ulisses
+transfermarkt,1435,Go Ahead Eagles
+transfermarkt,144,HNK Rijeka
+transfermarkt,1443,MSK Zilina
+transfermarkt,1465,Estoril
+transfermarkt,14672,Tonbridge Angels
+transfermarkt,14773,Salisbury City
+transfermarkt,148,Tottenham Hotspur
+transfermarkt,15,Bayer Leverkusen
+transfermarkt,150,Real Betis
+transfermarkt,1506,Karabükspor
+transfermarkt,1519,Dundee United
+transfermarkt,152,Samsunspor
+transfermarkt,15244,Ballymena
+transfermarkt,15276,Spartak Subotica
+transfermarkt,15299,Zhetysu
+transfermarkt,156,Levski Sofia
+transfermarkt,157,Gent
+transfermarkt,159,Crvena Zvezda
+transfermarkt,16,Borussia Dortmund
+transfermarkt,162,AS Monaco
+transfermarkt,16239,Desna Chernihiv
+transfermarkt,163,FC Vaduz
+transfermarkt,164,Blackburn Rovers
+transfermarkt,16650,Târgu Mureș
+transfermarkt,167,FC Augsburg
+transfermarkt,16704,Krasnodar
+transfermarkt,16779,Ordabasy Shymkent
+transfermarkt,16795,Granada CF
+transfermarkt,168,Zaglebie Lubin
+transfermarkt,169,Panionios
+transfermarkt,170,Rapid Wien
+transfermarkt,17149,Hamrun Spartans
+transfermarkt,172,Royal Charleroi SC
+transfermarkt,17675,Whitby Town
+transfermarkt,17959,FC Vitebsk
+transfermarkt,17980,Hemel Hempstead Town
+transfermarkt,18,Borussia Monchengladbach
+transfermarkt,180,Southampton
+transfermarkt,18263,Taunton Town
+transfermarkt,18303,FC Olexandriya
+transfermarkt,1839,KA Akureyri
+transfermarkt,18506,Metalurg Skopje
+transfermarkt,18963,Spartak Myjava
+transfermarkt,190,Kobenhavn
+transfermarkt,19090,Tskhinvali
+transfermarkt,1918,Prishtina
+transfermarkt,19294,Kaisar
+transfermarkt,195,Rosenborg BK
+transfermarkt,19627,Turnovo
+transfermarkt,197,Sparta Praha
+transfermarkt,19771,Akhisar Belediyespor
+transfermarkt,19780,Dunav Ruse
+transfermarkt,19789,Yeni Malatyaspor
+transfermarkt,20,Bursaspor
+transfermarkt,200,FC Utrecht
+transfermarkt,202,FC Groningen
+transfermarkt,2036,1. FC Heidenheim
+transfermarkt,20416,Ramsgate
+transfermarkt,20428,United of Manchester
+transfermarkt,2049,KF Tirana
+transfermarkt,206,Brondby IF
+transfermarkt,20786,Horsham
+transfermarkt,208,CSKA Sofia
+transfermarkt,20877,Brackley Town
+transfermarkt,20952,AFC Totton
+transfermarkt,20953,Bracknell Town
+transfermarkt,20955,Gosport Borough
+transfermarkt,21508,FC Zaria Balti
+transfermarkt,21515,Dungannon Swifts
+transfermarkt,21532,Crusaders
+transfermarkt,21541,Aberystwyth Town
+transfermarkt,2156,AEK Larnaca
+transfermarkt,21569,Arlesey Town
+transfermarkt,21652,Chippenham Town
+transfermarkt,21775,Teteks
+transfermarkt,21835,UNA Strassen
+transfermarkt,21864,Þór Akureyri
+transfermarkt,21875,Stjarnan
+transfermarkt,21934,Luftëtari Gjirokastër
+transfermarkt,22,Derby County
+transfermarkt,22010,FK Qabala
+transfermarkt,22108,Corby Town
+transfermarkt,22140,KF Laci
+transfermarkt,22220,Astana
+transfermarkt,2230,Grevenmacher
+transfermarkt,22461,Caernarfon Town
+transfermarkt,22499,Connah's Quay
+transfermarkt,22502,Cefn Druids
+transfermarkt,22552,Whitehawk
+transfermarkt,22553,Chichester City
+transfermarkt,22563,Oxford City
+transfermarkt,2259,PFC Lokomotiv Plovdiv
+transfermarkt,22595,Didcot Town
+transfermarkt,2262,Plymouth Argyle
+transfermarkt,22672,AFC Fylde
+transfermarkt,22682,Trepca 89
+transfermarkt,22687,Stourbridge
+transfermarkt,22692,Skelmersdale United
+transfermarkt,2275,TPS Turku
+transfermarkt,22783,Nomme Kalju
+transfermarkt,2282,Club Brugge
+transfermarkt,22832,Sillamäe Kalev
+transfermarkt,22842,FC Gagra
+transfermarkt,2288,Swansea City
+transfermarkt,2293,Konyaspor
+transfermarkt,22995,Kyzylzhar
+transfermarkt,2300,Jagiellonia Bialystok
+transfermarkt,23010,Marine
+transfermarkt,23088,Airbus UK Broughton
+transfermarkt,2311,Sigma Olomouc
+transfermarkt,23118,Stratford Town
+transfermarkt,232,Spartak Moskva
+transfermarkt,23370,JK Tallinna Kalev
+transfermarkt,23371,Paide Linnameeskond
+transfermarkt,234,Feyenoord
+transfermarkt,23559,Banga
+transfermarkt,23560,Kruoja Pakruojis
+transfermarkt,23611,FC Olimpik Donetsk
+transfermarkt,2362,Slaven Belupo
+transfermarkt,23664,Minsk
+transfermarkt,23777,SJK
+transfermarkt,238,Lech Poznan
+transfermarkt,2381,Sivasspor
+transfermarkt,23826,RasenBallsport Leipzig
+transfermarkt,239,Viking FK
+transfermarkt,23911,Gandzasar
+transfermarkt,24,Eintracht Frankfurt
+transfermarkt,2410,CSKA Moskva
+transfermarkt,2413,Bury
+transfermarkt,2414,Horsens
+transfermarkt,2420,Vitoria Guimaraes
+transfermarkt,2423,Santa Clara
+transfermarkt,2424,Gil Vicente
+transfermarkt,2425,Rio Ave
+transfermarkt,24326,Ermis Aradippou
+transfermarkt,24349,La Fiorita
+transfermarkt,24350,Cosmos
+transfermarkt,2436,Macclesfield
+transfermarkt,2439,Kuban Krasnodar
+transfermarkt,244,Olympique Marseille
+transfermarkt,2441,AEK Athens
+transfermarkt,2451,Inverness CT
+transfermarkt,2454,Doncaster Rovers
+transfermarkt,2455,Bristol Rovers
+transfermarkt,2481,Sheriff Tiraspol
+transfermarkt,24832,Víkingur Gøta
+transfermarkt,25039,Shortwood United
+transfermarkt,25232,Haverfordwest
+transfermarkt,253,Torpedo Kutaisi
+transfermarkt,2531,Trakia Plovdiv
+transfermarkt,255,Legia Warsaw
+transfermarkt,2553,Kilmarnock
+transfermarkt,257,St. Gallen
+transfermarkt,2573,Zeljeznicar Sarajevo
+transfermarkt,25745,Needham Market
+transfermarkt,2577,Hartlepool United
+transfermarkt,2578,St Johnstone
+transfermarkt,26,Basel
+transfermarkt,260,FC Zurich
+transfermarkt,26122,Banbury United
+transfermarkt,26326,UE Engordany
+transfermarkt,265,Panathinaikos
+transfermarkt,266,Ried
+transfermarkt,2662,St. Pölten
+transfermarkt,2671,Pas Giannina
+transfermarkt,26720,Rushall Olympic
+transfermarkt,2688,MYPA
+transfermarkt,2698,Rubin Kazan
+transfermarkt,26985,NK Bravo
+transfermarkt,27,Bayern Munich
+transfermarkt,2700,Anzhi Makhachkala
+transfermarkt,27045,Maldon & Tiptree
+transfermarkt,271,PFC Litex Lovech
+transfermarkt,27114,Egnatia
+transfermarkt,27116,FK Kukesi
+transfermarkt,27118,FK Jelgava
+transfermarkt,2714,Zimbru Chisinau
+transfermarkt,272,AIK Solna
+transfermarkt,273,Stade Rennes
+transfermarkt,2740,Vorskla
+transfermarkt,2761,Haugesund
+transfermarkt,27774,Cork City
+transfermarkt,2778,Nordsjaelland
+transfermarkt,2782,Ventspils
+transfermarkt,2783,Metalurh Donetsk
+transfermarkt,2784,APOEL Nikosia
+transfermarkt,27843,Bala Town
+transfermarkt,2785,Hapoel Ramat Gan
+transfermarkt,279,Ferencvaros
+transfermarkt,2790,Lugano
+transfermarkt,2793,Southend United
+transfermarkt,2794,Havant & Waterlooville
+transfermarkt,2796,Woking
+transfermarkt,2797,Ebbsfleet United
+transfermarkt,2804,Barnet
+transfermarkt,2805,Wycombe Wanderers
+transfermarkt,28082,Ballkani
+transfermarkt,28095,FC Ufa
+transfermarkt,281,Manchester City
+transfermarkt,2814,Gillingham
+transfermarkt,2817,Stromsgodset IF
+transfermarkt,282,FK Sarajevo
+transfermarkt,2844,IFK Norrkoping
+transfermarkt,2861,KV Oostende
+transfermarkt,28633,UE Santa Coloma
+transfermarkt,289,Sunderland
+transfermarkt,28931,BFC Daugavpils
+transfermarkt,28936,FK Spartaks Jurmala
+transfermarkt,28958,Lusitanos
+transfermarkt,29,Everton
+transfermarkt,29053,Gjilani
+transfermarkt,29160,Prestatyn Town
+transfermarkt,2925,FC Reipas Lahti
+transfermarkt,294,SL Benfica
+transfermarkt,2944,Osmanlispor
+transfermarkt,2950,FC Samtredia
+transfermarkt,29512,Chatham Town
+transfermarkt,2962,Altrincham
+transfermarkt,2963,Burton Albion
+transfermarkt,2964,Scunthorpe United
+transfermarkt,2976,Hapoel Be'er
+transfermarkt,29831,Viitorul Constanta
+transfermarkt,29842,Concord Rangers
+transfermarkt,2990,Academica
+transfermarkt,2995,Pacos de Ferreira
+transfermarkt,3,Koln
+transfermarkt,30037,Čelik Nikšić
+transfermarkt,3008,Hull City
+transfermarkt,301,Steaua Bucuresti
+transfermarkt,30127,Biggleswade Town
+transfermarkt,30433,FCI Tallinn
+transfermarkt,3052,Sutton United
+transfermarkt,3053,Northwich Victoria
+transfermarkt,3054,Shrewsbury Town
+transfermarkt,3055,Basingstoke Town
+transfermarkt,3057,Standard Liege
+transfermarkt,306,sc Heerenveen
+transfermarkt,3060,Atromitos
+transfermarkt,30613,Kisvárda FC
+transfermarkt,3064,Hereford United
+transfermarkt,30686,Milsami Orhei
+transfermarkt,3070,Sutjeska Niksic
+transfermarkt,31,Liverpool
+transfermarkt,31130,Newtown
+transfermarkt,312,Dinamo Bucuresti
+transfermarkt,31276,Sfintul Gheorghe
+transfermarkt,31367,Chester
+transfermarkt,3137,FK TSC
+transfermarkt,31614,PFC Ludogorets Razgrad
+transfermarkt,317,Twente
+transfermarkt,318,Ruch Chorzow
+transfermarkt,3189,FC Ilves
+transfermarkt,32017,Dila Gori
+transfermarkt,321,Sion
+transfermarkt,32125,Mosta FC
+transfermarkt,32129,Balzan FC
+transfermarkt,3237,KR Reykjavik
+transfermarkt,324,Pogon Szczecin
+transfermarkt,3258,Shamrock Rovers
+transfermarkt,327,Osijek
+transfermarkt,32768,Gzira United
+transfermarkt,32832,Trakai
+transfermarkt,329,Sliema Wanderers
+transfermarkt,33,Schalke 04
+transfermarkt,331,Osasuna
+transfermarkt,33206,Llapi
+transfermarkt,336,Sporting CP
+transfermarkt,3368,Levante UD
+transfermarkt,337,Birmingham City
+transfermarkt,3371,Cheltenham
+transfermarkt,33741,Drita Gjilan
+transfermarkt,33777,Alvechurch
+transfermarkt,33783,Rigas Futbola Skola
+transfermarkt,338,Dinamo Kiev
+transfermarkt,339,Dnepr Dnepropetrovsk
+transfermarkt,33966,Politehnica Iasi
+transfermarkt,34027,Barwell
+transfermarkt,3426,Esbjerg fB
+transfermarkt,34429,Feronikeli
+transfermarkt,34461,East Thurrock United
+transfermarkt,34468,Metropolitan Police
+transfermarkt,3454,Kingstonian
+transfermarkt,3455,Forest Green Rovers
+transfermarkt,3456,Gateshead
+transfermarkt,3461,Larne
+transfermarkt,3463,Glenavon FC
+transfermarkt,3471,Linfield
+transfermarkt,34711,Santos Tartu
+transfermarkt,34798,South Shields
+transfermarkt,34860,Yate Town
+transfermarkt,34888,Salford City
+transfermarkt,3489,Boston United
+transfermarkt,349,Barnsley
+transfermarkt,350,Sheffield United
+transfermarkt,3508,Zulte-Waregem
+transfermarkt,35197,Merstham
+transfermarkt,352,Swindon Town
+transfermarkt,353,Lillestrøm Sportsklubb
+transfermarkt,3537,Crawley Town
+transfermarkt,3539,Tamworth
+transfermarkt,355,Bolton Wanderers
+transfermarkt,3551,SC Rheindorf Altach
+transfermarkt,35545,Iskra
+transfermarkt,358,Charlton Athletic
+transfermarkt,3592,Kryvbas KR
+transfermarkt,36,Fenerbahce
+transfermarkt,36136,Veris Chișinău
+transfermarkt,3647,Stalybridge Celtic
+transfermarkt,3649,Bangor City
+transfermarkt,365,Spartak TAZ Trnava
+transfermarkt,3654,Kalmar FF
+transfermarkt,367,Rayo Vallecano
+transfermarkt,36755,Isloch Minsk
+transfermarkt,368,Sevilla
+transfermarkt,3681,Hitchin Town
+transfermarkt,3683,Hendon
+transfermarkt,3684,Stevenage Borough
+transfermarkt,3688,Accrington
+transfermarkt,369,Lyngby BK
+transfermarkt,3694,AFC Telford United
+transfermarkt,3696,Dagenham and Redbridge
+transfermarkt,3697,Morecambe
+transfermarkt,3698,Chelmsford City
+transfermarkt,36999,Sumgayit
+transfermarkt,370,Abderden
+transfermarkt,3709,Getafe CF
+transfermarkt,371,Celtic
+transfermarkt,3712,Weston-super-Mare
+transfermarkt,3713,Eastbourne Borough
+transfermarkt,3716,Newport County
+transfermarkt,37169,Puskas Akademia
+transfermarkt,3717,Aldershot
+transfermarkt,3721,Alfreton Town
+transfermarkt,3724,Hednesford Town
+transfermarkt,3729,FC Arsenal Tula
+transfermarkt,3737,Breidablik
+transfermarkt,3739,KS Teuta
+transfermarkt,37486,Darlington
+transfermarkt,377,Banik Ostrava
+transfermarkt,3776,RoPS
+transfermarkt,3779,JJK
+transfermarkt,3785,Maccabi Petah-Tikva
+transfermarkt,379,West Ham United
+transfermarkt,37914,Alashkert FC
+transfermarkt,3793,Beitar Jerusalem
+transfermarkt,37989,Arsenal Tivat
+transfermarkt,3811,Liepajas Metalurgs
+transfermarkt,3820,Mansfield Town
+transfermarkt,38204,Lincoln Red Imps
+transfermarkt,38208,St. Joseph's
+transfermarkt,3822,Weymouth
+transfermarkt,3824,Dorchester Town
+transfermarkt,3825,Kettering Town
+transfermarkt,3826,St Albans City
+transfermarkt,383,PSV Eindhoven
+transfermarkt,3831,Coleraine
+transfermarkt,3832,Fram Reykjavik
+transfermarkt,3835,Worksop Town
+transfermarkt,3837,Fredrikstad FK
+transfermarkt,3840,Adana Demirspor
+transfermarkt,3850,FK Ekranas
+transfermarkt,3867,Boreham Wood
+transfermarkt,3884,AFC Wimbledon
+transfermarkt,3885,Stamford
+transfermarkt,38899,Kings Lynn Town
+transfermarkt,38921,FC Dinamo-Auto
+transfermarkt,3899,Anorthosis Famagusta
+transfermarkt,39,1. FSV Mainz 05
+transfermarkt,3900,Borac Banja Luka
+transfermarkt,3909,Shelbourne
+transfermarkt,3911,Stade Brest
+transfermarkt,3933,Nuneaton Town
+transfermarkt,3936,Dover Athletic
+transfermarkt,3937,Merthyr Town
+transfermarkt,3948,Union St.-Gilloise
+transfermarkt,398,Lazio
+transfermarkt,39803,Sirens FC
+transfermarkt,399,Leeds United
+transfermarkt,40,Girondins Bordeaux
+transfermarkt,4000,Lechia Gdansk
+transfermarkt,40090,Kauno Zalgiris
+transfermarkt,403,Willem II
+transfermarkt,4040,FK Partizani Tirana
+transfermarkt,405,Aston Villa
+transfermarkt,4059,NS Mura
+transfermarkt,40604,Arda
+transfermarkt,4074,Dartford
+transfermarkt,4076,Heybridge Swifts
+transfermarkt,40812,FC Universitatea Craiova
+transfermarkt,409,Salzburg
+transfermarkt,410,Udinese
+transfermarkt,41061,Corvinul Hunedoara
+transfermarkt,41133,Saburtalo Tbilisi
+transfermarkt,4117,Wealdstone
+transfermarkt,41231,Sochi
+transfermarkt,413,LASK Linz
+transfermarkt,41494,Saxan
+transfermarkt,415,Toulouse
+transfermarkt,416,Torino
+transfermarkt,417,OGC Nice
+transfermarkt,418,Real Madrid
+transfermarkt,419,Dinamo Zagreb
+transfermarkt,41916,Inter D'Escaldes
+transfermarkt,42,Hannover 96
+transfermarkt,420,RNK Split
+transfermarkt,42165,Daventry Town
+transfermarkt,422,Wisla Krakow
+transfermarkt,42246,Europa FC
+transfermarkt,42310,FA Siauliai
+transfermarkt,42546,Mons Calpe
+transfermarkt,4277,Drogheda United
+transfermarkt,4279,Farnborough
+transfermarkt,428,Gornik Zabrze
+transfermarkt,4282,Hyde United
+transfermarkt,429,Apollon Limassol
+transfermarkt,43,Heart of Midlothian
+transfermarkt,430,ACF Fiorentina
+transfermarkt,43032,Magpies
+transfermarkt,4310,Blyth Spartans
+transfermarkt,4313,HB
+transfermarkt,43162,FK Liepaja
+transfermarkt,433,Koper
+transfermarkt,434,FC Luzern
+transfermarkt,43532,Tuzla City
+transfermarkt,4391,Buducnost
+transfermarkt,43957,FC Stumbras
+transfermarkt,44,Hertha BSC
+transfermarkt,4414,Gefle
+transfermarkt,44360,Araz Naxcivan
+transfermarkt,4441,Wolfsberger
+transfermarkt,4467,TSV Hartberg
+transfermarkt,447,Hajduk Split
+transfermarkt,448,Vojvodina
+transfermarkt,449,Trabzonspor
+transfermarkt,452,BSC Young Boys
+transfermarkt,4529,Dunajska Streda
+transfermarkt,45457,Pafos
+transfermarkt,455,Rapid Bucuresti
+transfermarkt,45520,Speranta Nisporeni
+transfermarkt,45574,Llandudno Town
+transfermarkt,45922,Spennymoor United
+transfermarkt,45923,Norton United
+transfermarkt,45935,Akademija Pandev
+transfermarkt,46,Internazionale
+transfermarkt,46061,Haringey Borough
+transfermarkt,4633,Novi Pazar
+transfermarkt,4639,Mornar
+transfermarkt,4641,Rabotnicki
+transfermarkt,4644,Shkupi
+transfermarkt,4645,Radnicki 1923
+transfermarkt,465,St Mirren
+transfermarkt,466,Preston North End
+transfermarkt,46643,Petrocub
+transfermarkt,46710,Zira FK
+transfermarkt,4674,Cambridge City
+transfermarkt,46841,Westfields
+transfermarkt,46842,Hereford United
+transfermarkt,46887,Dukagjini
+transfermarkt,46889,Cray Valley Paper Mills
+transfermarkt,4772,Olimpija Ljubljana
+transfermarkt,4807,Shirak
+transfermarkt,48325,Riga FC
+transfermarkt,48332,FC Kolos Kovalivka
+transfermarkt,48712,Union Titus Petange
+transfermarkt,49018,Shaw Lane
+transfermarkt,49149,Panevezys
+transfermarkt,4949,Bokelj
+transfermarkt,496,Malmo FF
+transfermarkt,498,Lokeren
+transfermarkt,499,Vitesse
+transfermarkt,5,AC Milan
+transfermarkt,501,Bodo/Glimt
+transfermarkt,503,FC Admira Wacker Modling
+transfermarkt,504,Grasshoppers Zurich
+transfermarkt,506,Juventus
+transfermarkt,5084,Valmiera
+transfermarkt,50983,Podgorika
+transfermarkt,512,Stoke City
+transfermarkt,51316,Kosice
+transfermarkt,5155,Metalurgi Rustavi
+transfermarkt,520,Cercle Brugge KSV
+transfermarkt,5223,Maccabi Netanya
+transfermarkt,5228,FK Atlantas
+transfermarkt,527,Football Club Lausanne-Sport
+transfermarkt,53152,Cardiff MU
+transfermarkt,533,1899 Hoffenheim
+transfermarkt,534,Pelister Bitola
+transfermarkt,53453,Ararat-Armenia
+transfermarkt,535,FK Sileks
+transfermarkt,53646,Polissya Zhitomir
+transfermarkt,5378,Vasas
+transfermarkt,540,SK Slovan Bratislava
+transfermarkt,5405,Sloboda Tuzla
+transfermarkt,5411,FC Honka
+transfermarkt,543,Wolverhampton Wanderers
+transfermarkt,54585,Sepsi Sfantu Gheorghe
+transfermarkt,5544,Slovacko
+transfermarkt,5545,FC Zlín
+transfermarkt,5546,Mlada Boleslav
+transfermarkt,5548,Worcester City
+transfermarkt,5594,Portadown
+transfermarkt,5619,Aalesund
+transfermarkt,56733,Bowers & Pitsea
+transfermarkt,5689,Cracovia
+transfermarkt,5724,Randers FC
+transfermarkt,5771,Levadia
+transfermarkt,57890,Sabail
+transfermarkt,58,RSC Anderlecht
+transfermarkt,5817,Sønderjyske Fodbold
+transfermarkt,583,Paris Saint-Germain
+transfermarkt,5849,Vikingur Reykjavik
+transfermarkt,5862,HNK Gorica
+transfermarkt,588,Dinamo City
+transfermarkt,5970,FA Siauliai
+transfermarkt,5972,FK Rudar Pljevlja
+transfermarkt,599,Varteks
+transfermarkt,60,SC Freiburg
+transfermarkt,6017,IFK Mariehamn
+transfermarkt,602,FK Zalgiris Vilnius
+transfermarkt,6028,Hapoel Ironi Kiryat Shmona
+transfermarkt,603,Cardiff City
+transfermarkt,60368,FC Noah
+transfermarkt,605,Aris
+transfermarkt,6055,Gyori ETO
+transfermarkt,60551,SC Dnipro-1
+transfermarkt,6066,Dundalk
+transfermarkt,6069,UCD
+transfermarkt,61,Servette Geneve
+transfermarkt,610,AFC Ajax
+transfermarkt,6105,Moadon Sport Ashdod
+transfermarkt,6107,Arka Gdynia
+transfermarkt,6112,Piast Gliwice
+transfermarkt,6131,Dynamo Brest
+transfermarkt,6163,Senica
+transfermarkt,6168,Barrow
+transfermarkt,6169,Dulwich Hamlet
+transfermarkt,6170,KI Klaksvik
+transfermarkt,618,AS Saint-Etienne
+transfermarkt,6181,Daugava Rīga
+transfermarkt,6195,SSC Napoli
+transfermarkt,61955,CSKA 1948 Sofia
+transfermarkt,62,Slavia Praha
+transfermarkt,62026,Penybont FC
+transfermarkt,621,Athletic Bilbao
+transfermarkt,6248,NK Domzale
+transfermarkt,6251,Kuopion PS
+transfermarkt,628,Velez Mostar
+transfermarkt,631,Chelsea
+transfermarkt,6335,Valletta
+transfermarkt,634,MTK
+transfermarkt,6340,Braintree Town
+transfermarkt,6365,Lokomotiv Tbilisi
+transfermarkt,63993,Sabah FK
+transfermarkt,641,Middlesbrough
+transfermarkt,6414,Metalist Kharkiv
+transfermarkt,6429,Universitatea Cluj
+transfermarkt,64534,Struga
+transfermarkt,64780,Atlètic Club d'Escaldes
+transfermarkt,653,OFI
+transfermarkt,6574,Sassuolo Calcio
+transfermarkt,6579,AFC Sudbury
+transfermarkt,660,Shakhtar Donetsk
+transfermarkt,6621,Cukaricki Belgrade
+transfermarkt,6622,Mladost Lucani
+transfermarkt,663,Dinamo Tbilisi
+transfermarkt,667,RC Strasbourg
+transfermarkt,6676,Asteras Tripoli
+transfermarkt,6683,Canvey Island
+transfermarkt,6684,Gainsborough Trinity
+transfermarkt,669,Partizan Belgrade
+transfermarkt,6699,Exeter City
+transfermarkt,675,PFC Slavia Sofia
+transfermarkt,6764,PFC Beroe
+transfermarkt,677,Ipswich Town
+transfermarkt,678,Aarhus GF
+transfermarkt,6808,HSK Zrinjski Mostar
+transfermarkt,681,Real Sociedad
+transfermarkt,683,Olympiacos
+transfermarkt,68608,Belenenses
+transfermarkt,687,Molde FK
+transfermarkt,6890,Istanbul Basaksehir
+transfermarkt,6908,Hayes & Yeading
+transfermarkt,697,Slovan Liberec
+transfermarkt,69752,Hegelmann
+transfermarkt,698,Bristol City
+transfermarkt,699,Helsingborgs IF
+transfermarkt,6992,Chornomorets Odesa
+transfermarkt,6993,FC Mariupol
+transfermarkt,703,Nottingham Forest
+transfermarkt,7047,Maidstone United
+transfermarkt,7048,Bradford Park Avenue
+transfermarkt,7067,Billericay
+transfermarkt,708,Ujpesti Dozsa SC
+transfermarkt,7087,MFK Ruzomberok
+transfermarkt,709,Budapest Honved SE
+transfermarkt,7090,Kapaz
+transfermarkt,710,NK Celje
+transfermarkt,7123,Maidenhead United
+transfermarkt,713,BATE Borisov
+transfermarkt,7130,JK Narva Trans
+transfermarkt,714,Espanyol Barcelona
+transfermarkt,715,"Bohemians Praha 1905, a.s."
+transfermarkt,7153,Zawisza Bydgoszcz
+transfermarkt,720,FC Porto
+transfermarkt,72702,Spaeri
+transfermarkt,7454,Welling United
+transfermarkt,7567,Radnicki Nis
+transfermarkt,759,Slask Wroclaw
+transfermarkt,76,Vålerengens Idrettsforening
+transfermarkt,762,Newcastle United
+transfermarkt,76609,Sheppey United
+transfermarkt,77,Vardar Skopje
+transfermarkt,7769,CFR Cluj
+transfermarkt,779,Kosice
+transfermarkt,786,AEL Limassol
+transfermarkt,789,Rudar Velenje
+transfermarkt,79,VfB Stuttgart
+transfermarkt,790,NK Maribor
+transfermarkt,7918,AS Trencin
+transfermarkt,7964,Torpedo-BelAZ Zhodino
+transfermarkt,800,Atalanta
+transfermarkt,801,IFK Goteborg
+transfermarkt,8024,Arouca
+transfermarkt,8031,Neftchi PFC Baku
+transfermarkt,8036,IB Vestmannaeyja
+transfermarkt,8042,Inter Turku
+transfermarkt,8047,FK Suduva
+transfermarkt,80996,KF Malisheva
+transfermarkt,810,Hapoel Haifa
+transfermarkt,8123,Worthing
+transfermarkt,8141,Hastings United
+transfermarkt,8174,Vaslui
+transfermarkt,82,VfL Wolfsburg
+transfermarkt,825,Eskişehirspor
+transfermarkt,826,RC Lens
+transfermarkt,829,Omonia Nicosia
+transfermarkt,8397,Makedonija
+transfermarkt,84,Debreceni VSC
+transfermarkt,85287,Macclesfield
+transfermarkt,853,F91 Dudelange
+transfermarkt,855,EA Guingamp
+transfermarkt,8563,Naftan Novopolotsk
+transfermarkt,8606,FK Auda
+transfermarkt,865,Midtjylland
+transfermarkt,8671,FK Vllaznia
+transfermarkt,8715,Pandurii Targu-Jiu
+transfermarkt,873,Crystal Palace
+transfermarkt,8780,Sligo Rovers
+transfermarkt,87938,Harborough Town
+transfermarkt,8818,FC Botosani
+transfermarkt,8820,Hampton & Richmond
+transfermarkt,8841,Khazar Lankaran
+transfermarkt,89,1. FC Union Berlin
+transfermarkt,8908,Carshalton Athletic
+transfermarkt,8956,Inter Baku
+transfermarkt,8969,Tikvesh
+transfermarkt,8981,Bromley
+transfermarkt,899,Walsall
+transfermarkt,8995,Hødd
+transfermarkt,9007,Arsenal Kyiv
+transfermarkt,9026,Glentoran
+transfermarkt,903,Hibernian FC
+transfermarkt,9095,Bnei Yehuda
+transfermarkt,9153,Chesham United
+transfermarkt,9165,Truro City
+transfermarkt,920,Derry City
+transfermarkt,9211,Bohemians
+transfermarkt,9241,Diósgyőr
+transfermarkt,9284,Swift Hesperange
+transfermarkt,931,Fulham
+transfermarkt,932,Lokomotiv Moskva
+transfermarkt,935,Pasching
+transfermarkt,938,Thun
+transfermarkt,940,Celta Vigo
+transfermarkt,941,Viktoria Plzen
+transfermarkt,9465,Petrolul Ploiesti
+transfermarkt,9527,Warrington Town
+transfermarkt,9605,Leatherhead
+transfermarkt,9614,Östersunds FK
+transfermarkt,964,Zenit St. Petersburg
+transfermarkt,9644,Raków Czestochowa
+transfermarkt,967,Cherno More
+transfermarkt,969,Montpellier HSC
+transfermarkt,971,Scarborough Athletic
+transfermarkt,972,Yeovil
+transfermarkt,982,Nacional
+transfermarkt,9828,Daugava Daugavpils
+transfermarkt,9829,Southport
+transfermarkt,984,West Bromwich Albion
+transfermarkt,9849,Eschen/Mauren
+transfermarkt,985,Manchester United
+transfermarkt,986,Cambridge United
+transfermarkt,987,Motherwell
+transfermarkt,988,Oxford United
+transfermarkt,98841,TransINVEST Vilnius
+transfermarkt,989,AFC Bournemouth
+transfermarkt,990,Coventry City
+transfermarkt,991,Milton Keynes Dons
+transfermarkt,995,Nantes
+espn,101,Rayo Vallecano
+espn,1010,OFI
+espn,10182,Curzon Ashton
+espn,10183,AFC Telford United
+espn,102,Villarreal
+espn,103,AC Milan
+espn,1037,Hapoel Tel Aviv
+espn,10376,Nomme Kalju
+espn,10377,Rudar Velenje
+espn,10381,Hayes & Yeading
+espn,104,AS Roma
+espn,10414,Qarabag FK
+espn,10496,Bala Town
+espn,105,Atalanta
+espn,1068,Atletico Madrid
+espn,107,Bologna FC
+espn,10834,CSKA Sofia
+espn,109,ACF Fiorentina
+espn,110,Internazionale
+espn,11021,FK Jelgava
+espn,11022,KF Laci
+espn,111,Juventus
+espn,112,Lazio
+espn,11208,United of Manchester
+espn,11336,Krasnodar
+espn,114,SSC Napoli
+espn,11420,RasenBallsport Leipzig
+espn,11429,Samsunspor
+espn,11439,Fola Esch
+espn,11440,Milsami Orhei
+espn,11441,UE Santa Coloma
+espn,11467,Kecskemeti TE
+espn,11470,FC Gagra
+espn,11485,FC Admira Wacker Modling
+espn,11494,Banga
+espn,11505,Jagiellonia Bialystok
+espn,11523,Paksi SE
+espn,11537,Renova
+espn,11543,FK Zeta
+espn,11547,JK Narva Trans
+espn,11551,Football Club Lausanne-Sport
+espn,11553,Aris
+espn,11706,Viktoria Plzen
+espn,12030,Rigas Futbola Skola
+espn,12033,FK Spartaks Jurmala
+espn,12124,Astana
+espn,12146,Flora Tallinn
+espn,122,Koln
+espn,12200,HNK Gorica
+espn,12207,MFK Ruzomberok
+espn,12215,Santa Clara
+espn,12271,St Albans City
+espn,12303,FC Vitebsk
+espn,12305,Neman Grodno
+espn,12339,FCI Tallinn
+espn,12344,Dinamo Batumi
+espn,12353,FC Samtredia
+espn,12357,Chikhura Sachkhere
+espn,12367,Gyori ETO
+espn,124,Borussia Dortmund
+espn,125,Eintracht Frankfurt
+espn,12504,Esbjerg fB
+espn,12543,Luftëtari Gjirokastër
+espn,12579,Spartak Subotica
+espn,126,SC Freiburg
+espn,12611,Viitorul Constanta
+espn,12710,Radnik Bijeljina
+espn,12822,Spartak Myjava
+espn,128663,Worthing
+espn,129,Hertha BSC
+espn,12934,Gzira United
+espn,12945,Llandudno Town
+espn,12998,Kapaz
+espn,13018,PFC Ludogorets Razgrad
+espn,13061,Solihull
+espn,13083,Hapoel Be'er
+espn,131,Bayer Leverkusen
+espn,131227,BFC Daugavpils
+espn,131228,Araz Naxcivan
+espn,131229,Spaeri
+espn,131230,Novi Pazar
+espn,131494,Macclesfield
+espn,131495,Chatham Town
+espn,131792,Yelimay
+espn,131793,Mondorf-les-Bains
+espn,131794,ML Vitebsk
+espn,131795,LNZ Cherkasy
+espn,131796,FC Atert Bissen
+espn,131797,AF Elbasani
+espn,131798,OFK Petrovac
+espn,131799,Vestri
+espn,131800,Aluminij
+espn,131860,FC Hradec Králové
+espn,132,Bayern Munich
+espn,13238,Víkingur Gøta
+espn,132427,GKS Katowice
+espn,13294,Wolfsberger
+espn,13298,Hyde United
+espn,133,Schalke 04
+espn,134,VfB Stuttgart
+espn,138,VfL Wolfsburg
+espn,1382,Austria Wien
+espn,13884,AFC Fylde
+espn,139,AFC Ajax
+espn,140,AZ Alkmaar
+espn,142,Feyenoord
+espn,147,NEC Nijmegen
+espn,148,PSV Eindhoven
+espn,152,Twente
+espn,153,FC Utrecht
+espn,154,Vitesse
+espn,156,Willem II
+espn,15713,FK Kukesi
+espn,15784,Arouca
+espn,159,Girondins Bordeaux
+espn,160,Paris Saint-Germain
+espn,165,Nantes
+espn,166,Lille OSC
+espn,167,Olympique Lyon
+espn,169,Stade Rennes
+espn,17368,FC Ufa
+espn,174,AS Monaco
+espn,17495,FC Arsenal Tula
+espn,175,RC Lens
+espn,17502,FK Qabala
+espn,17503,Europa FC
+espn,17507,S.S. Folgore Falciano Calcio
+espn,17509,Inter Baku
+espn,17520,Zorya Voroshilovgrad
+espn,17537,FK Astra Giurgiu
+espn,17544,Antwerp
+espn,176,Olympique Marseille
+espn,178,AS Saint-Etienne
+espn,17855,Skenderbeu Korce
+espn,17856,Lincoln Red Imps
+espn,17858,Alashkert FC
+espn,17859,Balzan FC
+espn,17861,Progres Niederkorn
+espn,17862,SJK
+espn,17864,Trakai
+espn,179,Toulouse
+espn,180,RC Strasbourg
+espn,18034,Whitehawk
+espn,18035,Gainsborough Trinity
+espn,18283,FK Liepaja
+espn,18288,Cardiff MU
+espn,18289,FC Zaria Balti
+espn,18312,South Shields
+espn,18320,Politehnica Iasi
+espn,18321,Osmanlispor
+espn,18327,Slovacko
+espn,18330,Akhisar Belediyespor
+espn,18333,FC Olexandriya
+espn,18355,Mosta FC
+espn,18392,Westfields
+espn,18393,Merstham
+espn,18749,Budapest Honved SE
+espn,18750,Trepca 89
+espn,18751,St. Joseph's
+espn,18752,Prishtina
+espn,18753,Dunav Ruse
+espn,18754,Zira FK
+espn,18773,Sepsi Sfantu Gheorghe
+espn,18790,Yeni Malatyaspor
+espn,18804,FC Olimpik Donetsk
+espn,18835,FC Zlín
+espn,18884,Shaw Lane
+espn,18885,Hereford United
+espn,1895,Besiktas
+espn,19243,Drita Gjilan
+espn,19246,Riga FC
+espn,19247,Dunajska Streda
+espn,19248,FC Ilves
+espn,19249,FC Stumbras
+espn,19250,Petrocub
+espn,19251,Radnicki Nis
+espn,19252,Shkupi
+espn,19261,Havant & Waterlooville
+espn,19262,Harrogate Town A.F.C.
+espn,1929,SL Benfica
+espn,19342,Haringey Borough
+espn,1941,Spartak Moskva
+espn,1963,CSKA Moskva
+espn,20019,Sochi
+espn,20020,Feronikeli
+espn,20024,Ararat-Armenia
+espn,20025,Saburtalo Tbilisi
+espn,20027,Akademija Pandev
+espn,20028,Kauno Zalgiris
+espn,20029,NS Mura
+espn,20030,Speranta Nisporeni
+espn,20031,Sabail
+espn,20032,Servette Geneve
+espn,20038,Penybont FC
+espn,20039,Larne
+espn,20083,Sirens FC
+espn,20198,Maldon & Tiptree
+espn,20213,Chichester City
+espn,20297,Shelbourne
+espn,20301,Mjällby AIF
+espn,20703,Inter D'Escaldes
+espn,20708,Iskra
+espn,20709,Gjilani
+espn,20710,Borac Banja Luka
+espn,20711,Puskas Akademia
+espn,20712,FC Noah
+espn,20713,FK TSC
+espn,20714,Sfintul Gheorghe
+espn,20715,Sumgayit
+espn,20716,Union Titus Petange
+espn,20717,FC Dinamo-Auto
+espn,20718,Paide Linnameeskond
+espn,20719,Valmiera
+espn,20741,Kaisar
+espn,20742,FC Kolos Kovalivka
+espn,20743,Desna Chernihiv
+espn,20747,Kings Lynn Town
+espn,20765,Adana Demirspor
+espn,20768,Tonbridge Angels
+espn,20769,Banbury United
+espn,20771,Marine
+espn,20772,Skelmersdale United
+espn,20773,Cray Valley Paper Mills
+espn,20997,Mons Calpe
+espn,20998,Podgorika
+espn,20999,Struga
+espn,21000,Llapi
+espn,21001,Decic
+espn,21002,Swift Hesperange
+espn,21003,Arda
+espn,21004,Panevezys
+espn,21005,Raków Czestochowa
+espn,21176,AFC Sudbury
+espn,21177,Bowers & Pitsea
+espn,21179,Stratford Town
+espn,21182,Yate Town
+espn,21526,Ballkani
+espn,21527,Tuzla City
+espn,21528,Atlètic Club d'Escaldes
+espn,21529,Magpies
+espn,21530,Aris Limassol
+espn,21531,Kisvárda FC
+espn,21532,Kyzylzhar
+espn,21615,Torreense
+espn,21631,"Bohemians Praha 1905, a.s."
+espn,21633,SC Dnipro-1
+espn,21708,Bracknell Town
+espn,21709,Needham Market
+espn,21710,Merthyr Town
+espn,21711,Alvechurch
+espn,21922,Sabah FK
+espn,21942,Arsenal Tivat
+espn,21943,Egnatia
+espn,21944,Dukagjini
+espn,21945,Hegelmann
+espn,21946,KA Akureyri
+espn,21947,CSKA 1948 Sofia
+espn,21948,FK Auda
+espn,22079,Worksop Town
+espn,22089,Whitby Town
+espn,22090,Scarborough Athletic
+espn,22091,Sheppey United
+espn,22281,Pafos
+espn,22282,Corvinul Hunedoara
+espn,22284,FA Siauliai
+espn,22285,Isloch Minsk
+espn,22286,JK Tallinna Kalev
+espn,22287,KF Malisheva
+espn,22288,NK Bravo
+espn,22289,Tikvesh
+espn,22290,Mornar
+espn,22291,UNA Strassen
+espn,22292,AC Virtus
+espn,22293,TransINVEST Vilnius
+espn,22294,Polissya Zhitomir
+espn,22295,Radnicki 1923
+espn,22298,Zeleznicar Pancevo
+espn,22332,Kryvbas KR
+espn,22468,Harborough Town
+espn,22469,Rushall Olympic
+espn,2250,Sporting CP
+espn,2290,Crvena Zvezda
+espn,2339,Djurgardens IF
+espn,239,Torino
+espn,243,Sevilla
+espn,244,Real Betis
+espn,2491,MSK Zilina
+espn,2493,Pyunik
+espn,2494,Zeljeznicar Sarajevo
+espn,2495,Hammarby
+espn,2496,Dinamo Bucuresti
+espn,2497,APOEL Nikosia
+espn,2498,Zalaegerszegi TE
+espn,2499,Hibernians
+espn,250,St Mirren
+espn,2502,OGC Nice
+espn,2510,B36 Torshavn
+espn,2512,F91 Dudelange
+espn,2528,Kairat
+espn,2530,Gomel
+espn,2533,Zenit St. Petersburg
+espn,2539,Dinamo Minsk
+espn,2540,Levadia
+espn,2542,NK Siroki Brijeg
+espn,2547,KI Klaksvik
+espn,2548,Ujpesti Dozsa SC
+espn,2549,IB Vestmannaeyja
+espn,2550,Anorthosis Famagusta
+espn,2551,FK Partizani Tirana
+espn,2552,FK Suduva
+espn,2554,Stabaek
+espn,2555,Linfield
+espn,2556,IFK Goteborg
+espn,2559,Dundalk
+espn,256,Celtic
+espn,2560,Bangor City
+espn,2564,Shamrock Rovers
+espn,2567,Burton Albion
+espn,257,Rangers
+espn,2572,Como Calcio
+espn,258,Hibernian FC
+espn,2583,Heybridge Swifts
+espn,2588,Guiseley AFC
+espn,2594,Crawley Town
+espn,2595,Boreham Wood
+espn,260,Kilmarnock
+espn,262,Heart of Midlothian
+espn,263,Abderden
+espn,264,Dundee United
+espn,266,Motherwell
+espn,267,St Johnstone
+espn,268,Borussia Monchengladbach
+espn,2694,KR Reykjavik
+espn,2695,Irtysh Pavlodar
+espn,2698,Valletta
+espn,2709,Shirak
+espn,2710,NSI
+espn,2712,Derry City
+espn,2715,Molde FK
+espn,2716,FK Vllaznia
+espn,2719,Banants
+espn,2720,Malmo FF
+espn,2722,BSC Young Boys
+espn,2723,Coleraine
+espn,2731,Accrington
+espn,275,Dagenham and Redbridge
+espn,278,Morecambe
+espn,2789,Panionios
+espn,279,Doncaster Rovers
+espn,2790,Salzburg
+espn,2791,Vålerengens Idrettsforening
+espn,280,Barnet
+espn,2804,Weston-super-Mare
+espn,2808,Bishop's Stortford
+espn,281,Farnborough
+espn,282,Forest Green Rovers
+espn,284,Yeovil
+espn,285,Stevenage Borough
+espn,286,Southport
+espn,290,Woking
+espn,292,Chester
+espn,2922,Getafe CF
+espn,293,Dover Athletic
+espn,2933,Jeunesse Esch
+espn,2934,Haverfordwest
+espn,2935,FH
+espn,2940,FK Sileks
+espn,2947,FC Mariupol
+espn,2948,Marsaxlokk
+espn,2950,1. FSV Mainz 05
+espn,2952,PFC Lokomotiv Plovdiv
+espn,2959,Banik Ostrava
+espn,2980,Bodo/Glimt
+espn,2983,Maccabi Petah-Tikva
+espn,2988,HNK Rijeka
+espn,2990,Lech Poznan
+espn,2994,Sporting Braga
+espn,301,Luton Town
+espn,3019,FC Zurich
+espn,302,Shrewsbury Town
+espn,3024,Thun
+espn,303,Rochdale
+espn,3039,Fredrikstad FK
+espn,304,Mansfield Town
+espn,305,Darlington
+espn,3052,Kalmar FF
+espn,306,Hull City
+espn,307,Plymouth Argyle
+espn,3076,Sion
+espn,308,Bristol Rovers
+espn,309,Leyton Orient
+espn,310,Southend United
+espn,3101,Nordsjaelland
+espn,3109,Brackley Town
+espn,311,Oxford United
+espn,3110,Maidstone United
+espn,312,Halifax Town
+espn,3129,Bromley
+espn,313,Scunthorpe United
+espn,3132,Randers FC
+espn,3138,Gateshead
+espn,314,Lincoln City
+espn,315,York City
+espn,3153,Viborg FF
+espn,316,Macclesfield
+espn,3165,Alfreton Town
+espn,318,Swansea City
+espn,319,Kidderminster Harriers
+espn,320,Cheltenham
+espn,321,Torquay United
+espn,322,Carlisle United
+espn,3222,Eastbourne Borough
+espn,3226,Weymouth
+espn,323,Hartlepool United
+espn,3231,Sutton United
+espn,324,Exeter City
+espn,3243,Stade Reims
+espn,3256,Boston United
+espn,331,Brighton & Hove Albion
+espn,332,Oldham Athletic
+espn,3327,Haugesund
+espn,333,Bristol City
+espn,334,Queens Park Rangers
+espn,335,Huddersfield Town
+espn,336,Stoke City
+espn,3360,NK Domzale
+espn,3362,NK Celje
+espn,3364,Koper
+espn,337,Brentford
+espn,338,Reading
+espn,339,Colchester United
+espn,340,Notts County
+espn,341,Swindon Town
+espn,342,Peterborough United
+espn,343,Chesterfield
+espn,344,Wycombe Wanderers
+espn,345,Tranmere Rovers
+espn,346,Blackpool
+espn,347,Cardiff City
+espn,348,Port Vale
+espn,349,AFC Bournemouth
+espn,350,Wigan Athletic
+espn,351,Cambridge United
+espn,352,Wrexham
+espn,353,Northampton Town
+espn,3535,Spennymoor United
+espn,354,Bury
+espn,357,Leeds United
+espn,358,Bolton Wanderers
+espn,359,Arsenal
+espn,360,Manchester United
+espn,3604,Hitchin Town
+espn,361,Newcastle United
+espn,3610,Cercle Brugge KSV
+espn,3611,Gent
+espn,3612,KV Oostende
+espn,3616,Royal Charleroi SC
+espn,362,Aston Villa
+espn,363,Chelsea
+espn,3631,Carshalton Athletic
+espn,364,Liverpool
+espn,365,Blackburn Rovers
+espn,3651,Ramsgate
+espn,3652,Dulwich Hamlet
+espn,366,Sunderland
+espn,367,Tottenham Hotspur
+espn,368,Everton
+espn,369,Middlesbrough
+espn,3691,Sivasspor
+espn,3699,Gil Vicente
+espn,370,Fulham
+espn,3706,Go Ahead Eagles
+espn,3708,Heracles
+espn,371,West Ham United
+espn,3713,Pacos de Ferreira
+espn,372,Charlton Athletic
+espn,3726,Inter Turku
+espn,373,Ipswich Town
+espn,374,Derby County
+espn,3746,Sturm Graz
+espn,3747,Granada CF
+espn,375,Leicester City
+espn,376,Southampton
+espn,379,Burnley
+espn,380,Wolverhampton Wanderers
+espn,3802,AFC Wimbledon
+espn,3806,Slough Town
+espn,3809,Coalville Town
+espn,381,Norwich City
+espn,382,Manchester City
+espn,3822,Rio Ave
+espn,3828,Braintree Town
+espn,3829,Chorley
+espn,383,West Bromwich Albion
+espn,384,Crystal Palace
+espn,3841,FC Augsburg
+espn,385,Portsmouth
+espn,3851,Rubin Kazan
+espn,3852,Rostov
+espn,3857,AFC Totton
+espn,386,Grimsby Town
+espn,387,Bradford City
+espn,388,Coventry City
+espn,3885,FC Reipas Lahti
+espn,3887,Wealdstone
+espn,389,Gillingham
+espn,3891,Fleetwood Town
+espn,3897,Eastleigh
+espn,3899,Harrow Borough
+espn,390,Milton Keynes Dons
+espn,3908,Leatherhead
+espn,391,Millwall
+espn,3915,Hemel Hempstead Town
+espn,3919,Stamford
+espn,392,Birmingham City
+espn,3921,Chippenham Town
+espn,3929,Spartak TAZ Trnava
+espn,393,Nottingham Forest
+espn,394,Preston North End
+espn,395,Watford
+espn,396,Crewe Alexandra
+espn,397,Barnsley
+espn,398,Sheffield United
+espn,399,Sheffield Wednesday
+espn,3997,Sassuolo Calcio
+espn,400,Stockport County
+espn,401,Walsall
+espn,402,Rotherham United
+espn,4032,MTK
+espn,4039,AEK Larnaca
+espn,4093,Cracovia
+espn,4100,Zaglebie Lubin
+espn,4149,Kingstonian
+espn,4172,Newtown
+espn,4181,Chesham United
+espn,4227,Metropolitan Police
+espn,4236,Dartford
+espn,4248,Taunton Town
+espn,432,Galatasaray
+espn,433,Sparta Praha
+espn,435,Olympiacos
+espn,436,Fenerbahce
+espn,437,FC Porto
+espn,438,Rosenborg BK
+espn,440,Dinamo Kiev
+espn,4401,VPS Vaasa
+espn,4405,SC Rheindorf Altach
+espn,441,RSC Anderlecht
+espn,4411,LASK Linz
+espn,4413,NK Lokomotiva
+espn,442,Lokomotiv Moskva
+espn,443,Panathinaikos
+espn,4473,Billericay
+espn,4489,Oxford City
+espn,4495,FC Honka
+espn,4509,IFK Mariehamn
+espn,4641,Nantwich Town
+espn,4691,Zulte-Waregem
+espn,4703,Salford City
+espn,4718,Concord Rangers
+espn,4733,Stourbridge
+espn,484,Steaua Bucuresti
+espn,487,FC Haka
+espn,488,Wisla Krakow
+espn,489,Hajduk Split
+espn,490,Levski Sofia
+espn,492,Grasshoppers Zurich
+espn,4926,Dungannon Swifts
+espn,493,Shakhtar Donetsk
+espn,494,Slavia Praha
+espn,497,BATE Borisov
+espn,498,Dinamo Tbilisi
+espn,500,Olimpija Ljubljana
+espn,5002,Sarpsborg FK
+espn,501,Ventspils
+espn,502,HJK Helsinki
+espn,504,Neftchi PFC Baku
+espn,5043,Östersunds FK
+espn,505,Lokomotiv Tbilisi
+espn,506,Birkirkara
+espn,510,Viking FK
+espn,511,Pogon Szczecin
+espn,515,Dinamo City
+espn,519,Rapid Wien
+espn,520,Cosmos
+espn,521,SK Slovan Bratislava
+espn,5218,Beitar Jerusalem
+espn,523,FK Zalgiris Vilnius
+espn,5238,Rabotnicki
+espn,5239,HSK Zrinjski Mostar
+espn,524,Maccabi Tel Aviv
+espn,5243,UE Sant Julia
+espn,5244,KS Teuta
+espn,5248,Dacia Chisinau
+espn,525,Apollon Limassol
+espn,5252,Cork City
+espn,526,KF Tirana
+espn,5260,CFR Cluj
+espn,5269,Moadon Sport Ashdod
+espn,5270,Tromso
+espn,528,Shakhtyor Soligorsk
+espn,529,Elfsborg
+espn,5309,Vitoria Guimaraes
+espn,532,Debreceni VSC
+espn,534,FC Ararat
+espn,540,Zimbru Chisinau
+espn,541,Partizan Belgrade
+espn,542,FC Santa Coloma
+espn,543,Sliema Wanderers
+espn,546,FK Atlantas
+espn,551,FK Sarajevo
+espn,552,Maritimo
+espn,5543,Hednesford
+espn,555,Legia Warsaw
+espn,557,St. Gallen
+espn,559,Standard Liege
+espn,560,Vardar Skopje
+espn,561,Varteks
+espn,562,FC Vaduz
+espn,566,HB
+espn,567,Osijek
+espn,570,Club Brugge
+espn,571,Glentoran
+espn,572,Midtjylland
+espn,573,Glenavon FC
+espn,575,Brondby IF
+espn,576,The New Saints
+espn,5767,Buxton
+espn,5807,Union St.-Gilloise
+espn,5890,Arka Gdynia
+espn,594,Slovan Liberec
+espn,5945,Maccabi Netanya
+espn,596,Dinamo Moskva
+espn,597,Dinamo Zagreb
+espn,598,1. FC Union Berlin
+espn,5993,PFC Beroe
+espn,602,Odds BK
+espn,605,PAOK
+espn,607,Silkeborg IF
+espn,609,Sigma Olomouc
+espn,611,Maccabi Haifa
+espn,612,Torpedo Kutaisi
+espn,614,Sheriff Tiraspol
+espn,615,Bohemians
+espn,617,Omonia Nicosia
+espn,619,NK Maribor
+espn,620,Brann
+espn,621,Barry Town
+espn,6215,Pandurii Targu-Jiu
+espn,6216,PFC Slavia Sofia
+espn,622,Ferencvaros
+espn,632,Aldershot
+espn,633,Altrincham
+espn,635,Newport County
+espn,640,Ebbsfleet United
+espn,641,Kettering Town
+espn,6418,1. FC Heidenheim
+espn,642,Barrow
+espn,645,Tamworth
+espn,648,Canvey Island
+espn,6728,Shakhter Karagandy
+espn,6731,Viitorul Constanta
+espn,6733,Aktobe
+espn,6740,Videoton
+espn,6742,Valur
+espn,6747,Makedonija
+espn,6748,Tobol
+espn,6758,Mlada Boleslav
+espn,6764,Bnei Yehuda
+espn,6790,Atromitos
+espn,6848,Pas Giannina
+espn,6907,TSV Hartberg
+espn,6937,Kosice
+espn,6997,Stade Brest
+espn,7155,Chelmsford City
+espn,7156,Maidenhead United
+espn,7293,Trakia Plovdiv
+espn,7588,St Patrick's Athletic
+espn,7590,Caernarfon Town
+espn,7591,Connah's Quay
+espn,7593,Cefn Druids
+espn,7595,Ballymena
+espn,7597,Cliftonville
+espn,7599,Crusaders
+espn,7601,Sligo Rovers
+espn,7640,FC Luzern
+espn,7648,Konyaspor
+espn,7672,Lugano
+espn,7759,FC Differdange 03
+espn,7822,Buducnost
+espn,7823,FK Rudar Pljevlja
+espn,7825,Vojvodina
+espn,7833,Dynamo Brest
+espn,7834,BK Häcken
+espn,7837,Cherno More
+espn,7853,Aarhus GF
+espn,7857,Floriana
+espn,7858,Hamrun Spartans
+espn,7860,Lyngby BK
+espn,7911,1899 Hoffenheim
+espn,7914,Istanbul Basaksehir
+espn,7922,Jablonec
+espn,7949,Stjarnan
+espn,7962,Ordabasy Shymkent
+espn,8069,Sloboda Tuzla
+espn,8070,Velez Mostar
+espn,8089,FC Universitatea Craiova
+espn,8091,Universitatea Cluj
+espn,8094,Vorskla
+espn,8097,Vasas
+espn,8102,AS Trencin
+espn,8118,Sønderjyske Fodbold
+espn,8127,Gandzasar Kapan
+espn,8142,Torpedo-BelAZ Zhodino
+espn,8151,Shkendija
+espn,8152,Pelister Bitola
+espn,8166,RoPS
+espn,8169,Kuopion PS
+espn,8180,Gornik Zabrze
+espn,8222,GAIS
+espn,8249,Vikingur Reykjavik
+espn,8250,Breidablik
+espn,8278,Mladost Pogorica
+espn,8280,Bokelj
+espn,8281,Sutjeska Niksic
+espn,8283,Mladost Lucani
+espn,8284,Dila Gori
+espn,8287,Cukaricki Belgrade
+espn,83,Barcelona
+espn,8309,Racing FC
+espn,8354,Asteras Tripoli
+espn,8357,AEL Limassol
+espn,85,Celta Vigo
+espn,8544,IFK Norrkoping
+espn,8575,Lusitanos
+espn,8576,UE Engordany
+espn,8591,Tre Fiori
+espn,8592,Tre Penne
+espn,8594,La Fiorita
+espn,86,Real Madrid
+espn,8699,Hampton & Richmond
+espn,8706,Horsham
+espn,88,Espanyol Barcelona
+espn,887,AEK Athens
+espn,89,Real Sociedad
+espn,9078,Alanyaspor
+espn,909,Kobenhavn
+espn,9280,Truro City
+espn,93,Athletic Bilbao
+espn,936,Sint-Truidense
+espn,938,KRC Genk
+espn,94,Valencia CF
+espn,9577,Hapoel Haifa
+espn,9657,Piast Gliwice
+espn,9658,Lechia Gdansk
+espn,9659,Slask Wroclaw
+espn,9682,FC Botosani
+espn,97,Osasuna
+espn,9811,Stromsgodset IF
+espn,9812,Girona
+espn,987,Lillestrøm Sportsklubb
+espn,989,Basel
+espn,994,AIK Solna
+espn,997,Trabzonspor
+engsoccerdata,CA Osasuna,Osasuna
+engsoccerdata,CD Malaga,Malaga CF
+engsoccerdata,FC Barcelona,Barcelona
+engsoccerdata,Sevilla FC,Sevilla
+engsoccerdata,Villarreal CF,Villarreal
+engsoccerdata,1. FC Kaiserslautern,Kaiserslautern
+engsoccerdata,1. FC Koln,Koln
+engsoccerdata,1. FC Magdeburg,Magdeburg
+engsoccerdata,1. FC Nurnberg,Nurnberg
+engsoccerdata,1. FC Saarbrucken,Saarbrucken
+engsoccerdata,Bayern Munchen,Bayern Munich
+engsoccerdata,Bor. Monchengladbach,Borussia Monchengladbach
+engsoccerdata,Carl Zeiss Jena,FC Carl Zeiss Jena
+engsoccerdata,FC Schalke 04,Schalke 04
+engsoccerdata,Chievo Verona,AC Chievo Verona
+engsoccerdata,Inter,Internazionale
+engsoccerdata,Lazio Roma,Lazio
+engsoccerdata,Parma AC,Parma
+engsoccerdata,Parma FC,Parma
+engsoccerdata,Torino FC,Torino
+engsoccerdata,Udinese Calcio,Udinese
+engsoccerdata,FC Metz,Metz
+engsoccerdata,FC Nantes,Nantes
+engsoccerdata,Stade Francais,Stade Francais FC
+engsoccerdata,Toulouse FC,Toulouse
+engsoccerdata,Frankfurter SG Eintracht,Eintracht Frankfurt
+football_data,Aachen,Alemannia Aachen
+football_data,Aalen,VfR Aalen
+football_data,Ahlen,Rot Weiss Ahlen
+football_data,Ajaccio,AC Ajaccio
+football_data,Ajaccio GFCO,GFC Ajaccio
+football_data,Alaves,CD Alaves
+football_data,Albacete,Albacete
+football_data,Albinoleffe,Albinoleffe
+football_data,Alcorcon,Alcorcon
+football_data,Alcoyano,CD Alcoyano
+football_data,Alessandria,US Alessandria 1912
+football_data,Algeciras,Algeciras
+football_data,Alicante,Alicante
+football_data,Almeria,UD Almeria
+football_data,Alzano,Alzano
+football_data,Amiens,Amiens SC
+football_data,Amorebieta,Amorebieta
+football_data,Ancona,Ancona Calcio
+football_data,Andorra,Andorra
+football_data,Angers,Angers SCO
+football_data,Annecy,Annecy
+football_data,Arezzo,Arezzo
+football_data,Arles,AC Arles-Avignon
+football_data,Ascoli,Ascoli Calcio
+football_data,Atalanta,Atalanta
+football_data,Ath Bilbao,Athletic Bilbao
+football_data,Ath Bilbao B,Ath Bilbao B
+football_data,Ath Madrid,Atletico Madrid
+football_data,Ath Madrid B,Ath Madrid B
+football_data,Augsburg,FC Augsburg
+football_data,Auxerre,AJ Auxerre
+football_data,Avellino,US Avellino
+football_data,Babelsberg,SV Babelsberg 03
+football_data,Badajoz,Badajoz
+football_data,Barcelona,Barcelona
+football_data,Barcelona B,Barcelona B
+football_data,Bari,AS Bari
+football_data,Bastia,SC Bastia
+football_data,Bayern Munich,Bayern Munich
+football_data,Beauvais,Beauvais
+football_data,Benevento,Benevento
+football_data,Besancon,Besancon
+football_data,Betis,Real Betis
+football_data,Beziers,AS Beziers
+football_data,Bielefeld,Arminia Bielefeld
+football_data,Bochum,VfL Bochum
+football_data,Bologna,Bologna FC
+football_data,Bordeaux,Girondins Bordeaux
+football_data,Boulogne,US Boulogne
+football_data,Bourg Peronnas,Bourg Peronnas
+football_data,Braunschweig,Eintracht Braunschweig
+football_data,Brescia,Brescia Calcio
+football_data,Brest,Stade Brest
+football_data,Burghausen,Wacker Burghausen
+football_data,Burgos,Burgos CF
+football_data,C. Sangro,C. Sangro
+football_data,CA Bastia,CA Bastia
+football_data,CZ Jena,FC Carl Zeiss Jena
+football_data,Cadiz,Cadiz CF
+football_data,Caen,SM Caen
+football_data,Cagliari,Cagliari Calcio
+football_data,Cannes,AS Cannes
+football_data,Carpi,Carpi FC
+football_data,Carrarese,Carrarese
+football_data,Cartagena,Cartagena
+football_data,Castellon,CD Castellon
+football_data,Catania,Calcio Catania
+football_data,Catanzaro,US Catanzaro
+football_data,Celta,Celta Vigo
+football_data,Celta B,Celta B
+football_data,Cesena,AC Cesena
+football_data,Ceuta,Ceuta
+football_data,Chambly,Chambly
+football_data,Charleville,Charleville
+football_data,Chateauroux,LB Chateauroux
+football_data,Chemnitz,Chemnitzer FC
+football_data,Chievo,AC Chievo Verona
+football_data,Cittadella,Cittadella
+football_data,Ciudad de Murcia,Ciudad de Murcia
+football_data,Clermont,Clermont Foot 63
+football_data,Como,Como Calcio
+football_data,Compostela,SD Compostela
+football_data,Concarneau,Concarneau
+football_data,Cordoba,Cordoba CF
+football_data,Cosenza,Cosenza
+football_data,Cottbus,Energie Cottbus
+football_data,Cremonese,US Cremonese
+football_data,Creteil,Creteil
+football_data,Crotone,FC Crotone
+football_data,Cultural Leonesa,CD Leonesa
+football_data,Darmstadt,SV Darmstadt 98
+football_data,Dijon,Dijon FCO
+football_data,Dortmund,Borussia Dortmund
+football_data,Dresden,Dynamo Dresden
+football_data,Duisburg,MSV Duisburg
+football_data,Dunkerque,Dunkerque
+football_data,Dusseldorf,Fortuna Dusseldorf
+football_data,Ecija,Ecija
+football_data,Eibar,SD Eibar
+football_data,Ein Frankfurt,Eintracht Frankfurt
+football_data,Ein Trier,Eintracht Trier
+football_data,Elche,Elche CF
+football_data,Eldense,Eldense
+football_data,Elversberg,SV Elversberg
+football_data,Empoli,Empoli FC
+football_data,Epinal,Epinal
+football_data,Erfurt,Rot-Weiss Erfurt
+football_data,Erzgebirge Aue,Erzgebirge Aue
+football_data,Espanol,Espanyol Barcelona
+football_data,Essen,Rot-Weiss Essen
+football_data,Evian Thonon Gaillard,Evian Thonon Gaillard
+football_data,Extremadura,CF Extremadura
+football_data,Extremadura UD,Extremadura UD
+football_data,F Koln,Fortuna Koln
+football_data,F. Andria,F. Andria
+football_data,FC Koln,Koln
+football_data,FSV Frankfurt,FSV Frankfurt
+football_data,FeralpiSalo,FeralpiSalo
+football_data,Fermana,Fermana
+football_data,Ferrol,Ferrol
+football_data,Fiorentina,ACF Fiorentina
+football_data,Foggia,US Foggia
+football_data,Fortuna Dusseldorf,Fortuna Dusseldorf
+football_data,Frankfurt FSV,FSV Frankfurt
+football_data,Freiburg,SC Freiburg
+football_data,Frosinone,Frosinone Calcio
+football_data,Fuenlabrada,Fuenlabrada
+football_data,Gallipoli,Gallipoli
+football_data,Genoa,Genoa CFC
+football_data,Getafe,Getafe CF
+football_data,Gimnastic,Gimnastic
+football_data,Girona,Girona
+football_data,Granada,Granada CF
+football_data,Granada 74,Granada 74
+football_data,Grenoble,Grenoble Foot 38
+football_data,Greuther Furth,SpVgg Greuther Furth
+football_data,Grosseto,Grosseto
+football_data,Guadalajara,Guadalajara
+football_data,Gubbio,Gubbio
+football_data,Gueugnon,FC Gueugnon
+football_data,Guingamp,EA Guingamp
+football_data,Gutersloh,FC Gutersloh
+football_data,Hamburg,Hamburger SV
+football_data,Hannover,Hannover 96
+football_data,Hansa Rostock,Hansa Rostock
+football_data,Heidenheim,1. FC Heidenheim
+football_data,Hercules,Hercules CF
+football_data,Hertha,Hertha BSC
+football_data,Hoffenheim,1899 Hoffenheim
+football_data,Holstein Kiel,Holstein Kiel
+football_data,Homburg,FC 08 Homburg
+football_data,Huesca,SD Huesca
+football_data,Ibiza,Ibiza
+football_data,Ingolstadt,FC Ingolstadt 04
+football_data,Inter,Internazionale
+football_data,Istres,FC Istres
+football_data,Jaen,Real Jaen
+football_data,Juve Stabia,Juve Stabia
+football_data,Juventus,Juventus
+football_data,Kaiserslautern,Kaiserslautern
+football_data,Karlsruhe,Karlsruher SC
+football_data,Koblenz,TuS Koblenz
+football_data,La Coruna,Deportivo La Coruna
+football_data,Las Palmas,UD Las Palmas
+football_data,Latina,Latina
+football_data,Laval,Stade Laval
+football_data,Lazio,Lazio
+football_data,Le Havre,Le Havre AC
+football_data,Le Mans,Le Mans UC 72
+football_data,Lecce,US Lecce
+football_data,Lecco,Calcio Lecco 1912
+football_data,Leganes,CD Leganes
+football_data,Leipzig,VfB Leipzig
+football_data,Lens,RC Lens
+football_data,Leonesa,CD Leonesa
+football_data,Lerida,UE Lleida
+football_data,Levante,Levante UD
+football_data,Leverkusen,Bayer Leverkusen
+football_data,Libourne,Libourne
+football_data,Lille,Lille OSC
+football_data,Livorno,AS Livorno
+football_data,Llagostera,Llagostera
+football_data,Lleida,UE Lleida
+football_data,Logrones,CD Logrones
+football_data,Lorca,Lorca
+football_data,Lorient,FC Lorient
+football_data,Louhans-Cuis.,Louhans-Cuis.
+football_data,Lubeck,VfB Lubeck
+football_data,Lucchese,Lucchese
+football_data,Lugo,Lugo
+football_data,Lyon,Olympique Lyon
+football_data,M'Gladbach,Borussia Monchengladbach
+football_data,M'gladbach,Borussia Monchengladbach
+football_data,Magdeburg,Magdeburg
+football_data,Mainz,1. FSV Mainz 05
+football_data,Malaga,Malaga CF
+football_data,Malaga B,Malaga B
+football_data,Mallorca,RCD Mallorca
+football_data,Mallorca B,Mallorca B
+football_data,Mannheim,Waldhof Mannheim
+football_data,Mantova,AC Mantova
+football_data,Marseille,Olympique Marseille
+football_data,Martigues,FC Martigues
+football_data,Meppen,SV Meppen
+football_data,Merida,CP Merida
+football_data,Messina,FC Messina
+football_data,Metz,Metz
+football_data,Milan,AC Milan
+football_data,Mirandes,Mirandes
+football_data,Modena,Modena FC
+football_data,Monaco,AS Monaco
+football_data,Montpellier,Montpellier HSC
+football_data,Monza,AC Monza
+football_data,Mulhouse,FC Mulhouse
+football_data,Munich 1860,1860 Munchen
+football_data,Murcia,Real Murcia
+football_data,Nancy,AS Nancy
+football_data,Nantes,Nantes
+football_data,Napoli,SSC Napoli
+football_data,Nice,OGC Nice
+football_data,Nimes,Nimes Olympique
+football_data,Niort,Chamois Niortais
+football_data,Nocerina,Nocerina
+football_data,Novara,Novara Calcio
+football_data,Numancia,CD Numancia
+football_data,Nurnberg,Nurnberg
+football_data,Oberhausen,Rot-Weiss Oberhausen
+football_data,Offenbach,Kickers Offenbach
+football_data,Oldenburg,VfB Oldenburg
+football_data,Orense,Orense
+football_data,Orleans,Orleans
+football_data,Osasuna,Osasuna
+football_data,Osnabruck,VfL Osnabruck
+football_data,Ourense,Ourense
+football_data,Oviedo,Real Oviedo
+football_data,Paderborn,SC Paderborn 07
+football_data,Padova,Calcio Padova
+football_data,Palermo,US Palermo
+football_data,Paris FC,Paris FC
+football_data,Paris SG,Paris Saint-Germain
+football_data,Parma,Parma
+football_data,Pau FC,Pau FC
+football_data,Perpignan,Perpignan
+football_data,Perugia,AC Perugia
+football_data,Pescara,Pescara Calcio
+football_data,Piacenza,Piacenza Calcio
+football_data,Pisa,Pisa SC
+football_data,Pistoiese,AC Pistoiese
+football_data,Poli Ejido,Poli Ejido
+football_data,Ponferradina,Ponferradina
+football_data,Pontevedra,Pontevedra CF
+football_data,Pordenone,Pordenone
+football_data,Portogruaro,Portogruaro
+football_data,PreuÃen MÃ¼nster,Preussen Munster
+football_data,Pro Vercelli,Pro Vercelli
+football_data,Quevilly Rouen,Quevilly Rouen
+football_data,RB Leipzig,RasenBallsport Leipzig
+football_data,RW Essen,Rot-Weiss Essen
+football_data,Ravenna,Ravenna
+football_data,Rayo Majadahonda,Rayo Majadahonda
+football_data,Real Madrid,Real Madrid
+football_data,Real Madrid B,Real Madrid B
+football_data,Real Union,Real Union
+football_data,Recreativo,Recreativo Huelva
+football_data,Red Star,Red Star FC
+football_data,Red Star 93,Red Star FC
+football_data,Regensburg,Jahn Regensburg
+football_data,Reggiana,AC Reggiana
+football_data,Reggina,Reggina Calcio
+football_data,Reims,Stade Reims
+football_data,Rennes,Stade Rennes
+football_data,Reus Deportiu,Reus Deportiu
+football_data,Reutlingen,SSV Reutlingen
+football_data,Rimini,Rimini
+football_data,Rodez,Rodez
+football_data,Roma,AS Roma
+football_data,Rouen,FC Rouen
+football_data,Saarbrucken,Saarbrucken
+football_data,Sabadell,CE Sabadell
+football_data,Salamanca,UD Salamanca
+football_data,Salernitana,Salernitana Calcio 1919
+football_data,Sampdoria,Sampdoria
+football_data,Sandhausen,SV Sandhausen
+football_data,Santander,Racing Santander
+football_data,Sassuolo,Sassuolo Calcio
+football_data,Savoia,Savoia
+football_data,Schalke 04,Schalke 04
+football_data,Schweinfurt,1. FC Schweinfurt 05
+football_data,Sedan,CS Sedan
+football_data,Sete,FC Sete
+football_data,Sevilla,Sevilla
+football_data,Sevilla B,Sevilla B
+football_data,Siegen,Sportfreunde Siegen
+football_data,Siena,AC Siena
+football_data,Sochaux,FC Sochaux
+football_data,Sociedad,Real Sociedad
+football_data,Sociedad B,Sociedad B
+football_data,Sp Gijon,Sporting Gijon
+football_data,Spal,SPAL 1907 Ferrara
+football_data,Spezia,Spezia Calcio
+football_data,St Brieuc,St Brieuc
+football_data,St Etienne,AS Saint-Etienne
+football_data,St Pauli,FC St. Pauli
+football_data,Strasbourg,RC Strasbourg
+football_data,Stuttgart,VfB Stuttgart
+football_data,Stuttgarter K,Stuttgarter Kickers
+football_data,Sudtirol,Sudtirol
+football_data,TB Berlin,Tennis Borussia Berlin
+football_data,Tenerife,CD Tenerife
+football_data,Ternana,Ternana Calcio
+football_data,Terrassa,Terrassa
+football_data,Toledo,Toledo
+football_data,Torino,Torino
+football_data,Toulon,Sporting Toulon Var
+football_data,Toulouse,Toulouse
+football_data,Tours,Tours FC
+football_data,Trapani,Trapani
+football_data,Treviso,Treviso FBC
+football_data,Triestina,Unione Triestina
+football_data,Troyes,ESTAC Troyes
+football_data,U.Las Palmas,U.Las Palmas
+football_data,UCAM Murcia,UCAM Murcia
+football_data,Udinese,Udinese
+football_data,Uerdingen,KFC Uerdingen 05
+football_data,Ulm,SSV Ulm 1846
+football_data,Union Berlin,1. FC Union Berlin
+football_data,Unterhaching,SpVgg Unterhaching
+football_data,Valence,Valence
+football_data,Valencia,Valencia CF
+football_data,Valenciennes,Valenciennes FC
+football_data,Valladolid,Real Valladolid
+football_data,Vallecano,Rayo Vallecano
+football_data,Vannes,Vannes
+football_data,Varese,AS Varese 1910
+football_data,Vecindario,Vecindario
+football_data,Venezia,AC Venezia
+football_data,Verona,Hellas Verona
+football_data,Vicenza,Vicenza Calcio
+football_data,Villareal,Villarreal
+football_data,Villarreal,Villarreal
+football_data,Villarreal B,Villarreal B
+football_data,Virtus Entella,Virtus Entella
+football_data,Virtus Lanciano,Virtus Lanciano
+football_data,Wasquehal,Wasquehal
+football_data,Wattenscheid,SG Wattenscheid 09
+football_data,Wehen,SV Wehen Wiesbaden
+football_data,Werder Bremen,Werder Bremen
+football_data,Wolfsburg,VfL Wolfsburg
+football_data,Wuppertaler,Wuppertaler SV
+football_data,Wurzburger Kickers,Wurzburger Kickers
+football_data,Xerez,Xerez CD
+football_data,Zaragoza,Real Zaragoza
+football_data,Zwickau,FSV Zwickau
+transfermarkt,10,Arminia Bielefeld
+transfermarkt,10004,Paris FC
+transfermarkt,1005,US Lecce
+transfermarkt,1047,Como Calcio
+transfermarkt,105,SV Darmstadt 98
+transfermarkt,1095,ESTAC Troyes
+transfermarkt,1108,CD Alaves
+transfermarkt,1147,AC Ajaccio
+transfermarkt,1158,FC Lorient
+transfermarkt,1159,AS Nancy
+transfermarkt,1160,Nimes Olympique
+transfermarkt,1162,SM Caen
+transfermarkt,1210,AS Livorno
+transfermarkt,1244,CD Leganes
+transfermarkt,127,SC Paderborn 07
+transfermarkt,130,Parma
+transfermarkt,1387,AC Siena
+transfermarkt,1390,Cagliari Calcio
+transfermarkt,1416,Amiens SC
+transfermarkt,14171,Evian Thonon Gaillard
+transfermarkt,142,Real Zaragoza
+transfermarkt,1420,Angers SCO
+transfermarkt,1423,Valenciennes FC
+transfermarkt,1429,AC Cesena
+transfermarkt,1531,Elche CF
+transfermarkt,1533,SD Eibar
+transfermarkt,1627,Calcio Catania
+transfermarkt,19,Brescia Calcio
+transfermarkt,2239,US Cremonese
+transfermarkt,23,Eintracht Braunschweig
+transfermarkt,237,RCD Mallorca
+transfermarkt,2448,Sporting Gijon
+transfermarkt,2497,Real Oviedo
+transfermarkt,252,Genoa CFC
+transfermarkt,2687,Cadiz CF
+transfermarkt,269,Holstein Kiel
+transfermarkt,2722,SPAL 1907 Ferrara
+transfermarkt,276,Hellas Verona
+transfermarkt,290,AJ Auxerre
+transfermarkt,2919,AC Monza
+transfermarkt,2921,Pescara Calcio
+transfermarkt,2969,Dijon FCO
+transfermarkt,3302,UD Almeria
+transfermarkt,347,Metz
+transfermarkt,35,FC St. Pauli
+transfermarkt,3522,Spezia Calcio
+transfermarkt,3524,Clermont Foot 63
+transfermarkt,3558,GFC Ajaccio
+transfermarkt,366,Real Valladolid
+transfermarkt,38,Fortuna Dusseldorf
+transfermarkt,380,Salernitana Calcio 1919
+transfermarkt,4,Nurnberg
+transfermarkt,4083,FC Crotone
+transfermarkt,41,Hamburger SV
+transfermarkt,4102,Carpi FC
+transfermarkt,4171,Benevento
+transfermarkt,4172,Pisa SC
+transfermarkt,458,US Palermo
+transfermarkt,472,UD Las Palmas
+transfermarkt,4795,FC Ingolstadt 04
+transfermarkt,5358,SD Huesca
+transfermarkt,595,SC Bastia
+transfermarkt,607,AC Venezia
+transfermarkt,65,SpVgg Greuther Furth
+transfermarkt,738,Le Havre AC
+transfermarkt,749,Empoli FC
+transfermarkt,750,FC Sochaux
+transfermarkt,80,VfL Bochum
+transfermarkt,86,Werder Bremen
+transfermarkt,862,AC Chievo Verona
+transfermarkt,897,Deportivo La Coruna
+transfermarkt,8970,Frosinone Calcio
+transfermarkt,993,Cordoba CF
+clubelo,Arsenal,Arsenal
+clubelo,Aston Villa,Aston Villa
+clubelo,Barnsley,Barnsley
+clubelo,Birmingham,Birmingham City
+clubelo,Blackburn,Blackburn Rovers
+clubelo,Blackpool,Blackpool
+clubelo,Bolton,Bolton Wanderers
+clubelo,Bournemouth,AFC Bournemouth
+clubelo,Brentford,Brentford
+clubelo,Brighton,Brighton & Hove Albion
+clubelo,Bristol City,Bristol City
+clubelo,Burnley,Burnley
+clubelo,Burton,Burton Albion
+clubelo,Cardiff,Cardiff City
+clubelo,Charlton,Charlton Athletic
+clubelo,Chelsea,Chelsea
+clubelo,Colchester,Colchester United
+clubelo,Coventry,Coventry City
+clubelo,Crystal Palace,Crystal Palace
+clubelo,Derby,Derby County
+clubelo,Everton,Everton
+clubelo,Forest,Nottingham Forest
+clubelo,Fulham,Fulham
+clubelo,Huddersfield,Huddersfield Town
+clubelo,Hull,Hull City
+clubelo,Ipswich,Ipswich Town
+clubelo,Leeds,Leeds United
+clubelo,Leicester,Leicester City
+clubelo,Liverpool,Liverpool
+clubelo,Luton,Luton Town
+clubelo,Man City,Manchester City
+clubelo,Man United,Manchester United
+clubelo,Middlesbrough,Middlesbrough
+clubelo,Millwall,Millwall
+clubelo,Newcastle,Newcastle United
+clubelo,Norwich,Norwich City
+clubelo,Oxford,Oxford United
+clubelo,Plymouth,Plymouth Argyle
+clubelo,Portsmouth,Portsmouth
+clubelo,Preston,Preston North End
+clubelo,QPR,Queens Park Rangers
+clubelo,Reading,Reading
+clubelo,Rotherham,Rotherham United
+clubelo,Scunthorpe,Scunthorpe United
+clubelo,Sheffield United,Sheffield United
+clubelo,Sheffield Weds,Sheffield Wednesday
+clubelo,Southampton,Southampton
+clubelo,Stoke,Stoke City
+clubelo,Sunderland,Sunderland
+clubelo,Swansea,Swansea City
+clubelo,Tottenham,Tottenham Hotspur
+clubelo,Watford,Watford
+clubelo,West Brom,West Bromwich Albion
+clubelo,West Ham,West Ham United
+clubelo,Wigan,Wigan Athletic
+clubelo,Wolves,Wolverhampton Wanderers
+clubelo,Wrexham,Wrexham
+clubelo,Bayern,Bayern Munich
+clubelo,Napoli,SSC Napoli
+clubelo,Real Madrid,Real Madrid
+clubelo,Barcelona,Barcelona
+clubelo,Paris SG,Paris Saint-Germain
+clubelo,Inter,Internazionale
+clubelo,Dortmund,Borussia Dortmund
+clubelo,Juventus,Juventus
+clubelo,RB Leipzig,RasenBallsport Leipzig
+clubelo,Atletico,Atletico Madrid
+clubelo,Milan,AC Milan
+clubelo,Roma,AS Roma
+clubelo,Leverkusen,Bayer Leverkusen
+clubelo,Lazio,Lazio
+clubelo,Marseille,Olympique Marseille
+clubelo,Atalanta,Atalanta
+clubelo,Union Berlin,1. FC Union Berlin
+clubelo,Betis,Real Betis
+clubelo,Frankfurt,Eintracht Frankfurt
+clubelo,Sociedad,Real Sociedad
+clubelo,Freiburg,SC Freiburg
+clubelo,Wolfsburg,VfL Wolfsburg
+clubelo,Villarreal,Villarreal
+clubelo,Lens,RC Lens
+clubelo,Monaco,AS Monaco
+clubelo,Lille,Lille OSC
+clubelo,Fiorentina,ACF Fiorentina
+clubelo,Rennes,Stade Rennes
+clubelo,Bilbao,Athletic Bilbao
+clubelo,Sevilla,Sevilla
+clubelo,Mainz,1. FSV Mainz 05
+clubelo,Nice,OGC Nice
+clubelo,Udinese,Udinese
+clubelo,Sassuolo,Sassuolo Calcio
+clubelo,Celta,Celta Vigo
+clubelo,Gladbach,Borussia Monchengladbach
+clubelo,Lyon,Olympique Lyon
+clubelo,Torino,Torino
+clubelo,Reims,Stade Reims
+clubelo,Bologna,Bologna FC
+clubelo,Osasuna,Osasuna
+clubelo,Valencia,Valencia CF
+clubelo,Getafe,Getafe CF
+clubelo,Koeln,Koln
+clubelo,Rayo Vallecano,Rayo Vallecano
+clubelo,Werder,Werder Bremen
+clubelo,Cadiz,Cadiz CF
+clubelo,Granada,Granada CF
+clubelo,Mallorca,RCD Mallorca
+clubelo,Girona,Girona
+clubelo,Hoffenheim,1899 Hoffenheim
+clubelo,Levante,Levante UD
+clubelo,Espanyol,Espanyol Barcelona
+clubelo,Augsburg,FC Augsburg
+clubelo,Monza,AC Monza
+clubelo,Stuttgart,VfB Stuttgart
+clubelo,Bochum,VfL Bochum
+clubelo,Valladolid,Real Valladolid
+clubelo,Nantes,Nantes
+clubelo,Empoli,Empoli FC
+clubelo,Eibar,SD Eibar
+clubelo,Almeria,UD Almeria
+clubelo,Strasbourg,RC Strasbourg
+clubelo,Hertha,Hertha BSC
+clubelo,Schalke,Schalke 04
+clubelo,Darmstadt,SV Darmstadt 98
+clubelo,Verona,Hellas Verona
+clubelo,Hamburg,Hamburger SV
+clubelo,Genoa,Genoa CFC
+clubelo,Lorient,FC Lorient
+clubelo,Lecce,US Lecce
+clubelo,Toulouse,Toulouse
+clubelo,Montpellier,Montpellier HSC
+clubelo,Spezia,Spezia Calcio
+clubelo,Heidenheim,1. FC Heidenheim
+clubelo,Alaves,CD Alaves
+clubelo,Salernitana,Salernitana Calcio 1919
+clubelo,Frosinone,Frosinone Calcio
+clubelo,Las Palmas,UD Las Palmas
+clubelo,Elche,Elche CF
+clubelo,Sampdoria,Sampdoria
+clubelo,St Pauli,FC St. Pauli
+clubelo,Clermont,Clermont Foot 63
+clubelo,Brest,Stade Brest
+clubelo,Cagliari,Cagliari Calcio
+clubelo,Duesseldorf,Fortuna Dusseldorf
+clubelo,Paderborn,SC Paderborn 07
+clubelo,Huesca,SD Huesca
+clubelo,Metz,Metz
+clubelo,Pisa,Pisa SC
+clubelo,Tenerife,CD Tenerife
+clubelo,Bordeaux,Girondins Bordeaux
+clubelo,Sochaux,FC Sochaux
+clubelo,Le Havre,Le Havre AC
+clubelo,Albacete,Albacete
+clubelo,Cremonese,US Cremonese
+clubelo,Cartagena,Cartagena
+clubelo,Troyes,ESTAC Troyes
+clubelo,Auxerre,AJ Auxerre
+clubelo,Oviedo,Real Oviedo
+clubelo,Bielefeld,Arminia Bielefeld
+clubelo,Burgos,Burgos CF
+clubelo,Leganes,CD Leganes
+clubelo,Holstein,Holstein Kiel
+clubelo,Bari,AS Bari
+clubelo,Fuerth,SpVgg Greuther Furth
+clubelo,Mirandes,Mirandes
+clubelo,Suedtirol,Sudtirol
+clubelo,Zaragoza,Real Zaragoza
+clubelo,Karlsruhe,Karlsruher SC
+clubelo,Parma,Parma
+clubelo,Andorra CF,Andorra
+clubelo,Villarreal B,Villarreal B
+clubelo,Gijon,Sporting Gijon
+clubelo,Ajaccio,AC Ajaccio
+clubelo,Palermo,US Palermo
+clubelo,Lautern,Kaiserslautern
+clubelo,Como,Como Calcio
+clubelo,Venezia,AC Venezia
+clubelo,Perugia,AC Perugia
+clubelo,Santander,Racing Santander
+clubelo,Ponferradina,Ponferradina
+clubelo,Saint-Etienne,AS Saint-Etienne
+clubelo,Hannover,Hannover 96
+clubelo,Nuernberg,Nurnberg
+clubelo,Benevento,Benevento
+clubelo,Ascoli,Ascoli Calcio
+clubelo,Paris FC,Paris FC
+clubelo,Caen,SM Caen
+clubelo,Bastia,SC Bastia
+clubelo,Angers,Angers SCO
+clubelo,Cittadella,Cittadella
+clubelo,Ternana,Ternana Calcio
+clubelo,Malaga,Malaga CF
+clubelo,Ibiza Eivissa,Ibiza
+clubelo,Reggina,Reggina Calcio
+clubelo,Guingamp,EA Guingamp
+clubelo,Modena,Modena FC
+clubelo,Grenoble,Grenoble Foot 38
+clubelo,Regensburg,Jahn Regensburg
+clubelo,Brescia,Brescia Calcio
+clubelo,Rostock,Hansa Rostock
+clubelo,Braunschweig,Eintracht Braunschweig
+clubelo,Magdeburg,Magdeburg
+clubelo,Sandhausen,SV Sandhausen
+clubelo,Lugo,Lugo
+clubelo,Amiens,Amiens SC
+clubelo,Cosenza,Cosenza
+clubelo,Pau,Pau FC
+clubelo,Rodez,Rodez
+clubelo,Valenciennes,Valenciennes FC
+clubelo,Annecy,Annecy
+clubelo,Laval,Stade Laval
+clubelo,Ferrol,Ferrol
+clubelo,Amorebieta,Amorebieta
+clubelo,Eldense,Eldense
+clubelo,Alcorcon,Alcorcon
+clubelo,Catanzaro,US Catanzaro
+clubelo,Wehen,SV Wehen Wiesbaden
+clubelo,Reggiana,AC Reggiana
+clubelo,Lecco,Calcio Lecco 1912
+clubelo,Feralpisalo,FeralpiSalo
+clubelo,Elversberg,SV Elversberg
+clubelo,Osnabrueck,VfL Osnabruck
+clubelo,Dunkerque,Dunkerque
+clubelo,Concarneau,Concarneau
+clubelo,Ulm,SSV Ulm 1846
+clubelo,Muenster,Preussen Munster
+clubelo,Cordoba,Cordoba CF
+clubelo,Castellon,CD Castellon
+clubelo,Depor,Deportivo La Coruna
+clubelo,Martigues,FC Martigues
+clubelo,Red Star,Red Star FC
+clubelo,Carrarese,Carrarese
+clubelo,Cesena,AC Cesena
+clubelo,Mantova,AC Mantova
+clubelo,Juve Stabia,Juve Stabia
+clubelo,Dresden,Dynamo Dresden
+clubelo,Le Mans,Le Mans UC 72
+clubelo,Nancy,AS Nancy
+clubelo,Leonesa,CD Leonesa
+clubelo,Ceuta,Ceuta
+clubelo,Sociedad B,Sociedad B
+clubelo,Boulogne,US Boulogne
+clubelo,Entella,Virtus Entella
+clubelo,Padova,Calcio Padova
+clubelo,Pescara,Pescara Calcio
+clubelo,Avellino,US Avellino
+clubelo,Numancia,CD Numancia
+clubelo,Chievo,Chievo
+clubelo,Livorno,AS Livorno
+clubelo,Catania,Calcio Catania
+clubelo,Siena,AC Siena
+clubelo,Gimnastic,Gimnastic
+clubelo,Hercules,Hercules CF
+clubelo,Granada 74,Granada 74
+clubelo,Sevilla B,Sevilla B
+clubelo,Xerez,Xerez CD
+clubelo,Albinoleffe,Albinoleffe
+clubelo,Poli Ejido,Poli Ejido
+clubelo,Sedan,Sedan
+clubelo,Rimini,Rimini
+clubelo,Messina,FC Messina
+clubelo,Piacenza,Piacenza Calcio
+clubelo,Chateauroux,Châteauroux
+clubelo,Vicenza,Vicenza Calcio
+clubelo,Grosseto,Grosseto
+clubelo,Gueugnon,FC Gueugnon
+clubelo,Ravenna,Ravenna
+clubelo,Libourne,Libourne
+clubelo,Reus Deportiu,Reus Deportiu
+clubelo,Carpi,Carpi FC
+clubelo,UCAM Murcia,UCAM Murcia
+clubelo,Crotone,FC Crotone
+clubelo,Novara,Novara Calcio
+clubelo,Bourg-Peronnas,Bourg Peronnas
+clubelo,Latina,Latina
+clubelo,Tours,Tours FC
+clubelo,Trapani,Trapani
+clubelo,Pro Vercelli,Pro Vercelli
+clubelo,Orleans,Orleans
+engsoccerdata,TSV 1860 Munchen,1860 Munchen
+engsoccerdata,Bayer 05 Uerdingen,KFC Uerdingen 05
+engsoccerdata,TSG Hoffenheim,1899 Hoffenheim
+engsoccerdata,Salernitana Sport,Salernitana Calcio 1919
+engsoccerdata,ATAC Troyes,ESTAC Troyes
+engsoccerdata,SV Bayer 04 Leverkusen,Bayer Leverkusen
+engsoccerdata,Montpellier La Paillade SC,Montpellier HSC
+engsoccerdata,US Valenciennes-Anzin,Valenciennes FC
+engsoccerdata,Lanerossi Vicenza,Vicenza Calcio
+engsoccerdata,Benfica,SL Benfica
+engsoccerdata,Guimaraes,Vitoria Guimaraes
+engsoccerdata,Pacos Ferreira,Pacos de Ferreira
+engsoccerdata,Porto,FC Porto
+engsoccerdata,Sp Braga,Sporting Braga
+engsoccerdata,Sp Lisbon,Sporting CP
+engsoccerdata,FC Twente,Twente
+engsoccerdata,Feijenoord,Feyenoord
+engsoccerdata,AZ '67 Alkmaar,AZ Alkmaar
+engsoccerdata,FC Den Haag,ADO Den Haag
+engsoccerdata,FC Den Haag-ADO,ADO Den Haag
+engsoccerdata,FC Den Bosch '67,FC Den Bosch
+engsoccerdata,Dordrecht '90,FC Dordrecht
+engsoccerdata,S.V.V./Dordrecht '90,FC Dordrecht
+engsoccerdata,GVAV Groningen,FC Groningen
+engsoccerdata,Groninger VAV,FC Groningen
+engsoccerdata,WVV Wageningen,FC Wageningen
+engsoccerdata,Xerxes/D.H.C.,FC Xerxes
+engsoccerdata,FC Zwolle,PEC Zwolle
+engsoccerdata,PEC Zwolle '82,PEC Zwolle
+engsoccerdata,SBV Haarlem,HFC Haarlem
+engsoccerdata,Roda JC Kerkrade,Roda JC
+engsoccerdata,Desp. Chaves,Chaves
+engsoccerdata,Est Amadora,Estrela da Amadora
+engsoccerdata,Madeira,Uniao Madeira
+football_data,AVS,AVS Futebol SAD
+football_data,AZ Alkmaar,AZ Alkmaar
+football_data,Academica,Academica
+football_data,Academico Viseu,Academico Viseu
+football_data,Ajax,AFC Ajax
+football_data,Almere City,Almere City
+football_data,Alverca,Alverca
+football_data,Arouca,Arouca
+football_data,Aves,Aves
+football_data,Beira Mar,Beira Mar
+football_data,Belenenses,Belenenses
+football_data,Benfica,SL Benfica
+football_data,Boavista,Boavista
+football_data,Cambuur,SC Cambuur
+football_data,Campomaior,Campomaiorense
+football_data,Campomaiorense,Campomaiorense
+football_data,Casa Pia,Casa Pia AC
+football_data,Chaves,Chaves
+football_data,Den Bosch,FC Den Bosch
+football_data,Den Haag,ADO Den Haag
+football_data,Desp. Chaves,Chaves
+football_data,Dordrecht,FC Dordrecht
+football_data,Espinho,Espinho
+football_data,Est Amadora,Estrela da Amadora
+football_data,Estoril,Estoril
+football_data,Estrela,Estrela da Amadora
+football_data,Excelsior,SBV Excelsior
+football_data,FC Emmen,FC Emmen
+football_data,Famalicao,Famalicao
+football_data,Farense,Farense
+football_data,Feirense,Feirense
+football_data,Felgueiras,Felgueiras
+football_data,Feyenoord,Feyenoord
+football_data,For Sittard,Fortuna Sittard
+football_data,Gil Vicente,Gil Vicente
+football_data,Go Ahead Eagles,Go Ahead Eagles
+football_data,Graafschap,De Graafschap
+football_data,Groningen,FC Groningen
+football_data,Guimaraes,Vitoria Guimaraes
+football_data,Heerenveen,sc Heerenveen
+football_data,Heracles,Heracles
+football_data,Leca,Leca
+football_data,Leiria,União de Leiria
+football_data,Leixoes,Leixoes
+football_data,MVV Maastricht,MVV
+football_data,Madeira,Uniao Madeira
+football_data,Maritimo,Maritimo
+football_data,Moreirense,Moreirense
+football_data,NAC Breda,NAC Breda
+football_data,Nacional,Nacional
+football_data,Naval,Naval
+football_data,Nijmegen,NEC Nijmegen
+football_data,Olhanense,Olhanense
+football_data,PSV Eindhoven,PSV Eindhoven
+football_data,Pacos Ferreira,Pacos de Ferreira
+football_data,Penafiel,Penafiel
+football_data,Portimonense,Portimonense
+football_data,Porto,FC Porto
+football_data,Rio Ave,Rio Ave
+football_data,Roda,Roda JC
+football_data,Roda JC,Roda JC
+football_data,Roosendaal,RBC Roosendaal
+football_data,Salgueiros,Salgueiros
+football_data,Santa Clara,Santa Clara
+football_data,Setubal,Vitória de Setúbal
+football_data,Sp Braga,Sporting Braga
+football_data,Sp Lisbon,Sporting CP
+football_data,Sparta,Sparta Rotterdam
+football_data,Sparta Rotterdam,Sparta Rotterdam
+football_data,Telstar,Telstar
+football_data,Tirsense,Tirsense
+football_data,Tondela,Tondela
+football_data,Trofense,Trofense
+football_data,Twente,Twente
+football_data,Uniao Madeira,Uniao Madeira
+football_data,Utrecht,FC Utrecht
+football_data,VVV Venlo,VVV-Venlo
+football_data,Varzim,Varzim
+football_data,Vitesse,Vitesse
+football_data,Vizela,FC Vizela
+football_data,Volendam,FC Volendam
+football_data,Waalwijk,RKC Waalwijk
+football_data,Willem II,Willem II
+football_data,Zwolle,PEC Zwolle
+transfermarkt,1085,Vitória de Setúbal
+transfermarkt,110302,AVS Futebol SAD
+transfermarkt,1268,ADO Den Haag
+transfermarkt,1283,FC Emmen
+transfermarkt,132,NAC Breda
+transfermarkt,133,SC Cambuur
+transfermarkt,1426,VVV-Venlo
+transfermarkt,1434,Telstar
+transfermarkt,1436,Beira Mar
+transfermarkt,1455,FC Dordrecht
+transfermarkt,192,Roda JC
+transfermarkt,235,RKC Waalwijk
+transfermarkt,2431,Estrela da Amadora
+transfermarkt,2457,Belenenses
+transfermarkt,2503,Boavista
+transfermarkt,2521,Alverca
+transfermarkt,3268,Casa Pia AC
+transfermarkt,3325,Chaves
+transfermarkt,3327,Penafiel
+transfermarkt,3329,Famalicao
+transfermarkt,3336,Aves
+transfermarkt,3349,Feirense
+transfermarkt,385,Fortuna Sittard
+transfermarkt,4294,Farense
+transfermarkt,467,NEC Nijmegen
+transfermarkt,468,Sparta Rotterdam
+transfermarkt,4750,Olhanense
+transfermarkt,642,De Graafschap
+transfermarkt,6912,FC Vizela
+transfermarkt,7179,Tondela
+transfermarkt,723,Almere City
+transfermarkt,724,FC Volendam
+transfermarkt,7378,Portimonense
+transfermarkt,798,SBV Excelsior
+transfermarkt,976,Uniao Madeira
+transfermarkt,979,Moreirense
+engsoccerdata,Vitória de Guimarães,Vitoria Guimaraes
+engsoccerdata,Setubal,Vitória de Setúbal
+engsoccerdata,Vitória FC,Vitória de Setúbal
+engsoccerdata,Braga,Sporting Braga
+engsoccerdata,Leiria,União de Leiria
+engsoccerdata,Campomaior,Campomaiorense
+engsoccerdata,CUF Barreiro,GD CUF
+engsoccerdata,Beira-Mar,Beira Mar
+engsoccerdata,Leixões,Leixoes
+engsoccerdata,Académica,Academica
+rsssf,AD Fafe,AD Fafe
+rsssf,AD Sanjoanense,AD Sanjoanense
+rsssf,Académica,Academica
+rsssf,Amora FC,Amora FC
+rsssf,Atlético CP,Atlético CP
+rsssf,Boavista FC,Boavista
+rsssf,CAF Viseu,Academico Viseu
+rsssf,CD Aves,Aves
+rsssf,CD Feirense,Feirense
+rsssf,CD Montijo,CD Montijo
+rsssf,CD Nacional Madeira,Nacional
+rsssf,CF Belenenses,Belenenses
+rsssf,CF União Coimbra,CF União Coimbra
+rsssf,CF União Madeira,Uniao Madeira
+rsssf,CFE Amadora,Estrela da Amadora
+rsssf,CS Marítimo,Maritimo
+rsssf,FC Barreirense,Barreirense
+rsssf,FC Famalicão,Famalicao
+rsssf,FC Paços de Ferreira,Pacos de Ferreira
+rsssf,FC Penafiel,Penafiel
+rsssf,FC Porto,FC Porto
+rsssf,FC Tirsense,Tirsense
+rsssf,FC Vizela,FC Vizela
+rsssf,GC Alcobaça,GC Alcobaça
+rsssf,GD CUF,GD CUF
+rsssf,GD Chaves,Chaves
+rsssf,GD Estoril-Praia,Estoril
+rsssf,GD Riopele,GD Riopele
+rsssf,Gil Vicente FC,Gil Vicente
+rsssf,Leixões SC,Leixoes
+rsssf,Lusitano Évora,Lusitano Évora
+rsssf,O Elvas CAD,O Elvas CAD
+rsssf,Oriental,Oriental
+rsssf,Portimonense SC,Portimonense
+rsssf,RD Águeda,RD Águeda
+rsssf,Rio Ave FC,Rio Ave
+rsssf,SC Beira Mar,Beira Mar
+rsssf,SC Braga,Sporting Braga
+rsssf,SC Caldas,SC Caldas
+rsssf,SC Covilhã,SC Covilhã
+rsssf,SC Espinho,Espinho
+rsssf,SC Farense,Farense
+rsssf,SC Olhanense,Olhanense
+rsssf,SC Salgueiros,Salgueiros
+rsssf,SCU Torreense,SCU Torreense
+rsssf,SL Benfica,SL Benfica
+rsssf,Seixal FC,Seixal FC
+rsssf,Sporting CP,Sporting CP
+rsssf,UD Leiria,União de Leiria
+rsssf,União de Tomar,União de Tomar
+rsssf,VFC Setúbal,Vitória de Setúbal
+rsssf,VSC Guimarães,Vitoria Guimaraes
+rsssf,Varzim SC,Varzim
+engsoccerdata,Heracles Almelo,Heracles
+clubelo,Benfica,SL Benfica
+clubelo,Porto,FC Porto
+clubelo,Ajax,AFC Ajax
+clubelo,Feyenoord,Feyenoord
+clubelo,Sporting,Sporting CP
+clubelo,PSV,PSV Eindhoven
+clubelo,Alkmaar,AZ Alkmaar
+clubelo,Braga,Sporting Braga
+clubelo,Twente,Twente
+clubelo,Sparta Rotterdam,Sparta Rotterdam
+clubelo,Utrecht,FC Utrecht
+clubelo,Guimaraes,Vitoria Guimaraes
+clubelo,Famalicao,Famalicao
+clubelo,Gil Vicente,Gil Vicente
+clubelo,Nijmegen,NEC Nijmegen
+clubelo,Arouca,Arouca
+clubelo,Vitesse,Vitesse
+clubelo,Heerenveen,sc Heerenveen
+clubelo,Waalwijk,RKC Waalwijk
+clubelo,Rio Ave,Rio Ave
+clubelo,Vizela,FC Vizela
+clubelo,Boavista,Boavista
+clubelo,Chaves,Chaves
+clubelo,Casa Pia,Casa Pia AC
+clubelo,Go Ahead Eagles,Go Ahead Eagles
+clubelo,Sittard,Fortuna Sittard
+clubelo,Portimonense,Portimonense
+clubelo,Maritimo,Maritimo
+clubelo,Santa Clara,Santa Clara
+clubelo,Volendam,FC Volendam
+clubelo,Pacos Ferreira,Pacos de Ferreira
+clubelo,Groningen,FC Groningen
+clubelo,Estoril,Estoril
+clubelo,Emmen,FC Emmen
+clubelo,Cambuur,SC Cambuur
+clubelo,Excelsior,SBV Excelsior
+clubelo,Heracles,Heracles
+clubelo,Zwolle,PEC Zwolle
+clubelo,Moreirense,Moreirense
+clubelo,Estrela Amadora,Estrela da Amadora
+clubelo,Farense,Farense
+clubelo,Almere,Almere City
+clubelo,AVS Futebol,AVS Futebol SAD
+clubelo,Nacional,Nacional
+clubelo,Breda,NAC Breda
+clubelo,Willem II,Willem II
+clubelo,Telstar,Telstar
+clubelo,Tondela,Tondela
+clubelo,Alverca,Alverca
+clubelo,Belenenses,Belenenses
+clubelo,Roda,Roda
+clubelo,Leixoes,Leixoes
+clubelo,Academica,Academica
+clubelo,Naval,Naval
+clubelo,De Graafschap,De Graafschap
+clubelo,Den Haag,FC Den Haag
+clubelo,Feirense,Feirense
+clubelo,Setubal,Vitória de Setúbal
+clubelo,Leiria,União de Leiria
+clubelo,Venlo,VVV-Venlo

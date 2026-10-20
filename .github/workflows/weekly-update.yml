@@ -1,0 +1,16 @@
+name: weekly-elo-update
+on:
+  schedule:
+    - cron: "0 20 * * 1"   # Mondays 20:00 UTC (Tuesday morning AEST), after weekend + Monday games
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -e .
+      - run: python -m football_elo update
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}

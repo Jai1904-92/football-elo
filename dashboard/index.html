@@ -1,0 +1,1343 @@
+<style>
+  /* Layout: a short header with the takeaway, four tabs (Rise and fall, Eras, Rankings, Greatest), cards on the dashboard's panel tokens. */
+  .fe { font-family: var(--font-anthropic-sans); display: flex; flex-direction: column; gap: var(--cds-gap-lg); max-width: 1400px; margin-inline: auto; }
+  .fe-head { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+  .fe-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .fe-takeaway { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); max-width: 70ch; }
+  .fe-takeaway b { color: var(--color-fg); font-weight: 600; }
+  .fe-tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); border-bottom: 1px solid var(--color-border-line); }
+  .fe-tab { font: inherit; background: none; border: 0; border-bottom: 2px solid transparent; padding: var(--cds-pad-sm) var(--cds-pad-md); color: var(--color-fg-muted); cursor: pointer; margin-bottom: -1px; }
+  .fe-tab[aria-selected="true"] { color: var(--color-fg); border-bottom-color: var(--color-fg); }
+  .fe-tab:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .fe-page { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+  .fe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); gap: var(--cds-gap-md); }
+  .fe-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+  .fe-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .fe-note { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); max-width: 80ch; }
+  .fe-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+  .fe-controls label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); display: flex; gap: var(--cds-gap-xs); align-items: center; }
+  .fe-input, .fe-select { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); min-width: 0; }
+  .fe-seg { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+  .fe-seg button { font: inherit; font-size: var(--cds-font-size-caption); background: var(--color-bg); color: var(--color-fg-muted); border: 0; padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; }
+  .fe-seg button + button { border-left: 1px solid var(--color-border-line); }
+  .fe-seg button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); }
+  .fe-btn { font: inherit; font-size: var(--cds-font-size-caption); background: var(--color-bg); color: var(--color-fg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; }
+  .fe-btn:focus-visible, .fe-seg button:focus-visible, .fe-chip button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+  .fe-chips { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); }
+  .fe-chip { display: inline-flex; align-items: center; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 2px 4px 2px 10px; }
+  .fe-chip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .fe-chip button { font: inherit; border: 0; background: none; color: var(--color-fg-muted); cursor: pointer; padding: 0 4px; border-radius: 50%; }
+  .fe-chart { position: relative; min-height: 360px; }
+  .fe-chart.short { min-height: 300px; }
+  .fe-chart svg { display: block; overflow: visible; }
+  .fe-chart text { fill: var(--color-fg-muted); font-size: 11px; font-family: var(--font-anthropic-sans); }
+  .fe-chart .fe-end { font-size: 12px; font-weight: 600; }
+  .fe-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); min-width: 10rem; z-index: 2; }
+  .fe-tip .t { color: var(--cds-text-secondary); margin-bottom: 2px; }
+  .fe-tip .r { display: flex; gap: 6px; align-items: center; justify-content: space-between; white-space: nowrap; }
+  .fe-tip .r span:first-child { display: flex; gap: 6px; align-items: center; }
+  .fe-tip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .fe-tablewrap { overflow: auto; max-height: 34rem; }
+  .fe-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .fe-table th { position: sticky; top: 0; background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .fe-table th.num, .fe-table td.num { text-align: right; }
+  .fe-table th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+  .fe-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .fe-table td.club { white-space: normal; min-width: 9rem; }
+  .fe-table tbody tr:hover { background: var(--cds-chart-grid); }
+  .fe-bar { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+  .fe-bar span.b { height: 6px; border-radius: 3px; background: var(--cds-chart-muted); display: inline-block; }
+  .fe-pos { color: var(--color-ok); }
+  .fe-neg { color: var(--color-bad); }
+  .fe-flag { display: inline-block; font-size: 10px; letter-spacing: .04em; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--color-border-line); color: var(--color-fg-muted); }
+  .fe-decades { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--cds-gap-md); }
+  .fe-decade h3 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-heading); margin: 0 0 4px; }
+  .fe-decade ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; font-size: var(--cds-font-size-caption); }
+  .fe-decade li { display: grid; grid-template-columns: 1.4em 1fr auto; gap: 6px; align-items: baseline; font-variant-numeric: tabular-nums; }
+  .fe-decade li .p { color: var(--color-fg-muted); }
+  .fe-decade li .v { color: var(--color-fg-muted); }
+  .fe-decade li .c { display: flex; align-items: center; gap: 6px; min-width: 0; }
+  .fe-decade li .c i { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .fe-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .fe-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .fe-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .fe-reigns { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .fe-reigns b { color: var(--color-fg); font-weight: 600; }
+  .fe-fail { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: inherit; }
+  .fe-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+  .fe-honours { display: flex; flex-direction: column; gap: 2px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .fe-honours b { color: var(--color-fg); font-weight: 600; }
+  .fe-weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--cds-gap-sm); align-items: center; }
+  .fe-weights label { display: grid; grid-template-columns: 6.5rem 1fr 2rem; align-items: center; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .fe-weights input[type=range] { width: 100%; min-width: 0; accent-color: var(--color-fg); }
+  .fe-weights output { font-variant-numeric: tabular-nums; text-align: right; color: var(--color-fg); }
+  .fe-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: var(--cds-gap-sm); }
+  .fe-tile { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .fe-tile-l { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); overflow-wrap: anywhere; }
+  .fe-tile-v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; }
+  .fe-profile-name { font-family: var(--font-anthropic-serif); font-weight: 400 !important; font-size: var(--cds-font-size-title) !important; }
+  .fe-whatif { display: flex; flex-direction: column; gap: var(--cds-gap-md); min-height: 10rem; }
+  .fe-wi-sides { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--cds-gap-md); }
+  .fe-wi-side { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); display: flex; flex-direction: column; gap: 2px; }
+  .fe-wi-club { font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-heading); }
+  .fe-wi-bars { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+  .fe-wi-row { display: grid; grid-template-columns: minmax(7rem, 12rem) 1fr auto; gap: var(--cds-gap-sm); align-items: center; }
+  .fe-wi-track { display: flex; height: 12px; border-radius: 6px; overflow: hidden; }
+  .fe-wi-track span { display: block; height: 100%; }
+  .fe-wi-val { font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  @media (max-width: 600px) { .fe-wi-row { grid-template-columns: 1fr; } }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  @media (max-width: 600px) { .fe-hide-sm { display: none; } }
+</style>
+
+<div class="fe">
+  <header class="fe-head">
+    <h1 class="fe-title">Football Elo eras</h1>
+    <p class="fe-takeaway" id="takeaway"><span class="dash-skeleton">Loading the latest ratings</span></p>
+  </header>
+
+  <datalist id="club-list"></datalist>
+
+  <nav class="fe-tabs" role="tablist" aria-label="Views">
+    <button class="fe-tab" role="tab" id="tab-rise" aria-controls="rise" aria-selected="true">Rise and fall</button>
+    <button class="fe-tab" role="tab" id="tab-alltime" aria-controls="alltime" aria-selected="false">All-time</button>
+    <button class="fe-tab" role="tab" id="tab-eras" aria-controls="eras" aria-selected="false">Eras</button>
+    <button class="fe-tab" role="tab" id="tab-club" aria-controls="club" aria-selected="false">Club</button>
+    <button class="fe-tab" role="tab" id="tab-matchups" aria-controls="matchups" aria-selected="false">Matchups</button>
+    <button class="fe-tab" role="tab" id="tab-rankings" aria-controls="rankings" aria-selected="false">Rankings</button>
+    <button class="fe-tab" role="tab" id="tab-greatest" aria-controls="greatest" aria-selected="false">Greatest</button>
+  </nav>
+
+  <!-- Rise and fall -->
+  <section class="fe-page" id="rise" role="tabpanel" aria-labelledby="tab-rise">
+    <template id="tpl-rise">
+    <div class="fe-card" id="rise-card">
+      <h2>Compare clubs over time</h2>
+      <p class="fe-note">Pick up to eight clubs. Rating is the Elo rating month by month. Above average is the end-of-season rating minus the average top-flight club across the seven leagues that season, which makes eras comparable. Rank is the club's position among every club in the seven leagues at season end.</p>
+      <div class="fe-controls">
+        <input class="fe-input" id="club-add" list="club-list" placeholder="Add a club" aria-label="Add a club" autocomplete="off">
+        <select class="fe-select" id="preset" aria-label="Quick picks">
+          <option value="">Quick picks</option>
+          <option value="europe">European royalty</option>
+          <option value="england">England's giants</option>
+          <option value="spain">Spain's giants</option>
+          <option value="italy">Italy's giants</option>
+          <option value="germany">Germany's giants</option>
+          <option value="france">France's giants</option>
+          <option value="lowlands">Portugal and the Netherlands</option>
+        </select>
+        <div class="fe-seg" role="group" aria-label="Measure">
+          <button type="button" id="m-elo" aria-pressed="true">Rating</button>
+          <button type="button" id="m-above" aria-pressed="false">Above average</button>
+          <button type="button" id="m-rank" aria-pressed="false">Rank</button>
+        </div>
+      </div>
+      <div class="fe-chips" id="chips"></div>
+      <div class="fe-chart dash-skeleton" id="rise-chart" data-source="club_months club_seasons trophies"></div>
+      <p class="fe-note">Diamonds mark European Cup wins and rings other European trophies. Shaded: 1955–64, the burn-in decade while starting ratings settle. Gaps are summers and seasons outside the modelled leagues.</p>
+    </div>
+
+    <div class="fe-card" id="h2h-card">
+      <h2>Head to head</h2>
+      <p class="fe-note">Career numbers since 1965 for the clubs above. At #1 and Top 10 count seasons ending with the club in that position among all clubs in the seven leagues. Trophies count finals won since 1955.</p>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="h2h" data-source="club_summary" data-row-key="club">
+          <thead><tr>
+            <th data-field="club">Club</th>
+            <th data-field="country">Country</th>
+            <th class="num" data-field="peak_elo">Peak rating</th>
+            <th class="num" data-field="peak_season_label">Peak season</th>
+            <th class="num" data-field="seasons_at_1">At #1</th>
+            <th class="num" data-field="seasons_top10">Top 10</th>
+            <th class="num" data-field="best_rank">Best rank</th>
+            <th class="num" data-source="trophy_counts" data-field="european_cups">European Cups</th>
+            <th class="num" data-source="trophy_counts" data-field="other_european">Other European</th>
+            <th class="num fe-hide-sm" data-field="top_flight_seasons">Top-flight seasons</th>
+            <th class="num fe-hide-sm" data-field="best_decade_label">Best decade</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    </template>
+  </section>
+
+  <!-- All-time -->
+  <section class="fe-page" id="alltime" role="tabpanel" aria-labelledby="tab-alltime" hidden>
+    <template id="tpl-alltime">
+    <div class="fe-card" id="alltime-card">
+      <h2>All-time ranking</h2>
+      <p class="fe-note">An era-fair score out of 100 since 1965. Each ingredient is scaled from the weakest to the strongest club, then blended with the weights you set. Peak is the best single season above the average top-flight club; Sustained is the best five-season average; At #1 and Top 10 count seasons finished there among all clubs in the seven leagues.</p>
+      <div class="fe-weights">
+        <label for="w-peak">Peak <input type="range" id="w-peak" min="0" max="100" step="5"><output id="w-peak-v"></output></label>
+        <label for="w-sustain">Sustained <input type="range" id="w-sustain" min="0" max="100" step="5"><output id="w-sustain-v"></output></label>
+        <label for="w-top">At #1 <input type="range" id="w-top" min="0" max="100" step="5"><output id="w-top-v"></output></label>
+        <label for="w-long">Top 10 <input type="range" id="w-long" min="0" max="100" step="5"><output id="w-long-v"></output></label>
+        <button type="button" class="fe-btn" id="w-reset">Reset weights</button>
+      </div>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="alltime-table" data-source="alltime" data-row-key="club">
+          <thead><tr>
+            <th class="num">#</th>
+            <th data-field="club">Club</th>
+            <th data-field="country">Country</th>
+            <th class="num" data-field="score">Score</th>
+            <th class="num" data-field="peak_above">Peak</th>
+            <th class="num" data-field="best5_above">Sustained</th>
+            <th class="num" data-field="seasons_at_1">At #1</th>
+            <th class="num" data-field="seasons_top10">Top 10</th>
+            <th class="num fe-hide-sm" data-field="top_flight_seasons">Top-flight seasons</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    </template>
+  </section>
+
+  <!-- Eras -->
+  <section class="fe-page" id="eras" role="tabpanel" aria-labelledby="tab-eras" hidden>
+    <template id="tpl-eras">
+    <div class="fe-card" id="ones-card">
+      <h2>Top-rated club at the end of each season</h2>
+      <p class="fe-note">Each bar is a season, colored by the leader's country; height is the leader's margin over the runner-up. Hover for details.</p>
+      <div class="fe-legend" id="ones-legend"></div>
+      <div class="fe-chart short dash-skeleton" id="ones-chart" data-source="number_ones"></div>
+      <div class="fe-reigns" id="reigns" data-source="reigns"></div>
+    </div>
+
+    <div class="fe-card" id="decades-card">
+      <h2>Best clubs of each decade</h2>
+      <p class="fe-note">Average end-of-season rating above the average top-flight club, top-flight seasons only, at least three seasons in the decade. The 1960s column covers 1965–69 and the 2020s 2020–26.</p>
+      <div class="fe-decades dash-skeleton" id="decades" data-source="decade_kings"></div>
+    </div>
+
+    <div class="fe-card" id="strength-card">
+      <h2>League strength over time</h2>
+      <p class="fe-note">Average end-of-season rating of each country's top-flight clubs. Leagues rise and fall against each other through European results.</p>
+      <div class="fe-chart dash-skeleton" id="strength-chart" data-source="league_strength"></div>
+    </div>
+    <div class="fe-card" id="dynasties-card">
+      <h2>Dynasties</h2>
+      <p class="fe-note">The longest unbroken runs of season-end finishes in the top places among all clubs in the seven leagues, since 1965.</p>
+      <div class="fe-controls">
+        <div class="fe-seg" role="group" aria-label="Top places">
+          <button type="button" id="dyn-1" data-n="1" aria-pressed="false">Top 1</button>
+          <button type="button" id="dyn-3" data-n="3" aria-pressed="false">Top 3</button>
+          <button type="button" id="dyn-5" data-n="5" aria-pressed="true">Top 5</button>
+          <button type="button" id="dyn-10" data-n="10" aria-pressed="false">Top 10</button>
+        </div>
+      </div>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="dynasties" data-source="dynasties" data-row-key="club,from_season">
+          <thead><tr><th class="num">#</th><th data-field="club">Club</th><th data-field="country">Country</th><th data-field="span">Seasons</th><th class="num" data-field="seasons">Length</th><th class="num" data-field="avg_rank">Average rank</th><th class="num" data-field="seasons_at_1">At #1</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    </template>
+  </section>
+
+  <!-- Club profile -->
+  <section class="fe-page" id="club" role="tabpanel" aria-labelledby="tab-club" hidden>
+    <template id="tpl-club">
+    <div class="fe-card" id="profile-card">
+      <div class="fe-controls">
+        <input class="fe-input" id="profile-pick" list="club-list" placeholder="Choose a club" aria-label="Choose a club" autocomplete="off">
+      </div>
+      <h2 id="profile-name" class="fe-profile-name">—</h2>
+      <div class="fe-tiles" id="profile-tiles"></div>
+      <div class="fe-honours" id="profile-honours" data-source="trophies"></div>
+      <div class="fe-chart short dash-skeleton" id="profile-chart" data-source="profile_seasons"></div>
+      <p class="fe-note">Rating above the average top-flight club at the end of each season. Bars below the line are seasons weaker than an average top-flight side; colors show the tier the club played in.</p>
+    </div>
+    <div class="fe-grid">
+      <div class="fe-card" id="profile-best-card">
+        <h2>Best results</h2>
+        <p class="fe-note">The matches that lifted the club's rating most.</p>
+        <div class="fe-tablewrap">
+          <table class="fe-table" id="profile-best" data-source="profile_matches" data-row-key="match_id">
+            <thead><tr><th data-field="match_date">Date</th><th data-field="opponent">Opponent</th><th data-field="venue">Venue</th><th class="num" data-field="score">Score</th><th class="num" data-field="rating_change">Rating change</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="fe-card" id="profile-worst-card">
+        <h2>Worst results</h2>
+        <p class="fe-note">The matches that cost the club the most rating.</p>
+        <div class="fe-tablewrap">
+          <table class="fe-table" id="profile-worst" data-source="profile_matches" data-row-key="match_id">
+            <thead><tr><th data-field="match_date">Date</th><th data-field="opponent">Opponent</th><th data-field="venue">Venue</th><th class="num" data-field="score">Score</th><th class="num" data-field="rating_change">Rating change</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="fe-card" id="profile-seasons-card">
+      <h2>Season by season</h2>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="profile-seasons" data-source="profile_seasons" data-row-key="season">
+          <thead><tr><th data-field="season_label">Season</th><th class="num" data-field="tier">Tier</th><th class="num" data-field="elo_end">Rating</th><th class="num" data-field="above_field">Above average</th><th class="num" data-field="world_rank">Rank</th><th class="num" data-field="league_rank">League rank</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    </template>
+  </section>
+
+  <!-- Matchups -->
+  <section class="fe-page" id="matchups" role="tabpanel" aria-labelledby="tab-matchups" hidden>
+    <template id="tpl-matchups">
+    <div class="fe-card" id="h2h-record-card">
+      <h2>Head-to-head record</h2>
+      <p class="fe-note">Every meeting between two clubs in the rated competitions since 1955, with what the ratings expected before each one.</p>
+      <div class="fe-controls">
+        <input class="fe-input" id="h2h-a" list="club-list" aria-label="First club" autocomplete="off">
+        <span class="fe-note">v</span>
+        <input class="fe-input" id="h2h-b" list="club-list" aria-label="Second club" autocomplete="off">
+      </div>
+      <div class="fe-tiles" id="h2h-tiles" data-source="h2h_record"></div>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="h2h-table" data-source="h2h" data-row-key="match_id">
+          <thead><tr><th data-field="match_date">Date</th><th data-field="competition">Competition</th><th data-field="home_club">Home</th><th class="num" data-field="score">Score</th><th data-field="away_club">Away</th><th class="num fe-hide-sm" data-field="home_expected">Home expected</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="fe-card" id="whatif-card">
+      <h2>What if they met?</h2>
+      <p class="fe-note">Any club on any date against any other. Ratings are compared above each date's average top-flight club, so different eras line up. Expected score counts a win as 1 and a draw as a half.</p>
+      <div class="fe-controls">
+        <input class="fe-input" id="wi-a" list="club-list" aria-label="First club" autocomplete="off">
+        <input class="fe-input" type="date" id="wi-a-date" min="1965-07-01" max="2099-12-31" aria-label="First club's date">
+        <span class="fe-note">v</span>
+        <input class="fe-input" id="wi-b" list="club-list" aria-label="Second club" autocomplete="off">
+        <input class="fe-input" type="date" id="wi-b-date" min="1965-07-01" max="2099-12-31" aria-label="Second club's date">
+      </div>
+      <div class="fe-whatif" id="whatif" data-source="whatif"></div>
+    </div>
+    </template>
+  </section>
+
+  <!-- Rankings -->
+  <section class="fe-page" id="rankings" role="tabpanel" aria-labelledby="tab-rankings" hidden>
+    <template id="tpl-rankings">
+    <div class="fe-card" id="table-card">
+      <h2 id="table-title">Ranking</h2>
+      <p class="fe-note">Every club in the seven modelled leagues on the date you pick, with its change over the 12 months before.</p>
+      <div class="fe-controls">
+        <label for="as-of">On <input class="fe-input" type="date" id="as-of" min="1955-09-01" max="2099-12-31"></label>
+        <select class="fe-select" id="jump" aria-label="Jump to a date">
+          <option value="">Jump to…</option>
+          <option value="1970-06-01">June 1970</option>
+          <option value="1980-06-01">June 1980</option>
+          <option value="1990-06-01">June 1990</option>
+          <option value="1999-05-27">May 1999</option>
+          <option value="2010-06-01">June 2010</option>
+          <option value="2020-08-24">August 2020</option>
+        </select>
+        <button type="button" class="fe-btn" id="today">Today</button>
+        <select class="fe-select" id="t-country" aria-label="Country">
+          <option value="">All countries</option>
+          <option value="ENG">England</option><option value="ESP">Spain</option><option value="GER">Germany</option><option value="ITA">Italy</option><option value="FRA">France</option><option value="POR">Portugal</option><option value="NED">Netherlands</option>
+        </select>
+        <select class="fe-select" id="t-tier" aria-label="Tier">
+          <option value="">All tiers</option><option value="1">Top flight</option><option value="2">Second tier</option><option value="3">Third tier</option><option value="4">Fourth tier</option>
+        </select>
+        <input class="fe-input" id="t-search" type="search" placeholder="Search clubs" aria-label="Search clubs">
+      </div>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="ranking" data-source="table_on_date" data-row-key="club">
+          <thead><tr>
+            <th class="num" data-field="rank"><button type="button" data-sort="rank">Rank</button></th>
+            <th data-field="club"><button type="button" data-sort="club">Club</button></th>
+            <th data-field="country"><button type="button" data-sort="country">Country</button></th>
+            <th class="num" data-field="tier"><button type="button" data-sort="tier">Tier</button></th>
+            <th class="num" data-field="elo"><button type="button" data-sort="elo">Rating</button></th>
+            <th class="num" data-field="change_12m"><button type="button" data-sort="change_12m">12 months</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    </template>
+  </section>
+
+  <!-- Greatest -->
+  <section class="fe-page" id="greatest" role="tabpanel" aria-labelledby="tab-greatest" hidden>
+    <template id="tpl-greatest">
+    <div class="fe-card" id="seasons-card">
+      <h2>Greatest single seasons</h2>
+      <p class="fe-note">End-of-season rating above the average top-flight club that season, since 1965, so teams from different eras compare fairly. Top 100.</p>
+      <div class="fe-controls">
+        <select class="fe-select" id="g-country" aria-label="Country">
+          <option value="">All countries</option>
+          <option value="ENG">England</option><option value="ESP">Spain</option><option value="GER">Germany</option><option value="ITA">Italy</option><option value="FRA">France</option><option value="POR">Portugal</option><option value="NED">Netherlands</option>
+        </select>
+      </div>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="seasons" data-source="greatest_seasons" data-row-key="club,season">
+          <thead><tr>
+            <th class="num">#</th>
+            <th data-field="club">Club</th>
+            <th class="num" data-field="season_label">Season</th>
+            <th data-field="country">Country</th>
+            <th class="num" data-field="above_field">Above average</th>
+            <th class="num fe-hide-sm" data-field="elo_end">Rating</th>
+            <th class="num fe-hide-sm" data-field="world_rank">Rank</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="fe-card" id="upsets-card">
+      <h2>Biggest upsets</h2>
+      <p class="fe-note">Wins the ratings gave the winner the smallest chance of, since 1965. Chance is the pre-match win expectancy, with draws counted as half.</p>
+      <div class="fe-controls">
+        <select class="fe-select" id="u-type" aria-label="Competition type">
+          <option value="">All competitions</option><option value="league">League</option><option value="cup">Cups</option><option value="europe">Europe</option><option value="playoff">Play-offs</option>
+        </select>
+      </div>
+      <div class="fe-tablewrap">
+        <table class="fe-table" id="upsets" data-source="upsets" data-row-key="match_id">
+          <thead><tr>
+            <th data-field="match_date">Date</th>
+            <th data-field="competition">Competition</th>
+            <th data-field="winner">Winner</th>
+            <th data-field="loser">Beat</th>
+            <th class="num" data-field="score">Score</th>
+            <th class="num" data-field="winner_chance">Chance</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    </template>
+  </section>
+</div>
+
+<script>
+  // Supabase's execute_sql answers with text that wraps the rows' JSON; read the rows out.
+  const supabaseRows = ({ answer }) => {
+    let a = answer;
+    if (typeof a === 'string') { try { a = JSON.parse(a); } catch (e) { /* plain text */ } }
+    if (a && typeof a === 'object' && a.error) throw new Error(a.error.message || String(a.error));
+    const text = typeof a === 'string' ? a : (a && typeof a.result === 'string' ? a.result : JSON.stringify(a));
+    const open = text.indexOf('<untrusted-data-');
+    const start = text.indexOf('[', open >= 0 ? open : 0);
+    const close = text.lastIndexOf('</untrusted-data-');
+    const end = text.lastIndexOf(']', close >= 0 ? close : text.length);
+    if (start < 0 || end < start) throw new Error(text.slice(0, 300));
+    return JSON.parse(text.slice(start, end + 1));
+  };
+  ['club_summary', 'club_months', 'club_seasons', 'table_on_date', 'league_strength', 'number_ones',
+   'decade_kings', 'greatest_seasons', 'upsets', 'alltime', 'dynasties', 'profile_seasons', 'profile_matches',
+   'h2h', 'whatif', 'trophies'].forEach((id) =>
+    dash.loader(id, { description: 'Supabase returns the rows as JSON inside a text answer; this reads them out unchanged.', fn: supabaseRows }));
+
+  dash.calc('trophy_counts', {
+    title: 'Trophies per club',
+    description: "European Cups, other European trophies (UEFA Cup / Europa League, Cup Winners' Cup, Fairs Cup, Conference League), FA Cups and League Cups won, counted from the finals.",
+    inputs: ['trophies'],
+    fn: (trophies) => {
+      const by = {};
+      const EURO = ['UEL', 'UCWC', 'FAIRS', 'UECL'];
+      trophies.forEach((t) => {
+        const r = by[t.winner] || (by[t.winner] = { club: t.winner, european_cups: 0, other_european: 0, fa_cups: 0, league_cups: 0 });
+        if (t.competition === 'UCL') r.european_cups += 1;
+        else if (EURO.includes(t.competition)) r.other_european += 1;
+        else if (t.competition === 'ENG-FAC') r.fa_cups += 1;
+        else if (t.competition === 'ENG-LC') r.league_cups += 1;
+      });
+      return Object.values(by);
+    },
+  });
+
+  dash.calc('reigns', {
+    title: 'Reigns at #1',
+    description: 'Consecutive seasons the same club finished top-rated, from the season-end leaders.',
+    inputs: ['number_ones'],
+    fn: (number_ones) => {
+      const out = [];
+      for (const r of number_ones) {
+        const last = out[out.length - 1];
+        if (last && last.club === r.club && last.to === r.season - 1) { last.to = r.season; last.seasons += 1; }
+        else out.push({ club: r.club, country: r.country, from: r.season, to: r.season, seasons: 1 });
+      }
+      return out;
+    },
+  });
+</script>
+
+<script>
+  // Shared helpers on window: formatting, colors, tooltips, a line chart.
+  const FE = (window.FE = {});
+  FE.season = (s) => `${s}/${String((Number(s) + 1) % 100).padStart(2, '0')}`;
+  FE.int = d3.format(',');
+  FE.signed = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + FE.int(Math.abs(v));
+  FE.countries = { ENG: 'England', ESP: 'Spain', GER: 'Germany', ITA: 'Italy', FRA: 'France', POR: 'Portugal', NED: 'Netherlands' };
+  FE.countryColor = (c) => dash.colors[['ENG', 'ESP', 'GER', 'ITA', 'FRA', 'POR', 'NED'].indexOf(c)] || 'var(--cds-chart-muted)';
+  FE.fail = (el, msg) => { el.replaceChildren(); const d = document.createElement('div'); d.className = 'fe-fail'; d.textContent = msg || 'Failed to load'; el.appendChild(d); };
+  FE.status = (...ids) => {
+    const st = ids.map((id) => dash.data(id).status);
+    if (st.some((s) => s === 'error' || s === 'connect' || s === 'declined' || s === 'missing')) return 'error';
+    if (st.every((s) => s === 'ok')) return 'ok';
+    return 'loading';
+  };
+  FE.tip = (box) => {
+    let t = box.querySelector('.fe-tip');
+    if (!t) { t = document.createElement('div'); t.className = 'fe-tip'; t.hidden = true; box.appendChild(t); }
+    return t;
+  };
+  FE.placeTip = (tip, box, x, y) => {
+    tip.hidden = false;
+    const w = tip.offsetWidth, h = tip.offsetHeight, bw = box.clientWidth;
+    let left = x + 14; if (left + w > bw) left = Math.max(0, x - w - 14);
+    let top = y - h / 2; top = Math.max(0, top);
+    tip.style.left = left + 'px'; tip.style.top = top + 'px';
+  };
+  FE.row = (tip, color, name, value) => {
+    const r = document.createElement('div'); r.className = 'r';
+    const a = document.createElement('span');
+    if (color) { const i = document.createElement('i'); i.style.background = color; a.appendChild(i); }
+    a.appendChild(document.createTextNode(name));
+    const b = document.createElement('span'); b.textContent = value;
+    r.append(a, b); tip.appendChild(r);
+  };
+
+  // series: [{name, color, points: [{x: Date, y: number}]}]
+  FE.lineChart = (box, series, opt) => {
+    box.querySelectorAll('svg').forEach((n) => n.remove());
+    const W = Math.max(280, box.clientWidth), H = opt.height || 360;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', opt.label || 'Chart');
+    const all = series.flatMap((s) => s.points);
+    if (!all.length) { svg.remove(); return; }
+    const x0 = opt.xDomain ? opt.xDomain[0] : d3.min(all, (p) => p.x);
+    const x1 = opt.xDomain ? opt.xDomain[1] : d3.max(all, (p) => p.x);
+    let [lo, hi] = d3.extent(all, (p) => p.y);
+    if (opt.zero) { lo = Math.min(lo, 0); hi = Math.max(hi, 0); }
+    const pad = (hi - lo) * 0.06 || 10;
+    // measure end labels for the right margin
+    const meas = svg.append('text').attr('class', 'fe-end');
+    let labelW = 0;
+    series.forEach((s) => { meas.text(`${s.name} ${opt.fmt(s.points[s.points.length - 1]?.y ?? 0)}`); labelW = Math.max(labelW, meas.node().getComputedTextLength()); });
+    meas.remove();
+    const narrow = W < 560;
+    const m = { top: 12, right: narrow ? 12 : Math.min(240, labelW + 16), bottom: 26, left: 44 };
+    const x = d3.scaleUtc([x0, x1], [m.left, W - m.right]);
+    const y = opt.log
+      ? d3.scaleLog([Math.max(1, lo), hi * 1.05], opt.invert ? [m.top, H - m.bottom] : [H - m.bottom, m.top])
+      : d3.scaleLinear([lo - pad, hi + pad], opt.invert ? [m.top, H - m.bottom] : [H - m.bottom, m.top]);
+    if (opt.band) {
+      const bx0 = x(Math.max(+opt.band[0], +x0)), bx1 = x(Math.min(+opt.band[1], +x1));
+      if (bx1 > bx0) svg.append('rect').attr('x', bx0).attr('y', m.top).attr('width', bx1 - bx0).attr('height', H - m.top - m.bottom).attr('fill', 'var(--cds-chart-grid)');
+    }
+    const yTicks = opt.log ? [1, 2, 5, 10, 20, 50, 100, 200].filter((t) => t >= y.domain()[0] && t <= y.domain()[1]) : y.ticks(6);
+    const gy = svg.append('g');
+    yTicks.forEach((t) => {
+      gy.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(t)).attr('y2', y(t)).attr('stroke', 'var(--cds-chart-grid)');
+      gy.append('text').attr('x', m.left - 6).attr('y', y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text(opt.tick ? opt.tick(t) : FE.int(t));
+    });
+    if (opt.zero) svg.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(0)).attr('y2', y(0)).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 3');
+    const xt = x.ticks(Math.max(3, Math.floor((W - m.left - m.right) / 90)));
+    const gx = svg.append('g');
+    gx.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', H - m.bottom).attr('y2', H - m.bottom).attr('stroke', 'var(--cds-chart-axis)');
+    xt.forEach((t) => gx.append('text').attr('x', x(t)).attr('y', H - m.bottom + 16).attr('text-anchor', 'middle').text(d3.utcFormat('%Y')(t)));
+    const line = d3.line().defined((p) => p.y != null).x((p) => x(p.x)).y((p) => y(p.y));
+    series.forEach((s) => {
+      // break the line across gaps longer than the threshold
+      const pts = []; let prev = null;
+      s.points.forEach((p) => { if (prev && (p.x - prev.x) > (opt.gap || 400 * 864e5)) pts.push({ x: p.x, y: null }); pts.push(p); prev = p; });
+      svg.append('path').attr('d', line(pts)).attr('fill', 'none').attr('stroke', s.color).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round');
+    });
+    if (!narrow) {
+      const ends = series.filter((s) => s.points.length).map((s) => ({ s, p: s.points[s.points.length - 1] }))
+        .map((e) => ({ ...e, yy: y(e.p.y) })).sort((a, b) => a.yy - b.yy);
+      for (let i = 1; i < ends.length; i++) if (ends[i].yy - ends[i - 1].yy < 14) ends[i].yy = ends[i - 1].yy + 14;
+      ends.forEach((e) => svg.append('text').attr('class', 'fe-end').attr('x', x(e.p.x) + 6).attr('y', e.yy).attr('dy', '0.32em').style('fill', e.s.color).text(`${e.s.name} ${opt.fmt(e.p.y)}`));
+    }
+    // trophy markers: a diamond for a European Cup, a ring for other trophies
+    const markers = (opt.markers || []).map((mk) => {
+      const s = series.find((q) => q.name === mk.series);
+      if (!s) return null;
+      const i = d3.bisector((p) => p.x).center(s.points, mk.x);
+      const p = s.points[i];
+      if (!p || Math.abs(p.x - mk.x) > 300 * 864e5) return null;
+      return { ...mk, color: s.color, px: x(p.x), py: y(p.y) };
+    }).filter(Boolean);
+    markers.forEach((mk) => {
+      if (mk.big) svg.append('rect').attr('x', mk.px - 5).attr('y', mk.py - 5).attr('width', 10).attr('height', 10)
+        .attr('transform', `rotate(45 ${mk.px} ${mk.py})`).attr('fill', mk.color).attr('stroke', 'var(--color-bg)').attr('stroke-width', 1.5);
+      else svg.append('circle').attr('cx', mk.px).attr('cy', mk.py).attr('r', 4.5).attr('fill', 'var(--color-bg)').attr('stroke', mk.color).attr('stroke-width', 2);
+    });
+    // hover
+    const tip = FE.tip(box);
+    const rule = svg.append('line').attr('y1', m.top).attr('y2', H - m.bottom).attr('stroke', 'var(--cds-chart-axis)').attr('opacity', 0);
+    const dots = svg.append('g');
+    svg.append('rect').attr('x', m.left).attr('y', m.top).attr('width', W - m.left - m.right).attr('height', H - m.top - m.bottom).attr('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [px] = d3.pointer(ev);
+        const at = x.invert(px);
+        rule.attr('x1', px).attr('x2', px).attr('opacity', 1);
+        dots.selectAll('*').remove();
+        tip.replaceChildren();
+        const head = document.createElement('div'); head.className = 't'; head.textContent = opt.when(at); tip.appendChild(head);
+        const near = series.map((s) => {
+          const i = d3.bisector((p) => p.x).center(s.points, at);
+          const p = s.points[i];
+          return p && Math.abs(p.x - at) < (opt.near || 200 * 864e5) ? { s, p } : null;
+        }).filter(Boolean).sort((a, b) => (opt.invert ? a.p.y - b.p.y : b.p.y - a.p.y));
+        near.forEach(({ s, p }) => {
+          dots.append('circle').attr('cx', x(p.x)).attr('cy', y(p.y)).attr('r', 4).attr('fill', s.color);
+          FE.row(tip, series.length > 1 ? s.color : null, s.name, opt.fmt(p.y));
+        });
+        if (!near.length) FE.row(tip, null, 'No match that month', '');
+        markers.filter((mk) => Math.abs(mk.x - at) < (opt.near || 200 * 864e5) * 1.5)
+          .forEach((mk) => FE.row(tip, mk.color, mk.label, ''));
+        const rect = box.getBoundingClientRect();
+        FE.placeTip(tip, box, ev.clientX - rect.left, ev.clientY - rect.top);
+      })
+      .on('pointerleave', () => { tip.hidden = true; rule.attr('opacity', 0); dots.selectAll('*').remove(); });
+  };
+</script>
+
+<script>
+  // Tabs and links. A tab's content and code load the first time it opens.
+  const FE = window.FE;
+  const tabs = ['rise', 'alltime', 'eras', 'club', 'matchups', 'rankings', 'greatest'];
+  FE.ready = {}; FE.inits = {};
+  FE.onTabReady = (tab, fn) => { (FE.inits[tab] = FE.inits[tab] || []).push(fn); if (FE.ready[tab]) fn(); };
+  const ensure = (tab) => {
+    if (FE.ready[tab]) return;
+    const tpl = document.getElementById('tpl-' + tab);
+    if (tpl) document.getElementById(tab).appendChild(tpl.content.cloneNode(true));
+    FE.ready[tab] = true;
+    (FE.inits[tab] || []).forEach((fn) => fn());
+  };
+  FE.active = 'rise';
+  const show = (id, setLink) => {
+    if (!tabs.includes(id)) return;
+    ensure(id);
+    FE.active = id;
+    tabs.forEach((t) => {
+      document.getElementById(t).hidden = t !== id;
+      document.getElementById('tab-' + t).setAttribute('aria-selected', String(t === id));
+    });
+    if (setLink) dash.setLink(id);
+    FE.redraw && FE.redraw();
+  };
+  tabs.forEach((t) => document.getElementById('tab-' + t).addEventListener('click', () => show(t, true)));
+  FE.showTab = show;
+  show(tabs.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'rise', false);
+</script>
+
+<script>
+  // Header takeaway, and the club list every club picker uses
+  const FE = window.FE;
+  dash.onData(() => {
+    if (FE.status('club_summary') === 'ok') {
+      const dl = document.getElementById('club-list');
+      if (!dl.childElementCount) {
+        dash.data('club_summary').data.slice().sort((a, b) => a.club.localeCompare(b.club))
+          .forEach((r) => { const o = document.createElement('option'); o.value = r.club; dl.appendChild(o); });
+      }
+    }
+    const el = document.getElementById('takeaway');
+    if (FE.status('number_ones', 'club_summary') !== 'ok') {
+      if (FE.status('number_ones', 'club_summary') === 'error') { el.textContent = 'The ratings did not load. Open Sources to see why.'; }
+      return;
+    }
+    el.replaceChildren();
+    const ones = dash.data('number_ones').data;
+    const latest = ones[ones.length - 1];
+    const summary = dash.data('club_summary').data;
+    const most = d3.max(summary, (r) => r.seasons_at_1);
+    const kings = summary.filter((r) => r.seasons_at_1 === most);
+    const b = (txt, attrs) => { const n = document.createElement('b'); n.textContent = txt; Object.entries(attrs).forEach(([k, v]) => n.setAttribute(k, v)); return n; };
+    el.append(
+      b(latest.club, { 'data-source': 'number_ones', 'data-field': 'club', 'data-where': `season=${latest.season}` }),
+      document.createTextNode(' leads the ratings this season on '),
+      b(FE.int(latest.elo_end), { 'data-source': 'number_ones', 'data-field': 'elo_end', 'data-where': `season=${latest.season}` }),
+      document.createTextNode('. Since 1965, '),
+    );
+    kings.forEach((k, i) => {
+      if (i) el.append(document.createTextNode(i === kings.length - 1 ? ' and ' : ', '));
+      el.append(b(k.club, { 'data-source': 'club_summary', 'data-field': 'club', 'data-where': `club=${encodeURIComponent(k.club)}` }));
+    });
+    el.append(document.createTextNode(kings.length > 1 ? ' have finished the most seasons as the top-rated club (' : ' has finished the most seasons as the top-rated club ('));
+    el.append(b(String(most), { 'data-source': 'club_summary', 'data-field': 'seasons_at_1', 'data-where': `club=${encodeURIComponent(kings[0].club)}` }));
+    el.append(document.createTextNode(kings.length > 1 ? ' each).' : ').'));
+  });
+</script>
+
+<script>
+window.FE.onTabReady('rise', () => {
+  // Rise and fall
+  const FE = window.FE;
+  const PRESETS = {
+    europe: ['Real Madrid', 'Barcelona', 'Bayern Munich', 'AC Milan', 'Liverpool', 'Juventus'],
+    england: ['Manchester United', 'Liverpool', 'Arsenal', 'Chelsea', 'Manchester City', 'Tottenham Hotspur'],
+    spain: ['Real Madrid', 'Barcelona', 'Atletico Madrid', 'Valencia CF', 'Athletic Bilbao', 'Sevilla'],
+    italy: ['Juventus', 'AC Milan', 'Internazionale', 'AS Roma', 'SSC Napoli', 'Lazio'],
+    germany: ['Bayern Munich', 'Borussia Dortmund', 'Hamburger SV', 'Borussia Monchengladbach', 'Werder Bremen', 'Bayer Leverkusen'],
+    france: ['Paris Saint-Germain', 'Olympique Marseille', 'Olympique Lyon', 'AS Monaco', 'AS Saint-Etienne', 'Girondins Bordeaux'],
+    lowlands: ['AFC Ajax', 'PSV Eindhoven', 'Feyenoord', 'SL Benfica', 'FC Porto', 'Sporting CP'],
+  };
+  let measure = 'elo';
+  const clubs = () => (dash.params().clubs || []);
+  const colorOf = (club) => dash.colors[clubs().indexOf(club) % dash.colors.length];
+  const setClubs = (list) => dash.setParams({ clubs: list.slice(0, 8) });
+
+  const add = document.getElementById('club-add');
+  const tryAdd = () => {
+    const names = new Set((dash.data('club_summary').data || []).map((r) => r.club));
+    const v = add.value.trim();
+    if (names.has(v) && !clubs().includes(v)) { setClubs([...clubs(), v]); add.value = ''; }
+  };
+  add.addEventListener('change', tryAdd);
+  add.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryAdd(); });
+  document.getElementById('preset').addEventListener('change', (e) => { if (PRESETS[e.target.value]) setClubs(PRESETS[e.target.value]); e.target.value = ''; });
+  ['elo', 'above', 'rank'].forEach((k) => document.getElementById('m-' + k).addEventListener('click', () => {
+    measure = k;
+    ['elo', 'above', 'rank'].forEach((j) => document.getElementById('m-' + j).setAttribute('aria-pressed', String(j === k)));
+    draw();
+  }));
+
+  const drawChips = () => {
+    const box = document.getElementById('chips');
+    box.replaceChildren();
+    clubs().forEach((c) => {
+      const chip = document.createElement('span'); chip.className = 'fe-chip';
+      const i = document.createElement('i'); i.style.background = colorOf(c);
+      const btn = document.createElement('button'); btn.type = 'button'; btn.textContent = '×'; btn.setAttribute('aria-label', 'Remove ' + c);
+      btn.addEventListener('click', () => setClubs(clubs().filter((x) => x !== c)));
+      chip.append(i, document.createTextNode(c), btn);
+      box.appendChild(chip);
+    });
+  };
+
+  const drawChart = () => {
+    const box = document.getElementById('rise-chart');
+    if (window.FE.active !== 'rise') return;
+    const src = measure === 'elo' ? 'club_months' : 'club_seasons';
+    const st = FE.status(src);
+    if (st === 'error') { box.classList.remove('dash-skeleton'); FE.fail(box); return; }
+    if (st !== 'ok') return;
+    box.classList.remove('dash-skeleton');
+    box.querySelectorAll('.fe-fail').forEach((n) => n.remove());
+    const rows = dash.data(src).data;
+    const series = clubs().map((c) => ({
+      name: c, color: colorOf(c),
+      points: rows.filter((r) => r.club === c).map((r) => measure === 'elo'
+        ? { x: new Date(r.month), y: Number(r.elo) }
+        : { x: new Date(Date.UTC(Number(r.season) + 1, 4, 31)), y: Number(measure === 'above' ? r.above_field : r.world_rank), season: r.season }),
+    })).filter((s) => s.points.length);
+    if (!series.length) { box.querySelectorAll('svg').forEach((n) => n.remove()); return; }
+    const end = new Date(Date.UTC(new Date().getUTCFullYear() + 1, 0, 1));
+    const NAMES = { UCL: 'European Cup', UEL: 'UEFA Cup', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', UECL: 'Conference League' };
+    const markers = FE.status('trophies') === 'ok' ? dash.data('trophies').data
+      .filter((t) => NAMES[t.competition] && clubs().includes(t.winner))
+      .map((t) => ({ series: t.winner, x: new Date(Date.UTC(Number(t.season) + 1, 4, 25)), big: t.competition === 'UCL',
+                     label: `Won the ${NAMES[t.competition]} ${t.season_label}` })) : [];
+    FE.lineChart(box, series, {
+      height: 380, label: 'Club ratings over time', markers,
+      xDomain: [new Date(Date.UTC(1955, 7, 1)), end],
+      band: [new Date(Date.UTC(1955, 7, 1)), new Date(Date.UTC(1965, 6, 1))],
+      fmt: measure === 'above' ? FE.signed : measure === 'rank' ? (v) => '#' + v : FE.int,
+      tick: measure === 'above' ? FE.signed : measure === 'rank' ? (v) => '#' + v : FE.int,
+      zero: measure === 'above', invert: measure === 'rank', log: measure === 'rank',
+      gap: measure === 'elo' ? 200 * 864e5 : 400 * 864e5,
+      near: measure === 'elo' ? 120 * 864e5 : 200 * 864e5,
+      when: (d) => measure === 'elo' ? d3.utcFormat('%B %Y')(d) : 'Season ' + FE.season(d.getUTCMonth() < 6 ? d.getUTCFullYear() - 1 : d.getUTCFullYear()),
+    });
+  };
+
+  const trophyOf = (c) => ((dash.data('trophy_counts').data || []).find((t) => t.club === c)
+    || { european_cups: 0, other_european: 0, fa_cups: 0, league_cups: 0 });
+  const drawTable = () => {
+    const tbody = document.querySelector('#h2h tbody');
+    if (FE.status('club_summary') !== 'ok') return;
+    const byClub = new Map(dash.data('club_summary').data.map((r) => [r.club, r]));
+    tbody.replaceChildren();
+    clubs().forEach((c) => {
+      const r = byClub.get(c); if (!r) return;
+      const tr = document.createElement('tr');
+      const cells = [
+        [r.club, 'club'], [r.country, ''],
+        [r.peak_elo == null ? '—' : FE.int(r.peak_elo), 'num'], [r.peak_season_label == null ? '—' : r.peak_season_label, 'num'],
+        [String(r.seasons_at_1), 'num'], [String(r.seasons_top10), 'num'], [r.best_rank == null ? '—' : String(r.best_rank), 'num'],
+        [String(trophyOf(c).european_cups), 'num'], [String(trophyOf(c).other_european), 'num'],
+        [String(r.top_flight_seasons), 'num fe-hide-sm'], [r.best_decade_label == null ? '—' : r.best_decade_label, 'num fe-hide-sm'],
+      ];
+      cells.forEach(([t, cls], i) => {
+        const td = document.createElement('td'); td.className = cls; td.textContent = t;
+        if (i === 0) { const sw = document.createElement('i'); sw.style.cssText = `display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:${colorOf(c)}`; td.prepend(sw); }
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  };
+
+  const fillList = () => {
+    if (FE.status('club_summary') !== 'ok') return;
+    const dl = document.getElementById('club-list');
+    if (dl.childElementCount) return;
+    dash.data('club_summary').data.slice().sort((a, b) => a.club.localeCompare(b.club))
+      .forEach((r) => { const o = document.createElement('option'); o.value = r.club; dl.appendChild(o); });
+  };
+
+  const draw = () => { drawChips(); drawChart(); drawTable(); fillList(); };
+  window.FE.drawRise = drawChart;
+  dash.onData(draw);
+});
+</script>
+
+<script>
+window.FE.onTabReady('eras', () => {
+  // Eras
+  const FE = window.FE;
+  const drawOnes = () => {
+    const box = document.getElementById('ones-chart');
+    const st = FE.status('number_ones');
+    if (st === 'error') { box.classList.remove('dash-skeleton'); FE.fail(box); return; }
+    if (st !== 'ok' || window.FE.active !== 'eras') return;
+    box.classList.remove('dash-skeleton');
+    box.querySelectorAll('svg, .fe-fail').forEach((n) => n.remove());
+    const rows = dash.data('number_ones').data.filter((r) => r.season >= 1965);
+    const W = Math.max(280, box.clientWidth), H = 300, m = { top: 10, right: 8, bottom: 26, left: 40 };
+    const x = d3.scaleBand(rows.map((r) => r.season), [m.left, W - m.right]).paddingInner(0.15);
+    const y = d3.scaleLinear([0, d3.max(rows, (r) => r.margin) * 1.1], [H - m.bottom, m.top]);
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Top-rated club each season');
+    y.ticks(4).forEach((t) => {
+      svg.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(t)).attr('y2', y(t)).attr('stroke', 'var(--cds-chart-grid)');
+      svg.append('text').attr('x', m.left - 6).attr('y', y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text(t ? '+' + t : '0');
+    });
+    rows.filter((r) => r.season % 10 === 0).forEach((r) => svg.append('text').attr('x', x(r.season) + x.bandwidth() / 2).attr('y', H - m.bottom + 16).attr('text-anchor', 'middle').text(r.season));
+    const tip = FE.tip(box);
+    svg.selectAll('rect.bar').data(rows).join('rect').attr('class', 'bar')
+      .attr('x', (r) => x(r.season)).attr('width', x.bandwidth())
+      .attr('y', (r) => y(Math.max(r.margin, 0))).attr('height', (r) => Math.max(2, y(0) - y(Math.max(r.margin, 0))))
+      .attr('rx', Math.min(4, x.bandwidth() / 2)).attr('fill', (r) => FE.countryColor(r.country))
+      .on('pointermove', (ev, r) => {
+        tip.replaceChildren();
+        const h = document.createElement('div'); h.className = 't'; h.textContent = FE.season(r.season); tip.appendChild(h);
+        FE.row(tip, FE.countryColor(r.country), r.club, FE.int(r.elo_end));
+        FE.row(tip, null, 'Lead over ' + r.runner_up, FE.signed(r.margin));
+        const rect = box.getBoundingClientRect();
+        FE.placeTip(tip, box, ev.clientX - rect.left, ev.clientY - rect.top);
+      })
+      .on('pointerleave', () => { tip.hidden = true; });
+    const leg = document.getElementById('ones-legend');
+    leg.replaceChildren();
+    Object.entries(FE.countries).forEach(([k, v]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = FE.countryColor(k); s.append(i, document.createTextNode(v)); leg.appendChild(s); });
+  };
+
+  const drawReigns = () => {
+    const box = document.getElementById('reigns');
+    if (FE.status('number_ones') !== 'ok') return;
+    const rows = (dash.data('reigns').data || []).filter((r) => r.to >= 1965 && r.seasons >= 2);
+    box.replaceChildren();
+    const lead = document.createElement('span'); lead.textContent = 'Reigns of two or more seasons:'; box.appendChild(lead);
+    rows.forEach((r) => {
+      const s = document.createElement('span');
+      const b = document.createElement('b'); b.textContent = r.club;
+      s.append(b, document.createTextNode(` ${Math.max(r.from, 1965)}–${String(r.to + 1).slice(-2)} (${r.seasons})`));
+      box.appendChild(s);
+    });
+  };
+
+  const drawDecades = () => {
+    const box = document.getElementById('decades');
+    const st = FE.status('decade_kings');
+    if (st === 'error') { box.classList.remove('dash-skeleton'); FE.fail(box); return; }
+    if (st !== 'ok') return;
+    box.classList.remove('dash-skeleton');
+    box.replaceChildren();
+    d3.groups(dash.data('decade_kings').data, (r) => r.decade).forEach(([decade, rs]) => {
+      const col = document.createElement('div'); col.className = 'fe-decade';
+      const h = document.createElement('h3'); h.textContent = decade === 1960 ? '1965–69' : decade + 's';
+      const ol = document.createElement('ol');
+      rs.sort((a, b) => a.pos - b.pos).forEach((r) => {
+        const li = document.createElement('li');
+        const p = document.createElement('span'); p.className = 'p'; p.textContent = r.pos;
+        const c = document.createElement('span'); c.className = 'c';
+        const i = document.createElement('i'); i.style.background = FE.countryColor(r.country);
+        const n = document.createElement('span'); n.textContent = r.club;
+        c.append(i, n);
+        const v = document.createElement('span'); v.className = 'v'; v.textContent = FE.signed(r.avg_above_field);
+        li.append(p, c, v); ol.appendChild(li);
+      });
+      col.append(h, ol); box.appendChild(col);
+    });
+  };
+
+  const drawStrength = () => {
+    const box = document.getElementById('strength-chart');
+    const st = FE.status('league_strength');
+    if (st === 'error') { box.classList.remove('dash-skeleton'); FE.fail(box); return; }
+    if (st !== 'ok' || window.FE.active !== 'eras') return;
+    box.classList.remove('dash-skeleton');
+    const rows = dash.data('league_strength').data;
+    const series = Object.entries(FE.countries).map(([k, v]) => ({
+      name: v, color: FE.countryColor(k),
+      points: rows.filter((r) => r.country === k).map((r) => ({ x: new Date(Date.UTC(Number(r.season) + 1, 4, 31)), y: Number(r.avg_top_flight) })),
+    }));
+    FE.lineChart(box, series, {
+      height: 360, label: 'Average top-flight rating by country',
+      band: [new Date(Date.UTC(1955, 7, 1)), new Date(Date.UTC(1965, 6, 1))],
+      fmt: FE.int, gap: 400 * 864e5, near: 200 * 864e5,
+      when: (d) => 'Season ' + FE.season(d.getUTCMonth() < 6 ? d.getUTCFullYear() - 1 : d.getUTCFullYear()),
+    });
+  };
+
+  dash.onData(() => { drawOnes(); drawReigns(); drawDecades(); drawStrength(); });
+  window.FE.drawEras = () => { drawOnes(); drawStrength(); };
+});
+</script>
+
+<script>
+window.FE.onTabReady('rankings', () => {
+  // Rankings
+  const FE = window.FE;
+  const asOf = document.getElementById('as-of');
+  const filters = { country: '', tier: '', q: '', sort: 'rank', dir: 1 };
+  const showDate = () => { asOf.value = dash.params().as_of || ''; };
+  asOf.addEventListener('change', () => { if (asOf.value && asOf.validity.valid && asOf.value >= '1955-09-01') dash.setParams({ as_of: asOf.value }); });
+  asOf.addEventListener('blur', showDate);
+  document.getElementById('jump').addEventListener('change', (e) => { if (e.target.value) dash.setParams({ as_of: e.target.value }); e.target.value = ''; });
+  document.getElementById('today').addEventListener('click', () => dash.setParams({ as_of: null }));
+  document.getElementById('t-country').addEventListener('change', (e) => { filters.country = e.target.value; draw(); });
+  document.getElementById('t-tier').addEventListener('change', (e) => { filters.tier = e.target.value; draw(); });
+  document.getElementById('t-search').addEventListener('input', (e) => { filters.q = e.target.value.trim().toLowerCase(); draw(); });
+  document.querySelectorAll('#ranking th button').forEach((b) => b.addEventListener('click', () => {
+    const k = b.dataset.sort;
+    filters.dir = filters.sort === k ? -filters.dir : (k === 'elo' || k === 'change_12m' ? -1 : 1);
+    filters.sort = k; draw();
+  }));
+
+  const draw = () => {
+    if (asOf !== document.activeElement) showDate();
+    const tbody = document.querySelector('#ranking tbody');
+    const title = document.getElementById('table-title');
+    const st = FE.status('table_on_date');
+    if (st === 'error') { tbody.replaceChildren(); const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = 6; FE.fail(td); tr.appendChild(td); tbody.appendChild(tr); return; }
+    if (st !== 'ok') return;
+    const rows = dash.data('table_on_date').data;
+    const on = rows.length ? rows[0].as_of : (dash.params().as_of || '');
+    title.textContent = 'Ranking on ' + (on ? d3.utcFormat('%-d %B %Y')(new Date(on)) : 'today');
+    const maxElo = d3.max(rows, (r) => r.elo) || 1, minElo = d3.min(rows, (r) => r.elo) || 0;
+    const view = rows.filter((r) => (!filters.country || r.country === filters.country)
+      && (!filters.tier || String(r.tier) === filters.tier)
+      && (!filters.q || r.club.toLowerCase().includes(filters.q)));
+    const k = filters.sort;
+    view.sort((a, b) => {
+      const va = a[k], vb = b[k];
+      if (va == null) return 1; if (vb == null) return -1;
+      return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * filters.dir;
+    });
+    document.querySelectorAll('#ranking th').forEach((th) => {
+      const b = th.querySelector('button');
+      th.setAttribute('aria-sort', b && b.dataset.sort === k ? (filters.dir > 0 ? 'ascending' : 'descending') : 'none');
+    });
+    tbody.replaceChildren();
+    view.forEach((r) => {
+      const tr = document.createElement('tr');
+      const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); return c; };
+      td(String(r.rank), 'num'); td(r.club, 'club'); td(r.country); td(String(r.tier), 'num');
+      const e = td('', 'num');
+      const wrap = document.createElement('span'); wrap.className = 'fe-bar';
+      const bar = document.createElement('span'); bar.className = 'b';
+      bar.style.width = (8 + 72 * (r.elo - minElo) / Math.max(1, maxElo - minElo)) + 'px';
+      bar.style.background = FE.countryColor(r.country);
+      const v = document.createElement('span'); v.textContent = FE.int(r.elo);
+      wrap.append(bar, v); e.appendChild(wrap);
+      const ch = td(r.change_12m == null ? 'new' : FE.signed(r.change_12m), 'num');
+      if (r.change_12m > 0) ch.classList.add('fe-pos'); else if (r.change_12m < 0) ch.classList.add('fe-neg');
+      tbody.appendChild(tr);
+    });
+  };
+  dash.onData(draw);
+});
+</script>
+
+<script>
+window.FE.onTabReady('greatest', () => {
+  // Greatest
+  const FE = window.FE;
+  const state = { country: '', type: '' };
+  document.getElementById('g-country').addEventListener('change', (e) => { state.country = e.target.value; draw(); });
+  document.getElementById('u-type').addEventListener('change', (e) => { state.type = e.target.value; draw(); });
+  const COMP = { 'ENG-L': 'English league', 'ESP-L': 'Spanish league', 'GER-L': 'German league', 'ITA-L': 'Italian league', 'FRA-L': 'French league',
+    'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'EFL play-offs', UCL: 'European Cup / Champions League', UEL: 'UEFA Cup / Europa League',
+    UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'UEFA Super Cup' };
+
+  const failRow = (tbody, cols) => { tbody.replaceChildren(); const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = cols; FE.fail(td); tr.appendChild(td); tbody.appendChild(tr); };
+  const draw = () => {
+    const sb = document.querySelector('#seasons tbody');
+    const sst = FE.status('greatest_seasons');
+    if (sst === 'error') failRow(sb, 7);
+    else if (sst === 'ok') {
+      sb.replaceChildren();
+      dash.data('greatest_seasons').data.filter((r) => !state.country || r.country === state.country).forEach((r, i) => {
+        const tr = document.createElement('tr');
+        tr.dataset.key = `${encodeURIComponent(r.club)},${r.season}`;
+        const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); };
+        td(String(i + 1), 'num'); td(r.club, 'club'); td(r.season_label, 'num'); td(r.country);
+        td(FE.signed(r.above_field), 'num'); td(FE.int(r.elo_end), 'num fe-hide-sm'); td(String(r.world_rank), 'num fe-hide-sm');
+        sb.appendChild(tr);
+      });
+    }
+    const ub = document.querySelector('#upsets tbody');
+    const ust = FE.status('upsets');
+    if (ust === 'error') failRow(ub, 6);
+    else if (ust === 'ok') {
+      ub.replaceChildren();
+      dash.data('upsets').data.filter((r) => !state.type || r.comp_type === state.type).forEach((r) => {
+        const tr = document.createElement('tr');
+        tr.dataset.key = r.match_id;
+        const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); return c; };
+        td(d3.utcFormat('%-d %b %Y')(new Date(r.match_date)));
+        td(COMP[r.competition] || r.competition);
+        td(r.winner, 'club'); td(r.loser, 'club');
+        td(r.score, 'num');
+        td(d3.format('.1%')(r.winner_chance), 'num');
+        ub.appendChild(tr);
+      });
+    }
+  };
+  dash.onData(draw);
+});
+</script>
+
+<script>
+  dash.calc('h2h_record', {
+    title: 'Head-to-head record',
+    description: 'Wins for each club and draws, counted from the meetings between the two picked clubs.',
+    inputs: ['h2h'],
+    fn: (h2h) => {
+      const counts = {};
+      h2h.forEach((m) => { counts[m.winner] = (counts[m.winner] || 0) + 1; });
+      return Object.entries(counts).map(([winner, matches]) => ({ winner, matches }));
+    },
+  });
+</script>
+
+<script>
+window.FE.onTabReady('alltime', () => {
+  // All-time ranking
+  const FE = window.FE;
+  const W = [['w-peak', 'w_peak', 25], ['w-sustain', 'w_sustain', 35], ['w-top', 'w_top', 20], ['w-long', 'w_long', 20]];
+  W.forEach(([id, param]) => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => { document.getElementById(id + '-v').textContent = el.value; });
+    el.addEventListener('change', () => dash.setParams({ [param]: Number(el.value) }));
+  });
+  document.getElementById('w-reset').addEventListener('click', () => dash.setParams(Object.fromEntries(W.map(([, p, d]) => [p, d]))));
+  dash.onData(() => {
+    W.forEach(([id, param, d]) => {
+      const el = document.getElementById(id);
+      if (el !== document.activeElement) el.value = dash.params()[param] ?? d;
+      document.getElementById(id + '-v').textContent = el.value;
+    });
+    const tbody = document.querySelector('#alltime-table tbody');
+    const st = FE.status('alltime');
+    if (st === 'error') { tbody.replaceChildren(); const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = 9; FE.fail(td); tr.appendChild(td); tbody.appendChild(tr); return; }
+    if (st !== 'ok') return;
+    tbody.replaceChildren();
+    dash.data('alltime').data.forEach((r, i) => {
+      const tr = document.createElement('tr');
+      const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); return c; };
+      td(String(i + 1), 'num'); td(r.club, 'club'); td(r.country);
+      const s = td('', 'num');
+      const wrap = document.createElement('span'); wrap.className = 'fe-bar';
+      const bar = document.createElement('span'); bar.className = 'b';
+      bar.style.width = Math.max(4, 0.8 * (r.score || 0)) + 'px'; bar.style.background = FE.countryColor(r.country);
+      const v = document.createElement('span'); v.textContent = r.score == null ? '—' : r.score.toFixed(1);
+      wrap.append(bar, v); s.appendChild(wrap);
+      td(FE.signed(r.peak_above), 'num'); td(FE.signed(r.best5_above), 'num');
+      td(String(r.seasons_at_1), 'num'); td(String(r.seasons_top10), 'num'); td(String(r.top_flight_seasons), 'num fe-hide-sm');
+      tbody.appendChild(tr);
+    });
+  });
+});
+</script>
+
+<script>
+window.FE.onTabReady('eras', () => {
+  // Dynasties
+  const FE = window.FE;
+  [1, 3, 5, 10].forEach((n) => document.getElementById('dyn-' + n).addEventListener('click', () => dash.setParams({ dyn_top: n })));
+  dash.onData(() => {
+    const n = dash.params().dyn_top ?? 5;
+    [1, 3, 5, 10].forEach((k) => document.getElementById('dyn-' + k).setAttribute('aria-pressed', String(k === n)));
+    const tbody = document.querySelector('#dynasties tbody');
+    const st = FE.status('dynasties');
+    if (st === 'error') { tbody.replaceChildren(); const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = 7; FE.fail(td); tr.appendChild(td); tbody.appendChild(tr); return; }
+    if (st !== 'ok') return;
+    tbody.replaceChildren();
+    dash.data('dynasties').data.forEach((r, i) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = `${encodeURIComponent(r.club)},${r.from_season}`;
+      const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); };
+      td(String(i + 1), 'num'); td(r.club, 'club'); td(r.country); td(r.span);
+      td(String(r.seasons), 'num'); td(r.avg_rank.toFixed(1), 'num'); td(String(r.seasons_at_1), 'num');
+      tbody.appendChild(tr);
+    });
+  });
+});
+</script>
+
+<script>
+window.FE.onTabReady('club', () => {
+  // Club profile
+  const FE = window.FE;
+  const pick = document.getElementById('profile-pick');
+  const choose = () => {
+    const names = new Set((dash.data('club_summary').data || []).map((r) => r.club));
+    if (names.has(pick.value.trim())) { dash.setParams({ profile_club: pick.value.trim() }); pick.blur(); }
+  };
+  pick.addEventListener('change', choose);
+  pick.addEventListener('keydown', (e) => { if (e.key === 'Enter') choose(); });
+  const tierColor = (t) => ['var(--cds-chart-muted)', dash.colors[0], dash.colors[1], dash.colors[2], dash.colors[3]][t] || 'var(--cds-chart-muted)';
+  const COMP_SHORT = { 'ENG-L': 'League', 'ESP-L': 'League', 'GER-L': 'League', 'ITA-L': 'League', 'FRA-L': 'League', 'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'Play-off', UCL: 'European Cup', UEL: 'UEFA Cup', UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'Super Cup' };
+
+  const drawProfile = () => {
+    const club = dash.params().profile_club || 'Liverpool';
+    if (pick !== document.activeElement) pick.value = '';
+    pick.placeholder = 'Choose a club (now: ' + club + ')';
+    document.getElementById('profile-name').textContent = club;
+
+    // tiles from the career summary
+    const tiles = document.getElementById('profile-tiles');
+    if (FE.status('club_summary') === 'ok') {
+      const r = dash.data('club_summary').data.find((x) => x.club === club);
+      tiles.replaceChildren();
+      if (r) {
+        const where = `club=${encodeURIComponent(club)}`;
+        [['Peak rating', 'peak_elo', FE.int(r.peak_elo ?? 0)], ['Peak season', 'peak_season_label', r.peak_season_label ?? '—'],
+         ['Seasons at #1', 'seasons_at_1', String(r.seasons_at_1)], ['Seasons in top 10', 'seasons_top10', String(r.seasons_top10)],
+         ['Best decade', 'best_decade_label', r.best_decade_label ?? '—']].forEach(([label, field, val]) => {
+          const t = document.createElement('div'); t.className = 'fe-tile';
+          const l = document.createElement('div'); l.className = 'fe-tile-l'; l.textContent = label;
+          const v = document.createElement('div'); v.className = 'fe-tile-v'; v.textContent = val;
+          v.setAttribute('data-source', 'club_summary'); v.setAttribute('data-field', field); v.setAttribute('data-where', where);
+          t.append(l, v); tiles.appendChild(t);
+        });
+      }
+    }
+
+    // honours, from the finals won
+    const hon = document.getElementById('profile-honours');
+    if (FE.status('trophies') === 'ok') {
+      hon.replaceChildren();
+      const LONG = { UCL: 'European Cup', UEL: 'UEFA Cup / Europa League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', UECL: 'Conference League', 'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup' };
+      const won = dash.data('trophies').data.filter((t) => t.winner === club);
+      if (!won.length) { const p = document.createElement('span'); p.className = 'fe-note'; p.textContent = 'No European trophies, FA Cups or League Cups in the rated data.'; hon.appendChild(p); }
+      Object.keys(LONG).forEach((comp) => {
+        const list = won.filter((t) => t.competition === comp);
+        if (!list.length) return;
+        const row = document.createElement('div');
+        const b = document.createElement('b'); b.textContent = `${LONG[comp]} × ${list.length}`;
+        row.append(b, document.createTextNode('  ' + list.map((t) => t.season_label).join(', ')));
+        hon.appendChild(row);
+      });
+    }
+
+    // season bars
+    const box = document.getElementById('profile-chart');
+    const st = FE.status('profile_seasons');
+    if (st === 'error') { box.classList.remove('dash-skeleton'); FE.fail(box); }
+    else if (st === 'ok' && window.FE.active === 'club') {
+      box.classList.remove('dash-skeleton');
+      box.querySelectorAll('svg, .fe-fail').forEach((n) => n.remove());
+      const rows = dash.data('profile_seasons').data;
+      if (rows.length) {
+        const W = Math.max(280, box.clientWidth), H = 300, m = { top: 10, right: 8, bottom: 26, left: 44 };
+        const x = d3.scaleBand(d3.range(1955, d3.max(rows, (r) => r.season) + 1), [m.left, W - m.right]).paddingInner(0.15);
+        const ext = d3.extent(rows, (r) => r.above_field);
+        const y = d3.scaleLinear([Math.min(0, ext[0]) * 1.1, Math.max(0, ext[1]) * 1.1], [H - m.bottom, m.top]);
+        const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', club + ' by season');
+        svg.append('rect').attr('x', x(1955)).attr('y', m.top).attr('width', x(1965) - x(1955)).attr('height', H - m.top - m.bottom).attr('fill', 'var(--cds-chart-grid)');
+        y.ticks(5).forEach((t) => {
+          svg.append('line').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(t)).attr('y2', y(t)).attr('stroke', t === 0 ? 'var(--cds-chart-reference)' : 'var(--cds-chart-grid)');
+          svg.append('text').attr('x', m.left - 6).attr('y', y(t)).attr('dy', '0.32em').attr('text-anchor', 'end').text(FE.signed(t));
+        });
+        x.domain().filter((s) => s % 10 === 0).forEach((s) => svg.append('text').attr('x', x(s) + x.bandwidth() / 2).attr('y', H - m.bottom + 16).attr('text-anchor', 'middle').text(s));
+        const tip = FE.tip(box);
+        svg.selectAll('rect.bar').data(rows).join('rect').attr('class', 'bar')
+          .attr('x', (r) => x(r.season)).attr('width', x.bandwidth())
+          .attr('y', (r) => y(Math.max(0, r.above_field))).attr('height', (r) => Math.max(1, Math.abs(y(r.above_field) - y(0))))
+          .attr('rx', Math.min(3, x.bandwidth() / 2)).attr('fill', (r) => tierColor(r.tier))
+          .on('pointermove', (ev, r) => {
+            tip.replaceChildren();
+            const h = document.createElement('div'); h.className = 't'; h.textContent = r.season_label + ' · tier ' + r.tier; tip.appendChild(h);
+            FE.row(tip, null, 'Rating', FE.int(r.elo_end));
+            FE.row(tip, null, 'Above average', FE.signed(r.above_field));
+            FE.row(tip, null, 'Rank, seven leagues', '#' + r.world_rank);
+            FE.row(tip, null, 'Rank in league', '#' + r.league_rank);
+            const rect = box.getBoundingClientRect();
+            FE.placeTip(tip, box, ev.clientX - rect.left, ev.clientY - rect.top);
+          })
+          .on('pointerleave', () => { tip.hidden = true; });
+      }
+    }
+
+    // season table
+    const stb = document.querySelector('#profile-seasons tbody');
+    if (st === 'ok') {
+      stb.replaceChildren();
+      dash.data('profile_seasons').data.slice().reverse().forEach((r) => {
+        const tr = document.createElement('tr'); tr.dataset.key = String(r.season);
+        const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); };
+        td(r.season_label); td(String(r.tier), 'num'); td(FE.int(r.elo_end), 'num'); td(FE.signed(r.above_field), 'num');
+        td(String(r.world_rank), 'num'); td(String(r.league_rank), 'num');
+        stb.appendChild(tr);
+      });
+    }
+
+    // best / worst results
+    const mst = FE.status('profile_matches');
+    if (mst === 'ok') {
+      const rows = dash.data('profile_matches').data;
+      [['best', '#profile-best tbody'], ['worst', '#profile-worst tbody']].forEach(([kind, sel]) => {
+        const tb = document.querySelector(sel); tb.replaceChildren();
+        rows.filter((r) => r.kind === kind).forEach((r) => {
+          const tr = document.createElement('tr');
+          const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); return c; };
+          td(d3.utcFormat('%-d %b %Y')(new Date(r.match_date)));
+          const o = td(r.opponent, 'club');
+          const comp = document.createElement('div'); comp.className = 'fe-note'; comp.textContent = COMP_SHORT[r.competition] || r.competition; o.appendChild(comp);
+          td(r.venue); td(r.score, 'num');
+          const c = td((r.rating_change > 0 ? '+' : '') + r.rating_change.toFixed(1), 'num');
+          c.classList.add(r.rating_change > 0 ? 'fe-pos' : 'fe-neg');
+          tb.appendChild(tr);
+        });
+      });
+    }
+  };
+  dash.onData(drawProfile);
+  window.FE.drawProfile = drawProfile;
+});
+</script>
+
+<script>
+window.FE.onTabReady('matchups', () => {
+  // Matchups: head to head and what-if
+  const FE = window.FE;
+  const bindClub = (id, param) => {
+    const el = document.getElementById(id);
+    const go = () => {
+      const names = new Set((dash.data('club_summary').data || []).map((r) => r.club));
+      if (names.has(el.value.trim())) dash.setParams({ [param]: el.value.trim() });
+    };
+    el.addEventListener('change', go);
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter') go(); });
+    el.addEventListener('blur', () => { el.value = dash.params()[param] ?? el.value; });
+    return el;
+  };
+  const bindDate = (id, param) => {
+    const el = document.getElementById(id);
+    el.addEventListener('change', () => { if (el.value && el.validity.valid && el.value >= '1965-07-01') dash.setParams({ [param]: el.value }); });
+    el.addEventListener('blur', () => { el.value = dash.params()[param] ?? ''; });
+    return el;
+  };
+  const inputs = [bindClub('h2h-a', 'h2h_a'), bindClub('h2h-b', 'h2h_b'), bindClub('wi-a', 'wi_a'), bindClub('wi-b', 'wi_b'),
+                  bindDate('wi-a-date', 'wi_a_date'), bindDate('wi-b-date', 'wi_b_date')];
+  const params = ['h2h_a', 'h2h_b', 'wi_a', 'wi_b', 'wi_a_date', 'wi_b_date'];
+  const COMP = { 'ENG-L': 'English league', 'ESP-L': 'Spanish league', 'GER-L': 'German league', 'ITA-L': 'Italian league', 'FRA-L': 'French league',
+    'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'EFL play-offs', UCL: 'European Cup / Champions League', UEL: 'UEFA Cup / Europa League',
+    UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'UEFA Super Cup' };
+
+  const tile = (box, label, value, attrs) => {
+    const t = document.createElement('div'); t.className = 'fe-tile';
+    const l = document.createElement('div'); l.className = 'fe-tile-l'; l.textContent = label;
+    const v = document.createElement('div'); v.className = 'fe-tile-v'; v.textContent = value;
+    Object.entries(attrs || {}).forEach(([k, val]) => v.setAttribute(k, val));
+    t.append(l, v); box.appendChild(t);
+  };
+
+  dash.onData(() => {
+    inputs.forEach((el, i) => { if (el !== document.activeElement) el.value = dash.params()[params[i]] ?? ''; });
+    const a = dash.params().h2h_a || 'Liverpool', b = dash.params().h2h_b || 'Manchester United';
+
+    // record tiles
+    const tiles = document.getElementById('h2h-tiles');
+    const hst = FE.status('h2h');
+    if (hst === 'ok') {
+      const rec = Object.fromEntries((dash.data('h2h_record').data || []).map((r) => [r.winner, r.matches]));
+      tiles.replaceChildren();
+      tile(tiles, a + ' wins', String(rec[a] || 0), rec[a] ? { 'data-source': 'h2h_record', 'data-field': 'matches', 'data-where': `winner=${encodeURIComponent(a)}` } : {});
+      tile(tiles, 'Draws', String(rec.Draw || 0), rec.Draw ? { 'data-source': 'h2h_record', 'data-field': 'matches', 'data-where': 'winner=Draw' } : {});
+      tile(tiles, b + ' wins', String(rec[b] || 0), rec[b] ? { 'data-source': 'h2h_record', 'data-field': 'matches', 'data-where': `winner=${encodeURIComponent(b)}` } : {});
+      const tb = document.querySelector('#h2h-table tbody'); tb.replaceChildren();
+      const rows = dash.data('h2h').data;
+      if (!rows.length) { const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = 6; td.textContent = 'These clubs have not met in a rated match.'; tr.appendChild(td); tb.appendChild(tr); }
+      rows.forEach((r) => {
+        const tr = document.createElement('tr');
+        const td = (t, cls) => { const c = document.createElement('td'); c.className = cls || ''; c.textContent = t; tr.appendChild(c); return c; };
+        td(d3.utcFormat('%-d %b %Y')(new Date(r.match_date)));
+        td(COMP[r.competition] || r.competition);
+        const h = td(r.home_club, 'club'); td(r.score, 'num'); const aw = td(r.away_club, 'club');
+        if (r.winner === r.home_club) h.style.fontWeight = '600';
+        if (r.winner === r.away_club) aw.style.fontWeight = '600';
+        td(d3.format('.0%')(r.home_expected), 'num fe-hide-sm');
+        tb.appendChild(tr);
+      });
+    } else if (hst === 'error') { FE.fail(tiles); }
+
+    // what-if
+    const box = document.getElementById('whatif');
+    const wst = FE.status('whatif');
+    if (wst === 'error') { FE.fail(box); }
+    else if (wst === 'ok') {
+      box.replaceChildren();
+      const r = dash.data('whatif').data[0];
+      if (!r) {
+        const p = document.createElement('p'); p.className = 'fe-note';
+        p.textContent = 'One of these clubs was not playing in the rated competitions on that date. Pick a date during a season they played.';
+        box.appendChild(p);
+      } else {
+        const fmtD = (d) => d3.utcFormat('%-d %B %Y')(new Date(d));
+        const side = (club, dateParam, elo, above, fieldElo, fieldAbove) => {
+          const c = document.createElement('div'); c.className = 'fe-wi-side';
+          const n = document.createElement('div'); n.className = 'fe-wi-club'; n.textContent = club;
+          const d = document.createElement('div'); d.className = 'fe-note'; d.textContent = fmtD(dash.params()[dateParam] || (dateParam === 'wi_a_date' ? '1999-05-27' : '2011-05-29'));
+          const v = document.createElement('div'); v.className = 'fe-tile-v'; v.textContent = FE.signed(above);
+          v.setAttribute('data-source', 'whatif'); v.setAttribute('data-field', fieldAbove); v.setAttribute('data-row', '0');
+          const l = document.createElement('div'); l.className = 'fe-note'; l.textContent = 'above average, rating ' + FE.int(elo);
+          c.append(n, d, v, l); return c;
+        };
+        const sides = document.createElement('div'); sides.className = 'fe-wi-sides';
+        sides.append(side(r.club_a, 'wi_a_date', r.elo_a, r.above_a, 'elo_a', 'above_a'), side(r.club_b, 'wi_b_date', r.elo_b, r.above_b, 'elo_b', 'above_b'));
+        box.appendChild(sides);
+        const bars = document.createElement('div'); bars.className = 'fe-wi-bars';
+        [['Neutral venue', 'a_expected_neutral'], [r.club_a + ' at home', 'a_expected_home'], [r.club_b + ' at home', 'a_expected_away']].forEach(([label, field]) => {
+          const p = r[field];
+          const row = document.createElement('div'); row.className = 'fe-wi-row';
+          const l = document.createElement('div'); l.className = 'fe-note'; l.textContent = label;
+          const track = document.createElement('div'); track.className = 'fe-wi-track';
+          const fa = document.createElement('span'); fa.style.width = (p * 100) + '%'; fa.style.background = dash.colors[0];
+          const fb = document.createElement('span'); fb.style.width = ((1 - p) * 100) + '%'; fb.style.background = dash.colors[1];
+          track.append(fa, fb);
+          const v = document.createElement('div'); v.className = 'fe-wi-val';
+          const va = document.createElement('span'); va.textContent = d3.format('.1%')(p);
+          va.setAttribute('data-source', 'whatif'); va.setAttribute('data-field', field); va.setAttribute('data-row', '0');
+          v.append(va, document.createTextNode(' · ' + d3.format('.1%')(1 - p)));
+          row.append(l, track, v); bars.appendChild(row);
+        });
+        box.appendChild(bars);
+        const note = document.createElement('p'); note.className = 'fe-note';
+        note.textContent = `Era-adjusted gap ${FE.signed(r.era_gap)} (raw ratings ${FE.signed(r.raw_gap)}). Left of each bar is ${r.club_a}'s expected score, right is ${r.club_b}'s.`;
+        box.appendChild(note);
+      }
+    }
+  });
+});
+</script>
+
+<script>
+  // Redraw charts when their tab opens (a hidden chart has no width).
+  window.FE.redraw = () => { window.FE.drawRise && window.FE.drawRise(); window.FE.drawEras && window.FE.drawEras(); window.FE.drawProfile && window.FE.drawProfile(); };
+</script>

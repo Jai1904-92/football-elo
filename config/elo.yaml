@@ -1,0 +1,247 @@
+# Football Elo configuration. Everything tunable lives here, not in code.
+
+paths:
+  bronze: data/bronze
+  silver: data/silver
+  gold: data/gold
+  calibration: data/calibration
+
+sources:
+  engsoccerdata:
+    url_template: https://raw.githubusercontent.com/jalapic/engsoccerdata/master/data-raw/{name}.csv
+    files: [england, facup, leaguecup, englandplayoffs, champs, spain, germany, italy, france, portugal, holland]
+  football_data:
+    url_template: https://www.football-data.co.uk/mmz4281/{season_code}/{division}.csv
+    # division -> [country, tier]
+    divisions: {E0: [ENG, 1], E1: [ENG, 2], E2: [ENG, 3], E3: [ENG, 4],
+                SP1: [ESP, 1], SP2: [ESP, 2], D1: [GER, 1], D2: [GER, 2],
+                I1: [ITA, 1], I2: [ITA, 2], F1: [FRA, 1], F2: [FRA, 2],
+                P1: [POR, 1], N1: [NED, 1]}
+    first_season: 1993             # earlier seasons not needed (engsoccerdata covers them)
+  transfermarkt:
+    # dcaribou/transfermarkt-datasets; 2012/13 to July 2026 (collection stopped then)
+    url_template: https://pub-e682421888d945d684bcae8890b0ec20.r2.dev/data/{name}.csv.gz
+    files: [games, clubs, competitions]
+    competitions: {CL: UCL, CLQ: UCL, EL: UEL, ELQ: UEL, UCOL: UECL, ECLQ: UECL, USC: USC,
+                   FAC: ENG-FAC, CGB: ENG-LC}
+    # top flights, used only to match club ids to names (tools/derive_aliases.py)
+    match_only: {GB1: ENG-L, ES1: ESP-L, L1: GER-L, IT1: ITA-L, FR1: FRA-L, PO1: POR-L, NL1: NED-L}
+  datarozhlas:
+    # Wikipedia-scraped European club results (github.com/DataRozhlas/evropske-pohary).
+    # Known gaps: Fairs Cup 1963-66, Cup Winners' Cup 1980/81 first round.
+    url: https://raw.githubusercontent.com/DataRozhlas/evropske-pohary/master/data/matches.csv
+    competitions: {UCL: UCL, EL: UEL, CWC: UCWC, ICFC: FAIRS, UECL: UECL}
+  rsssf:
+    # RSSSF season pages for the Portuguese top flight before engsoccerdata
+    # starts (1955/56-1993/94). Results grids only, no dates: each season gets a
+    # double round-robin schedule on Sundays from September. Credit: Jorge Miguel
+    # Teixeira / RSSSF (free to copy with acknowledgement).
+    url_template: https://www.rsssf.org/tablesp/porthist{season}{end2}.html
+    seasons: [1955, 1993]
+  espn:
+    # Unofficial public scoreboard API, one request per league per calendar year.
+    url_template: https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard
+    first_year: 2016
+    # slug -> competition. League slugs are read for their play-off matches only.
+    # Since 2020 UEFA qualifiers sit under separate *_qual slugs.
+    slugs: {uefa.champions: UCL, uefa.champions_qual: UCL, uefa.europa: UEL, uefa.europa_qual: UEL,
+            uefa.europa.conf: UECL, uefa.europa.conf_qual: UECL, uefa.super_cup: USC,
+            eng.fa: ENG-FAC, eng.league_cup: ENG-LC, eng.2: ENG-PO, eng.3: ENG-PO, eng.4: ENG-PO}
+
+# Competitions and where their results come from. Windows are in priority
+# order: each source contributes rows inside its date window, but only for
+# (season, tier) blocks that no earlier source already covers. So gaps in an
+# earlier source (e.g. engsoccerdata has no 2022/23 league season) are filled
+# by a later one, and overlaps never double count.
+competitions:
+  ENG-L:
+    name: English Football League (tiers 1-4)
+    type: league
+    country: ENG
+    engsoccerdata: {file: england, max_tier: 4}
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+  ESP-L:
+    name: La Liga / Segunda (tiers 1-2)
+    type: league
+    country: ESP
+    engsoccerdata: {file: spain, max_tier: 2}     # tier 1 only; tier 2 from football-data (1996-)
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+  GER-L:
+    name: Bundesliga / 2. Bundesliga (tiers 1-2)
+    type: league
+    country: GER
+    engsoccerdata: {file: germany, max_tier: 2}   # from 1963 (tier 2 from 1974)
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+  ITA-L:
+    name: Serie A / Serie B (tiers 1-2)
+    type: league
+    country: ITA
+    engsoccerdata: {file: italy, max_tier: 2}     # tier 1 only; tier 2 from football-data (1997-)
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+  FRA-L:
+    name: Ligue 1 / Ligue 2 (tiers 1-2)
+    type: league
+    country: FRA
+    engsoccerdata: {file: france, max_tier: 2}    # tier 1 only (1993/94 missing); tier 2 from football-data
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+  POR-L:
+    name: Primeira Liga (tier 1)
+    type: league
+    country: POR
+    engsoccerdata: {file: portugal, max_tier: 1}  # from 1994/95 only
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: rsssf}                             # 1955/56-1993/94, synthetic dates
+      - {source: football_data}
+  NED-L:
+    name: Eredivisie (tier 1)
+    type: league
+    country: NED
+    engsoccerdata: {file: holland, max_tier: 1}   # from 1956/57
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+  ENG-PO:
+    name: EFL play-offs
+    type: playoff
+    country: ENG
+    windows:
+      - {source: engsoccerdata}
+      - {source: espn}
+  ENG-FAC:
+    name: FA Cup
+    type: cup
+    country: ENG
+    windows:
+      - {source: engsoccerdata}
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn}
+  ENG-LC:
+    name: League Cup
+    type: cup
+    country: ENG
+    windows:
+      - {source: engsoccerdata}
+      - {source: espn}                # complete from 2019/20; Transfermarkt only from 2023
+      - {source: transfermarkt, until: "2026-06-30"}
+  UCL:
+    name: European Cup / Champions League (incl. qualifying)
+    type: europe
+    windows:
+      - {source: engsoccerdata, until: "2016-06-30"}   # its 2016/17 and 2017/18 hold only the finals
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn}
+  UEL:
+    name: UEFA Cup / Europa League (incl. qualifying)
+    type: europe
+    windows:
+      - {source: datarozhlas, until: "2012-06-30"}
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn}
+  UECL:
+    name: Conference League (incl. qualifying)
+    type: europe
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn}
+  UCWC:
+    name: Cup Winners' Cup
+    type: europe
+    windows:
+      - {source: datarozhlas}
+  FAIRS:
+    name: Inter-Cities Fairs Cup
+    type: europe
+    windows:
+      - {source: datarozhlas}
+  USC:
+    name: UEFA Super Cup
+    type: europe
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn}
+
+aliases: config/club_aliases.csv
+
+# Source errors that a plain alias can't fix (they only apply to some seasons).
+# Applied to the source's own club keys before aliasing.
+corrections:
+  # engsoccerdata labels Gazelec Ajaccio's 2015/16 Ligue 1 season as AC Ajaccio
+  # (AC Ajaccio were in Ligue 2 that season)
+  - {source: engsoccerdata, competition: FRA-L, season: 2015, club: AC Ajaccio, to: GFC Ajaccio}
+
+elo:
+  start_date: "1955-08-01"        # first match rated
+  burn_in_until: "1965-07-01"     # ratings before this are flagged as burn-in
+  scale: 400                      # logistic scale
+  # Calibrated 2026-10-19. Country levels start equal in 1955 and are set by
+  # European results (pooling + dynamic home advantage); judged on prediction
+  # of European and league matches and on bias between the five leagues by
+  # decade (2.5pp), with Club Elo as a check (Spearman 0.991, rmse 27).
+  # See README, "Early-era calibration".
+  k: 15
+  hfa: 70                         # home field advantage, Elo points (0 at neutral venues); the
+                                  # fixed value, used only when hfa_dynamic is off
+  # Dynamic home advantage: each home country's HFA, and one shared HFA for
+  # European home games, start at `start` in 1955 and move by eta x (result -
+  # expected) after every match with home advantage. Home advantage was far
+  # bigger in the 1960s-80s (league ~120, Europe ~160-200) than now (~50/75).
+  hfa_dynamic: {eta: 1.0, europe_separate: true, start: 120}
+  # League pooling: share of each European rating change that also moves the
+  # club's whole country, so league levels follow European results quickly.
+  league_pool: 0.3
+  # Provisional ratings: a club's first 40 rated matches use K x 2.
+  provisional: {matches: 40, k_multiplier: 2.0}
+  # K multiplier by competition type
+  k_multiplier: {league: 1.0, playoff: 1.0, cup: 0.5, europe: 1.0}
+  margin:
+    # multiplier on K by absolute goal difference
+    #   none:   1
+    #   sqrt:   gd ** 0.5 (gd >= 1)
+    #   power:  gd ** exponent
+    #   table:  explicit values, last value repeated for larger margins
+    method: sqrt
+    exponent: 0.5
+    table: [1.0, 1.0, 1.5, 1.75, 1.875]
+  # Result after extra time counts; a penalty shoot-out is a draw.
+  # Starting rating when a club is first rated. All five countries start
+  # level, with the same tier gap; European results then set their levels.
+  # Clubs in a modelled league start at their tier's rating; ratings then carry across tiers on
+  # promotion/relegation (no reset). A club that joins a country's lowest
+  # modelled tier after that country's first rated season came up from
+  # below, so it starts at the rating of the tier below (or `nonleague`).
+  newcomer_from_below: true
+  countries:
+    ENG:
+      start_ratings: {1: 1561, 2: 1397, 3: 1233, 4: 1069}
+      nonleague: 905
+    ESP:
+      start_ratings: {1: 1561, 2: 1397}
+      nonleague: 1233
+    GER:
+      start_ratings: {1: 1561, 2: 1397}
+      nonleague: 1233
+    ITA:
+      start_ratings: {1: 1561, 2: 1397}
+      nonleague: 1233
+    FRA:
+      start_ratings: {1: 1561, 2: 1397}
+      nonleague: 1233
+    POR:                           # tier 1 only; promoted clubs start at the nonleague rating
+      start_ratings: {1: 1561}
+      nonleague: 1397
+    NED:
+      start_ratings: {1: 1561}
+      nonleague: 1397
+  # Clubs from countries whose leagues are not modelled (met in Europe).
+  foreign_start: {default: 1311}
