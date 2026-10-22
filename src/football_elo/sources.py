@@ -222,8 +222,8 @@ def espn(folder: Path, slugs: dict[str, str], playoffs_only: bool = True) -> pd.
     for slug, comp in slugs.items():
         for path in sorted((folder / slug).glob("*.json")):
             for ev in json.loads(path.read_text(encoding="utf-8")).get("events", []):
-                if not ev["status"]["type"].get("completed"):
-                    continue
+                if not ev.get("status", {}).get("type", {}).get("completed"):
+                    continue                 # unplayed, or no status at all (some cup fixtures)
                 stage = (ev.get("season") or {}).get("slug", "")
                 # play-off stages: "promotion-semifinals"/"promotion-final" since
                 # 2020, plain "semi-finals"/"semifinals"/"final" before

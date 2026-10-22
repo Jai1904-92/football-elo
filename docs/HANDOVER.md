@@ -8,9 +8,9 @@ covers how everything works; this note covers where things stand and what's next
 - **Pipeline:** `python -m football_elo build | load | update | validate | calibrate`.
   - Coverage: England tiers 1–4, Spain, Germany, Italy, France and the Netherlands tiers 1–2, Portugal tier 1.
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
-  - Size: 438,143 matches and 2,263 clubs (2026-10-23).
+  - Size: 444,608 matches and 3,266 clubs (2026-10-23; about 1,000 of them cup-only).
   - Tests: 29, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 9 on
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 10 on
   2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
@@ -66,11 +66,25 @@ update the dashboard.
    - `tools/pool_experiment.py` needs `data/silver/matches_prepared.parquet`, which nothing in the pipeline
      writes: regenerate it with `engine.prepare(matches, params, club_country=clubs.country)` first, or the
      experiment silently uses a stale file.
-2. **Domestic cups outside England.**
-   - Transfermarkt has the Copa del Rey (`CDR`), DFB-Pokal (`DFB`), Coppa Italia (`CIT`), KNVB Cup (`NLP`)
-     and probably the Taça (`POCP`) from 2012. The Coupe de France isn't in its list.
-   - Before 2012 a source is needed (RSSSF or Wikipedia).
-   - Cups use K × 0.5.
+2. **Domestic cups outside England.** Done from 2012/13 on 2026-10-23, and loaded (run 10):
+   - `ESP-CDR`, `GER-DFB`, `ITA-CI`, `NED-KNVB`, `POR-TP` from Transfermarkt 2012/13–2025/26, then ESPN
+     (which also fills the Taça's partial Transfermarkt seasons from 2021/22). `FRA-CDF` from ESPN only, last
+     64 on, from 2015/16. 6,553 matches; cups use K × 0.5. Trophy winners come from the finals
+     (migration `20261023000000_domestic_cups.sql`).
+   - About 1,000 cup-only clubs were added (amateur and lower-league sides); they take the cup's country
+     (`silver.build`), so they start at the country's non-league rating. Linking: `tools/derive_aliases.py`,
+     then a name screen of every new club against the existing clubs of its country, with about 100
+     duplicates merged by hand (e.g. "SG Dynamo Dresden", "TSV 1860 Munich", "MVV Maastricht"). Refounded
+     clubs stay separate where the league data keeps them apart (Sestao River, Salamanca UDS, Xerez
+     Deportivo, Union Brescia, AVS). The screen also caught a 2026 ESPN duplicate, "Torreense".
+   - Calibration: league and European log loss and the bias between leagues unchanged; every rating about 3
+     points higher against Club Elo (bias +2.7, RMSE 27.0). Lowering the amateur start rating made things
+     worse (README, "Early-era calibration").
+   - Left: cups before 2012. RSSSF's season pages don't carry them (Italy's 2002/03 page aside). Wikipedia
+     season articles ("1984–85 DFB-Pokal") do, in `{{Football box}}` templates, but coverage varies:
+     the DFB-Pokal and Copa del Rey are well covered from the 1980s; the Coppa Italia is in tables; the
+     Coupe de France and KNVB Cup have only the late rounds; the Taça has nothing. That needs a new parser.
+     The Taça 2020/21 has only its last 8.
 3. **Germany before 1963.** The regional Oberligen ran from 1955 to 1963. Check RSSSF for results grids;
    until then German clubs are rated only from European games.
 4. **The rest of Europe.** engsoccerdata has `scotland`, `belgium`, `turkey` and `greece`, the same format as

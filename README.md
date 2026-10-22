@@ -1,8 +1,8 @@
 # football-elo
 
 Club Elo-style ratings for English football (tiers 1–4), Spain, Germany, Italy, France and the Netherlands
-(tiers 1–2), and Portugal (tier 1), from 1955 to now, kept current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs and
-the European club competitions. The Supabase project is
+(tiers 1–2), and Portugal (tier 1), from 1955 to now, kept current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs,
+the other countries' domestic cups from 2012/13, and the European club competitions. The Supabase project is
 `football-elo` (ref `mukyuvlvwozeihsrjjis`, Sydney).
 
 ## Quick start
@@ -41,6 +41,9 @@ pytest
 | Play-offs | `ENG-PO` | engsoccerdata to 2015/16 → ESPN |
 | FA Cup (Round 1 on) | `ENG-FAC` | engsoccerdata to 2018/19 → Transfermarkt to 2025/26 → ESPN |
 | League Cup | `ENG-LC` | engsoccerdata to 2018/19 → ESPN |
+| Copa del Rey, DFB-Pokal, Coppa Italia, KNVB Cup | `ESP-CDR`, `GER-DFB`, `ITA-CI`, `NED-KNVB` | Transfermarkt 2012/13–2025/26 → ESPN |
+| Taça de Portugal | `POR-TP` | Transfermarkt 2012/13–2025/26 (some seasons from the last 8 only) → ESPN (2021/22 on, and 2026/27) |
+| Coupe de France (last 64 on) | `FRA-CDF` | ESPN from 2015/16 |
 | European Cup / Champions League | `UCL` | engsoccerdata to 2017/18 → Transfermarkt → ESPN |
 | UEFA Cup / Europa League | `UEL` | DataRozhlas to 2011/12 → Transfermarkt → ESPN |
 | Conference League | `UECL` | Transfermarkt → ESPN |
@@ -93,7 +96,8 @@ How sources combine:
     football-data begins.
   - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial
     (filled from other sources, above).
-  - Domestic cups outside England (Copa del Rey, DFB-Pokal, Coppa Italia, Coupe de France) are not included yet.
+  - Domestic cups outside England start in 2012/13 (the Coupe de France in 2015/16); earlier seasons have no
+    source yet. The Taça de Portugal 2020/21 has only its last 8 (Transfermarkt; ESPN starts a season later).
 - **engsoccerdata naming:** it names some clubs differently across seasons (e.g. "TSV 1860 Munchen" vs
   "1860 Munchen", "SV Bayer 04 Leverkusen" vs "Bayer Leverkusen"). These are merged through `engsoccerdata`
   alias rows. Successor clubs are kept separate, e.g. ESTAC Troyes vs Troyes AF.
@@ -182,7 +186,8 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
   reset.
 - **Newcomers from below:** a club joining a country's lowest modelled tier after its first season starts
   one tier down.
-- **Non-league clubs** met in the cups start at the non-league rating.
+- **Non-league clubs** met in the cups start at the non-league rating. Transfermarkt and ESPN give no
+  country for most amateur sides, so a domestic cup's clubs take the cup's country.
 - **Foreign clubs** from unmodelled countries start at the foreign rating plus their country's pooled
   level. They are rated only through European matches.
 
@@ -276,8 +281,12 @@ How the parameters were chosen:
 - **Overfitting:** letting every parameter float overfits. An earlier run gave cups near-zero K and a
   443-point tier gap, so K, HFA and England's gaps stay fixed.
 - **Remaining error:** mostly the older snapshots. In 2008 Club Elo rated England and Italy about 35 points
-  higher relative to the rest than we do. The likely causes are Club Elo's other leagues (Portugal,
-  Netherlands and others) and domestic cups, which aren't modelled here.
+  higher relative to the rest than we do. The likely causes are Club Elo's other leagues and the domestic
+  cups before 2012, which aren't modelled here.
+- **Domestic cups (2026-10-23):** adding the six countries' cups from 2012/13 left league and European log
+  loss and the bias between leagues unchanged, but lifted every rating about 3 points against Club Elo
+  (bias −0.7 → +2.7, RMSE 26.2 → 27.0): amateur sides start at the non-league rating and lose points to
+  the clubs they meet. Starting them one tier lower made every measure worse, so the setting stays.
 
 ## Weekly update
 

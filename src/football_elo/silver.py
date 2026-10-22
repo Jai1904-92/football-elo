@@ -210,6 +210,9 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
             raw.append(reader.read(src, comp))
         df = combine_windows(cfg, comp, reader)
         df = df[df["match_date"] >= start]
+        if spec["type"] == "cup" and spec.get("country"):
+            # a domestic cup's clubs are that country's (amateur sides have no country in the sources)
+            df = df.fillna({"home_country": spec["country"], "away_country": spec["country"]})
         for src, part in df.groupby("source"):
             auto = new_aliases if src in auto_new_sources else None
             frames.append(apply_aliases(part, aliases, src, auto_new=auto))

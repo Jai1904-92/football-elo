@@ -23,7 +23,8 @@ sources:
     url_template: https://pub-e682421888d945d684bcae8890b0ec20.r2.dev/data/{name}.csv.gz
     files: [games, clubs, competitions]
     competitions: {CL: UCL, CLQ: UCL, EL: UEL, ELQ: UEL, UCOL: UECL, ECLQ: UECL, USC: USC,
-                   FAC: ENG-FAC, CGB: ENG-LC}
+                   FAC: ENG-FAC, CGB: ENG-LC,
+                   CDR: ESP-CDR, DFB: GER-DFB, CIT: ITA-CI, NLP: NED-KNVB, POCP: POR-TP}
     # top flights, used only to match club ids to names (tools/derive_aliases.py)
     match_only: {GB1: ENG-L, ES1: ESP-L, L1: GER-L, IT1: ITA-L, FR1: FRA-L, PO1: POR-L, NL1: NED-L}
   datarozhlas:
@@ -110,7 +111,9 @@ sources:
     # Since 2020 UEFA qualifiers sit under separate *_qual slugs.
     slugs: {uefa.champions: UCL, uefa.champions_qual: UCL, uefa.europa: UEL, uefa.europa_qual: UEL,
             uefa.europa.conf: UECL, uefa.europa.conf_qual: UECL, uefa.super_cup: USC,
-            eng.fa: ENG-FAC, eng.league_cup: ENG-LC, eng.2: ENG-PO, eng.3: ENG-PO, eng.4: ENG-PO}
+            eng.fa: ENG-FAC, eng.league_cup: ENG-LC, eng.2: ENG-PO, eng.3: ENG-PO, eng.4: ENG-PO,
+            esp.copa_del_rey: ESP-CDR, ger.dfb_pokal: GER-DFB, ita.coppa_italia: ITA-CI,
+            fra.coupe_de_france: FRA-CDF, ned.cup: NED-KNVB, por.taca.portugal: POR-TP}
 
 # Competitions and where their results come from. Windows are in priority
 # order: each source contributes rows inside its date window, but only for
@@ -209,6 +212,51 @@ competitions:
       - {source: engsoccerdata}
       - {source: espn}                # complete from 2019/20; Transfermarkt only from 2023
       - {source: transfermarkt, until: "2026-06-30"}
+  # Domestic cups outside England: Transfermarkt from 2012/13 to 2025/26, ESPN
+  # after that and for Transfermarkt's partial seasons. Clubs with no known
+  # country take the cup's (silver.build), so amateur sides start at the
+  # country's non-league rating.
+  ESP-CDR:
+    name: Copa del Rey
+    type: cup
+    country: ESP
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn, replace_partial: 0.9}
+  GER-DFB:
+    name: DFB-Pokal
+    type: cup
+    country: GER
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn, replace_partial: 0.9}
+  ITA-CI:
+    name: Coppa Italia
+    type: cup
+    country: ITA
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn, replace_partial: 0.9}
+  FRA-CDF:
+    name: Coupe de France
+    type: cup
+    country: FRA
+    windows:
+      - {source: espn}                # last 64 onwards, from 2015/16; not in Transfermarkt
+  NED-KNVB:
+    name: KNVB Cup
+    type: cup
+    country: NED
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}
+      - {source: espn, replace_partial: 0.9}
+  POR-TP:
+    name: Taça de Portugal
+    type: cup
+    country: POR
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}   # some seasons from the last 8 only
+      - {source: espn, replace_partial: 0.9}            # from 2021/22
   UCL:
     name: European Cup / Champions League (incl. qualifying)
     type: europe

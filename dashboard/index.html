@@ -970,8 +970,10 @@ window.FE.onTabReady('greatest', () => {
   document.getElementById('g-country').addEventListener('change', (e) => { state.country = e.target.value; draw(); });
   document.getElementById('u-type').addEventListener('change', (e) => { state.type = e.target.value; draw(); });
   const COMP = { 'ENG-L': 'English league', 'ESP-L': 'Spanish league', 'GER-L': 'German league', 'ITA-L': 'Italian league', 'FRA-L': 'French league',
+    'NED-L': 'Dutch league', 'POR-L': 'Portuguese league',
     'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'EFL play-offs', UCL: 'European Cup / Champions League', UEL: 'UEFA Cup / Europa League',
-    UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'UEFA Super Cup' };
+    UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'UEFA Super Cup',
+    'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal', 'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça de Portugal' };
 
   const failRow = (tbody, cols) => { tbody.replaceChildren(); const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = cols; FE.fail(td); tr.appendChild(td); tbody.appendChild(tr); };
   const draw = () => {
@@ -1101,7 +1103,8 @@ window.FE.onTabReady('club', () => {
   pick.addEventListener('change', choose);
   pick.addEventListener('keydown', (e) => { if (e.key === 'Enter') choose(); });
   const tierColor = (t) => ['var(--cds-chart-muted)', dash.colors[0], dash.colors[1], dash.colors[2], dash.colors[3]][t] || 'var(--cds-chart-muted)';
-  const COMP_SHORT = { 'ENG-L': 'League', 'ESP-L': 'League', 'GER-L': 'League', 'ITA-L': 'League', 'FRA-L': 'League', 'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'Play-off', UCL: 'European Cup', UEL: 'UEFA Cup', UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'Super Cup' };
+  const COMP_SHORT = { 'ENG-L': 'League', 'ESP-L': 'League', 'GER-L': 'League', 'ITA-L': 'League', 'FRA-L': 'League', 'NED-L': 'League', 'POR-L': 'League', 'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'Play-off', UCL: 'European Cup', UEL: 'UEFA Cup', UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'Super Cup',
+    'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal', 'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça' };
 
   const drawProfile = () => {
     const club = dash.params().profile_club || 'Liverpool';
@@ -1132,9 +1135,10 @@ window.FE.onTabReady('club', () => {
     const hon = document.getElementById('profile-honours');
     if (FE.status('trophies') === 'ok') {
       hon.replaceChildren();
-      const LONG = { UCL: 'European Cup', UEL: 'UEFA Cup / Europa League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', UECL: 'Conference League', 'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup' };
+      const LONG = { UCL: 'European Cup', UEL: 'UEFA Cup / Europa League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', UECL: 'Conference League', 'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup',
+        'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal', 'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça de Portugal' };
       const won = dash.data('trophies').data.filter((t) => t.winner === club);
-      if (!won.length) { const p = document.createElement('span'); p.className = 'fe-note'; p.textContent = 'No European trophies, FA Cups or League Cups in the rated data.'; hon.appendChild(p); }
+      if (!won.length) { const p = document.createElement('span'); p.className = 'fe-note'; p.textContent = 'No European trophies or domestic cups in the rated data (cups outside England from 2012/13).'; hon.appendChild(p); }
       Object.keys(LONG).forEach((comp) => {
         const list = won.filter((t) => t.competition === comp);
         if (!list.length) return;
@@ -1247,8 +1251,10 @@ window.FE.onTabReady('matchups', () => {
                   bindDate('wi-a-date', 'wi_a_date'), bindDate('wi-b-date', 'wi_b_date')];
   const params = ['h2h_a', 'h2h_b', 'wi_a', 'wi_b', 'wi_a_date', 'wi_b_date'];
   const COMP = { 'ENG-L': 'English league', 'ESP-L': 'Spanish league', 'GER-L': 'German league', 'ITA-L': 'Italian league', 'FRA-L': 'French league',
+    'NED-L': 'Dutch league', 'POR-L': 'Portuguese league',
     'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'EFL play-offs', UCL: 'European Cup / Champions League', UEL: 'UEFA Cup / Europa League',
-    UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'UEFA Super Cup' };
+    UECL: 'Conference League', UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'UEFA Super Cup',
+    'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal', 'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça de Portugal' };
 
   const tile = (box, label, value, attrs) => {
     const t = document.createElement('div'); t.className = 'fe-tile';
