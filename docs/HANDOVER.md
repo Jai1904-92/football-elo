@@ -6,10 +6,11 @@ covers how everything works; this note covers where things stand and what's next
 ## Where things stand
 
 - **Pipeline:** `python -m football_elo build | load | update | validate | calibrate`.
-  - Coverage: England tiers 1–4, Spain, Germany, Italy and France tiers 1–2, Portugal and the Netherlands tier 1.
+  - Coverage: England tiers 1–4, Spain, Germany, Italy, France and the Netherlands tiers 1–2, Portugal tier 1.
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
-  - Size: 379,075 matches and 2,162 clubs.
-  - Tests: 20, all passing (`pytest`).
+  - Size: 435,068 matches and 2,264 clubs (local build of 2026-10-21; Supabase still holds the 2026-10-20
+    load until the next `load`).
+  - Tests: 28, all passing (`pytest`).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 5 on
   2026-10-20.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
@@ -43,13 +44,22 @@ Work through these one at a time. For each: find a source, check its coverage, m
 (`tools/derive_aliases.py`, `tools/link_league_names.py`), validate, re-check calibration, reload, then
 update the dashboard.
 
-1. **Second tiers before the mid-1990s.**
-   - Spain, France and Italy start in 1996–97. Portugal and the Netherlands have none.
-   - Spain, France and Italy also have partial football-data files for 2002–04.
-   - RSSSF has Dutch Eerste Divisie results grids for 1956–2004; 2004–2020 is patchy; openfootball has
-     2020 onward. Portugal's second tier has almost nothing free before about 2005.
-   - Check RSSSF for Spanish, French and Italian second-tier grids.
-   - Same approach as Portugal: parse the results grids and give them a synthetic round-robin schedule.
+1. **Second tiers before the mid-1990s.** Mostly done 2026-10-21 (built and checked locally, not yet loaded):
+   - Done: Serie B 1955/56–1996/97 (RSSSF), Segunda 1955/56–1995/96 plus the partial 2001/02–2003/04
+     (Wikipedia grids), Eerste Divisie 1956/57–2019/20 (RSSSF). Parsers in `src/football_elo/grids.py`, readers
+     in `sources.py`, name linking in `tools/link_grid_names.py` (fixture matching within a season, plus a
+     `MANUAL` table of hand links). README "Date-less sources" has the details.
+   - Calibration after (before): Club Elo RMSE 26.86 (26.88), Spearman 0.991 (0.991), European log loss
+     0.5839 (0.5838), European bias RMS 1.80pp (1.72pp). The Netherlands' 1960s–70s European bias got worse
+     (−9.8 / −4.0pp, was −6.8 / −1.5): Dutch clubs now underperform their ratings in Europe a little more.
+     Possible lever: NED's tier gap or starting levels. Not tuned yet.
+   - Left: the Eerste Divisie from 2020/21 (openfootball), France before 1996/97 (no free match-level source
+     found: RSSSF `fran2hist` and both Wikipedias have final tables only), Portugal's second tier, and the
+     partial Serie B 2002/03, 2004/05 and Ligue 2 2002/03–2003/04 football-data files (RSSSF season pages
+     exist for those years but aren't parsed yet).
+   - `tools/pool_experiment.py` needs `data/silver/matches_prepared.parquet`, which nothing in the pipeline
+     writes: regenerate it with `engine.prepare(matches, params, club_country=clubs.country)` first, or the
+     experiment silently uses a stale file.
 2. **Domestic cups outside England.**
    - Transfermarkt has the Copa del Rey (`CDR`), DFB-Pokal (`DFB`), Coppa Italia (`CIT`), KNVB Cup (`NLP`)
      and probably the Taça (`POCP`) from 2012. The Coupe de France isn't in its list.
@@ -69,6 +79,13 @@ update the dashboard.
 
 ## Things that bit us (check these when adding data)
 
+- Date-less sources can't be linked on dates. Link on (season, opponent, venue, score) instead, and require
+  a name seed to be in the same season *and tier*: otherwise reserve teams ("Athletic Bilbao B") link to
+  their first team.
+- engsoccerdata's names can hide mergers (its 1956–58 "DWS Amsterdam" is BVC Amsterdam), and European-only
+  aliases can duplicate a league club (Roda/Roda JC, NEC/NEC Nijmegen, FC Den Haag/ADO Den Haag were split
+  until 2026-10-21). Same-day clashes between a source's tier-2 rows and another's tier-1 rows show these up.
+- RSSSF Italian stage lists print both legs' scores from the first club's side.
 - A partial season from one source blocks a complete one from a later source. Watch the "thin season"
   warnings in the build log.
 - football-data sometimes serves the wrong league in a file. The reader checks the `Div` column.

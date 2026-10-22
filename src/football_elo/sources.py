@@ -11,10 +11,13 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from . import grids
 
 log = logging.getLogger(__name__)
 
@@ -299,57 +302,222 @@ def _round_robin(n: int) -> list[list[tuple[int, int]]]:
     return rounds
 
 
-def rsssf_crosstable(path: Path) -> tuple[list[str], dict[tuple[int, int], tuple[int, int]]]:
-    """Teams (in row order) and scores {(home_i, away_j): (hg, ag)} from an
-    RSSSF season page's results grid. Columns follow row order; the printed
-    row numbers are ignored (1977/78 prints two of them swapped)."""
-    import html as _html
-    import re as _re
-    raw = path.read_text(encoding="latin-1")
-    txt = _html.unescape(_re.sub(r"<[^>]+>", "", raw))
-    rows = []
-    for line in txt.splitlines():
-        m = _re.match(r"^\s*(\d{1,2})\s+(.+?)\s{2,}((?:X|\d+-\d+|\s)+)$", line)
-        if m and "X" in m.group(3):
-            cells = _re.findall(r"X|\d+-\d+", m.group(3))
-            rows.append((m.group(2).strip(), cells))
-    n = len(rows)
-    if not n or any(len(c) != n for _, c in rows):
-        raise ValueError(f"{path.name}: results grid not parsed cleanly ({n} rows)")
-    scores = {}
-    for i, (_, cells) in enumerate(rows):
-        for j, c in enumerate(cells):
-            if c != "X":
-                hg, ag = c.split("-")
-                scores[(i, j)] = (int(hg), int(ag))
-    return [name for name, _ in rows], scores
+def _first_sunday(year: int, month: int = 9, day: int = 1) -> pd.Timestamp:
+    d = pd.Timestamp(year, month, day)
+    return d + pd.Timedelta(days=(6 - d.weekday()) % 7)
 
 
-def rsssf_league(folder: Path, competition: str, country: str) -> pd.DataFrame:
-    """Season pages saved as <start year>.html. Each season gets a synthetic
-    double round-robin schedule (one match per club per Sunday from the first
-    Sunday of September), since the grids carry no dates."""
+def _schedule(blocks: list[list[dict]], season: int, start: pd.Timestamp | None = None) -> list[dict]:
+    """Dates for one season-tier's matches, set in place as "match_date" plus
+    a "dating" label. Blocks are the season's grids or sections in page
+    order; a block whose clubs overlap an earlier block's (a later phase)
+    starts the week after that block ends, a disjoint one (a parallel group)
+    at the same time as the first.
+
+      printed (month, day) -> that date ("league")
+      round only           -> one round a week from the start, by default the
+                              first Sunday of September ("league (date from round)")
+      neither (bare grid)  -> a synthetic double round-robin, one match per
+                              club a week ("league (date assigned)")"""
+    begin = start or _first_sunday(season)
+    seen, out = [], []
+    for rows in blocks:
+        if not rows:
+            continue
+        clubs = {r["home"] for r in rows} | {r["away"] for r in rows}
+        prev = [end for c, end in seen if c & clubs]
+        t0 = max(prev) + pd.Timedelta(weeks=1) if prev else begin
+        for r in rows:
+            if r["md"] is not None:
+                mon, day = r["md"]
+                try:
+                    r["match_date"] = pd.Timestamp(season if mon >= 7 else season + 1, mon, day)
+                    r["dating"] = "league"
+                except ValueError:          # impossible printed date: fall back to the round
+                    r["md"] = None
+            if r["md"] is None and r["round"] is not None:
+                r["match_date"] = t0 + pd.Timedelta(weeks=r["round"] - 1)
+                r["dating"] = "league (date from round)"
+        undated = [r for r in rows if r["md"] is None and r["round"] is None]
+        busy: dict = {}
+        for r in rows:
+            if "match_date" in r:
+                for c in (r["home"], r["away"]):
+                    busy.setdefault(c, set()).add(r["match_date"])
+        if undated and busy:
+            # a few grid matches missing from the round list: the first week
+            # (from the block start) in which neither club plays
+            for r in undated:
+                when = t0
+                while when in busy.get(r["home"], ()) or when in busy.get(r["away"], ()):
+                    when += pd.Timedelta(weeks=1)
+                r["match_date"], r["dating"] = when, "league (date assigned)"
+                for c in (r["home"], r["away"]):
+                    busy.setdefault(c, set()).add(when)
+        elif undated:
+            # clubs in grid order where known, so the schedule is the same on every build
+            first_pos: dict = {}
+            for r in undated:
+                for side, k in (("home", "i"), ("away", "j")):
+                    first_pos[r[side]] = min(first_pos.get(r[side], 99), r.get(k, 99))
+            names = sorted(first_pos, key=lambda c: (first_pos[c], c))
+            idx = {c: k for k, c in enumerate(names)}
+            rounds = _round_robin(len(names))
+            slot = {}
+            for k, rnd in enumerate(rounds + [[(b, a) for a, b in r] for r in rounds]):
+                for h, a in rnd:
+                    slot[(h, a)] = k
+            for r in undated:
+                r["match_date"] = t0 + pd.Timedelta(weeks=slot[(idx[r["home"]], idx[r["away"]])])
+                r["dating"] = "league (date assigned)"
+        seen.append((clubs, max(r["match_date"] for r in rows)))
+        out.extend(rows)
+    return out
+
+
+def _league_frame(source: str, rows: list[dict], competition: str, country: str) -> pd.DataFrame:
+    if not rows:
+        return _frame(source)
+    df = pd.DataFrame(rows)
+    names = {side: df[f"{side}_name"] if f"{side}_name" in df else df[side] for side in ("home", "away")}
+    return _frame(source, file_name=df["file_name"], match_date=df["match_date"], season=df["season"],
+                  competition=competition, tier=df["tier"].astype(int), round=df["dating"],
+                  home_club=df["home"], away_club=df["away"], home_goals=df["hg"], away_goals=df["ag"],
+                  home_country=country, away_country=country,
+                  home_name=names["home"], away_name=names["away"])
+
+
+def _dedupe(rows: list[dict], where: str) -> list[dict]:
+    """First listing of each (home, away) in a block; later ones are replays
+    or listing slips."""
+    seen, out = set(), []
+    for r in rows:
+        key = (r["home"], r["away"])
+        if key in seen:
+            log.debug("%s: %s v %s listed twice, keeping the first", where, *key)
+            continue
+        seen.add(key)
+        out.append(r)
+    return out
+
+
+def rsssf_league(folder: Path, competition: str, country: str, tiers: dict) -> pd.DataFrame:
+    """RSSSF season pages saved as <start year>.html. `tiers` maps a tier to
+    its section headings ({start, end} regexes, see grids.sections), or to
+    None when the whole page is that tier's one results grid.
+
+    Within a section a complete results grid gives the results, and round
+    lists or stage pairs, when present, their round order and dates; without
+    a grid the round lists give the results too. See _schedule for dates."""
     out = []
     for path in sorted(folder.glob("*.html")):
         season = int(path.stem)
-        teams, scores = rsssf_crosstable(path)
-        first = pd.Timestamp(season, 9, 1)
-        first += pd.Timedelta(days=(6 - first.weekday()) % 7)
-        rounds = _round_robin(len(teams))
-        schedule = rounds + [[(b, a) for a, b in r] for r in rounds]
-        for k, rnd in enumerate(schedule):
-            when = first + pd.Timedelta(weeks=k)
-            for h, a in rnd:
-                if (h, a) not in scores:
-                    continue
-                hg, ag = scores[(h, a)]
-                out.append({"match_date": when, "season": season, "home_club": teams[h], "away_club": teams[a],
-                            "home_goals": hg, "away_goals": ag, "file_name": f"rsssf/{path.parent.name}/{path.name}"})
-    if not out:
-        return _frame("rsssf")
-    df = pd.DataFrame(out)
-    return _frame("rsssf", file_name=df["file_name"], match_date=df["match_date"], season=df["season"],
-                  competition=competition, tier=1, round="league (date assigned)",
-                  home_club=df["home_club"], away_club=df["away_club"],
-                  home_goals=df["home_goals"], away_goals=df["away_goals"],
-                  home_country=country, away_country=country)
+        text = grids.page_text(path)
+        for tier, sec in tiers.items():
+            where = f"{competition} {season} tier {tier}"
+            bodies = [text] if sec is None else [b for _, b in grids.sections(text, sec["start"], sec["end"])]
+            blocks = []
+            for body in bodies:
+                ordered, grid = grids.section_matches(body)
+                if grid and ordered:
+                    grid, clashes = grids.order_grid(ordered, grid)
+                    if clashes:
+                        log.info("%s: %d results differ between grid and round list (grid kept)", where, clashes)
+                    unplaced = sum(r["round"] is None for r in grid)
+                    if unplaced:
+                        log.info("%s: %d grid matches not in the round list (dates assigned)", where, unplaced)
+                if grid:
+                    for g in sorted({r["group"] for r in grid}):
+                        blocks.append(_dedupe([r for r in grid if r["group"] == g], where))
+                elif ordered:
+                    blocks.append(_dedupe(ordered, where))
+            for r in _schedule(blocks, season):
+                out.append(dict(r, season=season, tier=int(tier), file_name=f"rsssf/{folder.name}/{path.name}"))
+    return _league_frame("rsssf", out, competition, country)
+
+
+# ------------------------------------------------------------ Wikipedia results grids
+_WP_LINK = re.compile(r"\[\[([^|\]]+)(?:\|([^\]]+))?\]\]")
+
+
+def _template(text: str, start: int) -> str:
+    """The {{...}} template starting at `start`, nested templates included."""
+    depth, i = 0, start
+    while i < len(text):
+        if text.startswith("{{", i):
+            depth, i = depth + 1, i + 2
+        elif text.startswith("}}", i):
+            depth, i = depth - 1, i + 2
+            if depth == 0:
+                break
+        else:
+            i += 1
+    return text[start:i]
+
+
+def wikipedia_grids(text: str) -> list[dict]:
+    """Every {{#invoke:Sports results}} grid in a page's wikitext, in page
+    order: {"clubs": {code: (key, display name)}, "order": [code, ...],
+    "scores": {(home code, away code): (hg, ag)}, "start_date": str | None,
+    "section": the level-2 heading above the grid}.
+    A club's key is the article its name links to (stable across seasons
+    and unique, e.g. "CD Málaga" vs "Málaga CF"), else its plain name."""
+    out = []
+    heads = [(h.start(), h.group(1).strip()) for h in re.finditer(r"^==([^=\n]+)==\s*$", text, re.M)]
+    for m in re.finditer(r"\{\{\s*#invoke:\s*sports results", text, re.I):
+        body = _template(text, m.start())
+        section = next((h for pos, h in reversed(heads) if pos < m.start()), "")
+        params = {}
+        for part in re.split(r"\|(?=\s*[\wÀ-ɏ]+\s*=)", body):
+            k, eq, v = part.partition("=")
+            if eq:
+                params[k.strip()] = v.strip()
+        order = [params[k] for k in sorted((k for k in params if re.fullmatch(r"team\d+", k)),
+                                            key=lambda k: int(k[4:]))]
+        if not order and "team_order" in params:
+            order = [c.strip() for c in params["team_order"].split(",") if c.strip()]
+        clubs = {}
+        for code in order:
+            raw = re.sub(r"<[^>]*>|'{2,}", "", params.get(f"name_{code}", code)).strip()
+            raw = re.sub(r"\{\{[^{}]*\}\}", "", raw).strip()
+            link = _WP_LINK.search(raw)
+            clubs[code] = ((link.group(1).strip(), (link.group(2) or link.group(1)).strip()) if link
+                           else (raw, raw))
+        scores = {}
+        for k, v in params.items():
+            mm = re.fullmatch(r"match_(.+?)_(.+)", k)
+            if not mm or mm.group(1) not in clubs or mm.group(2) not in clubs:
+                continue
+            v = _WP_LINK.sub(lambda x: x.group(2) or x.group(1), v)
+            sc = re.match(r"\s*(\d+)\s*[–—-]\s*(\d+)", v)
+            if sc:
+                scores[(mm.group(1), mm.group(2))] = (int(sc.group(1)), int(sc.group(2)))
+        out.append({"clubs": clubs, "order": order, "scores": scores, "start_date": params.get("start_date"),
+                    "section": section})
+    return out
+
+
+def wikipedia_league(folder: Path, competition: str, country: str, tier: int) -> pd.DataFrame:
+    """Wikipedia season articles saved as <start year>.txt (raw wikitext).
+    Every results grid on the page is a block of `tier` (regional groups and
+    later phases included), except those under a play-off heading: promotion
+    play-off groups mix in top-flight clubs. Dates are synthetic, from the
+    page's start_date or else the first Sunday of September; see _schedule."""
+    out = []
+    for path in sorted(folder.glob("*.txt")):
+        season = int(path.stem)
+        blocks, start = [], None
+        for g, grid in enumerate(wikipedia_grids(path.read_text(encoding="utf-8"))):
+            if re.search(r"play-?offs?", grid["section"], re.I):
+                continue
+            if start is None and grid["start_date"]:
+                start = pd.to_datetime(grid["start_date"], errors="coerce")
+                start = None if pd.isna(start) else start
+            pos = {c: k for k, c in enumerate(grid["order"])}
+            blocks.append([{"round": None, "md": None, "group": g, "i": pos[h], "j": pos[a],
+                            "home": grid["clubs"][h][0], "away": grid["clubs"][a][0],
+                            "home_name": grid["clubs"][h][1], "away_name": grid["clubs"][a][1],
+                            "hg": hg, "ag": ag} for (h, a), (hg, ag) in grid["scores"].items()])
+        for r in _schedule(blocks, season, start):
+            out.append(dict(r, season=season, tier=tier, file_name=f"wikipedia/{folder.name}/{path.name}"))
+    return _league_frame("wikipedia", out, competition, country)

@@ -32,12 +32,59 @@ sources:
     url: https://raw.githubusercontent.com/DataRozhlas/evropske-pohary/master/data/matches.csv
     competitions: {UCL: UCL, EL: UEL, CWC: UCWC, ICFC: FAIRS, UECL: UECL}
   rsssf:
-    # RSSSF season pages for the Portuguese top flight before engsoccerdata
-    # starts (1955/56-1993/94). Results grids only, no dates: each season gets a
-    # double round-robin schedule on Sundays from September. Credit: Jorge Miguel
-    # Teixeira / RSSSF (free to copy with acknowledgement).
-    url_template: https://www.rsssf.org/tablesp/porthist{season}{end2}.html
-    seasons: [1955, 1993]
+    # RSSSF season pages (free to copy with acknowledgement), saved as
+    # <start year>.html. URL fields: {season} start year, {end2} end year's last
+    # two digits, {end} the same before 2010 and four digits after.
+    # `tiers` maps a tier to the headings of its section (grids.sections), or
+    # null when the whole page is that tier's results grid. Tier-1 sections
+    # where engsoccerdata already has the season are read only to link club
+    # names (tools/link_grid_names.py). Dates: printed where the page has them,
+    # else one round a week, else a synthetic round-robin (sources._schedule).
+    leagues:
+      POR-L:
+        # Portuguese top flight before engsoccerdata starts (1955/56-1993/94).
+        # Credit: Jorge Miguel Teixeira.
+        folder: portugal
+        url_template: https://www.rsssf.org/tablesp/porthist{season}{end2}.html
+        seasons: [1955, 1993]
+        tiers: {1: null}
+      ITA-L:
+        # Serie B before football-data starts (1955/56-1996/97): grids, and
+        # round order (some dates) from 1961/62. Credit: Maurizio Mariani
+        # (Serie B stage results thanks to Sorin Arotaritei).
+        folder: italy
+        url_template: https://www.rsssf.org/tablesi/ital{end}.html
+        seasons: [1955, 1996]
+        tiers:
+          1: {start: 'Italy Championship \d{4}/\d{2}|SERIE A|.*\(Serie A\)',
+              end: 'SERIE B|.*\(Serie B\)'}
+          2: {start: 'SERIE B|.*\(Serie B\)', end: 'SERIE C.*|.*\(Serie C.*'}
+      NED-L:
+        # Eerste Divisie 1956/57-2019/20 (groups A/B to 1961/62): grids to
+        # 2003/04, dated round lists from 2004/05. Credit: Karel Stokkermans and
+        # the RSSSF Netherlands contributors.
+        folder: netherlands
+        url_template: https://www.rsssf.org/tablesn/ned{end}.html
+        seasons: [1956, 2019]
+        tiers:
+          1: {start: '(First Level \()?Eredivisie\)?\s*(\d{4}[-/]\d{2,4})?',
+              end: '(Second Level \()?Eerste divisie.*|KNVB Beker|Cup \d{4}.*|Nacompetitie|Europa League Playoff'}
+          2: {start: '(Second Level \()?Eerste divisie\)?( [A-Z])?\s*(\d{4}[-/]\d{2,4})?',
+              end: 'Tweede divisie.*|Third Level.*|Nacompetitie.*|Amateur.*|list of champions.*|Promotion.*|Beslissing.*|Play-?offs?.*'}
+  wikipedia:
+    # Raw wikitext of English Wikipedia season articles, saved as <start
+    # year>.txt; every {{Sports results}} grid on the page is read. Results are
+    # cited to BDFutbol. Clubs are keyed by the article they link to.
+    url: https://en.wikipedia.org/w/index.php
+    # {endw} is the end year as article titles write it (2 digits, 4 at a century).
+    leagues:
+      ESP-L:
+        # Segunda División: the league before football-data starts (1955/56-
+        # 1995/96, with the regional groups to 1967/68 and 1986/87's second
+        # phase), then to 2007/08 to fill football-data's partial seasons and to
+        # link club names. La Liga pages only link club names.
+        - {folder: spain, title_template: "{season}–{endw} Segunda División", seasons: [1955, 2007], tier: 2}
+        - {folder: spain-1, title_template: "{season}–{endw} La Liga", seasons: [1955, 2007], tier: 1}
   espn:
     # Unofficial public scoreboard API, one request per league per calendar year.
     url_template: https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard
@@ -50,7 +97,11 @@ sources:
 
 # Competitions and where their results come from. Windows are in priority
 # order: each source contributes rows inside its date window, but only for
-# (season, tier) blocks that no earlier source already covers. So gaps in an
+# (season, tier) blocks that no earlier source already covers, except that a
+# window with `replace_partial: x` takes over blocks where the earlier sources
+# have under x times its own match count (a season they hold only part of).
+# `tiers` limits a window to those tiers (sources whose tier-1 sections are
+# read only to link club names). So gaps in an
 # earlier source (e.g. engsoccerdata has no 2022/23 league season) are filled
 # by a later one, and overlaps never double count.
 competitions:
@@ -66,10 +117,12 @@ competitions:
     name: La Liga / Segunda (tiers 1-2)
     type: league
     country: ESP
-    engsoccerdata: {file: spain, max_tier: 2}     # tier 1 only; tier 2 from football-data (1996-)
+    engsoccerdata: {file: spain, max_tier: 2}     # tier 1 only
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
-      - {source: football_data}
+      - {source: football_data}                     # tier 2 from 1996/97
+      # tier 2 1955/56-1995/96, and football-data's partial seasons (2001-03, 2007)
+      - {source: wikipedia, tiers: [2], replace_partial: 0.9}
   GER-L:
     name: Bundesliga / 2. Bundesliga (tiers 1-2)
     type: league
@@ -82,10 +135,11 @@ competitions:
     name: Serie A / Serie B (tiers 1-2)
     type: league
     country: ITA
-    engsoccerdata: {file: italy, max_tier: 2}     # tier 1 only; tier 2 from football-data (1997-)
+    engsoccerdata: {file: italy, max_tier: 2}     # tier 1 only
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
-      - {source: football_data}
+      - {source: rsssf, tiers: [2]}                 # tier 2 1955/56-1996/97
+      - {source: football_data}                     # tier 2 from 1997/98
   FRA-L:
     name: Ligue 1 / Ligue 2 (tiers 1-2)
     type: league
@@ -104,12 +158,13 @@ competitions:
       - {source: rsssf}                             # 1955/56-1993/94, synthetic dates
       - {source: football_data}
   NED-L:
-    name: Eredivisie (tier 1)
+    name: Eredivisie / Eerste Divisie (tiers 1-2)
     type: league
     country: NED
     engsoccerdata: {file: holland, max_tier: 1}   # from 1956/57
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: rsssf, tiers: [2]}                 # tier 2 1956/57-2019/20
       - {source: football_data}
   ENG-PO:
     name: EFL play-offs
@@ -179,6 +234,10 @@ corrections:
   # engsoccerdata labels Gazelec Ajaccio's 2015/16 Ligue 1 season as AC Ajaccio
   # (AC Ajaccio were in Ligue 2 that season)
   - {source: engsoccerdata, competition: FRA-L, season: 2015, club: AC Ajaccio, to: GFC Ajaccio}
+  # engsoccerdata's 1956/57-1957/58 Eredivisie "DWS Amsterdam" is BVC Amsterdam,
+  # which merged with DWS in 1958; the DWS of those seasons was in the Eerste Divisie
+  - {source: rsssf, competition: NED-L, season: 1956, club: D.W.S., to: D.W.S. (1907)}
+  - {source: rsssf, competition: NED-L, season: 1957, club: D.W.S., to: D.W.S. (1907)}
 
 elo:
   start_date: "1955-08-01"        # first match rated
@@ -241,7 +300,7 @@ elo:
       start_ratings: {1: 1561}
       nonleague: 1397
     NED:
-      start_ratings: {1: 1561}
-      nonleague: 1397
+      start_ratings: {1: 1561, 2: 1397}
+      nonleague: 1233
   # Clubs from countries whose leagues are not modelled (met in Europe).
   foreign_start: {default: 1311}

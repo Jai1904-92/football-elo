@@ -93,19 +93,43 @@ def fetch_datarozhlas(cfg: dict, force: bool = False) -> Path:
     return dest
 
 
+def _season_fields(season: int) -> dict:
+    end = season + 1
+    return {"season": season, "end2": f"{end % 100:02d}", "end": f"{end % 100:02d}" if end < 2010 else str(end),
+            "endw": str(end) if end % 100 == 0 else f"{end % 100:02d}"}
+
+
 def fetch_rsssf(cfg: dict, force: bool = False) -> list[Path]:
     """RSSSF season pages (static history: cached once)."""
-    src = cfg["sources"]["rsssf"]
-    first, last = src["seasons"]
     out = []
-    for season in range(first, last + 1):
-        dest = cfg["paths"]["bronze"] / "rsssf" / "portugal" / f"{season}.html"
-        if force or not dest.exists():
-            url = src["url_template"].format(season=season, end2=f"{(season + 1) % 100:02d}")
-            if not _download(url, dest, headers={"User-Agent": "Mozilla/5.0 (football-elo research)"}):
-                continue
-            time.sleep(1)
-        out.append(dest)
+    for spec in cfg["sources"]["rsssf"]["leagues"].values():
+        first, last = spec["seasons"]
+        for season in range(first, last + 1):
+            dest = cfg["paths"]["bronze"] / "rsssf" / spec["folder"] / f"{season}.html"
+            if force or not dest.exists():
+                url = spec["url_template"].format(**_season_fields(season))
+                if not _download(url, dest, headers={"User-Agent": "Mozilla/5.0 (football-elo research)"}):
+                    continue
+                time.sleep(1)
+            out.append(dest)
+    return out
+
+
+def fetch_wikipedia(cfg: dict, force: bool = False) -> list[Path]:
+    """Raw wikitext of Wikipedia season articles (cached once)."""
+    src = cfg["sources"]["wikipedia"]
+    out = []
+    for spec in (s for specs in src["leagues"].values() for s in specs):
+        first, last = spec["seasons"]
+        for season in range(first, last + 1):
+            dest = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"] / f"{season}.txt"
+            if force or not dest.exists():
+                title = spec["title_template"].format(**_season_fields(season))
+                if not _download(src["url"], dest, params={"title": title, "action": "raw"},
+                                 headers={"User-Agent": "football-elo/0.1 (research project)"}):
+                    continue
+                time.sleep(0.5)
+            out.append(dest)
     return out
 
 
@@ -135,4 +159,5 @@ def fetch_all(cfg: dict) -> None:
     fetch_transfermarkt(cfg)
     fetch_datarozhlas(cfg)
     fetch_rsssf(cfg)
+    fetch_wikipedia(cfg)
     fetch_espn(cfg)

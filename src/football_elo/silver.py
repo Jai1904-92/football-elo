@@ -48,6 +48,8 @@ class SourceReader:
             df = self._datarozhlas()
         elif source == "rsssf":
             df = self._rsssf(competition)
+        elif source == "wikipedia":
+            df = self._wikipedia(competition)
         elif source == "engsoccerdata":
             df = self._engsoccerdata(competition)
         else:
@@ -70,9 +72,16 @@ class SourceReader:
 
     @cache
     def _rsssf(self, competition: str) -> pd.DataFrame:
-        spec = self.cfg["competitions"][competition]
-        folder = {"POR-L": "portugal"}[competition]
-        return sources.rsssf_league(self.bronze / "rsssf" / folder, competition, spec["country"])
+        spec = self.cfg["sources"]["rsssf"]["leagues"][competition]
+        return sources.rsssf_league(self.bronze / "rsssf" / spec["folder"], competition,
+                                    self.cfg["competitions"][competition]["country"], spec["tiers"])
+
+    @cache
+    def _wikipedia(self, competition: str) -> pd.DataFrame:
+        country = self.cfg["competitions"][competition]["country"]
+        return pd.concat([sources.wikipedia_league(self.bronze / "wikipedia" / spec["folder"], competition,
+                                                   country, spec["tier"])
+                          for spec in self.cfg["sources"]["wikipedia"]["leagues"][competition]], ignore_index=True)
 
     @cache
     def _football_data(self) -> pd.DataFrame:
@@ -154,10 +163,24 @@ def combine_windows(cfg: dict, competition: str, reader: SourceReader) -> pd.Dat
             df = df[df["match_date"] >= pd.Timestamp(w["from"])]
         if "until" in w:
             df = df[df["match_date"] <= pd.Timestamp(w["until"])]
+        if "tiers" in w:
+            df = df[df["tier"].isin(w["tiers"])]
         if df.empty:
             continue
-        block = list(zip(df["season"], df["tier"].fillna(0)))
-        keep = ~pd.Series(block, index=df.index).isin(taken)
+        block = pd.Series(list(zip(df["season"], df["tier"].fillna(0))), index=df.index)
+        if "replace_partial" in w and frames:
+            # take over blocks where the earlier sources hold under this share of our matches
+            have = pd.concat(frames)
+            have_n = pd.Series(list(zip(have["season"], have["tier"].fillna(0)))).value_counts()
+            ours = block.value_counts()
+            partial = {b for b, n in ours.items() if b in taken and have_n.get(b, 0) < w["replace_partial"] * n}
+            for b in sorted(partial):
+                log.info("%s: %s replaces a partial season %d tier %d (%d matches, now %d)", competition,
+                         w["source"], b[0], b[1], have_n.get(b, 0), ours[b])
+            frames = [f[~pd.Series(list(zip(f["season"], f["tier"].fillna(0))), index=f.index).isin(partial)]
+                      for f in frames]
+            taken -= partial
+        keep = ~block.isin(taken)
         df = df[keep]
         if df.empty:
             continue

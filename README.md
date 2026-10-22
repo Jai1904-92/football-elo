@@ -1,8 +1,7 @@
 # football-elo
 
-Club Elo-style ratings for English football (tiers 1–4), Spain, Germany, Italy and France (tiers 1–2), and
-Portugal and the Netherlands (tier 1),
-from 1955 to now, kept current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs and
+Club Elo-style ratings for English football (tiers 1–4), Spain, Germany, Italy, France and the Netherlands
+(tiers 1–2), and Portugal (tier 1), from 1955 to now, kept current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs and
 the European club competitions. The Supabase project is
 `football-elo` (ref `mukyuvlvwozeihsrjjis`, Sydney).
 
@@ -18,6 +17,7 @@ python -m football_elo validate       # league source overlap check (1993-2025)
 python -m football_elo calibrate --fit k_cup k_europe foreign
 python tools/derive_aliases.py        # map club names for new sources (review the output)
 python tools/link_league_names.py ESP # link a new country's league names to existing clubs
+python tools/link_grid_names.py rsssf ITA-L NED-L   # link names from date-less sources (RSSSF, Wikipedia)
 python tools/clubelo_names.py         # map Club Elo names (calibration)
 pytest
 ```
@@ -32,11 +32,11 @@ pytest
 | Competition | Code | Sources (priority order) |
 |---|---|---|
 | England, tiers 1–4 | `ENG-L` | engsoccerdata to 2024/25 → football-data.co.uk (2022/23 gap, and 2025/26 on) |
-| Spain, tiers 1–2 | `ESP-L` | engsoccerdata (tier 1) to 2024/25 → football-data (tier 2 from 1993/94; all from 2025/26) |
+| Spain, tiers 1–2 | `ESP-L` | engsoccerdata (tier 1) to 2024/25 → football-data (tier 2 from 1996/97; all from 2025/26) → Wikipedia grids (tier 2 1955/56–1995/96, and the partial 2001/02–2003/04) |
 | Germany, tiers 1–2 | `GER-L` | engsoccerdata (from 1963; tier 2 from 1974) to 2024/25 → football-data |
-| Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → football-data (tier 2 from 1997/98) |
+| Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97) → football-data (tier 2 from 1997/98) |
 | Portugal, tier 1 | `POR-L` | RSSSF results grids 1955/56–1993/94 (dates assigned) → engsoccerdata 1994/95–2024/25 → football-data |
-| Netherlands, tier 1 | `NED-L` | engsoccerdata 1956/57–2024/25 → football-data |
+| Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2019/20) → football-data (tier 1) |
 | France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) |
 | Play-offs | `ENG-PO` | engsoccerdata to 2015/16 → ESPN |
 | FA Cup (Round 1 on) | `ENG-FAC` | engsoccerdata to 2018/19 → Transfermarkt to 2025/26 → ESPN |
@@ -52,6 +52,9 @@ How sources combine:
 - Each competition lists its sources in priority order. A later source only fills (season, tier) blocks
   that an earlier one lacks, so overlaps are never double counted. All source rows are still kept in bronze,
   so the overlaps can be checked.
+- Two window options: `replace_partial: x` lets a later source take over a block where the earlier sources
+  hold under x times its match count (football-data's partial Segunda 2001/02–2003/04), and `tiers` limits a
+  window to some tiers (RSSSF and Wikipedia tier-1 sections are read only to link club names).
 - Transfermarkt is [dcaribou/transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets). Its
   updates stopped in July 2026, so the 2026/27 season onward comes from ESPN's public scoreboard API. That API
   is unofficial and undocumented, so expect occasional breakage.
@@ -60,11 +63,24 @@ How sources combine:
   if any of it is published.
 
 **Known gaps and data quality**
-- **Portugal before 1994/95:** comes from RSSSF results grids, which have no dates. Each season gets a double
-  round-robin schedule on Sundays from September, so the order of matches within a season is approximate.
-  Credit Jorge Miguel Teixeira / RSSSF.
-- **No second tiers for Portugal or the Netherlands.** Free sources are patchy. Promoted clubs start at the
-  rating below the top flight.
+- **Date-less sources:** Portugal before 1994/95, Serie B before 1997/98, the Segunda before 1996/97 and the
+  Eerste Divisie before 2004/05 come from results grids or round lists without (full) dates
+  (`src/football_elo/grids.py`, `sources._schedule`). Dates are printed ones where the page has them (Eerste
+  Divisie from 2004/05, some Serie B seasons), else one round a week from the round order (Serie B from
+  1961/62), else a synthetic double round-robin on Sundays from September. So the order of matches within
+  those seasons is approximate. Their club names are linked by fixtures within a season instead of by date
+  (`tools/link_grid_names.py`, which also holds a short list of hand links).
+  Credits: RSSSF (Portugal: Jorge Miguel Teixeira; Italy: Maurizio Mariani, Serie B stages via Sorin
+  Arotaritei; Netherlands: Karel Stokkermans and others) and Wikipedia (CC BY-SA, results cited to BDFutbol).
+- **Source slips handled in the parsers:** letter O for zero, run-together cells, blank cells for withdrawn
+  clubs (placed by column), abandoned matches, and a grid with two clubs' rows swapped (Serie B 1966/67,
+  where the round list wins).
+- **Second tiers still missing:** France before 1996/97 (no free match-level source found: RSSSF and
+  Wikipedia have final tables only), Portugal (no tier 2 at all), the Eerste Divisie from 2020/21, and the
+  partial Serie B 2002/03 and 2004/05 and Ligue 2 2002/03–2003/04 football-data files. Promoted clubs from a
+  missing tier start at the rating below the top flight.
+- **Reserve teams** (Real Madrid Castilla, Barcelona B, Jong Ajax, ...) play in the Segunda and Eerste
+  Divisie and are rated as clubs of their own.
 - **Wrong files from football-data:** some early files hold another league's data. For example, 1993/94 `P1`
   and three early `SP2` files contain La Liga. The reader keeps only rows labelled with the requested
   division.
@@ -73,7 +89,8 @@ How sources combine:
   was caught.
 - **Big-5 coverage:**
   - The Bundesliga starts in 1963. Before that, German clubs are rated only from their European matches.
-  - Second tiers in Spain, Italy and France start in the mid-1990s, when football-data begins.
+  - Second tiers in Spain and Italy start in 1955 and the Netherlands in 1956; France's in 1996/97, when
+    football-data begins.
   - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial.
   - Domestic cups outside England (Copa del Rey, DFB-Pokal, Coppa Italia, Coupe de France) are not included yet.
 - **engsoccerdata naming:** it names some clubs differently across seasons (e.g. "TSV 1860 Munchen" vs
@@ -88,7 +105,7 @@ How sources combine:
   days apart, and which leg came first is a guess.
 - **UEFA qualifiers:** since 2020, ESPN carries them only from the current season. Transfermarkt covers
   2012–2025 in full.
-- **Source date errors:** 110 club-days have two matches on the same date, all from wrong dates in the sources.
+- **Source date errors:** 210 club-days have two matches on the same date, all from wrong dates in the sources.
   They are listed in `data/silver/data_quality.csv` and only affect the order matches are rated in.
 - **Club names:**
   - 1,229 clubs exist only in European data. They are named after the shortest source name available

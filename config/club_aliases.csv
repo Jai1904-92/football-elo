@@ -687,7 +687,7 @@ datarozhlas,FC_DAC_1904_Dunajsk%C3%A1_Streda,Dunajska Streda
 datarozhlas,FC_Dacia_Chi%C5%9Fin%C4%83u,Dacia
 datarozhlas,FC_Dacia_Chi%C8%99in%C4%83u,Dacia Chisinau
 datarozhlas,FC_Daugava,Daugava Daugavpils
-datarozhlas,FC_Den_Haag,FC Den Haag
+datarozhlas,FC_Den_Haag,ADO Den Haag
 datarozhlas,FC_Desna_Chernihiv,Desna Chernihiv
 datarozhlas,FC_Differdange_03,FC Differdange 03
 datarozhlas,FC_Dila_Gori,Dila Gori
@@ -1536,11 +1536,11 @@ datarozhlas,N%C3%A6stved_Boldklub,Næstved
 datarozhlas,N%C3%AEmes_Olympique,Nimes Olympique
 datarozhlas,N%C3%B5mme_Kalju_FC,Nomme Kalju
 datarozhlas,N%C5%A0_Mura,NS Mura
-datarozhlas,N.E.C._(football_club),NEC
+datarozhlas,N.E.C._(football_club),NEC Nijmegen
 datarozhlas,NAC_Breda,NAC Breda
 datarozhlas,ND_Gorica,HNK Gorica
 datarozhlas,ND_Mura_05,Mura 05
-datarozhlas,NEC_Nijmegen,NEC
+datarozhlas,NEC_Nijmegen,NEC Nijmegen
 datarozhlas,NK_%C5%A0iroki_Brijeg,NK Siroki Brijeg
 datarozhlas,NK_%C5%BDep%C4%8De,Žepče
 datarozhlas,NK_Bravo,NK Bravo
@@ -1803,7 +1803,7 @@ datarozhlas,Rio_Ave_F.C.,Rio Ave
 datarozhlas,Riteriai,Riteriai
 datarozhlas,RoPS,RoPS
 datarozhlas,Roda_JC,Roda JC
-datarozhlas,Roda_JC_Kerkrade,Roda
+datarozhlas,Roda_JC_Kerkrade,Roda JC
 datarozhlas,Roma,AS Roma
 datarozhlas,Rosenborg,Rosenborg BK
 datarozhlas,Rosenborg_BK,Rosenborg BK
@@ -4869,13 +4869,472 @@ clubelo,Telstar,Telstar
 clubelo,Tondela,Tondela
 clubelo,Alverca,Alverca
 clubelo,Belenenses,Belenenses
-clubelo,Roda,Roda
+clubelo,Roda,Roda JC
 clubelo,Leixoes,Leixoes
 clubelo,Academica,Academica
 clubelo,Naval,Naval
 clubelo,De Graafschap,De Graafschap
-clubelo,Den Haag,FC Den Haag
+clubelo,Den Haag,ADO Den Haag
 clubelo,Feirense,Feirense
 clubelo,Setubal,Vitória de Setúbal
 clubelo,Leiria,União de Leiria
 clubelo,Venlo,VVV-Venlo
+rsssf,0. Mantova,AC Mantova
+rsssf,ATALANTA,Atalanta
+rsssf,Acireale,Acireale
+rsssf,Alessandria,US Alessandria 1912
+rsssf,Ancona,Ancona Calcio
+rsssf,Arezzo,Arezzo
+rsssf,Ascoli,Ascoli Calcio
+rsssf,Atalanta,Atalanta
+rsssf,Atalanta (2),Atalanta
+rsssf,Avellino,US Avellino
+rsssf,BARI,AS Bari
+rsssf,BOLOGNA,Bologna FC
+rsssf,BRESCIA,Brescia Calcio
+rsssf,Bari,AS Bari
+rsssf,Bari (1),AS Bari
+rsssf,Barletta,Barletta
+rsssf,Bologna,Bologna FC
+rsssf,Brescia,Brescia Calcio
+rsssf,Brindisi,Brindisi
+rsssf,C.d.Sangro,C. Sangro
+rsssf,CAGLIARI,Cagliari Calcio
+rsssf,CREMONESE,US Cremonese
+rsssf,Cagliari,Cagliari Calcio
+rsssf,Cagliari (1),Cagliari Calcio
+rsssf,Campobasso,Campobasso
+rsssf,Casertana,Casertana
+rsssf,Catania,Calcio Catania
+rsssf,Catanzaro,US Catanzaro
+rsssf,Cavese,Cavese
+rsssf,Cesena,AC Cesena
+rsssf,Chievo,Chievo
+rsssf,Como,Como Calcio
+rsssf,Cosenza,Cosenza
+rsssf,Cremonese,US Cremonese
+rsssf,Empoli,Empoli FC
+rsssf,F. Andria,F. Andria
+rsssf,FIORENTINA,ACF Fiorentina
+rsssf,Fidelis Andria,F. Andria
+rsssf,Fiorentina,ACF Fiorentina
+rsssf,Fiorentina (1),ACF Fiorentina
+rsssf,Foggia,US Foggia
+rsssf,Foggia (1),US Foggia
+rsssf,Genoa,Genoa CFC
+rsssf,Genoa (1),Genoa
+rsssf,Inter,Internazionale
+rsssf,Juventus,Juventus
+rsssf,Juventus (1),Juventus
+rsssf,L.R. Vicenza,Vicenza Calcio
+rsssf,LECCE,US Lecce
+rsssf,LR Vicenza,Vicenza Calcio
+rsssf,Lazio,Lazio
+rsssf,Lecce,US Lecce
+rsssf,Lecce (2),US Lecce
+rsssf,Lecco,Calcio Lecco 1912
+rsssf,Legnano,Legnano
+rsssf,Licata,Licata
+rsssf,Livorno,AS Livorno
+rsssf,Lucchese,Lucchese
+rsssf,MODENA,Modena FC
+rsssf,Mantova,AC Mantova
+rsssf,Marzotto,Marzotto
+rsssf,Massese,Massese
+rsssf,Matera,Matera
+rsssf,Messina,A.C.R. Messina
+rsssf,Milan,AC Milan
+rsssf,Milan (1),AC Milan
+rsssf,Modena,Modena FC
+rsssf,Monza,AC Monza
+rsssf,Napoli,SSC Napoli
+rsssf,Nocerina,Nocerina
+rsssf,Novara,Novara Calcio
+rsssf,PADOVA,Calcio Padova
+rsssf,PARMA,Parma
+rsssf,PIACENZA,Piacenza Calcio
+rsssf,PISA,Pisa SC
+rsssf,Padova,Calcio Padova
+rsssf,Padova (1),Calcio Padova
+rsssf,Palermo,US Palermo
+rsssf,Parma,Parma
+rsssf,Parma (1),Parma
+rsssf,Perugia,AC Perugia
+rsssf,Pescaea,Pescara Calcio
+rsssf,Pescara,Pescara Calcio
+rsssf,Piacenza,Piacenza Calcio
+rsssf,Piacenza (1),Piacenza Calcio
+rsssf,Pisa,Pisa SC
+rsssf,Pistoiese,AC Pistoiese
+rsssf,Potenza,Potenza
+rsssf,Prato,Prato
+rsssf,Pro Patria,Pro Patria
+rsssf,REGGIANA,AC Reggiana
+rsssf,Ravenna,Ravenna
+rsssf,Reggiana,AC Reggiana
+rsssf,Reggiana (1),AC Reggiana
+rsssf,Reggina,Reggina Calcio
+rsssf,Rimini,Rimini
+rsssf,Roma,AS Roma
+rsssf,Roma (1),AS Roma
+rsssf,S. Monza,AC Monza
+rsssf,S.Monza,AC Monza
+rsssf,SAMPDORIA,Sampdoria
+rsssf,Salernit.,Salernitana Calcio 1919
+rsssf,Salernitana,Salernitana Calcio 1919
+rsssf,Sambened.,Sambenedettese
+rsssf,Sambenedettese,Sambenedettese
+rsssf,Sampdoria,Sampdoria
+rsssf,Sampdoria (1),Sampdoria
+rsssf,Savona,Savona
+rsssf,Sorrento,Sorrento
+rsssf,Spal,SPAL 1907 Ferrara
+rsssf,TORINO,Torino
+rsssf,Taranto,Taranto
+rsssf,Ternana,Ternana Calcio
+rsssf,Torino,Torino
+rsssf,Torino (1),Torino
+rsssf,Trani,Trani
+rsssf,Triestina,Unione Triestina
+rsssf,UDINESE,Udinese
+rsssf,Udinese,Udinese
+rsssf,VICENZA,Vicenza Calcio
+rsssf,Varese,AS Varese 1910
+rsssf,Venezia,AC Venezia
+rsssf,Verona,Hellas Verona
+rsssf,Vicenza,Vicenza Calcio
+rsssf,Vigevano,Vigevano
+rsssf,Z. Modena,Modena FC
+rsssf,'t Gooi,'t Gooi
+rsssf,A.D.O.,ADO Den Haag
+rsssf,A.D.O. Den Haag,ADO Den Haag
+rsssf,A.G.O.V.V.,AGOVV Apeldoorn
+rsssf,A.Z.,AZ Alkmaar
+rsssf,A.Z. '67,AZ Alkmaar
+rsssf,ADO,ADO Den Haag
+rsssf,ADO Den Haag,ADO Den Haag
+rsssf,AGOVV,AGOVV Apeldoorn
+rsssf,AGOVV Apeldoorn,AGOVV Apeldoorn
+rsssf,AZ,AZ Alkmaar
+rsssf,Achilles '29,Achilles '29
+rsssf,Ajax,AFC Ajax
+rsssf,Alkmaar,VV Alkmaar '54
+rsssf,Almere City,Almere City
+rsssf,Amsterdam,DWS Amsterdam
+rsssf,B.V.V.,BVV
+rsssf,BV Veendam,BV Veendam
+rsssf,BVV Den Bosch,BVV Den Bosch
+rsssf,Be Quick,Be Quick
+rsssf,Blauw Wit,Blauw Wit
+rsssf,Cambuur,SC Cambuur
+rsssf,Cambuur Leeuwarden,SC Cambuur
+rsssf,Cambuur Lwrd.,SC Cambuur
+rsssf,Cambuur-Leeuwarden,SC Cambuur
+rsssf,D.F.C.,D.F.C.
+rsssf,D.H.C.,D.H.C.
+rsssf,D.H.C. '66,D.H.C. '66
+rsssf,D.O.S.,DOS Utrecht
+rsssf,D.S. '79,Drechtsteden '79
+rsssf,D.W.S.,DWS Amsterdam
+rsssf,D.W.S./A,DWS Amsterdam
+rsssf,De Graafschap,De Graafschap
+rsssf,Den Bosch,FC Den Bosch
+rsssf,Dordrecht,FC Dordrecht
+rsssf,Dordrecht '90,FC Dordrecht
+rsssf,E.B.O.H.,E.B.O.H.
+rsssf,E.D.O.,E.D.O.
+rsssf,Eindhoven,SC Eindhoven
+rsssf,Elinkwĳk,USV Elinkwijk
+rsssf,Emma,Emma
+rsssf,Emmen,FC Emmen
+rsssf,Enschedese B.,Enschedese B.
+rsssf,Excelsior,SBV Excelsior
+rsssf,FC Almere City,Almere City
+rsssf,FC Amsterdam,FC Amsterdam
+rsssf,FC Den Bosch,FC Den Bosch
+rsssf,FC Den Haag,ADO Den Haag
+rsssf,FC Dordrecht,FC Dordrecht
+rsssf,FC Eindhoven,SC Eindhoven
+rsssf,FC Emmen,FC Emmen
+rsssf,FC Groningen,FC Groningen
+rsssf,FC Haarlem,HFC Haarlem
+rsssf,FC Omniworld,Almere City
+rsssf,FC Oss,TOP Oss
+rsssf,FC Twente,Twente
+rsssf,FC Utrecht,FC Utrecht
+rsssf,FC V.V.V,VVV-Venlo
+rsssf,FC V.V.V.,VVV-Venlo
+rsssf,FC Vlaardingen,FC Vlaardingen
+rsssf,FC Volendam,FC Volendam
+rsssf,FC Wageningen,FC Wageningen
+rsssf,FC Zaanstreek,FC Zaanstreek
+rsssf,FC Zwolle,PEC Zwolle
+rsssf,FCVlaardingen,FC Vlaardingen
+rsssf,Feyenoord,Feyenoord
+rsssf,Feĳenoord,Feyenoord
+rsssf,Fortuna,Fortuna Sittard
+rsssf,Fortuna '54,Fortuna Sittard
+rsssf,Fortuna SC,FSC Geleen
+rsssf,Fortuna Sitt.,Fortuna Sittard
+rsssf,Fortuna Sittard,Fortuna Sittard
+rsssf,Fortuna Vlrd.,Fortuna Vlrd.
+rsssf,G.V.A.V.,FC Groningen
+rsssf,Go Ahead,Go Ahead Eagles
+rsssf,Go Ahead Eag.,Go Ahead Eagles
+rsssf,Go Ahead Eagles,Go Ahead Eagles
+rsssf,Groningen,FC Groningen
+rsssf,H.V.C.,H.V.C.
+rsssf,HHaarlem,HFC Haarlem
+rsssf,Haarlem,HFC Haarlem
+rsssf,Heerenveen,sc Heerenveen
+rsssf,Helmond,Helmond Sport
+rsssf,Helmond Sport,Helmond Sport
+rsssf,Helmondia '55,Helmondia '55
+rsssf,Heracles,Heracles
+rsssf,Heracles Almelo,Heracles
+rsssf,Hermes D.V.S.,Hermes D.V.S.
+rsssf,Hilversum,Hilversum
+rsssf,Holland Sport,Holland Sport
+rsssf,Jong AZ,Jong AZ
+rsssf,Jong Ajax,Jong Ajax
+rsssf,Jong PSV,Jong PSV
+rsssf,Jong Twente,Jong Twente
+rsssf,Jong Utrecht,Jong Utrecht
+rsssf,K.F.C.,K.F.C.
+rsssf,Leeuwarden,Leeuwarden
+rsssf,Limburgia,Limburgia
+rsssf,M.V.V.,MVV
+rsssf,MVV,MVV
+rsssf,MVV Maastricht,MVV
+rsssf,N.A.C.,NAC Breda
+rsssf,N.E.C.,NEC Nijmegen
+rsssf,N.O.A.D.,NOAD Tilburg
+rsssf,NAC,NAC Breda
+rsssf,NAC Breda,NAC Breda
+rsssf,NEC,NEC Nijmegen
+rsssf,Omniworld,Almere City
+rsssf,Oss,TOP Oss
+rsssf,P.E.C. Zwolle,PEC Zwolle
+rsssf,P.S.V.,PSV Eindhoven
+rsssf,PEC,PEC Zwolle
+rsssf,PSV,PSV Eindhoven
+rsssf,R.B.C.,RBC Roosendaal
+rsssf,R.B.C. Roosend.,RBC Roosendaal
+rsssf,R.C.H.,R.C.H.
+rsssf,R.K.C.,RKC Waalwijk
+rsssf,R.K.C. Waalw.,RKC Waalwijk
+rsssf,RBC,RBC Roosendaal
+rsssf,RBC RBC,RBC Roosendaal
+rsssf,RBC Roosendaal,RBC Roosendaal
+rsssf,RKC,RKC Waalwijk
+rsssf,RKC Waalwĳk,RKC Waalwijk
+rsssf,Rapid JC,Rapid JC Heerlen
+rsssf,Rigtersbleek,Rigtersbleek
+rsssf,Roda,Roda JC
+rsssf,Roda J.C.,Roda JC
+rsssf,Roda JC,Roda JC
+rsssf,Roda Sport,Roda Sport
+rsssf,S.H.S.,SHS
+rsssf,S.V.V.,SVV Schiedam
+rsssf,SC Amersfoort,SC Amersfoort
+rsssf,SC Cambuur,SC Cambuur
+rsssf,SC Heerenveen,sc Heerenveen
+rsssf,SC Heracles,Heracles
+rsssf,SC Veendam,BV Veendam
+rsssf,SVV/Dordr.'90,FC Dordrecht
+rsssf,Sittardia,Sittardia
+rsssf,Sp. Enschede,Sportclub Enschede
+rsssf,Sparta,Sparta Rotterdam
+rsssf,Sparta Rotterdam,Sparta Rotterdam
+rsssf,Spcl. Cambuur,SC Cambuur
+rsssf,Spcl. Drente,Spcl. Drente
+rsssf,Stormv./Telst.,Telstar
+rsssf,Stormv/Telst.,Telstar
+rsssf,Stormvogels,Stormvogels
+rsssf,Stormvogels/Telstar,Telstar
+rsssf,T.O.P.,TOP Oss
+rsssf,T.O.P. Oss,TOP Oss
+rsssf,TOP,TOP Oss
+rsssf,TOP Oss,TOP Oss
+rsssf,Telstar,Telstar
+rsssf,Twente,Twente
+rsssf,Utrecht,FC Utrecht
+rsssf,V.C.V.Zeeland,V.C.V.Zeeland
+rsssf,V.S.V.,V.S.V.
+rsssf,V.V.V,VVV-Venlo
+rsssf,V.V.V.,VVV-Venlo
+rsssf,VC Vlissingen,VC Vlissingen
+rsssf,VVV,VVV-Venlo
+rsssf,VVV Venlo,VVV-Venlo
+rsssf,VVV-Venlo,VVV-Venlo
+rsssf,Veendam,BV Veendam
+rsssf,Velox,Velox
+rsssf,Vitesse,Vitesse
+rsssf,Volendam,FC Volendam
+rsssf,Volewĳckers,De Volewijckers
+rsssf,Wageningen,FC Wageningen
+rsssf,Wilhelmina,Wilhelmina
+rsssf,Willem II,Willem II
+rsssf,Xerxes,FC Xerxes
+rsssf,Xerxes/D.H.C.,FC Xerxes
+rsssf,Z.F.C.,Z.F.C.
+rsssf,Zwolle,PEC Zwolle
+wikipedia,AD Almería,AD Almeria
+wikipedia,AD Ceuta FC,Atlético Ceuta
+wikipedia,AgD Ceuta,Ceuta
+wikipedia,Albacete Balompié,Albacete
+wikipedia,Algeciras CF,Algeciras
+wikipedia,Alicante CF,Alicante
+wikipedia,Athletic Bilbao,Athletic Bilbao
+wikipedia,Athletic Bilbao B,Bilbao Ath.
+wikipedia,Atlético Bilbao,Athletic Bilbao
+wikipedia,Atlético Madrid,Atletico Madrid
+wikipedia,Atlético Madrid B,At. Madrileño
+wikipedia,Atlético Malagueño,Malaga B
+wikipedia,Atlético Osasuna,Atlético Osasuna
+wikipedia,Atlético de Madrid,Atletico Madrid
+wikipedia,Atlético de Madrid B,At. Madrileño
+wikipedia,Baracaldo CF,Baracaldo
+wikipedia,Barakaldo CF,Baracaldo
+wikipedia,Bilbao Athletic,Bilbao Ath.
+wikipedia,Burgos CF,Burgos CF
+wikipedia,Burgos CF (1936),Burgos CF
+wikipedia,Burgos CF (I),Burgos CF
+wikipedia,CA Almería,Atlético Almería
+wikipedia,CA Marbella,Marbella
+wikipedia,CA Osasuna,Osasuna
+wikipedia,CD AD San Fermín,Puente Genil
+wikipedia,CD Abarán,Abarán
+wikipedia,CD Alcoyano,CD Alcoyano
+wikipedia,CD Atlético Baleares,Atlético Baleares
+wikipedia,CD Badajoz,Badajoz
+wikipedia,CD Basconia,Basconia
+wikipedia,CD Castellón,CD Castellon
+wikipedia,CD Condal,CD Condal
+wikipedia,CD Constancia,Constancia
+wikipedia,CD Eldense,Eldense
+wikipedia,CD Ensidesa,Ensidesa
+wikipedia,CD Europa,Europa
+wikipedia,CD Hospitalet,CD Hospitalet
+wikipedia,CD Leganés,CD Leganes
+wikipedia,CD Logroñés,CD Logrones
+wikipedia,CD Lugo,Lugo
+wikipedia,CD Mestalla,Mestalla
+wikipedia,CD Málaga,Malaga CF
+wikipedia,CD Numancia,CD Numancia
+wikipedia,CD Orense,Ourense
+wikipedia,CD Ourense,Ourense
+wikipedia,CD Puertollano,Calvo Sotelo
+wikipedia,CD San Fernando,San Fernando
+wikipedia,CD Tenerife,CD Tenerife
+wikipedia,CD Toledo,Toledo
+wikipedia,CD Villarrobledo,Villarrobledo
+wikipedia,CDC Moscardó,Moscardó
+wikipedia,CE Constància,Constancia
+wikipedia,CE Europa,Europa
+wikipedia,CE Hospitalet,CD Hospitalet
+wikipedia,CE Sabadell,CE Sabadell
+wikipedia,CE Sabadell FC,CE Sabadell
+wikipedia,CF Badalona,Badalona
+wikipedia,CF Extremadura,CF Extremadura
+wikipedia,CF Lorca Deportiva (1969),Lorca Dep.
+wikipedia,CFJ Mollerussa,Mollerussa
+wikipedia,CP La Felguera,La Felguera
+wikipedia,CP Mérida,CP Merida
+wikipedia,Cartagena FC,Cartagena
+wikipedia,Caudal Deportivo,Caudal
+wikipedia,Celta Vigo,Celta Vigo
+wikipedia,Celta de Vigo,Celta Vigo
+wikipedia,Ciudad de Murcia,Ciudad de Murcia
+wikipedia,Cultural y Deportiva Leonesa,CD Leonesa
+wikipedia,Cádiz CF,Cadiz CF
+wikipedia,Córdoba CF,Cordoba CF
+wikipedia,Deportivo Alavés,CD Alaves
+wikipedia,Deportivo Aragón,Dep. Aragón
+wikipedia,Deportivo La Coruña,Deportivo La Coruna
+wikipedia,Deportivo de La Coruña,Deportivo La Coruna
+wikipedia,Elche CF,Elche CF
+wikipedia,Elche CF Ilicitano,Ilicitano
+wikipedia,Extremadura CF,CF Extremadura
+wikipedia,FC Barcelona,Barcelona
+wikipedia,FC Barcelona B,Barcelona B
+wikipedia,Getafe CF,Getafe CF
+wikipedia,Getafe Deportivo,Getafe CF
+wikipedia,Gimnàstic de Tarragona,Gimnastic
+wikipedia,Gimnástica de Torrelavega,Gimn. Torrelavega
+wikipedia,Girona FC,Girona
+wikipedia,Granada 74 CF,Granada 74
+wikipedia,Granada CF,Granada CF
+wikipedia,Hércules CF,Hercules CF
+wikipedia,Jerez Industrial CF,Jerez Industrial
+wikipedia,Levante UD,Levante UD
+wikipedia,Linares CF,Linares
+wikipedia,Lorca Deportiva CF,Lorca
+wikipedia,Melilla CF,Melilla
+wikipedia,Moghreb Tétouan,Atlético Tetuán
+wikipedia,Málaga CF,Malaga CF
+wikipedia,Onteniente CF,Onteniente CF
+wikipedia,Ontinyent CF,Onteniente CF
+wikipedia,Orihuela Deportiva CF,Orihuela
+wikipedia,Palamós CF,Palamós
+wikipedia,Palencia CF (I),Palencia
+wikipedia,Polideportivo Ejido,Poli Ejido
+wikipedia,Pontevedra CF,Pontevedra CF
+wikipedia,RC Celta de Vigo,Celta Vigo
+wikipedia,RCD Espanyol,Espanyol Barcelona
+wikipedia,RCD Mallorca,RCD Mallorca
+wikipedia,RCD Mallorca B,Mallorca B
+wikipedia,Racing de Ferrol,Ferrol
+wikipedia,Racing de Santander,Racing Santander
+wikipedia,Rayo Vallecano,Rayo Vallecano
+wikipedia,Real Avilés,Avilés
+wikipedia,Real Avilés CF,Avilés
+wikipedia,Real Betis,Real Betis
+wikipedia,Real Burgos CF,Real Burgos
+wikipedia,Real Gijón,Sporting Gijon
+wikipedia,Real Jaén,Real Jaen
+wikipedia,Real Jaén CF,Real Jaen
+wikipedia,Real Madrid C.F.,Real Madrid
+wikipedia,Real Madrid CF,Real Madrid
+wikipedia,Real Madrid Castilla,Real Madrid B
+wikipedia,Real Murcia,Real Murcia
+wikipedia,Real Murcia CF,Real Murcia
+wikipedia,Real Oviedo,Real Oviedo
+wikipedia,Real Sociedad,Real Sociedad
+wikipedia,Real Sociedad B,San Sebastián
+wikipedia,Real Unión,Real Union
+wikipedia,Real Unión de Irún,Real Unión de Irún
+wikipedia,Real Valladolid,Real Valladolid
+wikipedia,Real Zaragoza,Real Zaragoza
+wikipedia,Recreativo de Huelva,Recreativo Huelva
+wikipedia,SD Compostela,SD Compostela
+wikipedia,SD Eibar,SD Eibar
+wikipedia,SD Indauchu,Indauchu
+wikipedia,SD Indautxu,Indauchu
+wikipedia,SD Ponferradina,Ponferradina
+wikipedia,Sestao River Club,Sestao
+wikipedia,Sestao Sport Club,Sestao
+wikipedia,Sevilla Atlético,Sevilla B
+wikipedia,Sevilla FC,Sevilla
+wikipedia,Sporting Gijón,Sporting Gijon
+wikipedia,Sporting de Gijón,Sporting Gijon
+wikipedia,Terrassa FC,Terrassa
+wikipedia,UD Almería,UD Almeria
+wikipedia,UD Alzira,Alzira
+wikipedia,UD España,España Tánger
+wikipedia,UD Las Palmas,UD Las Palmas
+wikipedia,UD Puertollano,Calvo Sotelo
+wikipedia,UD Salamanca,UD Salamanca
+wikipedia,UD Vecindario,Vecindario
+wikipedia,UE Figueres,Figueres
+wikipedia,UE Lleida,UE Lleida
+wikipedia,UE Sant Andreu,San Andrés
+wikipedia,UP Langreo,Langreo
+wikipedia,Universidad de Las Palmas CF,U.Las Palmas
+wikipedia,Valencia CF,Valencia CF
+wikipedia,Valencia CF Mestalla,Mestalla
+wikipedia,Valencia Mestalla,Mestalla
+wikipedia,Villarreal CF,Villarreal
+wikipedia,Xerez CD,Xerez CD
+wikipedia,Écija Balompié,Ecija
+rsssf,D.W.S. (1907),DWS (1907)
