@@ -8,10 +8,10 @@ covers how everything works; this note covers where things stand and what's next
 - **Pipeline:** `python -m football_elo build | load | update | validate | calibrate`.
   - Coverage: England tiers 1–4, Spain, Germany, Italy, France and the Netherlands tiers 1–2, Portugal tier 1.
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
-  - Size: 436,968 matches and 2,264 clubs (2026-10-22).
-  - Tests: 28, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 8 on
-  2026-10-22.
+  - Size: 438,143 matches and 2,263 clubs (2026-10-23).
+  - Tests: 29, all passing (`pytest`).
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 9 on
+  2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
 - **Model:** K 15, cup K × 0.5, √goal-difference margin. On top of plain Club Elo it adds dynamic home
@@ -43,7 +43,7 @@ Work through these one at a time. For each: find a source, check its coverage, m
 (`tools/derive_aliases.py`, `tools/link_league_names.py`), validate, re-check calibration, reload, then
 update the dashboard.
 
-1. **Second tiers before the mid-1990s.** Mostly done 2026-10-21/22, and loaded (run 8):
+1. **Second tiers before the mid-1990s.** Mostly done 2026-10-21/23, and loaded (run 9):
    - Done: Serie B 1955/56–1996/97 (RSSSF), Segunda 1955/56–1995/96 plus the partial 2001/02–2003/04
      (Wikipedia grids), Eerste Divisie 1956/57–2024/25 (RSSSF; 2020/21 onwards added 2026-10-22, which took
      Club Elo RMSE from 26.90 to 26.15 and Spearman to 0.992 with European log loss unchanged). Parsers in `src/football_elo/grids.py`, readers
@@ -55,9 +55,14 @@ update the dashboard.
      Possible lever: NED's tier gap or starting levels. Not tuned yet.
    - Left: the Eerste Divisie 2025/26 (RSSSF has only the table so far; extend `seasons` in `elo.yaml` when
      the rounds appear, or use openfootball), France before 1996/97 (no free match-level source
-     found: RSSSF `fran2hist` and both Wikipedias have final tables only), Portugal's second tier, and the
-     partial Serie B 2002/03, 2004/05 and Ligue 2 2002/03–2003/04 football-data files (RSSSF season pages
-     exist for those years but aren't parsed yet).
+     found: RSSSF `fran2hist` and both Wikipedias have final tables only), and Portugal's second tier.
+   - Football-data's partial seasons were filled 2026-10-23: Serie B 2002/03 (RSSSF `ital03`) and 2004/05
+     (`ital2-05`, via `extra_pages`), Ligue 2 2003/04 (RSSSF `fran04`, dated) and 2002/03 (Wikipedia grid,
+     synthetic dates: RSSSF has no Ligue 2 that year). Scores agree with football-data wherever both have the
+     match, except Clermont v Niort 2002/03 (football-data 1–1, Wikipedia 0–1). Calibration barely moved
+     (RMSE 26.15, European log loss 0.5839). The same work fixed two duplicate clubs: RSSSF's 2002/03
+     "Messina" (now FC Messina, by a correction), and a European-only "Sedan" (now CS Sedan, and UA
+     Sedan-Torcy for 1961/62).
    - `tools/pool_experiment.py` needs `data/silver/matches_prepared.parquet`, which nothing in the pipeline
      writes: regenerate it with `engine.prepare(matches, params, club_country=clubs.country)` first, or the
      experiment silently uses a stale file.

@@ -171,6 +171,10 @@ def round_lists(text: str) -> list[dict]:
                                                            r"|\[?\d{1,2}\s+[A-Za-z]{3,9}\.?(\s+\d{4})?\]?", s):
             md = _month_day(s)       # "[Aug 13]", "May 5", "27 August 1995"
             continue
+        d = re.match(r"\[(\d{1,2})/(\d{1,2})/\d{4}\]\s*(.*)$", s)
+        if d:                        # "[11/09/2004] Home  3-1 Away" (Serie B 2004/05)
+            md, line = (int(d.group(2)), int(d.group(1))), d.group(3)
+            s = line.strip()
         if not s or s.startswith("[") or re.search(r"\babd\b|abandoned", s, re.I):
             continue                 # scorers, notes, abandoned matches (replayed later)
         line = re.sub(r"\s*\[.*$", "", line)        # trailing note: "2-1 Ajax  [awarded ...]"

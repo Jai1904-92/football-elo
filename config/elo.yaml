@@ -55,10 +55,22 @@ sources:
         folder: italy
         url_template: https://www.rsssf.org/tablesi/ital{end}.html
         seasons: [1955, 1996]
+        # football-data holds only part of these Serie B seasons
+        extra_pages: {2002: https://www.rsssf.org/tablesi/ital03.html,
+                      2004: https://www.rsssf.org/tablesi/ital2-05.html}
         tiers:
           1: {start: 'Italy Championship \d{4}/\d{2}|SERIE A|.*\(Serie A\)',
-              end: 'SERIE B|.*\(Serie B\)'}
-          2: {start: 'SERIE B|.*\(Serie B\)', end: 'SERIE C.*|.*\(Serie C.*'}
+              end: 'SERIE B( \d{4}/\d{2})?|.*\(Serie B\)|Coppa Italia.*'}
+          2: {start: 'SERIE B( \d{4}/\d{2})?|.*\(Serie B\)',
+              end: 'SERIE C.*|.*\(Serie C.*|Promotion Playoff'}   # bare heading: 2004/05 page
+      FRA-L:
+        # Ligue 2 2003/04 (dated round lists), which football-data holds only 15
+        # matches of. RSSSF's 2002/03 page has no Ligue 2: see wikipedia.
+        folder: france
+        url_template: https://www.rsssf.org/tablesf/fran{end}.html
+        seasons: [2003, 2003]
+        tiers:
+          2: {start: 'Second Level( \d{4}/\d{2})?', end: 'Third Level.*'}
       NED-L:
         # Eerste Divisie 1956/57-2024/25 (groups A/B to 1961/62): grids to
         # 2003/04, dated round lists from 2004/05. The 2025/26 page has the
@@ -86,6 +98,10 @@ sources:
         # link club names. La Liga pages only link club names.
         - {folder: spain, title_template: "{season}–{endw} Segunda División", seasons: [1955, 2007], tier: 2}
         - {folder: spain-1, title_template: "{season}–{endw} La Liga", seasons: [1955, 2007], tier: 1}
+      FRA-L:
+        # Ligue 2 2002/03, which football-data holds only part of (no dates: the
+        # grid gets a synthetic schedule). 2003/04 links names; RSSSF has its dates.
+        - {folder: france, title_template: "{season}–{endw} Ligue 2", seasons: [2002, 2003], tier: 2}
   espn:
     # Unofficial public scoreboard API, one request per league per calendar year.
     url_template: https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard
@@ -139,7 +155,7 @@ competitions:
     engsoccerdata: {file: italy, max_tier: 2}     # tier 1 only
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
-      - {source: rsssf, tiers: [2]}                 # tier 2 1955/56-1996/97
+      - {source: rsssf, tiers: [2]}                 # tier 2 1955/56-1996/97, 2002/03, 2004/05
       - {source: football_data}                     # tier 2 from 1997/98
   FRA-L:
     name: Ligue 1 / Ligue 2 (tiers 1-2)
@@ -149,6 +165,9 @@ competitions:
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
       - {source: football_data}
+      # football-data's partial Ligue 2 seasons: 2003/04 (dated), then 2002/03
+      - {source: rsssf, tiers: [2], replace_partial: 0.9}
+      - {source: wikipedia, tiers: [2], replace_partial: 0.9}
   POR-L:
     name: Primeira Liga (tier 1)
     type: league
@@ -239,6 +258,12 @@ corrections:
   # which merged with DWS in 1958; the DWS of those seasons was in the Eerste Divisie
   - {source: rsssf, competition: NED-L, season: 1956, club: D.W.S., to: D.W.S. (1907)}
   - {source: rsssf, competition: NED-L, season: 1957, club: D.W.S., to: D.W.S. (1907)}
+  # RSSSF's "Messina" is A.C.R. Messina up to the 1990s; the 2002/03 Serie B club
+  # is the refounded FC Messina (as football-data has it)
+  - {source: rsssf, competition: ITA-L, season: 2002, club: Messina, to: FC Messina}
+  # DataRozhlas keys every Sedan as CS_Sedan_Ardennes; the 1961/62 Cup Winners'
+  # Cup side was UA Sedan-Torcy
+  - {source: datarozhlas, competition: UCWC, season: 1961, club: CS_Sedan_Ardennes, to: UA_Sedan-Torcy}
 
 elo:
   start_date: "1955-08-01"        # first match rated

@@ -62,6 +62,20 @@ Cesena - Pistoiese                 1-0
         ("Cesena", "Pistoiese", 1, 0, (8, 20))]
 
 
+def test_round_lists_read_a_leading_full_date():
+    # Serie B 2004/05: "[dd/mm/yyyy] Home  3-1 Away", scorers on the next line
+    text = """Round 1
+[10/09/2004] Torino Calcio S.p.A.          3-1 Verona Hellas Football Club S.p.A.
+13' Massimo Marazzina (1-0); 81' Andrea Cossu (3-1)
+
+[11/09/2004] A.C. Cesena S.p.A.            1-0 U. S. Triestina Calcio S.r.l.
+"""
+    ms = grids.round_lists(text)
+    assert [(m["home"], m["away"], m["hg"], m["ag"], m["md"]) for m in ms] == [
+        ("Torino Calcio S.p.A.", "Verona Hellas Football Club S.p.A.", 3, 1, (9, 10)),
+        ("A.C. Cesena S.p.A.", "U. S. Triestina Calcio S.r.l.", 1, 0, (9, 11))]
+
+
 def test_order_grid_prefers_round_list_for_a_misplaced_grid_row():
     # the grid has club X's results under club Y and vice versa: every fixture
     # of X and Y disagrees, so the round list wins for them

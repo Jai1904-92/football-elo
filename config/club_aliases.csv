@@ -456,7 +456,7 @@ datarozhlas,CS_Minaur_Baia_Mare_(football),FC Baia Mare
 datarozhlas,CS_P%C3%A9tange,Pétange
 datarozhlas,CS_Pandurii_T%C3%A2rgu_Jiu,Pandurii Targu-Jiu
 datarozhlas,CS_Petrocub_H%C3%AEnce%C8%99ti,Petrocub
-datarozhlas,CS_Sedan_Ardennes,Sedan
+datarozhlas,CS_Sedan_Ardennes,CS Sedan
 datarozhlas,CS_Sporting_Vaslui,Vaslui
 datarozhlas,CS_Tiligul-Tiras_Tiraspol,Tiligul Tiraspol
 datarozhlas,CS_Universitatea_Craiova,FC Universitatea Craiova
@@ -4580,7 +4580,7 @@ clubelo,Sevilla B,Sevilla B
 clubelo,Xerez,Xerez CD
 clubelo,Albinoleffe,Albinoleffe
 clubelo,Poli Ejido,Poli Ejido
-clubelo,Sedan,Sedan
+clubelo,Sedan,CS Sedan
 clubelo,Rimini,Rimini
 clubelo,Messina,FC Messina
 clubelo,Piacenza,Piacenza Calcio
@@ -5338,3 +5338,83 @@ wikipedia,Villarreal CF,Villarreal
 wikipedia,Xerez CD,Xerez CD
 wikipedia,Écija Balompié,Ecija
 rsssf,D.W.S. (1907),DWS (1907)
+rsssf,A. C. Arezzo S.r.l.,Arezzo
+rsssf,A.C. Cesena S.p.A.,AC Cesena
+rsssf,A.S. Bari S.p.A.,AS Bari
+rsssf,Albinoleffe,Albinoleffe
+rsssf,Ascoli Calcio 1898 S.p.A.,Ascoli Calcio
+rsssf,Associazione Calcio Perugia S.p.A.,AC Perugia
+rsssf,Calcio Catania S.p.A.,Calcio Catania
+rsssf,Cittadella,Cittadella
+rsssf,Città di Palermo,US Palermo
+rsssf,Crotone,FC Crotone
+rsssf,Empoli F.C. S.p.A.,Empoli FC
+rsssf,F. C. Crotone S.r.l.,FC Crotone
+rsssf,F.C. Modena S.p.A.,Modena FC
+rsssf,Genoa Cricket and Football Club S.p.A.,Genoa CFC
+rsssf,Internazionale,Internazionale
+rsssf,Pescara Calcio S.p.A.,Pescara Calcio
+rsssf,Piacenza Football Club S.p.A.,Piacenza Calcio
+rsssf,Salernitana Sport S.p.A.,Salernitana Calcio 1919
+rsssf,Siena,AC Siena
+rsssf,Spezia,Spezia Calcio
+rsssf,Ternana Calcio S.p.A.,Ternana Calcio
+rsssf,Torino Calcio S.p.A.,Torino
+rsssf,Treviso Football Club 1993 S.r.l.,Treviso FBC
+rsssf,U. S. Triestina Calcio S.r.l.,Unione Triestina
+rsssf,U.C. Albinoleffe S.r.l.,Albinoleffe
+rsssf,U.S. Catanzaro S.p.A.,US Catanzaro
+rsssf,Venezia Associazione Calcio S.r.l.,AC Venezia
+rsssf,Verona Hellas,Hellas Verona
+rsssf,Verona Hellas Football Club S.p.A.,Hellas Verona
+rsssf,Vicenza Calcio S.p.A.,Vicenza Calcio
+wikipedia,AS Beauvais Oise,Beauvais
+wikipedia,AS Nancy Lorraine,AS Nancy
+wikipedia,AS Saint-Étienne,AS Saint-Etienne
+wikipedia,ASOA Valence,Valence
+wikipedia,Amiens SC,Amiens SC
+wikipedia,Angers SCO,Angers SCO
+wikipedia,Besançon RC,Besancon
+wikipedia,CS Sedan Ardennes,CS Sedan
+wikipedia,Chamois Niortais F.C.,Chamois Niortais
+wikipedia,Clermont Foot,Clermont Foot 63
+wikipedia,ES Troyes AC,ESTAC Troyes
+wikipedia,FC Gueugnon,FC Gueugnon
+wikipedia,FC Istres,FC Istres
+wikipedia,FC Lorient,FC Lorient
+wikipedia,FC Metz,Metz
+wikipedia,FC Rouen,FC Rouen
+wikipedia,Grenoble Foot 38,Grenoble Foot 38
+wikipedia,LB Châteauroux,LB Chateauroux
+wikipedia,Le Havre AC,Le Havre AC
+wikipedia,Le Mans FC,Le Mans UC 72
+wikipedia,Stade Lavallois,Stade Laval
+wikipedia,Stade Malherbe Caen,SM Caen
+wikipedia,Stade de Reims,Stade Reims
+wikipedia,Toulouse FC,Toulouse
+wikipedia,US Créteil-Lusitanos,Creteil
+wikipedia,Wasquehal Football,Wasquehal
+rsssf,FC Messina,FC Messina
+datarozhlas,UA_Sedan-Torcy,UA Sedan-Torcy
+rsssf,Amiens,Amiens SC
+rsssf,Angers,Angers SCO
+rsssf,Besançon,Besancon
+rsssf,Caen,SM Caen
+rsssf,Châteauroux,LB Chateauroux
+rsssf,Clermont,Clermont Foot 63
+rsssf,Clermont F.,Clermont Foot 63
+rsssf,Clermont-F.,Clermont Foot 63
+rsssf,Créteil,Creteil
+rsssf,Grenoble,Grenoble Foot 38
+rsssf,Gueugnon,FC Gueugnon
+rsssf,Istres,FC Istres
+rsssf,Laval,Stade Laval
+rsssf,Le Havre,Le Havre AC
+rsssf,Lorient,FC Lorient
+rsssf,Nancy,AS Nancy
+rsssf,Niort,Chamois Niortais
+rsssf,Rouen,FC Rouen
+rsssf,Sedan,CS Sedan
+rsssf,St-Etienne,AS Saint-Etienne
+rsssf,Troyes,ESTAC Troyes
+rsssf,Valence,Valence

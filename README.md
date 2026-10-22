@@ -34,10 +34,10 @@ pytest
 | England, tiers 1–4 | `ENG-L` | engsoccerdata to 2024/25 → football-data.co.uk (2022/23 gap, and 2025/26 on) |
 | Spain, tiers 1–2 | `ESP-L` | engsoccerdata (tier 1) to 2024/25 → football-data (tier 2 from 1996/97; all from 2025/26) → Wikipedia grids (tier 2 1955/56–1995/96, and the partial 2001/02–2003/04) |
 | Germany, tiers 1–2 | `GER-L` | engsoccerdata (from 1963; tier 2 from 1974) to 2024/25 → football-data |
-| Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97) → football-data (tier 2 from 1997/98) |
+| Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97, and the partial 2002/03 and 2004/05) → football-data (tier 2 from 1997/98) |
 | Portugal, tier 1 | `POR-L` | RSSSF results grids 1955/56–1993/94 (dates assigned) → engsoccerdata 1994/95–2024/25 → football-data |
 | Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2024/25) → football-data (tier 1) |
-| France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) |
+| France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) → RSSSF (the partial 2003/04) → Wikipedia grid (the partial 2002/03) |
 | Play-offs | `ENG-PO` | engsoccerdata to 2015/16 → ESPN |
 | FA Cup (Round 1 on) | `ENG-FAC` | engsoccerdata to 2018/19 → Transfermarkt to 2025/26 → ESPN |
 | League Cup | `ENG-LC` | engsoccerdata to 2018/19 → ESPN |
@@ -64,9 +64,9 @@ How sources combine:
 
 **Known gaps and data quality**
 - **Date-less sources:** Portugal before 1994/95, Serie B before 1997/98, the Segunda before 1996/97 and the
-  Eerste Divisie before 2004/05 come from results grids or round lists without (full) dates
-  (`src/football_elo/grids.py`, `sources._schedule`). Dates are printed ones where the page has them (Eerste
-  Divisie from 2004/05, some Serie B seasons), else one round a week from the round order (Serie B from
+  Eerste Divisie before 2004/05 come from results grids or round lists without (full) dates, as does
+  Ligue 2 2002/03 (`src/football_elo/grids.py`, `sources._schedule`). Dates are printed ones where the page
+  has them (Eerste Divisie from 2004/05, some Serie B seasons, Serie B 2002/03 and 2004/05, Ligue 2 2003/04), else one round a week from the round order (Serie B from
   1961/62), else a synthetic double round-robin on Sundays from September. So the order of matches within
   those seasons is approximate. Their club names are linked by fixtures within a season instead of by date
   (`tools/link_grid_names.py`, which also holds a short list of hand links).
@@ -76,8 +76,8 @@ How sources combine:
   clubs (placed by column), abandoned matches, and a grid with two clubs' rows swapped (Serie B 1966/67,
   where the round list wins).
 - **Second tiers still missing:** France before 1996/97 (no free match-level source found: RSSSF and
-  Wikipedia have final tables only), Portugal (no tier 2 at all), the Eerste Divisie from 2025/26 (RSSSF has only the table so far), and the
-  partial Serie B 2002/03 and 2004/05 and Ligue 2 2002/03–2003/04 football-data files. Promoted clubs from a
+  Wikipedia have final tables only), Portugal (no tier 2 at all), and the Eerste Divisie from 2025/26 (RSSSF has only the table so far).
+  Football-data's partial Serie B and Ligue 2 files of 2002–04 are filled from RSSSF and Wikipedia. Promoted clubs from a
   missing tier start at the rating below the top flight.
 - **Reserve teams** (Real Madrid Castilla, Barcelona B, Jong Ajax, ...) play in the Segunda and Eerste
   Divisie and are rated as clubs of their own.
@@ -91,7 +91,8 @@ How sources combine:
   - The Bundesliga starts in 1963. Before that, German clubs are rated only from their European matches.
   - Second tiers in Spain and Italy start in 1955 and the Netherlands in 1956; France's in 1996/97, when
     football-data begins.
-  - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial.
+  - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial
+    (filled from other sources, above).
   - Domestic cups outside England (Copa del Rey, DFB-Pokal, Coppa Italia, Coupe de France) are not included yet.
 - **engsoccerdata naming:** it names some clubs differently across seasons (e.g. "TSV 1860 Munchen" vs
   "1860 Munchen", "SV Bayer 04 Leverkusen" vs "Bayer Leverkusen"). These are merged through `engsoccerdata`

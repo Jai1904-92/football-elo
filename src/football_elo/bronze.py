@@ -104,10 +104,11 @@ def fetch_rsssf(cfg: dict, force: bool = False) -> list[Path]:
     out = []
     for spec in cfg["sources"]["rsssf"]["leagues"].values():
         first, last = spec["seasons"]
-        for season in range(first, last + 1):
+        urls = {s: spec["url_template"].format(**_season_fields(s)) for s in range(first, last + 1)}
+        urls.update(spec.get("extra_pages", {}))
+        for season, url in urls.items():
             dest = cfg["paths"]["bronze"] / "rsssf" / spec["folder"] / f"{season}.html"
             if force or not dest.exists():
-                url = spec["url_template"].format(**_season_fields(season))
                 if not _download(url, dest, headers={"User-Agent": "Mozilla/5.0 (football-elo research)"}):
                     continue
                 time.sleep(1)
