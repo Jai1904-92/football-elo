@@ -36,7 +36,7 @@ pytest
 | Germany, tiers 1–2 | `GER-L` | engsoccerdata (from 1963; tier 2 from 1974) to 2024/25 → football-data |
 | Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97) → football-data (tier 2 from 1997/98) |
 | Portugal, tier 1 | `POR-L` | RSSSF results grids 1955/56–1993/94 (dates assigned) → engsoccerdata 1994/95–2024/25 → football-data |
-| Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2019/20) → football-data (tier 1) |
+| Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2024/25) → football-data (tier 1) |
 | France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) |
 | Play-offs | `ENG-PO` | engsoccerdata to 2015/16 → ESPN |
 | FA Cup (Round 1 on) | `ENG-FAC` | engsoccerdata to 2018/19 → Transfermarkt to 2025/26 → ESPN |
@@ -76,7 +76,7 @@ How sources combine:
   clubs (placed by column), abandoned matches, and a grid with two clubs' rows swapped (Serie B 1966/67,
   where the round list wins).
 - **Second tiers still missing:** France before 1996/97 (no free match-level source found: RSSSF and
-  Wikipedia have final tables only), Portugal (no tier 2 at all), the Eerste Divisie from 2020/21, and the
+  Wikipedia have final tables only), Portugal (no tier 2 at all), the Eerste Divisie from 2025/26 (RSSSF has only the table so far), and the
   partial Serie B 2002/03 and 2004/05 and Ligue 2 2002/03–2003/04 football-data files. Promoted clubs from a
   missing tier start at the rating below the top flight.
 - **Reserve teams** (Real Madrid Castilla, Barcelona B, Jong Ajax, ...) play in the Segunda and Eerste

@@ -60,12 +60,13 @@ sources:
               end: 'SERIE B|.*\(Serie B\)'}
           2: {start: 'SERIE B|.*\(Serie B\)', end: 'SERIE C.*|.*\(Serie C.*'}
       NED-L:
-        # Eerste Divisie 1956/57-2019/20 (groups A/B to 1961/62): grids to
-        # 2003/04, dated round lists from 2004/05. Credit: Karel Stokkermans and
-        # the RSSSF Netherlands contributors.
+        # Eerste Divisie 1956/57-2024/25 (groups A/B to 1961/62): grids to
+        # 2003/04, dated round lists from 2004/05. The 2025/26 page has the
+        # final table only so far. Credit: Karel Stokkermans and the RSSSF
+        # Netherlands contributors.
         folder: netherlands
         url_template: https://www.rsssf.org/tablesn/ned{end}.html
-        seasons: [1956, 2019]
+        seasons: [1956, 2024]
         tiers:
           1: {start: '(First Level \()?Eredivisie\)?\s*(\d{4}[-/]\d{2,4})?',
               end: '(Second Level \()?Eerste divisie.*|KNVB Beker|Cup \d{4}.*|Nacompetitie|Europa League Playoff'}
@@ -164,7 +165,7 @@ competitions:
     engsoccerdata: {file: holland, max_tier: 1}   # from 1956/57
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
-      - {source: rsssf, tiers: [2]}                 # tier 2 1956/57-2019/20
+      - {source: rsssf, tiers: [2]}                 # tier 2 1956/57-2024/25
       - {source: football_data}
   ENG-PO:
     name: EFL play-offs

@@ -8,11 +8,10 @@ covers how everything works; this note covers where things stand and what's next
 - **Pipeline:** `python -m football_elo build | load | update | validate | calibrate`.
   - Coverage: England tiers 1–4, Spain, Germany, Italy, France and the Netherlands tiers 1–2, Portugal tier 1.
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
-  - Size: 435,068 matches and 2,264 clubs (local build of 2026-10-21; Supabase still holds the 2026-10-20
-    load until the next `load`).
+  - Size: 436,968 matches and 2,264 clubs (2026-10-22).
   - Tests: 28, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 5 on
-  2026-10-20.
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 8 on
+  2026-10-22.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
 - **Model:** K 15, cup K × 0.5, √goal-difference margin. On top of plain Club Elo it adds dynamic home
@@ -44,16 +43,18 @@ Work through these one at a time. For each: find a source, check its coverage, m
 (`tools/derive_aliases.py`, `tools/link_league_names.py`), validate, re-check calibration, reload, then
 update the dashboard.
 
-1. **Second tiers before the mid-1990s.** Mostly done 2026-10-21 (built and checked locally, not yet loaded):
+1. **Second tiers before the mid-1990s.** Mostly done 2026-10-21/22, and loaded (run 8):
    - Done: Serie B 1955/56–1996/97 (RSSSF), Segunda 1955/56–1995/96 plus the partial 2001/02–2003/04
-     (Wikipedia grids), Eerste Divisie 1956/57–2019/20 (RSSSF). Parsers in `src/football_elo/grids.py`, readers
+     (Wikipedia grids), Eerste Divisie 1956/57–2024/25 (RSSSF; 2020/21 onwards added 2026-10-22, which took
+     Club Elo RMSE from 26.90 to 26.15 and Spearman to 0.992 with European log loss unchanged). Parsers in `src/football_elo/grids.py`, readers
      in `sources.py`, name linking in `tools/link_grid_names.py` (fixture matching within a season, plus a
      `MANUAL` table of hand links). README "Date-less sources" has the details.
    - Calibration after (before): Club Elo RMSE 26.86 (26.88), Spearman 0.991 (0.991), European log loss
      0.5839 (0.5838), European bias RMS 1.80pp (1.72pp). The Netherlands' 1960s–70s European bias got worse
      (−9.8 / −4.0pp, was −6.8 / −1.5): Dutch clubs now underperform their ratings in Europe a little more.
      Possible lever: NED's tier gap or starting levels. Not tuned yet.
-   - Left: the Eerste Divisie from 2020/21 (openfootball), France before 1996/97 (no free match-level source
+   - Left: the Eerste Divisie 2025/26 (RSSSF has only the table so far; extend `seasons` in `elo.yaml` when
+     the rounds appear, or use openfootball), France before 1996/97 (no free match-level source
      found: RSSSF `fran2hist` and both Wikipedias have final tables only), Portugal's second tier, and the
      partial Serie B 2002/03, 2004/05 and Ligue 2 2002/03–2003/04 football-data files (RSSSF season pages
      exist for those years but aren't parsed yet).

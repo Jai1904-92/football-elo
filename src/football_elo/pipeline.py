@@ -83,6 +83,8 @@ def full_load(cfg: dict, fetch: bool = True) -> int:
     """Rebuild everything locally and replace the Supabase contents."""
     built = build_local(cfg, fetch=fetch)
     with db.connect() as conn, conn.cursor() as cur:
+        # the club_ratings copy (~870k rows, each FK-checked) outlasts the role's default timeout
+        cur.execute("set local statement_timeout = '15min'")
         cur.execute("truncate gold.hfa_levels, gold.league_offsets, gold.calibration_scores, gold.club_ratings, gold.match_ratings, gold.runs, "
                     "silver.matches, silver.club_aliases, silver.clubs, silver.competitions, "
                     "bronze.source_matches, bronze.source_files")
