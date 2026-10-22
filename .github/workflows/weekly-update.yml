@@ -1,7 +1,9 @@
 name: weekly-elo-update
 on:
-  schedule:
-    - cron: "0 20 * * 1"   # Mondays 20:00 UTC (Tuesday morning AEST), after weekend + Monday games
+  # Manual until the update path has been checked against the live database
+  # (docs/HANDOVER.md). Then restore the schedule:
+  # schedule:
+  #   - cron: "0 20 * * 1"   # Mondays 20:00 UTC (Tuesday morning AEST), after weekend + Monday games
   workflow_dispatch:
 jobs:
   update:

@@ -21,11 +21,13 @@ covers how everything works; this note covers where things stand and what's next
     decade.
   - Use the Club Elo fit (RMSE 26.9, Spearman 0.991) only as a secondary check, because Club Elo has no
     pooling and a fixed home advantage.
-- **Dashboard:** https://claude.ai/artifact/6ZBJ8NoziTLrGuX6PDNexe (Dashboard artifact type). It runs live
-  queries on the Supabase connector, with tabs that load lazily.
-  - The page and its queries are mirrored in `dashboard/index.html` and `dashboard/queries.json`.
-  - The live copy is in the artifact's store (`files/index.html`, `datasets/*`). Edit the repo copy, then
-    write it to the store.
+- **Website (from 2026-10-23):** `web/`, a Vite + React + D3 site for GitHub Pages with a geometric HUD
+  design, club crests and per-club colours. It reads a static JSON snapshot (`python -m football_elo
+  export`) instead of querying Supabase. Crests/colours: `tools/club_branding.py` → `config/club_branding.csv`.
+  README "Website" covers running and deploying it. It has the old dashboard's seven tabs plus a home page.
+- **Old dashboard:** https://claude.ai/artifact/6ZBJ8NoziTLrGuX6PDNexe (Dashboard artifact type, in Alex's
+  other claude.ai account; not readable from this one). Mirrored in `dashboard/index.html` and
+  `dashboard/queries.json`; superseded by the website.
   - Keep queries on the `gold.mv_*` views. A raw rebuild over `gold.club_ratings` costs about 6 seconds per
     query.
 
@@ -34,7 +36,11 @@ covers how everything works; this note covers where things stand and what's next
 - The weekly update isn't scheduled. Options: `.github/workflows/weekly-update.yml` (needs a GitHub repo
   plus the `SUPABASE_DB_URL` secret) or `scripts/weekly_update.ps1` with Task Scheduler.
 - The update's re-rating path is covered by unit tests but hasn't run against the live database yet. The
-  first weekly run after new matches is the real test: compare it with a full rebuild.
+  first weekly run after new matches is the real test: compare it with a full rebuild. Its GitHub workflow
+  is manual-only until then.
+- Data bug: engsoccerdata's FA Cup and League Cup files call the modern Accrington Stanley (founded 1968,
+  league club "Accrington" from 2006) "Accrington Stanley", so about 75 cup games up to 2018 sit on the old
+  club (folded 1962). Fix with `corrections` per season or a dated alias.
 - Git is local only: everything up to this note is committed on `master`, and there is no remote yet.
 
 ## Gap backlog, biggest effect on rankings first

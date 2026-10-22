@@ -303,8 +303,26 @@ name. The job logs a warning and appends them to `config/club_aliases.csv` for r
 parameters or competition list in config change, the job does a full rebuild instead.
 
 To schedule it, use either:
-- `.github/workflows/weekly-update.yml`, with the `SUPABASE_DB_URL` repository secret
+- `.github/workflows/weekly-update.yml`, with the `SUPABASE_DB_URL` repository secret (manual-only for now:
+  restore its `schedule` once the update path has been checked against the live database)
 - `scripts/weekly_update.ps1` with Windows Task Scheduler
+
+## Website
+
+`web/` is the public site: a Vite + React + D3 app on GitHub Pages, reading a static JSON snapshot instead of
+querying Supabase, so no database keys reach the browser.
+- **Snapshot:** `python -m football_elo export` reads the serving views, ratings and matches from Supabase
+  and writes `web/public/data/` (about 60 MB, not committed): `clubs.json`, one file per summary view, one
+  file per league club (`club/<slug>.json`: monthly ratings, seasons, every match) and month-end rankings
+  per year (`tables/<year>.json`).
+- **Crests and colours:** `python tools/club_branding.py` writes `config/club_branding.csv` from ESPN team
+  records (crest, primary and alternate colour), falling back to Transfermarkt crests and to colours taken
+  from the crest. Crests are linked from those sites, not stored in the repo. Clubs without one get a
+  monogram badge.
+- **Local:** `npm --prefix web install`, export, then `npm --prefix web run dev`
+  (http://localhost:5173/football-elo/).
+- **Deploy:** `.github/workflows/site.yml` exports, builds and publishes on every push to `main` that
+  touches the site, weekly on Tuesdays, and on demand. It needs the `SUPABASE_DB_URL` repository secret.
 
 ## Useful queries
 
