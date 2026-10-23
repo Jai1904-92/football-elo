@@ -1,0 +1,14 @@
+# Library versions the pipeline is tested with (local and CI). Match ids and
+# date parsing must not drift between machines: pandas 3.1 changed regex
+# behaviour for accented letters and briefly duplicated matches in CI.
+# pip install -e . -c constraints.txt
+pandas==3.0.6
+numpy==2.5.1
+pyarrow==26.0.0
+scipy==1.18.0
+psycopg==3.3.6
+psycopg-binary==3.3.6
+requests==2.34.2
+PyYAML==6.0.3
+python-dateutil==2.9.0.post0
+tzdata==2026.5

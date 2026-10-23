@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install -e .
+      - run: pip install -e . -c constraints.txt
       # Source files (RSSSF, Wikipedia, engsoccerdata, ...) are cached between
       # runs; only live files re-download. The first run fetches everything.
       - uses: actions/cache@v4

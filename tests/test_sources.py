@@ -144,3 +144,9 @@ def test_replace_partial_takes_over_thin_seasons_only():
                       "b": pd.concat([frame("b", 2000, 380), frame("b", 2001, 380), frame("b", 1990, 380)])})
     out = silver.combine_windows(cfg, "X", reader)
     assert out.groupby("season")["source"].agg(set).to_dict() == {1990: {"b"}, 2000: {"a"}, 2001: {"b"}}
+
+
+def test_match_ids_drop_accented_letters_whatever_the_pandas_version():
+    df = pd.DataFrame({"match_date": pd.to_datetime(["2025-09-28"]), "home_club": ["Kayserispor"],
+                       "away_club": ["Gençlerbirliği"]})
+    assert silver.match_ids(df).tolist() == ["20250928_Kayserispor_Genlerbirlii"]

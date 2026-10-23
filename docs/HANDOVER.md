@@ -1,51 +1,89 @@
 # Handover: state of the project and the gap backlog
 
-Written 2026-10-20 at the end of a long build session, so a fresh session can pick up from here. The README
-covers how everything works; this note covers where things stand and what's next.
+Last updated 2026-10-23, at the end of a long session. The README covers how everything works; this note
+covers where things stand and what's next. Alex's working style: tackle gaps one at a time, biggest first;
+judge model changes on evidence (next-season / out-of-sample prediction and bias between leagues), not on
+Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
+
+## Start here: next jobs (Alex's queue)
+
+1. **Domestic cups going way back.** English cups already run from 1955; the other ten countries' cups
+   only from 2012/13 (Coupe de France 2015/16; Scotland, Belgium, Turkey and Greece have none yet).
+   A survey of English Wikipedia's season articles (one sampled season per decade) showed four formats,
+   none covering everything:
+   - `{{Football box}}` matches: Scotland and Greece good recently; Copa del Rey from the 1980s; the
+     DFB-Pokal only in some years (1984/85 has 66 boxes, 1970/80/90 none).
+   - `{{TwoLegResult}}` rows: common for the Copa del Rey (46–101 a season in the 1960s–70s), the Greek
+     Cup, some Coppa Italia seasons.
+   - Bracket templates (`RD1-team1`, scores in `RD1-score1`): Greek Cup late rounds in every decade, Belgian
+     and Italian late rounds from 1990.
+   - Plain wikitables: likely where none of the above appear (DFB-Pokal 1970–90, Coupe de France, KNVB
+     Cup, Turkish Cup), or late rounds only.
+   Plan: a parser for all four in `sources.py` (titles like "1984–85 DFB-Pokal"; older Spanish seasons
+   are "Copa del Generalísimo"; Wikipedia fetch already follows redirects), a coverage table per cup and
+   era, then RSSSF cup pages for the gaps. Cups count at full weight, so the effect is real but modest
+   (adding Barcelona's whole 2008/09 Copa run moved them 4 points). Clubs: name-link like the leagues;
+   new amateur clubs take the cup's country.
+2. **Leagues of the other European trophy winners.** Clubs from unmodelled countries are rated only from
+   European games: Steaua and Red Star (European Cup), Dinamo Kyiv, Dinamo Tbilisi, Slovan Bratislava,
+   Magdeburg (Cup Winners' Cup), Göteborg, Ferencváros, Dinamo Zagreb, Shakhtar, Zenit (UEFA/Fairs Cup),
+   plus finalists like Rapid/Austria Wien and Malmö. Likely set: Romania, Yugoslavia, USSR, Ukraine,
+   Russia, Czechoslovakia, GDR, Hungary, Sweden, Austria, Switzerland, Denmark. Use the method from the
+   Scotland/Belgium/Turkey/Greece work (Wikipedia grids for the early seasons, link names via overlap years,
+   then a duplicate scan against each country's European-only clubs, then starting levels tuned with
+   `tools/pool_experiment.py`). Top flight only.
+
+Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü" linked to "Hacettepe"
+(unchecked), Cypriot champions in the Greek league kept Cypriot via `club_countries`.
 
 ## Where things stand
 
-- **Pipeline:** `python -m football_elo build | load | update | validate | calibrate`.
-  - Coverage: England tiers 1–4, Spain, Germany, Italy, France and the Netherlands tiers 1–2, Portugal tier 1.
-    Also English cups and play-offs, and the UEFA competitions, all from 1955.
-  - Size: 444,608 matches and 3,266 clubs (2026-10-23; about 1,000 of them cup-only).
-  - Tests: 29, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 14 (then incremental runs 15–16) on
-  2026-10-23.
-  - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
-  - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
-- **Model:** K 15, cups at full weight (since 2026-10-23), √goal-difference margin. On top of plain Club Elo it adds dynamic home
-  advantage, league pooling 0.3, and provisional K × 2 for a club's first 40 matches. All countries start
-  level in 1955. The README sections "Elo engine" and "Early-era calibration" give the reasoning.
-  - Judge model changes with `tools/pool_experiment.py`: log loss, and bias between the modelled leagues by
-    decade.
-  - Use the Club Elo fit (RMSE 26.9, Spearman 0.991) only as a secondary check, because Club Elo has no
-    pooling and a fixed home advantage.
-- **Website (from 2026-10-23):** `web/`, a Vite + React + D3 site for GitHub Pages with a geometric HUD
-  design, club crests and per-club colours. It reads a static JSON snapshot (`python -m football_elo
-  export`) instead of querying Supabase. Crests/colours: `tools/club_branding.py` → `config/club_branding.csv`.
-  README "Website" covers running and deploying it. It has the old dashboard's seven tabs plus a home page.
-  - A header toggle switches every season-based figure between end-of-season and whole-season
-    (performance rating) judgement. README "Judging a season" covers the method; the season views carry a
-    `measure` column (`end`/`perf`), so queries on them must filter by it.
-- **Old dashboard:** https://claude.ai/artifact/6ZBJ8NoziTLrGuX6PDNexe (Dashboard artifact type, in Alex's
-  other claude.ai account; not readable from this one). Mirrored in `dashboard/index.html` and
-  `dashboard/queries.json`; superseded by the website.
-  - Keep queries on the `gold.mv_*` views. A raw rebuild over `gold.club_ratings` costs about 6 seconds per
-    query.
+- **Pipeline:** `python -m football_elo build | load | update | validate | calibrate | export`.
+  - Coverage: England tiers 1–4; Spain, Germany, Italy, France, Netherlands tiers 1–2; top flights of
+    Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other countries'
+    cups from 2012/13; German championship final rounds 1955–63; UEFA competitions from 1955.
+  - Size: about 520,000 matches and 3,383 clubs. Tests: 36, all passing (`pytest`).
+  - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 20 on 2026-10-23.
+  - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
+    transaction with a 15-minute statement timeout, so a failure rolls back cleanly.
+  - The DB connector in Claude sessions is signed in to a different org; use `football_elo.db.connect()`.
+  - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views.
+- **Model:** K 15, cups at full weight (since 2026-10-23), √goal-difference margin, dynamic home
+  advantage, league pooling 0.3, provisional K × 2 for a club's first 40 matches. The big seven start level
+  in 1955; Scotland −125, Belgium −100, Turkey and Greece −250 (README "Big-5 coverage").
+  - Season views add hindsight country levels before 2000 (README "Hindsight country levels"; England's ban
+    seasons step down evenly).
+  - Whole-season rating: performance rating with 15 virtual draws, no goal margin (README "Judging a
+    season" records why, including the rejected margin options).
+  - Judge model changes with `tools/pool_experiment.py` (log loss, bias between leagues by decade). Its
+    input `data/silver/matches_prepared.parquet` isn't written by the pipeline: regenerate it with
+    `engine.prepare(matches, params, club_country=clubs.country)` first.
+- **Website:** https://jai1904-92.github.io/football-elo/ from `web/` (Vite + React + D3, geometric HUD
+  design, club crests and colours, a "Season view: End / Whole" toggle). It reads a JSON snapshot
+  (`python -m football_elo export`). Crests/colours: `tools/club_branding.py` → `config/club_branding.csv`;
+  re-run it after adding clubs. README "Website" covers running and deploying.
+- **Weekly update:** GitHub Actions, Mondays 20:00 UTC (`weekly-update.yml`), then the site workflow
+  exports and redeploys. Tested live: a seven-month forced replay matched a full rebuild exactly. Failures
+  email the repo owner; a local full `load` always restores a clean state.
+  - CI and local must use the same library versions (`constraints.txt`, used by both workflows). With
+    pandas 3.1, CI built different match ids for clubs with accented names and inserted 326 duplicate
+    matches (runs 17 and 19); ids now use an explicit ASCII rule (`silver.match_ids`), and a full reload
+    removed the duplicates.
+  - After any local full load, the next CI run should report "no new or changed matches" apart from
+    genuinely new results; if it re-adds hundreds, something differs between local and CI again.
+- **Git:** public repo github.com/Jai1904-92/football-elo, branch `main`. Pushes touching `web/`,
+  `export.py` or the branding CSV redeploy the site; otherwise run `gh workflow run site.yml`.
+- **Old dashboard:** a claude.ai artifact in Alex's other account (not readable from this one), mirrored
+  in `dashboard/`; superseded by the website. Its queries pin `measure = 'end'`.
 
 ## Not done yet
 
-- Weekly update: scheduled 2026-10-23 (GitHub Actions, Mondays 20:00 UTC, site redeploys after). It was
-  tested live first: a seven-month forced replay matched a full rebuild exactly (README "Weekly update").
-  If a run fails, GitHub emails the repo owner; a full `load` from a local machine always restores a clean
-  state.
 - Data bug: engsoccerdata's FA Cup and League Cup files call the modern Accrington Stanley (founded 1968,
   league club "Accrington" from 2006) "Accrington Stanley", so about 75 cup games up to 2018 sit on the old
   club (folded 1962). Fix with `corrections` per season or a dated alias.
-- Git: public repo github.com/Jai1904-92/football-elo, branch `main`. The site deploys from it (README
-  "Website"); pushes that only change data code don't redeploy, so after a load run the `site` workflow by
-  hand (`gh workflow run site.yml`) or wait for the Tuesday refresh.
+- European-source aliases can be badly wrong (West Ham's record was on Reading, Lausanne's on Carlisle until
+  2026-10-23). When a club's numbers look odd, scan for aliases whose source name doesn't resemble the club.
 
 ## Gap backlog, biggest effect on rankings first
 

@@ -8,6 +8,7 @@ ESPN source_name is the source's club id.
 from __future__ import annotations
 
 import logging
+import re
 from functools import cache
 
 import pandas as pd
@@ -231,9 +232,7 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
     df["comp_type"] = df["competition"].map({c: s["type"] for c, s in cfg["competitions"].items()})
     df = df.drop_duplicates(subset=["match_date", "home_club", "away_club"], keep="first")
     df = df.sort_values(["match_date", "competition", "home_club"]).reset_index(drop=True)
-    df["match_id"] = (df["match_date"].dt.strftime("%Y%m%d") + "_"
-                      + df["home_club"].str.replace(r"\W+", "", regex=True) + "_"
-                      + df["away_club"].str.replace(r"\W+", "", regex=True))
+    df["match_id"] = match_ids(df)
     new_aliases_df = pd.DataFrame(new_aliases, columns=["source", "source_name", "club"])
     all_aliases = pd.concat([aliases, new_aliases_df], ignore_index=True)
     clubs = club_registry(df, all_aliases)
@@ -264,6 +263,19 @@ def warn_thin_seasons(df: pd.DataFrame, share: float = 0.5) -> pd.DataFrame:
         log.warning("thin season: %s tier %s %s has %d matches (usual %d)",
                     r.competition, int(r.tier) or "-", r.season, r.n, int(r.usual))
     return thin
+
+
+def _id_part(name: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_]+", "", name)
+
+
+def match_ids(df: pd.DataFrame) -> pd.Series:
+    """date_home_away with everything but ASCII letters, digits and _ dropped
+    ("Gençlerbirliği" -> "Genlerbirlii"). Spelled out with Python's re rather
+    than pandas' str.replace: pandas 3.1 changed what a "non-word" pattern
+    matches for accented letters, which gave the same match a second id in CI."""
+    return (df["match_date"].dt.strftime("%Y%m%d") + "_" + df["home_club"].map(_id_part) + "_"
+            + df["away_club"].map(_id_part))
 
 
 def competitions_table(cfg: dict) -> pd.DataFrame:
