@@ -335,13 +335,22 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
   `gold.club_season_perf`). It's the one constant rating that best explains every result of the season,
   against each opponent as rated at kick-off, with home advantage and league offsets as in the Elo run.
   - Every match counts equally whatever its date, and cups count at half weight, as in the ratings.
-  - Eight virtual draws against a side of the club's season-average rating (August–May month ends) pull
-    short or freak seasons towards that average.
+  - Fifteen virtual draws against a side of the club's season-average rating (August–May month ends) pull
+    every season towards that average, so a run of luck in one season isn't taken at face value.
   - Unlike a season-average rating, it doesn't lag behind form, since last season isn't carried in.
+- **Choosing the pull and leaving out goal margin (2026-10-23):** tested by predicting each club's next
+  season from this one, especially for promoted clubs.
+  - With 8 draws, the strongest quarter of promoted clubs did 1.6pp worse the next season than predicted,
+    i.e. dominant second-tier seasons (Fulham 2000/01) were overrated.
+  - Counting goal margin made that worse (−3.0pp), though it predicted slightly better overall.
+  - 25 draws or more nearly removed the bias but dragged late-surging seasons back towards the lagging
+    season average.
+  - 15 draws splits it (promoted clubs +1.1pp overall, strongest quarter −0.9pp) and predicts better than
+    8.
 - **Example:** Aston Villa finished 7th in 2022/23 after a strong spring, then 4th in 2023/24 after a weak
-  finish. Season end ranks them 22nd and 31st in Europe; whole season ranks them 22nd and 19th.
+  finish. Season end ranks them 22nd and 31st in Europe; whole season ranks them 23rd and 17th.
 - **How much it matters:** since 1965/66 the two rank orders correlate at 0.99, but the European #1 differs
-  in 18 of 61 seasons.
+  in 14 of 61 seasons.
 - **Where it doesn't apply:** the monthly rating charts and the Rankings tab are point-in-time and unchanged.
 
 ## Useful queries

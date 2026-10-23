@@ -13,7 +13,11 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-VIRTUAL_DRAWS = 8
+# Chosen 2026-10-23 by how well a season predicts the next (README "Judging a
+# season"): 8 overrated the strongest promoted sides (-1.6pp the next season),
+# 25+ removed that but dragged late-surging seasons back towards the lagging
+# season average. 15 splits it: promoted clubs +1.1pp overall, top quarter -0.9pp.
+VIRTUAL_DRAWS = 15
 LN10_400 = np.log(10) / 400
 
 
@@ -21,14 +25,15 @@ def season_average(periods: pd.DataFrame) -> pd.Series:
     """(club, season) -> mean rating at the August to May month ends of that
     season, read on the same dates for every club (league periods only)."""
     r = periods[periods["tier"].notna()].copy()
-    r["valid_from"] = pd.to_datetime(r["valid_from"])
-    r["valid_to"] = pd.to_datetime(r["valid_to"]).fillna(pd.Timestamp("2200-01-01"))
+    # one resolution for every date: parquet and the database return different ones
+    r["valid_from"] = pd.to_datetime(r["valid_from"]).astype("datetime64[ns]")
+    r["valid_to"] = pd.to_datetime(r["valid_to"]).fillna(pd.Timestamp("2200-01-01")).astype("datetime64[ns]")
     keys = r[["club", "season"]].drop_duplicates()
     ends = pd.DataFrame({"m": range(10)})   # Aug .. May
     grid = keys.merge(ends, how="cross")
     # 1 August + n month ends = the end of August, September, ...
-    grid["d"] = [pd.Timestamp(int(s), 8, 1) + pd.offsets.MonthEnd(int(m) + 1)
-                 for s, m in zip(grid["season"], grid["m"])]
+    grid["d"] = pd.to_datetime([pd.Timestamp(int(s), 8, 1) + pd.offsets.MonthEnd(int(m) + 1)
+                                for s, m in zip(grid["season"], grid["m"])]).astype("datetime64[ns]")
     grid = grid.sort_values("d")
     hit = pd.merge_asof(grid, r.sort_values("valid_from")[["club", "season", "valid_from", "valid_to", "elo"]]
                         .rename(columns={"season": "p_season"}),
