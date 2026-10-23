@@ -105,7 +105,7 @@ export default function Eras({ clubs }: { clubs: ClubIndex }) {
                                     xFormat={(d) => 'Season ' + seasonLabel(d.getUTCFullYear() - 1)} /> : <Status error={strength.error} />}
       </Card>
 
-      <Card title="Dynasties" note={`The longest unbroken runs of ${measure === 'perf' ? 'whole-season ratings' : 'season-end finishes'} in the top places among all clubs in the seven leagues, since 1965.`}>
+      <Card title="Dynasties" note={`The longest unbroken runs of ${measure === 'perf' ? 'whole-season ratings' : 'season-end finishes'} in the top places among all clubs in the eleven leagues, since 1965.`}>
         <div className="controls"><Seg label="Top places" value={topN} onChange={setTopN} options={[[1, 'Top 1'], [3, 'Top 3'], [5, 'Top 5'], [10, 'Top 10']]} /></div>
         {dyn.data ? (
           <Table rowKey={(r) => `${r.club}-${r.from_season}`} rows={dyn.data.filter((d) => d.top_n === topN)} initial={['seasons', 'desc']} limit={25} cols={[

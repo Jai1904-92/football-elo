@@ -232,7 +232,7 @@ datarozhlas,Aarhus,Aarhus
 datarozhlas,Aarhus_Gymnastik_Forening,AGF Aarhus
 datarozhlas,Aarhus_Gymnastikforening,Aarhus GF
 datarozhlas,Aberdeen,Aberdeen
-datarozhlas,Aberdeen_F.C.,Abderden
+datarozhlas,Aberdeen_F.C.,Aberdeen
 datarozhlas,Aberystwyth_Town_F.C.,Aberystwyth Town
 datarozhlas,Acad%C3%A9mica_de_Coimbra_(football),Academica
 datarozhlas,Adana Demirspor,Adana Demirspor
@@ -258,14 +258,14 @@ datarozhlas,Altay_S.K.,Altay
 datarozhlas,Altay_SK,Altay
 datarozhlas,Amica_Wronki,Amica Wronki
 datarozhlas,Anderlecht,Anderlecht
-datarozhlas,Angers_SCO,Angers
+datarozhlas,Angers_SCO,Angers SCO
 datarozhlas,Angoul%C3%AAme_Charente_FC,AS Angouleme
 datarozhlas,Ankarag%C3%BCc%C3%BC,Ankaragücü
 datarozhlas,Anorthosis Famagusta,Anorthosis Famagusta
 datarozhlas,Anorthosis_Famagusta_F.C.,Anorthosis Famagusta
 datarozhlas,Anorthosis_Famagusta_FC,Anorthosis Famagusta
 datarozhlas,Antalyaspor,Antalyaspor
-datarozhlas,Antwerp,Antwerp
+datarozhlas,Antwerp,Royal Antwerp FC
 datarozhlas,Apollon Limassol,Apollon Limassol
 datarozhlas,Apollon_Limassol,Apollon Limassol
 datarozhlas,Apollon_Limassol_FC,Apollon Limassol
@@ -361,8 +361,8 @@ datarozhlas,Bayern Munich,Bayern Munich
 datarozhlas,Bayern_Munich,Bayern Munich
 datarozhlas,Be%C5%9Fikta%C5%9F_J.K.,Besiktas
 datarozhlas,Be%C5%9Fikta%C5%9F_JK,Besiktas
-datarozhlas,Beerschot_A.C.,Germinal Ekeren
-datarozhlas,Beerschot_AC,Germinal Ekeren
+datarozhlas,Beerschot_A.C.,Germinal
+datarozhlas,Beerschot_AC,Germinal
 datarozhlas,Beitar Jerusalem,Beitar Jerusalem
 datarozhlas,Beitar_Jerusalem_F.C.,Beitar Jerusalem
 datarozhlas,Belenenses,Belenenses
@@ -375,7 +375,7 @@ datarozhlas,Beşiktaş,Besiktas
 datarozhlas,Birkirkara,Birkirkara
 datarozhlas,Birkirkara_F.C.,Birkirkara
 datarozhlas,Birmingham_City_F.C.,Birmingham City
-datarozhlas,Blackburn_Rovers,Blackburn
+datarozhlas,Blackburn_Rovers,Blackburn Rovers
 datarozhlas,Blackburn_Rovers_F.C.,Blackburn Rovers
 datarozhlas,Bnei Yehuda,Bnei Yehuda
 datarozhlas,Bnei_Sakhnin_F.C.,Bnei Sakhnin
@@ -394,8 +394,8 @@ datarozhlas,Boldklubben_1909,B 1909 Odense
 datarozhlas,Boldklubben_1913,B 1913 Odense
 datarozhlas,Boldklubben_Frem,BK Frem
 datarozhlas,Boldklubben_af_1893,B.93
-datarozhlas,Bologna_F.C._1909,Bologna
-datarozhlas,Bologna_FC_1909,Bologna
+datarozhlas,Bologna_F.C._1909,Bologna FC
+datarozhlas,Bologna_FC_1909,Bologna FC
 datarozhlas,Bolton_Wanderers_F.C.,Bolton Wanderers
 datarozhlas,Boluspor,Boluspor
 datarozhlas,Borac Banja Luka,Borac Banja Luka
@@ -476,9 +476,9 @@ datarozhlas,Celta Vigo,Celta Vigo
 datarozhlas,Celta_de_Vigo,Celta Vigo
 datarozhlas,Celtic,Celtic
 datarozhlas,Celtic_F.C.,Celtic
-datarozhlas,Cercle Brugge,Cercle Brugge KSV
-datarozhlas,Cercle_Brugge_K.S.V.,Cercle Brugge KSV
-datarozhlas,Charleroi,Royal Charleroi SC
+datarozhlas,Cercle Brugge,Cercle Brugge
+datarozhlas,Cercle_Brugge_K.S.V.,Cercle Brugge
+datarozhlas,Charleroi,Charleroi
 datarozhlas,Chelsea,Chelsea
 datarozhlas,Chelsea_F.C,Chelsea
 datarozhlas,Chelsea_F.C.,Chelsea
@@ -521,7 +521,7 @@ datarozhlas,Debrecen,Debrecen
 datarozhlas,Debreceni_VSC,Debreceni VSC
 datarozhlas,Degerfors_IF,Degerfors
 datarozhlas,Denizlispor,Denizlispor
-datarozhlas,Deportivo_Alav%C3%A9s,Deportivo Alavés
+datarozhlas,Deportivo_Alav%C3%A9s,CD Alaves
 datarozhlas,Deportivo_de_La_Coru%C3%B1a,Deportivo La Coruna
 datarozhlas,Derby_County_F.C.,Derby County
 datarozhlas,Derry City,Derry City
@@ -566,7 +566,7 @@ datarozhlas,Dundee_FC,Dundee
 datarozhlas,Dundee_United_F.C.,Dundee United
 datarozhlas,Dundee_United_FC,Dundee United
 datarozhlas,Dunfermline_Athletic,Dunfermline Athletic
-datarozhlas,Dunfermline_Athletic_F.C.,Dunfermline
+datarozhlas,Dunfermline_Athletic_F.C.,Dunfermline Athletic
 datarozhlas,Dungannon_Swifts_F.C.,Dungannon Swifts
 datarozhlas,Dynamo Brest,Dynamo Brest
 datarozhlas,Dynamo Kyiv,Dinamo Kiev
@@ -601,7 +601,7 @@ datarozhlas,Everton,Everton
 datarozhlas,Everton_F.C.,Everton
 datarozhlas,F.C._Arouca,Arouca
 datarozhlas,F.C._Ashdod,Moadon Sport Ashdod
-datarozhlas,F.C._Barcelona,F.C. Barcelona
+datarozhlas,F.C._Barcelona,Barcelona
 datarozhlas,F.C._Barreirense,Barreirense
 datarozhlas,F.C._Bruno%27s_Magpies,Magpies
 datarozhlas,F.C._Copenhagen,Kobenhavn
@@ -826,7 +826,7 @@ datarozhlas,FC_R%C3%A0nger%27s,Ranger's
 datarozhlas,FC_Rapid_Bucure%C8%99ti,Rapid Bucuresti
 datarozhlas,FC_Red_Bull_Salzburg,Salzburg
 datarozhlas,FC_Rostov,Rostov
-datarozhlas,FC_Rot-Wei%C3%9F_Erfurt,Rot-Weiß Erfurt
+datarozhlas,FC_Rot-Wei%C3%9F_Erfurt,Rot-Weiss Erfurt
 datarozhlas,FC_Rotor_Volgograd,Rotor Volgograd
 datarozhlas,FC_Rubin_Kazan,Rubin Kazan
 datarozhlas,FC_SKA_Rostov-on-Don,SKA Rostov
@@ -1090,7 +1090,7 @@ datarozhlas,Fylkir,Fylkir
 datarozhlas,Fyllingen_Fotball,Fyllingen
 datarozhlas,G%C3%8D_G%C3%B8ta,GI Gota
 datarozhlas,G%C3%B3rnik_Zabrze,Gornik Zabrze
-datarozhlas,G%C3%B6ztepe_A.%C5%9E.,Göztepe A.Ş.
+datarozhlas,G%C3%B6ztepe_A.%C5%9E.,Göztepe
 datarozhlas,G%C3%B6ztepe_S.K.,Göztepe
 datarozhlas,G%C3%B8tu_%C3%8Dtr%C3%B3ttarfelag,GÍ
 datarozhlas,G%C5%BCira_United_F.C.,Gzira United
@@ -1119,8 +1119,8 @@ datarozhlas,Gen%C3%A7lerbirli%C4%9Fi,Gençlerbirliği
 datarozhlas,Gen%C3%A7lerbirli%C4%9Fi_S.K.,Gençlerbirliği
 datarozhlas,Gen%C3%A7lerbirligi,Gençlerbirliği
 datarozhlas,Genk,Genk
-datarozhlas,Genoa_C.F.C.,Genoa
-datarozhlas,Genoa_CFC,Genoa
+datarozhlas,Genoa_C.F.C.,Genoa CFC
+datarozhlas,Genoa_CFC,Genoa CFC
 datarozhlas,Gent,Gent
 datarozhlas,Getafe,Getafe CF
 datarozhlas,Getafe_CF,Getafe CF
@@ -1193,8 +1193,8 @@ datarozhlas,Haugesund,Haugesund
 datarozhlas,Haverfordwest County,Haverfordwest
 datarozhlas,Haverfordwest_County_A.F.C.,Haverfordwest
 datarozhlas,Havnar_B%C3%B3ltfelag,HB
-datarozhlas,Heart of Midlothian,Heart of Midlothian
-datarozhlas,Heart_of_Midlothian_F.C.,Heart of Midlothian
+datarozhlas,Heart of Midlothian,Hearts
+datarozhlas,Heart_of_Midlothian_F.C.,Hearts
 datarozhlas,Hegelmann,Hegelmann
 datarozhlas,Hellas_Verona_F.C.,Hellas Verona
 datarozhlas,Helsingborgs_IF,Helsingborgs IF
@@ -1205,8 +1205,8 @@ datarozhlas,Heracles_Almelo,Heracles
 datarozhlas,Herf%C3%B8lge_Boldklub,HB Koge
 datarozhlas,Hertha BSC,Hertha BSC
 datarozhlas,Hertha_BSC,Hertha BSC
-datarozhlas,Hibernian,Hibernian FC
-datarozhlas,Hibernian_F.C.,Hibernian FC
+datarozhlas,Hibernian,Hibernian
+datarozhlas,Hibernian_F.C.,Hibernian
 datarozhlas,Hibernians,Hibernians
 datarozhlas,Hibernians_F.C.,Hibernians
 datarozhlas,Hibernians_FC,Hibernians
@@ -1284,10 +1284,10 @@ datarozhlas,Jyv%C3%A4skyl%C3%A4n_Jalkapalloklubi,JJK
 datarozhlas,K%C3%8D_Klaksv%C3%ADk,KI Klaksvik
 datarozhlas,K%C3%B8ge_BK,Koge BK
 datarozhlas,K.A.A._Gent,Gent
-datarozhlas,K.F.C._Germinal_Beerschot,Germinal Beerschot
-datarozhlas,K.R.C._Genk,KRC Genk
+datarozhlas,K.F.C._Germinal_Beerschot,Germinal
+datarozhlas,K.R.C._Genk,Genk
 datarozhlas,K.S.C._Lokeren_Oost-Vlaanderen,Lokeren
-datarozhlas,K.S.K._Beveren,KSK Beveren
+datarozhlas,K.S.K._Beveren,Beveren
 datarozhlas,K.S.V._Waregem,Waregem
 datarozhlas,K.V.C._Westerlo,Westerlo
 datarozhlas,K.V._Mechelen,KV Mechelen
@@ -1338,7 +1338,7 @@ datarozhlas,Kapaz,Kapaz
 datarozhlas,Kapaz_PFC,Kapaz
 datarozhlas,Kapaz_PFK,Kapaz
 datarozhlas,Kardemir_Karab%C3%BCkspor,Karabükspor
-datarozhlas,Karlsruher_SC,Karlsruhe
+datarozhlas,Karlsruher_SC,Karlsruher SC
 datarozhlas,Kastoria_FC,Kastoria
 datarozhlas,Kauno Žalgiris,Kauno Zalgiris
 datarozhlas,Kayseri_Erciyesspor,Kayseri Erciyesspor
@@ -1385,7 +1385,7 @@ datarozhlas,Kuopion_Palloseura,Kuopion PS
 datarozhlas,Kyzylzhar,Kyzylzhar
 datarozhlas,KÍ,KÍ
 datarozhlas,KÍ Klaksvík,KI Klaksvik
-datarozhlas,L.B._Ch%C3%A2teauroux,Châteauroux
+datarozhlas,L.B._Ch%C3%A2teauroux,LB Chateauroux
 datarozhlas,L.R._Vicenza_Virtus,Vicenza Calcio
 datarozhlas,LASK,LASK Linz
 datarozhlas,LASK_Linz,Linzer ASK
@@ -1501,7 +1501,7 @@ datarozhlas,Marsaxlokk,Marsaxlokk
 datarozhlas,Marsaxlokk_F.C.,Marsaxlokk
 datarozhlas,Marseille,Olympique Marseille
 datarozhlas,Marítimo,Maritimo
-datarozhlas,Mersin_%C4%B0dmanyurdu_SK,Mersin
+datarozhlas,Mersin_%C4%B0dmanyurdu_SK,Mersin Idman Yurdu
 datarozhlas,Merthyr_Tydfil_F.C.,Merthyr Tydfil
 datarozhlas,Middlesbrough_F.C.,Middlesbrough
 datarozhlas,Midtjylland,Midtjylland
@@ -1606,7 +1606,7 @@ datarozhlas,Nõmme Kalju,Nomme Kalju
 datarozhlas,OFC_Pirin_Blagoevgrad,Pirin Blagoevgrad
 datarozhlas,OFC_Sliven_2000,Sliven
 datarozhlas,OFI_Crete,OFI Crete
-datarozhlas,OFI_Crete_F.C.,OFI
+datarozhlas,OFI_Crete_F.C.,OFI Crete
 datarozhlas,OFK_Be%C4%8Dej_1918,Bečej
 datarozhlas,OFK_Beograd,OFK Beograd
 datarozhlas,OFK_Petrovac,Petrovac
@@ -1634,7 +1634,7 @@ datarozhlas,Olympiacos_Volos_F.C.,Olympiacos Volos
 datarozhlas,Olympiakos_Nicosia,Omonia Nicosia
 datarozhlas,Olympique_Lyonnais,Olympique Lyon
 datarozhlas,Olympique_de_Marseille,Olympique Marseille
-datarozhlas,Omonia,Omonia
+datarozhlas,Omonia,Omonia Nicosia
 datarozhlas,Omonia_Nicosia,Omonia Nicosia
 datarozhlas,Oostende,KV Oostende
 datarozhlas,Ordabasy,Ordabasy Shymkent
@@ -1649,8 +1649,8 @@ datarozhlas,P.A.O.K._F.C.,PAOK
 datarozhlas,PAOK,PAOK
 datarozhlas,PAOK_F.C.,PAOK
 datarozhlas,PAOK_FC,PAOK
-datarozhlas,PAS Giannina,Pas Giannina
-datarozhlas,PAS_Giannina_F.C.,Pas Giannina
+datarozhlas,PAS Giannina,PAS Giannina
+datarozhlas,PAS_Giannina_F.C.,PAS Giannina
 datarozhlas,PEC_Zwolle,PEC Zwolle
 datarozhlas,PFC_Akademik_Sofia,Akademik Sofia
 datarozhlas,PFC_Beroe_Stara_Zagora,PFC Beroe
@@ -1679,7 +1679,7 @@ datarozhlas,Paide_Linnameeskond,Paide Linnameeskond
 datarozhlas,Paks,Paksi SE
 datarozhlas,Paksi_FC,Paksi SE
 datarozhlas,Paksi_SE,Paksi SE
-datarozhlas,Palermo_F.C.,Palermo
+datarozhlas,Palermo_F.C.,US Palermo
 datarozhlas,Panachaiki_F.C.,Panachaiki
 datarozhlas,Panathinaikos,Panathinaikos
 datarozhlas,Panathinaikos_F.C.,Panathinaikos
@@ -1731,15 +1731,15 @@ datarozhlas,Qaraba%C4%9F_FK,Qarabag FK
 datarozhlas,Qarabağ,Qarabag FK
 datarozhlas,Queen_of_the_South_F.C.,Queen of the South
 datarozhlas,Queens_Park_Rangers_F.C.,Queens Park Rangers
-datarozhlas,R.A.A._Louvi%C3%A9roise,La Louvière
+datarozhlas,R.A.A._Louvi%C3%A9roise,Louvieroise
 datarozhlas,R.E._Mouscron,Mouscron
 datarozhlas,R.F.C._Seraing_(1904),Seraing
-datarozhlas,R.F.C._de_Li%C3%A8ge,RFC Liegeois
-datarozhlas,R.S.C._Anderlecht,RSC Anderlecht
+datarozhlas,R.F.C._de_Li%C3%A8ge,RFC Liège
+datarozhlas,R.S.C._Anderlecht,Anderlecht
 datarozhlas,R.W.D._Molenbeek_(1909),RWD Molenbeek
-datarozhlas,R._Antwerp_F.C.,R. Antwerp F.C.
-datarozhlas,R._Charleroi_S.C.,Royal Charleroi SC
-datarozhlas,R._Union_Saint-Gilloise,R. Union Saint-Gilloise
+datarozhlas,R._Antwerp_F.C.,Royal Antwerp FC
+datarozhlas,R._Charleroi_S.C.,Charleroi
+datarozhlas,R._Union_Saint-Gilloise,Union Saint-Gilloise
 datarozhlas,RAF_Jelgava,Universitate Riga
 datarozhlas,RB Leipzig,RasenBallsport Leipzig
 datarozhlas,RB_Leipzig,RasenBallsport Leipzig
@@ -1753,7 +1753,7 @@ datarozhlas,RFC_Li%C3%A8ge,RFC Liège
 datarozhlas,RFS,Rigas Futbola Skola
 datarozhlas,RNK_Split,RNK Split
 datarozhlas,ROMAR_Ma%C5%BEeikiai,ROMAR Mažeikiai
-datarozhlas,RSC_Anderlecht,RSC Anderlecht
+datarozhlas,RSC_Anderlecht,Anderlecht
 datarozhlas,Rabat_Ajax_F.C.,Rabat Ajax
 datarozhlas,Rabotnički,Rabotnicki
 datarozhlas,Racing FC,Racing FC
@@ -1781,10 +1781,10 @@ datarozhlas,Real Sociedad,Real Sociedad
 datarozhlas,Real_Betis,Real Betis
 datarozhlas,Real_Madrid_C.F.,Real Madrid
 datarozhlas,Real_Madrid_CF,Real Madrid
-datarozhlas,Real_Oviedo,Oviedo
+datarozhlas,Real_Oviedo,Real Oviedo
 datarozhlas,Real_Sociedad,Real Sociedad
 datarozhlas,Real_Valladolid,Real Valladolid
-datarozhlas,Real_Zaragoza,Zaragoza
+datarozhlas,Real_Zaragoza,Real Zaragoza
 datarozhlas,Real_Zaragoza_CD,Real Zaragoza
 datarozhlas,Red Bull Salzburg,Salzburg
 datarozhlas,Red Star Belgrade,Red Star Belgrade
@@ -1810,10 +1810,10 @@ datarozhlas,Rosenborg_BK,Rosenborg BK
 datarozhlas,Rostov,Rostov
 datarozhlas,Rot-Weiss_Essen,Rot-Weiss Essen
 datarozhlas,Rovaniemen_Palloseura,RoPS
-datarozhlas,Royal_Antwerp_F.C.,Antwerp
+datarozhlas,Royal_Antwerp_F.C.,Royal Antwerp FC
 datarozhlas,Royal_Antwerp_FC,Royal Antwerp FC
-datarozhlas,Royal_Charleroi_S.C.,Royal Charleroi SC
-datarozhlas,Royale_Union_Saint-Gilloise,Union St.-Gilloise
+datarozhlas,Royal_Charleroi_S.C.,Charleroi
+datarozhlas,Royale_Union_Saint-Gilloise,Union Saint-Gilloise
 datarozhlas,Rubin Kazan,Rubin Kazan
 datarozhlas,Ruch_Chorz%C3%B3w,Ruch Chorzow
 datarozhlas,Rud%C3%A1_Hv%C4%9Bzda_Brno,Rudá Hvězda Brno
@@ -1932,7 +1932,7 @@ datarozhlas,Sirens_F.C.,Sirens FC
 datarozhlas,Sivasspor,Sivasspor
 datarozhlas,Sk%C3%A1la_%C3%8DF,Skála
 datarozhlas,Skeid_Fotball,Skeid
-datarozhlas,Skoda_Xanthi,Skoda Xanthi
+datarozhlas,Skoda_Xanthi,Xanthi
 datarozhlas,Skoda_Xanthi_F.C.,Xanthi
 datarozhlas,Skonto,Skonto
 datarozhlas,Skonto_FC,Skonto
@@ -1990,7 +1990,7 @@ datarozhlas,Stabæk,Stabæk
 datarozhlas,Stade_Dudelange,Stade Dudelange
 datarozhlas,Stade_Fran%C3%A7ais_(association_football),Stade Francais FC
 datarozhlas,Stade_Lavallois,Stade Laval
-datarozhlas,Stade_Malherbe_Caen,Caen
+datarozhlas,Stade_Malherbe_Caen,SM Caen
 datarozhlas,Stade_Reims,Stade Reims
 datarozhlas,Stade_Rennais_F.C.,Stade Rennes
 datarozhlas,Stade_Rennais_FC,Stade Rennes
@@ -2030,7 +2030,7 @@ datarozhlas,TSV_Hartberg,TSV Hartberg
 datarozhlas,Tallinna Kalev,Tallinna Kalev
 datarozhlas,Tampere_United,Tampere United
 datarozhlas,Tampereen_Pallo-Veikot,TPV
-datarozhlas,Tasmania_1900_Berlin,Tasmania Berlin
+datarozhlas,Tasmania_1900_Berlin,Tasmania 1900 Berlin
 datarozhlas,Tatab%C3%A1nya_FC,Tatabányai Bányász
 datarozhlas,Tatab%C3%A1nyai_B%C3%A1ny%C3%A1sz_SC,Tatabányai Bányász
 datarozhlas,Teuta,KS Teuta
@@ -2074,11 +2074,11 @@ datarozhlas,Twente,Twente
 datarozhlas,Târgu Mureș,Târgu Mureș
 datarozhlas,U.C._Sampdoria,Sampdoria
 datarozhlas,U.D._Leiria,União de Leiria
-datarozhlas,U.S._Citt%C3%A0_di_Palermo,Palermo
+datarozhlas,U.S._Citt%C3%A0_di_Palermo,US Palermo
 datarozhlas,U.S._Sassuolo_Calcio,Sassuolo Calcio
 datarozhlas,UCD,UCD
 datarozhlas,UC_Sampdoria,Sampdoria
-datarozhlas,UD_Las_Palmas,Las Palmas
+datarozhlas,UD_Las_Palmas,UD Las Palmas
 datarozhlas,UE Santa Coloma,UE Santa Coloma
 datarozhlas,UE_Engordany,UE Engordany
 datarozhlas,UE_Sant_Juli%C3%A0,UE Sant Julia
@@ -2096,7 +2096,7 @@ datarozhlas,Ulisses_F.C.,Ulisses
 datarozhlas,Ulisses_FC,Ulisses
 datarozhlas,Uni%C3%A3o_de_Leiria,União de Leiria
 datarozhlas,Union Berlin,1. FC Union Berlin
-datarozhlas,Union Saint-Gilloise,Union St.-Gilloise
+datarozhlas,Union Saint-Gilloise,Union Saint-Gilloise
 datarozhlas,Union_Luxembourg,Union Luxembourg
 datarozhlas,Union_Titus_P%C3%A9tange,Union Titus Petange
 datarozhlas,Universitatea Craiova,FC Universitatea Craiova
@@ -2138,7 +2138,7 @@ datarozhlas,VfB_Admira_Wacker_M%C3%B6dling,Admira Wien
 datarozhlas,VfB_Leipzig,Lokomotive Leipzig
 datarozhlas,VfB_Stuttgart,VfB Stuttgart
 datarozhlas,VfL Wolfsburg,VfL Wolfsburg
-datarozhlas,VfL_Bochum,Bochum
+datarozhlas,VfL_Bochum,VfL Bochum
 datarozhlas,VfL_Wolfsburg,VfL Wolfsburg
 datarozhlas,Viborg,Viborg FF
 datarozhlas,Viborg_FF,Viborg FF
@@ -2153,7 +2153,7 @@ datarozhlas,Viking,Viking FK
 datarozhlas,Viking_F.K.,Viking FK
 datarozhlas,Viking_FK,Viking FK
 datarozhlas,Viktoria Plzeň,Viktoria Plzen
-datarozhlas,Viktoria_K%C3%B6ln,Viktoria Köln
+datarozhlas,Viktoria_K%C3%B6ln,SC Viktoria 04 Koln
 datarozhlas,Viljandi_JK_Tulevik,Viljandi Tulevik
 datarozhlas,Villarreal,Villarreal
 datarozhlas,Villarreal_CF,Villarreal
@@ -2196,7 +2196,7 @@ datarozhlas,Wolverhampton_Wanderers_F.C.,Wolverhampton Wanderers
 datarozhlas,Wrexham_A.F.C.,Wrexham
 datarozhlas,Wrexham_F.C.,Wrexham
 datarozhlas,Wuppertaler_SV,Wuppertaler SV
-datarozhlas,Xanthi_F.C.,Skoda Xanthi
+datarozhlas,Xanthi_F.C.,Xanthi
 datarozhlas,Yeni Malatyaspor,Yeni Malatyaspor
 datarozhlas,Yeni_Malatyaspor,Yeni Malatyaspor
 datarozhlas,Young Boys,BSC Young Boys
@@ -2311,7 +2311,7 @@ transfermarkt,1090,AZ Alkmaar
 transfermarkt,1091,PAOK
 transfermarkt,1092,Brommapojkarna
 transfermarkt,10956,Staines Town
-transfermarkt,1096,Antwerp
+transfermarkt,1096,Royal Antwerp FC
 transfermarkt,1098,Stockport County
 transfermarkt,11,Arsenal
 transfermarkt,1100,Brann
@@ -2347,7 +2347,7 @@ transfermarkt,1167,Shkendija
 transfermarkt,1177,Silkeborg IF
 transfermarkt,1180,Dinamo Minsk
 transfermarkt,1181,Blackpool
-transfermarkt,1184,KRC Genk
+transfermarkt,1184,Genk
 transfermarkt,1185,FH
 transfermarkt,1189,St Patrick's Athletic
 transfermarkt,119,Maccabi Tel Aviv
@@ -2440,7 +2440,7 @@ transfermarkt,168,Zaglebie Lubin
 transfermarkt,169,Panionios
 transfermarkt,170,Rapid Wien
 transfermarkt,17149,Hamrun Spartans
-transfermarkt,172,Royal Charleroi SC
+transfermarkt,172,Charleroi
 transfermarkt,17675,Whitby Town
 transfermarkt,17959,FC Vitebsk
 transfermarkt,17980,Hemel Hempstead Town
@@ -2572,7 +2572,7 @@ transfermarkt,26326,UE Engordany
 transfermarkt,265,Panathinaikos
 transfermarkt,266,Ried
 transfermarkt,2662,St. Pölten
-transfermarkt,2671,Pas Giannina
+transfermarkt,2671,PAS Giannina
 transfermarkt,26720,Rushall Olympic
 transfermarkt,2688,MYPA
 transfermarkt,2698,Rubin Kazan
@@ -2732,7 +2732,7 @@ transfermarkt,3696,Dagenham and Redbridge
 transfermarkt,3697,Morecambe
 transfermarkt,3698,Chelmsford City
 transfermarkt,36999,Sumgayit
-transfermarkt,370,Abderden
+transfermarkt,370,Aberdeen
 transfermarkt,3709,Getafe CF
 transfermarkt,371,Celtic
 transfermarkt,3712,Weston-super-Mare
@@ -2782,7 +2782,7 @@ transfermarkt,3911,Stade Brest
 transfermarkt,3933,Nuneaton Town
 transfermarkt,3936,Dover Athletic
 transfermarkt,3937,Merthyr Town
-transfermarkt,3948,Union St.-Gilloise
+transfermarkt,3948,Union Saint-Gilloise
 transfermarkt,398,Lazio
 transfermarkt,39803,Sirens FC
 transfermarkt,399,Leeds United
@@ -2823,7 +2823,7 @@ transfermarkt,4279,Farnborough
 transfermarkt,428,Gornik Zabrze
 transfermarkt,4282,Hyde United
 transfermarkt,429,Apollon Limassol
-transfermarkt,43,Heart of Midlothian
+transfermarkt,43,Hearts
 transfermarkt,430,ACF Fiorentina
 transfermarkt,43032,Magpies
 transfermarkt,4310,Blyth Spartans
@@ -2888,7 +2888,7 @@ transfermarkt,50983,Podgorika
 transfermarkt,512,Stoke City
 transfermarkt,51316,Kosice
 transfermarkt,5155,Metalurgi Rustavi
-transfermarkt,520,Cercle Brugge KSV
+transfermarkt,520,Cercle Brugge
 transfermarkt,5223,Maccabi Netanya
 transfermarkt,5228,FK Atlantas
 transfermarkt,527,Football Club Lausanne-Sport
@@ -2915,7 +2915,7 @@ transfermarkt,5689,Cracovia
 transfermarkt,5724,Randers FC
 transfermarkt,5771,Levadia
 transfermarkt,57890,Sabail
-transfermarkt,58,RSC Anderlecht
+transfermarkt,58,Anderlecht
 transfermarkt,5817,Sønderjyske Fodbold
 transfermarkt,583,Paris Saint-Germain
 transfermarkt,5849,Vikingur Reykjavik
@@ -2966,7 +2966,7 @@ transfermarkt,6414,Metalist Kharkiv
 transfermarkt,6429,Universitatea Cluj
 transfermarkt,64534,Struga
 transfermarkt,64780,Atlètic Club d'Escaldes
-transfermarkt,653,OFI
+transfermarkt,653,OFI Crete
 transfermarkt,6574,Sassuolo Calcio
 transfermarkt,6579,AFC Sudbury
 transfermarkt,660,Shakhtar Donetsk
@@ -3069,7 +3069,7 @@ transfermarkt,899,Walsall
 transfermarkt,8995,Hødd
 transfermarkt,9007,Arsenal Kyiv
 transfermarkt,9026,Glentoran
-transfermarkt,903,Hibernian FC
+transfermarkt,903,Hibernian
 transfermarkt,9095,Bnei Yehuda
 transfermarkt,9153,Chesham United
 transfermarkt,9165,Truro City
@@ -3108,7 +3108,7 @@ transfermarkt,990,Coventry City
 transfermarkt,991,Milton Keynes Dons
 transfermarkt,995,Nantes
 espn,101,Rayo Vallecano
-espn,1010,OFI
+espn,1010,OFI Crete
 espn,10182,Curzon Ashton
 espn,10183,AFC Telford United
 espn,102,Villarreal
@@ -3237,7 +3237,7 @@ espn,17507,S.S. Folgore Falciano Calcio
 espn,17509,Inter Baku
 espn,17520,Zorya Voroshilovgrad
 espn,17537,FK Astra Giurgiu
-espn,17544,Antwerp
+espn,17544,Royal Antwerp FC
 espn,176,Olympique Marseille
 espn,178,AS Saint-Etienne
 espn,17855,Skenderbeu Korce
@@ -3427,14 +3427,14 @@ espn,2564,Shamrock Rovers
 espn,2567,Burton Albion
 espn,257,Rangers
 espn,2572,Como Calcio
-espn,258,Hibernian FC
+espn,258,Hibernian
 espn,2583,Heybridge Swifts
 espn,2588,Guiseley AFC
 espn,2594,Crawley Town
 espn,2595,Boreham Wood
 espn,260,Kilmarnock
-espn,262,Heart of Midlothian
-espn,263,Abderden
+espn,262,Hearts
+espn,263,Aberdeen
 espn,264,Dundee United
 espn,266,Motherwell
 espn,267,St Johnstone
@@ -3560,10 +3560,10 @@ espn,359,Arsenal
 espn,360,Manchester United
 espn,3604,Hitchin Town
 espn,361,Newcastle United
-espn,3610,Cercle Brugge KSV
+espn,3610,Cercle Brugge
 espn,3611,Gent
 espn,3612,KV Oostende
-espn,3616,Royal Charleroi SC
+espn,3616,Charleroi
 espn,362,Aston Villa
 espn,363,Chelsea
 espn,3631,Carshalton Athletic
@@ -3654,7 +3654,7 @@ espn,438,Rosenborg BK
 espn,440,Dinamo Kiev
 espn,4401,VPS Vaasa
 espn,4405,SC Rheindorf Altach
-espn,441,RSC Anderlecht
+espn,441,Anderlecht
 espn,4411,LASK Linz
 espn,4413,NK Lokomotiva
 espn,442,Lokomotiv Moskva
@@ -3735,7 +3735,7 @@ espn,573,Glenavon FC
 espn,575,Brondby IF
 espn,576,The New Saints
 espn,5767,Buxton
-espn,5807,Union St.-Gilloise
+espn,5807,Union Saint-Gilloise
 espn,5890,Arka Gdynia
 espn,594,Slovan Liberec
 espn,5945,Maccabi Netanya
@@ -3777,7 +3777,7 @@ espn,6748,Tobol
 espn,6758,Mlada Boleslav
 espn,6764,Bnei Yehuda
 espn,6790,Atromitos
-espn,6848,Pas Giannina
+espn,6848,PAS Giannina
 espn,6907,TSV Hartberg
 espn,6937,Kosice
 espn,6997,Stade Brest
@@ -3856,8 +3856,8 @@ espn,9078,Alanyaspor
 espn,909,Kobenhavn
 espn,9280,Truro City
 espn,93,Athletic Bilbao
-espn,936,Sint-Truidense
-espn,938,KRC Genk
+espn,936,Sint-Truiden
+espn,938,Genk
 espn,94,Valencia CF
 espn,9577,Hapoel Haifa
 espn,9657,Piast Gliwice
@@ -4584,7 +4584,7 @@ clubelo,Sedan,CS Sedan
 clubelo,Rimini,Rimini
 clubelo,Messina,FC Messina
 clubelo,Piacenza,Piacenza Calcio
-clubelo,Chateauroux,Châteauroux
+clubelo,Chateauroux,LB Chateauroux
 clubelo,Vicenza,Vicenza Calcio
 clubelo,Grosseto,Grosseto
 clubelo,Gueugnon,FC Gueugnon
@@ -4922,7 +4922,7 @@ rsssf,Fiorentina (1),ACF Fiorentina
 rsssf,Foggia,US Foggia
 rsssf,Foggia (1),US Foggia
 rsssf,Genoa,Genoa CFC
-rsssf,Genoa (1),Genoa
+rsssf,Genoa (1),Genoa CFC
 rsssf,Inter,Internazionale
 rsssf,Juventus,Juventus
 rsssf,Juventus (1),Juventus
@@ -5468,7 +5468,7 @@ transfermarkt,11055,FC Lienden
 transfermarkt,110658,110658
 transfermarkt,11075,RKVV Westlandia
 transfermarkt,11085,Real SC
-transfermarkt,111,Rot-Weiß Erfurt
+transfermarkt,111,Rot-Weiss Erfurt
 transfermarkt,111469,CF Badalona Futur
 transfermarkt,11245,San Sebastián de los Reyes
 transfermarkt,11259,CD Alcoyano
@@ -7149,8 +7149,8 @@ espn,2923,US Palermo
 espn,2924,A.C.R. Messina
 espn,2925,Cagliari Calcio
 espn,2926,AS Livorno
-espn,2927,Caen
-espn,2995,Châteauroux
+espn,2927,SM Caen
+espn,2995,LB Chateauroux
 espn,2997,Alemannia Aachen
 espn,3067,Eintracht Braunschweig
 espn,3070,SpVgg Greuther Furth
@@ -7193,7 +7193,7 @@ espn,3736,SC Cambuur
 espn,3748,Pontevedra CF
 espn,3751,Elche CF
 espn,3752,SD Eibar
-espn,3754,Rot-Weiß Erfurt
+espn,3754,Rot-Weiss Erfurt
 espn,3769,SV Wehen Wiesbaden
 espn,3770,VfR Aalen
 espn,3775,Helmond Sport
@@ -7347,7 +7347,7 @@ espn,7723,Feignies
 espn,7730,Nimes Olympique
 espn,7732,Dunkerque
 espn,7733,Bayonne
-espn,7868,Angers
+espn,7868,Angers SCO
 espn,7869,US Boulogne
 espn,7884,Holstein Kiel
 espn,7890,TSV Havelse
@@ -7423,3 +7423,572 @@ espn,9987,GVVV
 espn,9991,FC Lienden
 espn,9992,RKVV Westlandia
 espn,9994,Ajax Amateurs
+engsoccerdata,TeBe Berlin,Tennis Borussia Berlin
+rsssf,1. FC Kaiserslautern,Kaiserslautern
+rsssf,1.FC Kaiserslautern,Kaiserslautern
+rsssf,1. FC Köln,Koln
+rsssf,1.FC Köln,Koln
+rsssf,1. FC Nürnberg,Nurnberg
+rsssf,1.FC Nürnberg,Nurnberg
+rsssf,1. FC Saarbrücken,Saarbrucken
+rsssf,1860 München,1860 Munchen
+rsssf,Bor. Neunkirchen,Borussia Neunkirchen
+rsssf,Borussia Neunkirchen,Borussia Neunkirchen
+rsssf,Borussia Dortmund,Borussia Dortmund
+rsssf,Duisburger SpV,Duisburger SpV
+rsssf,Eintr. Braunschweig,Eintracht Braunschweig
+rsssf,Eintr. Frankfurt,Eintracht Frankfurt
+rsssf,Eintracht Frankfurt,Eintracht Frankfurt
+rsssf,FC Schalke 04,Schalke 04
+rsssf,Schalke 04,Schalke 04
+rsssf,FK Pirmasens,FK Pirmasens
+rsssf,Hamburger SV,Hamburger SV
+rsssf,Hannover 96,Hannover 96
+rsssf,Hertha BSC Berlin,Hertha BSC
+rsssf,Holstein Kiel,Holstein Kiel
+rsssf,Karlsruher SC,Karlsruher SC
+rsssf,Kickers Offenbach,Kickers Offenbach
+rsssf,SV Werder Bremen,Werder Bremen
+rsssf,Werder Bremen,Werder Bremen
+rsssf,Tasmania Berlin,Tasmania 1900 Berlin
+rsssf,Tennis Bor. Berlin,Tennis Borussia Berlin
+rsssf,TuS Neuendorf,TuS Koblenz
+rsssf,VfB Stuttgart,VfB Stuttgart
+rsssf,Viktoria 89 Berlin,FC Viktoria 1889 Berlin
+rsssf,Westfalia Herne,Westfalia Herne
+football_data,A. Sebatspor,A. Sebatspor
+football_data,AEK,AEK Athens
+football_data,Aalst,Eendracht Aalst
+football_data,Aberdeen,Aberdeen
+football_data,Ad. Demirspor,Adana Demirspor
+football_data,Adanaspor,Adanaspor
+football_data,Akhisar Belediyespor,Akhisar Belediyespor
+football_data,Akratitos,Akratitos
+football_data,Alanyaspor,Alanyaspor
+football_data,Altay,Altay
+football_data,Amedspor,Amedspor
+football_data,Anderlecht,Anderlecht
+football_data,Ankaragucu,Ankaragücü
+football_data,Ankaraspor,Ankaraspor
+football_data,Antalya,Antalyaspor
+football_data,Antalyaspor,Antalyaspor
+football_data,Antwerp,Royal Antwerp FC
+football_data,Apollon,Apollon Athens
+football_data,Aris,Aris
+football_data,Asteras Tripolis,Asteras Tripoli
+football_data,Athens Kallithea,Kallithea
+football_data,Athinaikos,Athinaikos
+football_data,Atromitos,Atromitos
+football_data,Balikesirspor,Balikesirspor
+football_data,Beerschot VA,Beerschot VA
+football_data,Bergen,Bergen
+football_data,Besiktas,Besiktas
+football_data,Beveren,Beveren
+football_data,Bodrumspor,Bodrumspor
+football_data,Bucaspor,Bucaspor
+football_data,Bursaspor,Bursaspor
+football_data,Buyuksehyr,Buyuksehyr
+football_data,Celtic,Celtic
+football_data,Cercle Brugge,Cercle Brugge
+football_data,Chalkidona,Chalkidona
+football_data,Charleroi,Charleroi
+football_data,Club Brugge,Club Brugge
+football_data,Corum,Corum
+football_data,Dardanelspor,Dardanelspor
+football_data,Dender,Dender
+football_data,Denizlispor,Denizlispor
+football_data,Diyarbakirspor,Diyarbakırspor
+football_data,Doxa,Doxa Drama
+football_data,Doxa Dramas,Doxa Drama
+football_data,Dundee,Dundee
+football_data,Dundee United,Dundee United
+football_data,Dunfermline,Dunfermline Athletic
+football_data,Edessaikos,Edessaikos
+football_data,Egaleo,Egaleo
+football_data,Elazigspor,Elazigspor
+football_data,Eleysina,Eleysina
+football_data,Erciyesspor,Kayseri Erciyesspor
+football_data,Ergotelis,Ergotelis
+football_data,Erzurum,Erzurum
+football_data,Erzurum BB,Erzurum
+football_data,Erzurumspor,Erzurumspor
+football_data,Eskisehirspor,Eskişehirspor
+football_data,Eth Asteras,Ethnikos Asteras
+football_data,Ethnikos,Ethnikos Piraeus
+football_data,Ethnikos Asteras,Ethnikos Asteras
+football_data,Ethnikos Piraeus,Ethnikos Piraeus
+football_data,Eupen,Eupen
+football_data,Eyupspor,Eyupspor
+football_data,FC Brussels,FC Brussels
+football_data,Falkirk,Falkirk
+football_data,Fenerbahce,Fenerbahce
+football_data,Galatasaray,Galatasaray
+football_data,Gaziantep,Gaziantep FK
+football_data,Gaziantepspor,Gaziantepspor
+football_data,Geel,Geel
+football_data,Genclerbirligi,Gençlerbirliği
+football_data,Genk,Genk
+football_data,Gent,Gent
+football_data,Germinal,Germinal
+football_data,Giannina,PAS Giannina
+football_data,Giresunspor,Giresunspor
+football_data,Goztep,Göztepe
+football_data,Gretna,Gretna
+football_data,Hacettepespor,Hacettepespor
+football_data,Hamilton,Hamilton Academical
+football_data,Harelbeke,Harelbeke
+football_data,Hatayspor,Hatayspor
+football_data,Hearts,Hearts
+football_data,Heusden Zolder,Heusden Zolder
+football_data,Hibernian,Hibernian
+football_data,Inverness C,Inverness CT
+football_data,Ionikos,Ionikos
+football_data,Iraklis,Iraklis
+football_data,Istanbulspor,İstanbulspor
+football_data,Kalamaria,Kalamaria
+football_data,Kalamata,Kalamata
+football_data,Kalithea,Kallithea
+football_data,Kallithea,Kallithea
+football_data,Kallonis,Kallonis
+football_data,Karabukspor,Karabükspor
+football_data,Karagumruk,Karagumruk SK
+football_data,Karsiyaka,Karsiyaka
+football_data,Kasimpasa,Kasımpaşa
+football_data,Kastoria,Kastoria
+football_data,Kavala,Kavala
+football_data,Kayseri,Kayserispor
+football_data,Kayserispor,Kayserispor
+football_data,Kerkyra,Kerkyra
+football_data,Kifisia,Kifisia
+football_data,Kilmarnock,Kilmarnock
+football_data,Kocaelispor,Kocaelispor
+football_data,Konyaspor,Konyaspor
+football_data,Kortrijk,Kortrijk
+football_data,Lamia,Lamia
+football_data,Larisa,AE Larisa
+football_data,Levadeiakos,Levadiakos
+football_data,Levadiakos,Levadiakos
+football_data,Lierse,Lierse
+football_data,Livingston,Livingston
+football_data,Lokeren,Lokeren
+football_data,Lommel,Lommel
+football_data,Lommel SK,Lommel
+football_data,Louvieroise,Louvieroise
+football_data,Malatyaspor,Malatyaspor
+football_data,Manisaspor,Manisaspor
+football_data,Mechelen,KV Mechelen
+football_data,Mersin Idman Yurdu,Mersin Idman Yurdu
+football_data,Molenbeek,RWD Molenbeek
+football_data,Motherwell,Motherwell
+football_data,Mouscron,Mouscron
+football_data,Mouscron-Peruwelz,Mouscron-Peruwelz
+football_data,Niki Volos,Niki Volos
+football_data,OFI,OFI Crete
+football_data,OFI Crete,OFI Crete
+football_data,Oftasspor,Oftasspor
+football_data,Olympiakos,Olympiacos
+football_data,Olympiakos Volou,Olympiacos Volos
+football_data,Oostende,KV Oostende
+football_data,Orduspor,Orduspor
+football_data,Osmanlispor,Osmanlispor
+football_data,Oud-Heverlee Leuven,Oud-Heverlee Leuven
+football_data,P. Ofisi,P. Ofisi
+football_data,PAOK,PAOK
+football_data,Panahaiki,Panachaiki
+football_data,Panathinaikos,Panathinaikos
+football_data,Panetolikos,Panetolikos
+football_data,Paniliakos,Paniliakos
+football_data,Panionios,Panionios
+football_data,Panserraikos,Panserraikos
+football_data,Panthrakikos,Panthrakikos
+football_data,Partick,Partick Thistle
+football_data,Pendikspor,Pendikspor
+football_data,Platanias,Platanias
+football_data,Proodeftiki,Proodeftiki
+football_data,Proodeytiki,Proodeftiki
+football_data,RAAL La Louviere,RAAL La Louvière
+football_data,RWD Molenbeek,RWD Molenbeek
+football_data,Raith Rvs,Raith Rovers
+football_data,Rangers,Rangers
+football_data,Rizespor,Rizespor
+football_data,Roeselare,Roeselare
+football_data,Ross County,Ross County
+football_data,Sakaryaspor,Sakaryaspor
+football_data,Samsunspor,Samsunspor
+football_data,Sariyer,Sariyer
+football_data,Sekerspor,Sekerspor
+football_data,Seraing,Seraing
+football_data,Siirt Jet-PA,Siirt Jet-PA
+football_data,Sivasspor,Sivasspor
+football_data,St Johnstone,St Johnstone
+football_data,St Mirren,St Mirren
+football_data,St Truiden,Sint-Truiden
+football_data,St. Gilloise,Union Saint-Gilloise
+football_data,Standard,Standard Liege
+football_data,Thrasyvoulos,Thrasyvoulos
+football_data,Trabzonspor,Trabzonspor
+football_data,Trikala,Trikala
+football_data,Tubize,Tubize
+football_data,Umraniyespor,Umraniyespor
+football_data,Vanspor,Vanspor
+football_data,Veria,Veria
+football_data,Veroia,Veria
+football_data,Volos NFC,Volos NFC
+football_data,Waasland-Beveren,Waasland-Beveren
+football_data,Waregem,Zulte-Waregem
+football_data,Westerlo,Westerlo
+football_data,Xanthi,Xanthi
+football_data,Yeni Malatyaspor,Yeni Malatyaspor
+football_data,Yiannina,PAS Giannina
+football_data,Yozgatspor,Yozgatspor
+football_data,Zeytinburnu,Zeytinburnu
+transfermarkt,10484,Kasımpaşa
+transfermarkt,11688,Giresunspor
+transfermarkt,1191,Falkirk
+transfermarkt,120,Kocaelispor
+transfermarkt,1241,Livingston
+transfermarkt,1245,Eupen
+transfermarkt,126,Rizespor
+transfermarkt,1411,Bergen
+transfermarkt,1467,Göztepe
+transfermarkt,204,Lierse
+transfermarkt,20698,Balikesirspor
+transfermarkt,2079,Veria
+transfermarkt,21957,Platanias
+transfermarkt,2292,Elazigspor
+transfermarkt,2323,Orduspor
+transfermarkt,2375,Altay
+transfermarkt,24245,Umraniyespor
+transfermarkt,2672,Levadiakos
+transfermarkt,2715,Seraing
+transfermarkt,2727,Oud-Heverlee Leuven
+transfermarkt,2759,Ross County
+transfermarkt,2760,Partick Thistle
+transfermarkt,2832,Gaziantep FK
+transfermarkt,28643,Waasland-Beveren
+transfermarkt,28956,Kallonis
+transfermarkt,29228,Mouscron
+transfermarkt,2999,Hamilton Academical
+transfermarkt,30120,Kifisia
+transfermarkt,3062,Kallithea
+transfermarkt,3205,Kayserispor
+transfermarkt,3209,Pendikspor
+transfermarkt,3216,Mersin Idman Yurdu
+transfermarkt,3385,Panserraikos
+transfermarkt,354,KV Mechelen
+transfermarkt,3901,RAAL La Louvière
+transfermarkt,39722,Erzurum
+transfermarkt,3999,Lamia
+transfermarkt,41274,Beerschot VA
+transfermarkt,44006,Bodrumspor
+transfermarkt,441,Apollon Athens
+transfermarkt,4603,AE Larisa
+transfermarkt,47,Iraklis
+transfermarkt,475,Sint-Truiden
+transfermarkt,511,Dundee
+transfermarkt,5219,Kerkyra
+transfermarkt,5220,Ergotelis
+transfermarkt,524,Gaziantepspor
+transfermarkt,54189,RWD Molenbeek
+transfermarkt,553,Ionikos
+transfermarkt,5572,Niki Volos
+transfermarkt,566,Germinal
+transfermarkt,589,Antalyaspor
+transfermarkt,6,Adanaspor
+transfermarkt,601,Kortrijk
+transfermarkt,60949,Volos NFC
+transfermarkt,6418,Panetolikos
+transfermarkt,6646,Karagumruk SK
+transfermarkt,6894,Kayseri Erciyesspor
+transfermarkt,7160,Eyupspor
+transfermarkt,7185,Panthrakikos
+transfermarkt,7775,Hatayspor
+transfermarkt,820,Gençlerbirliği
+transfermarkt,833,Denizlispor
+transfermarkt,868,Ankaragücü
+transfermarkt,9010,Dender
+transfermarkt,924,İstanbulspor
+transfermarkt,968,Westerlo
+wikipedia,Aberdeen F.C.,Aberdeen
+wikipedia,Airdrieonians F.C. (1878),Airdrieonians
+wikipedia,Celtic F.C.,Celtic
+wikipedia,Clyde F.C.,Clyde
+wikipedia,Dundee F.C.,Dundee
+wikipedia,Dundee United F.C.,Dundee United
+wikipedia,Dunfermline Athletic F.C.,Dunfermline Athletic
+wikipedia,Falkirk F.C.,Falkirk
+wikipedia,Heart of Midlothian F.C.,Hearts
+wikipedia,Hibernian F.C.,Hibernian
+wikipedia,Kilmarnock F.C.,Kilmarnock
+wikipedia,Motherwell F.C.,Motherwell
+wikipedia,Partick Thistle F.C.,Partick Thistle
+wikipedia,Queen of the South F.C.,Queen of the South
+wikipedia,Raith Rovers F.C.,Raith Rovers
+wikipedia,Rangers F.C.,Rangers
+wikipedia,St Johnstone F.C.,St Johnstone
+wikipedia,St Mirren F.C.,St Mirren
+wikipedia,AA Gent,Gent
+wikipedia,Antwerp FC,Royal Antwerp FC
+wikipedia,Beerschot AC,Germinal
+wikipedia,Cercle Brugge,Cercle Brugge
+wikipedia,Cercle Brugge KSV,Cercle Brugge
+wikipedia,Club Brugge,Club Brugge
+wikipedia,Club Brugge K.V.,Club Brugge
+wikipedia,Club Brugge KV,Club Brugge
+wikipedia,Eendracht Aalst,Eendracht Aalst
+wikipedia,FC Brussels,FC Brussels
+wikipedia,Germinal Ekeren,Germinal
+wikipedia,K. Beerschot V.A.C.,Beerschot
+wikipedia,K. Beringen-Heusden-Zolder,Heusden Zolder
+wikipedia,K. Sint-Truidense V.V.,Sint-Truiden
+wikipedia,K. Waterschei S.V. Thor Genk,Waterschei Thor
+wikipedia,K.A.A. Gent,Gent
+wikipedia,K.F.C. Germinal Beerschot,Germinal
+wikipedia,K.F.C. Lommel S.K.,Lommel
+wikipedia,K.F.C. Verbroedering Geel,Geel
+wikipedia,K.R.C. Genk,Genk
+wikipedia,K.R.C. Zuid-West-Vlaanderen,Harelbeke
+wikipedia,K.S.C. Eendracht Aalst,Eendracht Aalst
+wikipedia,K.S.C. Lokeren Oost-Vlaanderen,Lokeren
+wikipedia,K.S.K. Beveren,Beveren
+wikipedia,K.S.V. Waregem,Waregem
+wikipedia,K.V. Kortrijk,Kortrijk
+wikipedia,K.V. Oostende,KV Oostende
+wikipedia,K.V.C. Westerlo,Westerlo
+wikipedia,KRC Genk,Genk
+wikipedia,KSC Lokeren Oost-Vlaanderen,Lokeren
+wikipedia,KSK Beveren,Beveren
+wikipedia,KSV Waregem,Waregem
+wikipedia,KV Kortrijk,Kortrijk
+wikipedia,KV Mechelen,KV Mechelen
+wikipedia,Lierse S.K. (1906),Lierse
+wikipedia,R. Antwerp F.C.,Royal Antwerp FC
+wikipedia,R. Charleroi S.C.,Charleroi
+wikipedia,R. Charleroi SC,Charleroi
+wikipedia,R. Union Saint-Gilloise,Union Saint-Gilloise
+wikipedia,R.A.A. Louviéroise,Louvieroise
+wikipedia,R.E. Mouscron,Mouscron
+wikipedia,R.F.C. Seraing (1904),Seraing
+wikipedia,R.S.C. Anderlecht,Anderlecht
+wikipedia,R.W.D. Molenbeek (1909),RWD Molenbeek
+wikipedia,RAEC Mons (1910),Bergen
+wikipedia,RFC Liège,RFC Liège
+wikipedia,RFC de Liège,RFC Liège
+wikipedia,RSC Anderlecht,Anderlecht
+wikipedia,Royal Antwerp F.C.,Royal Antwerp FC
+wikipedia,Royal Antwerp FC,Royal Antwerp FC
+wikipedia,Royale Union Saint-Gilloise,Union Saint-Gilloise
+wikipedia,S.C. Eendracht Aalst,Eendracht Aalst
+wikipedia,SC Eendracht Aalst,Eendracht Aalst
+wikipedia,Sporting Charleroi,Charleroi
+wikipedia,Standard Liège,Standard Liege
+wikipedia,V.C. Eendracht Aalst 2002,Eendracht Aalst
+wikipedia,Y.R. K.V. Mechelen,KV Mechelen
+wikipedia,Adana Demirspor,Adana Demirspor
+wikipedia,Adanaspor,Adanaspor
+wikipedia,Altay S.K.,Altay
+wikipedia,Altay SK,Altay
+wikipedia,Ankaragücü,Ankaragücü
+wikipedia,Antalyaspor,Antalyaspor
+wikipedia,Balıkesirspor,Balikesirspor
+wikipedia,Beşiktaş J.K.,Besiktas
+wikipedia,Boluspor,Boluspor
+wikipedia,Bursaspor,Bursaspor
+wikipedia,Denizlispor,Denizlispor
+wikipedia,Erzurumspor,Erzurumspor
+wikipedia,Eskişehirspor,Eskişehirspor
+wikipedia,Fatih Karagümrük S.K.,Karagumruk SK
+wikipedia,Fenerbahçe S.K. (football),Fenerbahce
+wikipedia,Galatasaray S.K. (football),Galatasaray
+wikipedia,Gaziantepspor,Gaziantepspor
+wikipedia,Gençlerbirliği S.K.,Gençlerbirliği
+wikipedia,Giresunspor,Giresunspor
+wikipedia,Göztepe S.K.,Göztepe
+wikipedia,Göztepe SK,Göztepe
+wikipedia,Hacettepe S.K.,Hacettepespor
+wikipedia,Kardemir Karabükspor,Karabükspor
+wikipedia,Karşıyaka S.K.,Karsiyaka
+wikipedia,Kayseri Erciyesspor,Kayseri Erciyesspor
+wikipedia,Kayserispor,Kayserispor
+wikipedia,Kocaelispor,Kocaelispor
+wikipedia,Konyaspor,Konyaspor
+wikipedia,MKE Ankaragücü,Ankaragücü
+wikipedia,Malatyaspor,Malatyaspor
+wikipedia,Mersin İdman Yurdu,Mersin Idman Yurdu
+wikipedia,Orduspor,Orduspor
+wikipedia,Petrol Ofisi S.K.,P. Ofisi
+wikipedia,Sakaryaspor,Sakaryaspor
+wikipedia,Samsunspor,Samsunspor
+wikipedia,Sarıyer S.K.,Sariyer
+wikipedia,Siirtspor,Siirt Jet-PA
+wikipedia,Trabzonspor,Trabzonspor
+wikipedia,Turanspor,Sekerspor
+wikipedia,Vanspor,Vanspor
+wikipedia,Yozgatspor,Yozgatspor
+wikipedia,Zeytinburnuspor,Zeytinburnu
+wikipedia,Çanakkale Dardanelspor,Dardanelspor
+wikipedia,Çaykur Rizespor,Rizespor
+wikipedia,İstanbulspor,İstanbulspor
+wikipedia,A.O. Kerkyra,Kerkyra
+wikipedia,AEK Athens F.C.,AEK Athens
+wikipedia,Akratitos F.C.,Akratitos
+wikipedia,Apollon Kalamarias F.C.,Kalamaria
+wikipedia,Apollon Smyrnis F.C.,Apollon Athens
+wikipedia,Aris Thessaloniki F.C.,Aris
+wikipedia,Athens Kallithea F.C.,Kallithea
+wikipedia,Athinaikos F.C.,Athinaikos
+wikipedia,Athlitiki Enosi Larissa F.C.,AE Larisa
+wikipedia,Atromitos F.C.,Atromitos
+wikipedia,Chalkidona F.C.,Chalkidona
+wikipedia,Doxa Drama F.C.,Doxa Drama
+wikipedia,Edessaikos F.C.,Edessaikos
+wikipedia,Egaleo F.C.,Egaleo
+wikipedia,Ergotelis F.C.,Ergotelis
+wikipedia,Ethnikos Asteras F.C.,Ethnikos Asteras
+wikipedia,Ethnikos Piraeus F.C.,Ethnikos Piraeus
+wikipedia,Ionikos F.C.,Ionikos
+wikipedia,Iraklis F.C. (Thessaloniki),Iraklis
+wikipedia,Kalamata F.C.,Kalamata
+wikipedia,Kastoria F.C.,Kastoria
+wikipedia,Kavala F.C.,Kavala
+wikipedia,Levadiakos F.C.,Levadiakos
+wikipedia,Niki Volos F.C.,Niki Volos
+wikipedia,OFI Crete F.C.,OFI Crete
+wikipedia,Olympiacos F.C.,Olympiacos
+wikipedia,Olympiacos Volos F.C.,Olympiacos Volos
+wikipedia,PAOK FC,PAOK
+wikipedia,PAS Giannina F.C.,PAS Giannina
+wikipedia,Panachaiki F.C.,Panachaiki
+wikipedia,Panathinaikos F.C.,Panathinaikos
+wikipedia,Panelefsiniakos F.C.,Eleysina
+wikipedia,Panetolikos F.C.,Panetolikos
+wikipedia,Paniliakos F.C.,Paniliakos
+wikipedia,Panionios F.C.,Panionios
+wikipedia,Panserraikos F.C.,Panserraikos
+wikipedia,Proodeftiki F.C.,Proodeftiki
+wikipedia,Trikala F.C.,Trikala
+wikipedia,Veria F.C.,Veria
+wikipedia,Xanthi F.C.,Xanthi
+wikipedia,Daring Club de Bruxelles,Daring Club
+wikipedia,K.V. Turnhout,Turnhout
+wikipedia,Patro Eisden,Patro Eisden
+wikipedia,R.F.C. Tournai,Tournai
+wikipedia,K Boom FC,Boom
+wikipedia,K. Boom F.C.,Boom
+wikipedia,K. Sint-Niklase S.K.E.,Sint-Niklase
+wikipedia,KSC Hasselt,Hasselt
+wikipedia,KSK Tongeren,Tongeren
+wikipedia,R.F.C. Tilleur-Saint-Nicolas,Tilleur
+wikipedia,Sint-Truidense V.V.,Sint-Truiden
+wikipedia,K. Beringen F.C.,Beringen
+wikipedia,R. Jet Wavre,RJ Bruxelles
+wikipedia,Crossing Club Schaerbeek,Crossing Schaerbeek
+wikipedia,K Beringen FC,Beringen
+wikipedia,Tilleur FC,Tilleur
+wikipedia,K. Berchem Sport,Berchem
+wikipedia,A.S.V. Oostende K.M.,KV Oostende
+wikipedia,R.C.S. Verviétois,Verviers
+wikipedia,K.R.C. Mechelen,K.R.C. Mechelen
+wikipedia,KFC Diest,Diest
+wikipedia,R.O.C. de Charleroi-Marchienne,Olympic Charleroi
+wikipedia,R. Daring Club Molenbeek,Daring Club
+wikipedia,K Berchem Sport,Berchem
+wikipedia,Beringen FC,Beringen
+wikipedia,R.F.C. de Liège,RFC Liège
+wikipedia,Panargiakos F.C.,Panargiakos
+wikipedia,AE Nikaia,AE Nikaia
+wikipedia,Atromitos Piraeus F.C.,Atromitos Piraeus
+wikipedia,Thermaikos,Thermaikos
+wikipedia,AC Omonia,Omonia Nicosia
+wikipedia,AEL Limassol,AEL Limassol
+wikipedia,APOEL FC,APOEL Nikosia
+wikipedia,EPA Larnaca FC,EPA Larnaca
+wikipedia,Makedonikos F.C.,Makedonikos
+wikipedia,Naoussa F.C.,Naoussa
+wikipedia,Chalkida F.C.,Chalkida
+wikipedia,A.E. Rodos,Rodos
+wikipedia,Rodos F.C.,Rodos
+wikipedia,Diagoras F.C.,Diagoras
+wikipedia,Olympiakos Nicosia,Olympiakos Nicosia
+wikipedia,Vyzas F.C.,Vyzas Megara
+wikipedia,Panegialios F.C.,Panegialios
+wikipedia,P.A.S. Korinthos,Korinthos
+wikipedia,Fostiras F.C.,Fostiras
+wikipedia,S.F.K. Pierikos (football),Pierikos
+wikipedia,Cowdenbeath F.C.,Cowdenbeath
+wikipedia,East Stirlingshire F.C.,East Stirlingshire
+wikipedia,Morton F.C.,Morton
+wikipedia,Queen's Park F.C.,Queen's Park
+wikipedia,Hamilton Academical F.C.,Hamilton Academical
+wikipedia,Clydebank F.C. (1965),Clydebank
+wikipedia,Dumbarton F.C.,Dumbarton
+wikipedia,Arbroath F.C.,Arbroath
+wikipedia,East Fife F.C.,East Fife
+wikipedia,Stirling Albion F.C.,Stirling Albion
+wikipedia,Third Lanark A.C.,Third Lanark
+wikipedia,Ayr United F.C.,Ayr United
+wikipedia,Greenock Morton F.C.,Morton
+wikipedia,MKE Kırıkkalespor,Kırıkkalespor
+wikipedia,Vefa SK,Vefa
+wikipedia,Kahramanmaraşspor,Kahramanmaraşspor
+wikipedia,Alibeyköy S.K.,Adalet
+wikipedia,Beyoğlu S.K.,Beyoğlu
+wikipedia,Beykoz 1908 S.K.D.,Beykoz
+wikipedia,Yeşildirek S.K.,Yeşildirek
+wikipedia,Aydınspor,Aydınspor
+wikipedia,Bakırköyspor,Bakırköyspor
+wikipedia,Feriköy SK,Feriköy
+wikipedia,Diyarbakırspor,Diyarbakırspor
+wikipedia,Kasımpaşa S.K.,Kasımpaşa
+wikipedia,Feriköy S.K.,Feriköy
+wikipedia,Beykoz S.K.D.,Beykoz
+wikipedia,Keçiörengücü,Hacettepe
+wikipedia,Altınordu F.K.,Altınordu
+wikipedia,İzmirspor,İzmirspor
+wikipedia,Türk Telekom GSK,PTT
+wikipedia,Vefa S.K.,Vefa
+wikipedia,Ankara Demirspor,Ankara Demirspor
+wikipedia,Zonguldak Kömürspor,Zonguldakspor
+engsoccerdata,Dunfermline,Dunfermline Athletic
+engsoccerdata,Inverness C,Inverness CT
+engsoccerdata,Partick,Partick Thistle
+engsoccerdata,Raith Rvs,Raith Rovers
+engsoccerdata,Mechelen,KV Mechelen
+engsoccerdata,Oostende,KV Oostende
+engsoccerdata,Antwerp,Royal Antwerp FC
+engsoccerdata,Molenbeek,RWD Molenbeek
+engsoccerdata,St Truiden,Sint-Truiden
+engsoccerdata,Standard,Standard Liege
+engsoccerdata,Royal Union Saint-Gilloise,Union Saint-Gilloise
+engsoccerdata,Ad. Demirspor,Adana Demirspor
+engsoccerdata,Ankaragucu,Ankaragücü
+engsoccerdata,Eskisehirspor,Eskişehirspor
+engsoccerdata,Genclerbirligi,Gençlerbirliği
+engsoccerdata,Goztep,Göztepe
+engsoccerdata,Karabukspor,Karabükspor
+engsoccerdata,Istanbulspor,İstanbulspor
+engsoccerdata,Larisa,AE Larisa
+engsoccerdata,AEK,AEK Athens
+engsoccerdata,Apollon,Apollon Athens
+engsoccerdata,Asteras Tripolis,Asteras Tripoli
+engsoccerdata,OFI,OFI Crete
+engsoccerdata,Olympiakos,Olympiacos
+engsoccerdata,Panahaiki,Panachaiki
+engsoccerdata,Hamilton,Hamilton Academical
+engsoccerdata,Aalst,Eendracht Aalst
+engsoccerdata,Antalya,Antalyaspor
+engsoccerdata,Diyarbakirspor,Diyarbakırspor
+engsoccerdata,Erciyesspor,Kayseri Erciyesspor
+engsoccerdata,Kasimpasa,Kasımpaşa
+engsoccerdata,Kayseri,Kayserispor
+engsoccerdata,Doxa,Doxa Drama
+engsoccerdata,Doxa Dramas,Doxa Drama
+engsoccerdata,Eth Asteras,Ethnikos Asteras
+engsoccerdata,Ethnikos,Ethnikos Piraeus
+engsoccerdata,Giannina,PAS Giannina
+engsoccerdata,Yiannina,PAS Giannina
+engsoccerdata,Kalithea,Kallithea
+engsoccerdata,Levadeiakos,Levadiakos
+engsoccerdata,Olympiakos Volou,Olympiacos Volos
+engsoccerdata,Proodeytiki,Proodeftiki
+engsoccerdata,Veroia,Veria

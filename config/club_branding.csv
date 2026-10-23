@@ -16,6 +16,7 @@ club,logo,primary,secondary,source
 1.FC Neubrandenburg 04,https://tmssl.akamaized.net/images/wappen/head/1279.png,,,transfermarkt
 1860 Munchen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/135.png,#1a1a1a,#ffffff,espn+crest2
 1899 Hoffenheim,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7911.png,#003399,#000055,espn
+A. Sebatspor,,,,
 A.C.R. Messina,https://tmssl.akamaized.net/images/wappen/head/1104.png,#c24b4d,#c60000,transfermarkt
 AC Ajaccio,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2503.png,#ef2f24,#87cced,espn
 AC Arles-Avignon,,,,
@@ -50,7 +51,8 @@ AD Sanjoanense,,#000000,#c60000,espn
 AD Union Adarve,https://tmssl.akamaized.net/images/wappen/head/21368.png,#000000,#000000,transfermarkt
 ADO '20,https://tmssl.akamaized.net/images/wappen/head/9547.png,#000000,#000000,transfermarkt
 ADO Den Haag,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2726.png,#307b64,#a0ffe5,espn
-AE Larisa,,,,
+AE Larisa,https://tmssl.akamaized.net/images/wappen/head/4603.png,#701010,#d0b0b0,transfermarkt+crest
+AE Nikaia,,,,
 AE Prat,https://tmssl.akamaized.net/images/wappen/head/34549.png,#000000,#c60000,transfermarkt
 AEK Athens,https://a.espncdn.com/i/teamlogos/soccer/500-dark/887.png,#ffff00,#000000,espn
 AEK Larnaca,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4039.png,#fde100,#008741,espn
@@ -107,7 +109,8 @@ Aalborg BK,https://tmssl.akamaized.net/images/wappen/head/1053.png,,,transfermar
 Aalesund,https://tmssl.akamaized.net/images/wappen/head/5619.png,,,transfermarkt
 Aarhus GF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7853.png,#000000,#000000,espn
 Abarán,,,,
-Abderden,https://a.espncdn.com/i/teamlogos/soccer/500-dark/263.png,#c8142f,#f9e900,espn
+Abderden,,,,
+Aberdeen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/263.png,#c8142f,#f9e900,espn
 Academica,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3698.png,#101010,#303030,espn+crest
 Academico Viseu,https://a.espncdn.com/i/teamlogos/soccer/500-dark/21607.png,#000000,#ffffff,espn+crest2
 Accrington,https://a.espncdn.com/i/teamlogos/soccer/500/2731.png,#c8142f,#5cbfeb,espn
@@ -115,18 +118,25 @@ Accrington Stanley,,,,
 Achilles '29,https://tmssl.akamaized.net/images/wappen/head/18216.png,#000000,#ffffff,transfermarkt+crest2
 Achilles Veen,https://tmssl.akamaized.net/images/wappen/head/817.png,#000000,#c60000,transfermarkt
 Acireale,,,,
-Adanaspor,,,,
+Adalet,,,,
+Adana Demirspor,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20765.png,#000080,#87ceeb,espn
+Adanaspor,https://tmssl.akamaized.net/images/wappen/head/6.png,#f07010,#101010,transfermarkt+crest
 Addlestone & Weybridge Town,,,,
 Adriese,https://tmssl.akamaized.net/images/wappen/head/27561.png,#000000,#c60000,transfermarkt
 Aguilas,https://tmssl.akamaized.net/images/wappen/head/49957.png,#000000,#c60000,transfermarkt
 Aiglon du Lamentin,,#000000,#c60000,espn
+Airdrieonians,,,,
 Aire-Sur-La-Lys,,#000000,#c60000,espn
 Ajax Amateurs,https://tmssl.akamaized.net/images/wappen/head/11495.png,#000000,#c60000,transfermarkt
 Akademik Sofia,,,,
-Akhisar Belediyespor,https://a.espncdn.com/i/teamlogos/soccer/500/18330.png,#000000,#c60000,espn
+Akademisk BK,,,,
+Akhisar Belediyespor,https://a.espncdn.com/i/teamlogos/soccer/500/18330.png,#000000,#309050,espn+crest2
+Akratitos,,,,
 Akritas,,,,
 Aktobe,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6733.png,#000000,#c60000,espn
 Alania Vladikavkaz,,,,
+Alanyaspor,https://a.espncdn.com/i/teamlogos/soccer/500/9078.png,#f09010,#30b050,espn+crest
+Alashkert FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17858.png,#fcee33,#ffffff,espn
 Albacete,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2737.png,#bc0814,#c60000,espn
 Albinoleffe,https://tmssl.akamaized.net/images/wappen/head/4541.png,#76ccf1,#f4f719,transfermarkt
 Alcains,,#000000,#c60000,espn
@@ -147,16 +157,18 @@ Alma Juventus Fano 1906,https://tmssl.akamaized.net/images/wappen/head/5615.png,
 Almazán,https://tmssl.akamaized.net/images/wappen/head/50649.png,#000000,#c60000,transfermarkt
 Almere City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5291.png,#c60000,#9df9f7,espn
 Alpendorada,,#000000,#c60000,espn
-Altay,,,,
+Altay,https://tmssl.akamaized.net/images/wappen/head/2375.png,#101010,#f0f0f0,transfermarkt+crest
 AltoVicentino,https://tmssl.akamaized.net/images/wappen/head/44884.png,#000000,#c60000,transfermarkt
 Alton Town,,,,
 Altrincham,https://a.espncdn.com/i/teamlogos/soccer/500-dark/633.png,#c8142f,#cdcdcd,espn
+Altınordu,,,,
 Alvechurch,https://tmssl.akamaized.net/images/wappen/head/33777.png,#000000,#c60000,transfermarkt
 Alverca,https://a.espncdn.com/i/teamlogos/soccer/500-dark/21613.png,#0047ab,#c60000,espn
 Alzano,,,,
 Alzira,https://tmssl.akamaized.net/images/wappen/head/16775.png,#000000,#103070,transfermarkt+crest2
 Amarante,,#000000,#c60000,espn
 Ambrosiana,https://tmssl.akamaized.net/images/wappen/head/55772.png,#000000,#c60000,transfermarkt
+Amedspor,,,,
 Ameri Tbilisi,,,,
 Amica Wronki,,,,
 Amiens SC,https://a.espncdn.com/i/teamlogos/soccer/500/3335.png,#ffffff,#1070b0,espn+crest2
@@ -166,31 +178,36 @@ Amorebieta,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12587.png,#000000,#
 Anadia,,#000000,#c60000,espn
 Anaitasuna,https://tmssl.akamaized.net/images/wappen/head/82055.png,#000000,#c60000,transfermarkt
 Ancona Calcio,https://tmssl.akamaized.net/images/wappen/head/1388.png,#d01010,#f0b010,transfermarkt+crest
+Anderlecht,https://a.espncdn.com/i/teamlogos/soccer/500-dark/441.png,#695196,#fafafc,espn
 Andorra,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20179.png,#000000,#1010b0,espn+crest2
 Andover,,,,
 Andratx,https://tmssl.akamaized.net/images/wappen/head/73876.png,#000000,#c60000,transfermarkt
-Angers,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7868.png,#1a1a1a,#ffffff,espn
-Angers SCO,https://tmssl.akamaized.net/images/wappen/head/1420.png,#101010,#b09070,transfermarkt+crest
-Ankaragücü,,,,
+Angers SCO,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7868.png,#1a1a1a,#d0b070,espn+crest2
+Ankara Demirspor,,,,
+Ankaragücü,https://tmssl.akamaized.net/images/wappen/head/868.png,#f0f010,#101050,transfermarkt+crest
+Ankaraspor,,,,
 Annecy,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18066.png,#000000,#f01010,espn+crest2
 Annfield Plain,,,,
 Anorthosis Famagusta,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2550.png,#0000ff,#ffffff,espn
-Antalyaspor,,,,
+Antalyaspor,https://tmssl.akamaized.net/images/wappen/head/589.png,#f01010,#f05050,transfermarkt+crest
 Antequera CF,https://tmssl.akamaized.net/images/wappen/head/16022.png,#000000,#c60000,transfermarkt
-Antwerp,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17544.png,#c60000,#ffffff,espn
 Anzhi Makhachkala,https://tmssl.akamaized.net/images/wappen/head/2700.png,,,transfermarkt
 Ançã,,#000000,#c60000,espn
 Apeldoorn CSV,https://tmssl.akamaized.net/images/wappen/head/4026.png,#000000,#c60000,transfermarkt
+Apollon Athens,https://tmssl.akamaized.net/images/wappen/head/441.png,#303070,#9090b0,transfermarkt+crest
 Apollon Limassol,https://a.espncdn.com/i/teamlogos/soccer/500-dark/525.png,#161a2e,#000000,espn
 Apolonia,,,,
 Araks Ararat,,,,
 Arandina,https://tmssl.akamaized.net/images/wappen/head/25377.png,#000000,#c60000,transfermarkt
+Ararat-Armenia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20024.png,#000000,#c60000,espn
+Araz Naxcivan,https://tmssl.akamaized.net/images/wappen/head/44360.png,#000000,#c60000,transfermarkt
+Arbroath,,,,
 Ards,,,,
 Arenas Club,https://tmssl.akamaized.net/images/wappen/head/16122.png,#000000,#c60000,transfermarkt
 Arenteiro,https://tmssl.akamaized.net/images/wappen/head/58946.png,#000000,#c60000,transfermarkt
 Arezzo,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3345.png,#703030,#101010,espn+crest
 Arges Pitesti,,,,
-Aris,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11553.png,#000000,#c60000,espn
+Aris,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11553.png,#000000,#f0d010,espn+crest2
 Aris Bonnevoie,,,,
 Aris Limassol,https://a.espncdn.com/i/teamlogos/soccer/500-dark/21530.png,#2e6f40,#483248,espn
 Arlesey Town,https://tmssl.akamaized.net/images/wappen/head/21569.png,,,transfermarkt
@@ -202,6 +219,7 @@ Arosa,https://tmssl.akamaized.net/images/wappen/head/20220.png,#000000,#c60000,t
 Arouca,https://a.espncdn.com/i/teamlogos/soccer/500-dark/15784.png,#ffea01,#293dc2,espn
 Arroyo CP,https://tmssl.akamaized.net/images/wappen/head/36846.png,,,transfermarkt
 Arsenal,https://a.espncdn.com/i/teamlogos/soccer/500-dark/359.png,#e20520,#003399,espn
+Arsenal Kyiv,https://tmssl.akamaized.net/images/wappen/head/9007.png,,,transfermarkt
 Artmedia Bratislava,,,,
 Ascoli Calcio,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3346.png,#aa0001,#aa0001,espn
 Ashford Town,,,,
@@ -211,7 +229,7 @@ Ashton United,,,,
 Association Sportive Avignonaise,,,,
 Association Still-Mutzig,,#000000,#c60000,espn
 Astana,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12124.png,#ffff00,#0000ff,espn
-Asteras Tripoli,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8354.png,#000000,#000000,espn
+Asteras Tripoli,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8354.png,#305090,#1070b0,espn+crest
 Aston Villa,https://a.espncdn.com/i/teamlogos/soccer/500-dark/362.png,#660e36,#000000,espn
 Astur CF,https://tmssl.akamaized.net/images/wappen/head/6563.png,#000000,#c60000,transfermarkt
 At. Madrileño,,,,
@@ -239,7 +257,8 @@ Atlético Saguntino,https://tmssl.akamaized.net/images/wappen/head/50257.png,#00
 Atlético Sanluqueño CF,https://tmssl.akamaized.net/images/wappen/head/21322.png,#000000,#c60000,transfermarkt
 Atlético Tetuán,,,,
 Atlético Tordesillas,https://tmssl.akamaized.net/images/wappen/head/41604.png,#000000,#c60000,transfermarkt
-Atromitos,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6790.png,#000000,#000000,espn
+Atromitos,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6790.png,#305070,#707090,espn+crest
+Atromitos Piraeus,,,,
 Atvidabergs FF,,,,
 Atzeneta,https://tmssl.akamaized.net/images/wappen/head/69006.png,#000000,#c60000,transfermarkt
 Aubagne,,#000000,#c60000,espn
@@ -252,13 +271,17 @@ Aves,https://tmssl.akamaized.net/images/wappen/head/3336.png,#b09010,#101010,tra
 Avilés,https://tmssl.akamaized.net/images/wappen/head/20844.png,#901010,#f0d010,transfermarkt+crest
 Avoine OCC,,#000000,#c60000,espn
 Avranches,,#000000,#000000,espn
+Aydınspor,,,,
 Aylesbury United,,,,
+Ayr United,,,,
 Azuaga,https://tmssl.akamaized.net/images/wappen/head/44640.png,#000000,#c60000,transfermarkt
 B 1903 Kobenhavn,,,,
 B 1909 Odense,,,,
 B 1913 Odense,,,,
 B.93,,,,
 B1901,,,,
+B36 Torshavn,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2510.png,#0b419b,#0b419b,espn
+B71,,,,
 BATE Borisov,https://a.espncdn.com/i/teamlogos/soccer/500-dark/497.png,#0b419b,#ffff00,espn
 BFC Dynamo,https://tmssl.akamaized.net/images/wappen/head/222.png,#000000,#c60000,transfermarkt
 BFC Preussen,https://tmssl.akamaized.net/images/wappen/head/4700.png,,,transfermarkt
@@ -280,10 +303,16 @@ Bacău,,,,
 Badajoz,https://tmssl.akamaized.net/images/wappen/head/2923.png,#101010,#1010f0,transfermarkt+crest
 Badalona,https://tmssl.akamaized.net/images/wappen/head/6638.png,#1010b0,#303090,transfermarkt+crest
 Bahlinger SC 1929,https://tmssl.akamaized.net/images/wappen/head/1193.png,#000000,#000000,transfermarkt
+Bakırköyspor,,,,
+Bala Town,https://a.espncdn.com/i/teamlogos/soccer/500/10496.png,#000000,#c60000,espn
+Balikesirspor,https://tmssl.akamaized.net/images/wappen/head/20698.png,#f01010,#f05050,transfermarkt+crest
+Ballkani,https://a.espncdn.com/i/teamlogos/soccer/500-dark/21526.png,#000000,#c60000,espn
 Ballymena,https://a.espncdn.com/i/teamlogos/soccer/500/7595.png,#000000,#000000,espn
 Bamber Bridge,,,,
+Banants,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2719.png,#8f00ff,#fa8128,espn
 Banbury Spencer,,,,
 Banbury United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20769.png,#000000,#c60000,espn
+Bangor,,,,
 Bangor City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2560.png,#3347ff,#e74c3c,espn
 Banik Ostrava,https://tmssl.akamaized.net/images/wappen/head/377.png,#000000,#000000,transfermarkt
 Baracaldo,https://tmssl.akamaized.net/images/wappen/head/3708.png,#101010,#f0f010,transfermarkt+crest
@@ -317,21 +346,31 @@ Becerril,https://tmssl.akamaized.net/images/wappen/head/50121.png,#000000,#c6000
 Bedford Town,,,,
 Bedlington Terriers,,,,
 Beerschot,,,,
+Beerschot VA,https://tmssl.akamaized.net/images/wappen/head/41274.png,#503090,#f0f0f0,transfermarkt+crest
 Beira Mar,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1423.png,#1a1a1a,#f0d010,espn+crest2
 Beitar Jerusalem,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5218.png,#c60000,#c60000,espn
 Belasica,,,,
 Belenenses,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3519.png,#293dc2,#ffffff,espn
 Belgrade XI,,,,
+Bellinzona,,,,
+Belshina Bobruisk,,,,
 Belvedur Izola,,,,
 Benevento,https://a.espncdn.com/i/teamlogos/soccer/500/4059.png,#c60000,#ffff00,espn
 Benfica e Castelo Branco,,#000000,#c60000,espn
+Berchem,,,,
 Bergantiños,https://tmssl.akamaized.net/images/wappen/head/16055.png,#000000,#c60000,transfermarkt
+Bergen,https://tmssl.akamaized.net/images/wappen/head/1411.png,#f01030,#f07030,transfermarkt+crest
 Bergerac Périgord FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18405.png,#000000,#c60000,espn
+Beringen,,,,
 Berliner AK 07,https://tmssl.akamaized.net/images/wappen/head/584.png,,,transfermarkt
 Berço,,#000000,#c60000,espn
+Besa Kavajë,,,,
 Besancon,,#000000,#c60000,espn
-Besiktas,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1895.png,#ffffff,#1a1a1a,espn
+Besiktas,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1895.png,#ffffff,#d03030,espn+crest2
+Beveren,,,,
 Bexley United,,,,
+Beykoz,,,,
+Beyoğlu,,,,
 Bideford,,,,
 Biesheim,,#000000,#c60000,espn
 Bilbao Ath.,,,,
@@ -352,17 +391,19 @@ Blois Foot 41,,#000000,#c60000,espn
 Blyth Spartans,https://tmssl.akamaized.net/images/wappen/head/4310.png,,,transfermarkt
 Bnei Yehuda,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6764.png,#c60000,#c60000,espn
 Boavista,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2256.png,#1a1a1a,#f0f010,espn+crest2
+Bobigny AC,,#000000,#c60000,espn
 Boby Brno,,,,
-Bochum,,,,
 Bodo/Glimt,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2980.png,#fcee33,#ffffff,espn
+Bodrumspor,https://tmssl.akamaized.net/images/wappen/head/44006.png,#107030,#509070,transfermarkt+crest
 Bognor Regis Town,,,,
 Bohemians,https://a.espncdn.com/i/teamlogos/soccer/500-dark/615.png,#000000,#000000,espn
 Bohemians EKD Praha,,,,
-Bologna,,,,
 Bologna FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/107.png,#04043d,#ffffff,espn
 Bolton Wanderers,https://a.espncdn.com/i/teamlogos/soccer/500-dark/358.png,#ffffff,#103070,espn+crest2
+Boluspor,,,,
 Bombarralense,,#000000,#000000,espn
 Bonner SC,https://tmssl.akamaized.net/images/wappen/head/215.png,#305090,#f03030,transfermarkt+crest
+Boom,,,,
 Borac Banja Luka,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20710.png,#c60000,#ffffff,espn
 Borac Čačak,,,,
 Boreham Wood,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2595.png,#ffffff,#aeeaff,espn
@@ -382,9 +423,11 @@ Bragança,,#000000,#c60000,espn
 Braintree Town,https://tmssl.akamaized.net/images/wappen/head/6340.png,#ff6600,#000099,transfermarkt
 Brandon United,,,,
 Brann,https://a.espncdn.com/i/teamlogos/soccer/500/620.png,#ff0000,#32cd32,espn
+Bray Wanderers,,,,
 Brașov,,,,
 Brea,https://tmssl.akamaized.net/images/wappen/head/70127.png,#000000,#c60000,transfermarkt
 Breidablik,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8250.png,#000000,#000000,espn
+Breiðablik,,,,
 Bremer SV,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17489.png,#000000,#c60000,espn
 Breno,https://tmssl.akamaized.net/images/wappen/head/22187.png,#000000,#c60000,transfermarkt
 Brentford,https://a.espncdn.com/i/teamlogos/soccer/500-dark/337.png,#f42727,#0f1c3f,espn
@@ -404,20 +447,25 @@ Bromley,https://a.espncdn.com/i/teamlogos/soccer/500/3129.png,#ffffff,#f01010,es
 Brommapojkarna,https://tmssl.akamaized.net/images/wappen/head/1092.png,,,transfermarkt
 Bromsgrove Rovers,,,,
 Brondby IF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/575.png,#ffff00,#43473d,espn
+Bryne,,,,
+Bucaspor,,,,
 Buckingham Town,,,,
 Budapest Honved SE,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18749.png,#000000,#c60000,espn
 Budapesti Vasas,,,,
 Budapesti Voros Lobogo,,,,
+Buducnost,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7822.png,#000000,#000000,espn
 Bunñol,https://tmssl.akamaized.net/images/wappen/head/55875.png,#000000,#c60000,transfermarkt
 Burgos CF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12597.png,#000000,#30b050,espn+crest2
 Burnham,,,,
 Burnley,https://a.espncdn.com/i/teamlogos/soccer/500-dark/379.png,#6c1d45,#00ffff,espn
-Bursaspor,https://tmssl.akamaized.net/images/wappen/head/20.png,,,transfermarkt
+Bursaspor,https://tmssl.akamaized.net/images/wappen/head/20.png,#109050,#f03030,transfermarkt+crest
 Burscough,,,,
 Burton Albion,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2567.png,#ffff00,#ffffff,espn
 Bury,https://a.espncdn.com/i/teamlogos/soccer/500-dark/354.png,#ffffff,#105090,espn+crest2
 Bury Town,,,,
 Buxton,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5767.png,#000080,#964b00,espn
+Buyuksehyr,,,,
+Békéscsabai Előre,,,,
 C. Sangro,,,,
 CA Bastia,,#000000,#c60000,espn
 CA Cirbonero,https://tmssl.akamaized.net/images/wappen/head/53286.png,#000000,#c60000,transfermarkt
@@ -471,12 +519,12 @@ CO Avallonnais,,#000000,#c60000,espn
 CP Merida,,,,
 CP Parla Escuela,https://tmssl.akamaized.net/images/wappen/head/60613.png,#000000,#c60000,transfermarkt
 CS Sedan,,#ffffff,#1a1a1a,espn
+CSKA 1948 Sofia,https://tmssl.akamaized.net/images/wappen/head/61955.png,#000000,#c60000,transfermarkt
 CSKA Moskva,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1963.png,#811438,#000000,espn
 CSKA Sofia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10834.png,#c60000,#ffffff,espn
 CSU Galați,,,,
 Cacereno,https://tmssl.akamaized.net/images/wappen/head/11602.png,#000000,#000000,transfermarkt
 Cadiz CF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3842.png,#ffff00,#1a1a1a,espn
-Caen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2927.png,#ef2f24,#fe5c55,espn
 Caernarfon Town,https://tmssl.akamaized.net/images/wappen/head/22461.png,#000000,#000000,transfermarkt
 Cagliari Calcio,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2925.png,#282846,#ffffff,espn
 Calais,,#000000,#c60000,espn
@@ -520,13 +568,16 @@ Celta B,,,,
 Celta Vigo,https://a.espncdn.com/i/teamlogos/soccer/500-dark/85.png,#6cace4,#004996,espn
 Celtic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/256.png,#009921,#f9e900,espn
 Cementarnica 55,,,,
-Cercle Brugge KSV,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3610.png,#048a28,#cccccc,espn
+Cercle Brugge,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3610.png,#048a28,#cccccc,espn
 Ceuta,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5404.png,#f01010,#101010,espn+crest
+Chalkida,,,,
+Chalkidona,,,,
 Chamalierès FC,,#000000,#c60000,espn
 Chambly,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11880.png,#000000,#f0d010,espn+crest2
 Chambéry SF,,#000000,#c60000,espn
 Chamois Niortais,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6990.png,#1a1a1a,#105090,espn+crest2
 Chantilly,,#000000,#c60000,espn
+Charleroi,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3616.png,#000000,#b0b010,espn+crest2
 Charleville,,,,
 Charlton Athletic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/372.png,#c8142f,#020202,espn
 Chasetown,,,,
@@ -535,6 +586,7 @@ Chelmsford City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7155.png,#8000
 Chelsea,https://a.espncdn.com/i/teamlogos/soccer/500-dark/363.png,#144992,#ffffff,espn
 Cheltenham,https://a.espncdn.com/i/teamlogos/soccer/500/320.png,#c8142f,#82dbf5,espn
 Chemin Bas d'Avignon,,#000000,#c60000,espn
+Chemlon Humenné,,,,
 Chemnitzer FC,https://tmssl.akamaized.net/images/wappen/head/21.png,#000000,#1090d0,transfermarkt+crest2
 Cherno More,https://tmssl.akamaized.net/images/wappen/head/967.png,#000000,#000000,transfermarkt
 Chernomorets Novorossiysk,,,,
@@ -544,11 +596,11 @@ Chesterfield,https://a.espncdn.com/i/teamlogos/soccer/500/343.png,#000099,#1a1a1
 Chichester City,https://tmssl.akamaized.net/images/wappen/head/22553.png,#000000,#c60000,transfermarkt
 Chiclana,https://tmssl.akamaized.net/images/wappen/head/24794.png,#000000,#c60000,transfermarkt
 Chievo,,,,
+Chikhura Sachkhere,https://tmssl.akamaized.net/images/wappen/head/11435.png,#000000,#c60000,transfermarkt
 Chippenham Town,https://tmssl.akamaized.net/images/wappen/head/21652.png,#0000d4,#378464,transfermarkt
 Cholet,,#000000,#c60000,espn
 Chorley,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3829.png,#000000,#aeeaff,espn
 Chornomorets Odesa,https://tmssl.akamaized.net/images/wappen/head/6992.png,,,transfermarkt
-Châteauroux,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2995.png,#000000,#000000,espn
 Cieza,https://tmssl.akamaized.net/images/wappen/head/56725.png,#000000,#c60000,transfermarkt
 Ciliverghe,https://tmssl.akamaized.net/images/wappen/head/45792.png,#000000,#c60000,transfermarkt
 Cittadella,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3943.png,#990000,#cccccc,espn
@@ -561,8 +613,11 @@ Clevedon Town,,,,
 Cliftonville,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7597.png,#000000,#000000,espn
 Club Atlético Antoniano,https://tmssl.akamaized.net/images/wappen/head/42457.png,#000000,#c60000,transfermarkt
 Club Brugge,https://a.espncdn.com/i/teamlogos/soccer/500-dark/570.png,#0081ff,#ffffff,espn
+Club Franciscain,,#000000,#c60000,espn
 Clube Condeixa,,#000000,#c60000,espn
 Clube Olimpico do Montijo,,#000000,#c60000,espn
+Clyde,,,,
+Clydebank,,,,
 Coalville Town,https://tmssl.akamaized.net/images/wappen/head/1051.png,#000000,#808000,transfermarkt
 Colchester United,https://a.espncdn.com/i/teamlogos/soccer/500/339.png,#0e00f7,#1a1a1a,espn
 Coleraine,https://a.espncdn.com/i/teamlogos/soccer/500/2723.png,#000000,#000000,espn
@@ -575,6 +630,7 @@ Comércio Indústria,,#000000,#c60000,espn
 Concarneau,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7718.png,#1050b0,#f01010,espn+crest
 Concord Rangers,https://tmssl.akamaized.net/images/wappen/head/29842.png,#1a1a1a,#c60000,transfermarkt
 Congleton Town,,,,
+Connah's Quay,https://tmssl.akamaized.net/images/wappen/head/22499.png,#cb4335,#000000,transfermarkt
 Conquense,https://tmssl.akamaized.net/images/wappen/head/16602.png,#000000,#000000,transfermarkt
 Consett AFC,,,,
 Constancia,https://tmssl.akamaized.net/images/wappen/head/20963.png,#000000,#907010,transfermarkt+crest2
@@ -588,23 +644,28 @@ Cork City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5252.png,#006400,#00
 Cork Hibernians,,,,
 Correggese Calcio 1948,https://tmssl.akamaized.net/images/wappen/head/38561.png,,,transfermarkt
 Corte,,#000000,#c60000,espn
+Corum,,,,
 Coruxo,https://tmssl.akamaized.net/images/wappen/head/13227.png,#000000,#000000,transfermarkt
 Cosenza,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8683.png,#000066,#990000,espn
 Covadonga,https://tmssl.akamaized.net/images/wappen/head/25483.png,#000000,#c60000,transfermarkt
 Coventry City,https://a.espncdn.com/i/teamlogos/soccer/500/388.png,#87cced,#ffffff,espn
 Coventry Sporting,,,,
+Cowdenbeath,,,,
 Crawley Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2594.png,#c8142f,#ffffff,espn
 Cray Valley Paper Mills,https://tmssl.akamaized.net/images/wappen/head/46889.png,#000000,#c60000,transfermarkt
 Creteil,,#000000,#c60000,espn
 Crewe Alexandra,https://a.espncdn.com/i/teamlogos/soccer/500/396.png,#c8142f,#fecd32,espn
 Cristo Atletico,https://tmssl.akamaized.net/images/wappen/head/35935.png,#000000,#c60000,transfermarkt
 Crook Town,,,,
+Crossing Schaerbeek,,,,
 Croydon,,,,
 Crusaders,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7599.png,#000000,#000000,espn
 Crvena Zvezda,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2290.png,#ff0000,#0000dd,espn
 Crystal Palace,https://a.espncdn.com/i/teamlogos/soccer/500-dark/384.png,#0202fb,#000000,espn
+Csepel SC,,,,
 Cukaricki Belgrade,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8287.png,#000000,#000000,espn
 Curzon Ashton,https://tmssl.akamaized.net/images/wappen/head/13556.png,#000000,#c60000,transfermarkt
+Cwmbran Town,,,,
 D.F.C.,,,,
 D.H.C.,,,,
 D.H.C. '66,,,,
@@ -620,8 +681,11 @@ DWS Amsterdam,,,,
 Dagenham,,,,
 Dagenham & Redbridge,,,,
 Dagenham and Redbridge,https://a.espncdn.com/i/teamlogos/soccer/500/275.png,#ffffff,#303090,espn+crest2
+Dardanelspor,,,,
+Daring Club,,,,
 Darlington,https://tmssl.akamaized.net/images/wappen/head/37486.png,#1a1a1a,#f05030,transfermarkt+crest2
 Dartford,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4236.png,#000000,#4679e6,espn
+Daugava Rīga,https://tmssl.akamaized.net/images/wappen/head/6181.png,,,transfermarkt
 Daventry Town,https://tmssl.akamaized.net/images/wappen/head/42165.png,,,transfermarkt
 De Graafschap,https://a.espncdn.com/i/teamlogos/soccer/500-dark/144.png,#0000d4,#307b64,espn
 De Meern,https://tmssl.akamaized.net/images/wappen/head/22703.png,#000000,#c60000,transfermarkt
@@ -631,18 +695,21 @@ De Volvic,,#000000,#c60000,espn
 Debreceni VSC,https://tmssl.akamaized.net/images/wappen/head/84.png,#ff0d01,#000000,transfermarkt
 Degerfors,,,,
 Denaby United,,,,
-Denizlispor,,,,
+Dender,https://tmssl.akamaized.net/images/wappen/head/9010.png,#101010,#b0b0b0,transfermarkt+crest
+Denizlispor,https://tmssl.akamaized.net/images/wappen/head/833.png,#101010,#109030,transfermarkt+crest
 Dep. Aragón,,,,
-Deportivo Alavés,,,,
 Deportivo La Coruna,https://a.espncdn.com/i/teamlogos/soccer/500-dark/90.png,#3366cc,#000000,espn
 Deportivo Murcia,https://tmssl.akamaized.net/images/wappen/head/112753.png,#000000,#c60000,transfermarkt
 Derby County,https://a.espncdn.com/i/teamlogos/soccer/500-dark/374.png,#ffffff,#b09030,espn+crest2
 Derry City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2712.png,#ff0000,#ff0000,espn
 Desna Chernihiv,https://tmssl.akamaized.net/images/wappen/head/16239.png,#000000,#c60000,transfermarkt
+Diagoras,,,,
 Didcot Town,https://tmssl.akamaized.net/images/wappen/head/22595.png,,,transfermarkt
 Dieppe,,#000000,#c60000,espn
+Diest,,,,
 Dijon FCO,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3170.png,#ef2f24,#ffffff,espn
 Dila Gori,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8284.png,#c60000,#000000,espn
+Dinaburg,,,,
 Dinamo Batumi,https://tmssl.akamaized.net/images/wappen/head/11344.png,#000000,#c60000,transfermarkt
 Dinamo Bucuresti,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2496.png,#ff1626,#c60000,espn
 Dinamo Kiev,https://a.espncdn.com/i/teamlogos/soccer/500-dark/440.png,#ffffff,#0000bf,espn
@@ -653,6 +720,7 @@ Dinamo Tirana,,,,
 Dinamo Zagreb,https://a.espncdn.com/i/teamlogos/soccer/500-dark/597.png,#0000bb,#ccff00,espn
 Dinan Lehon,,#000000,#c60000,espn
 Diocesano,https://tmssl.akamaized.net/images/wappen/head/41230.png,#000000,#c60000,transfermarkt
+Diyarbakırspor,,,,
 Diósgyőr,https://tmssl.akamaized.net/images/wappen/head/9241.png,,,transfermarkt
 Djurgardens IF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2339.png,#64a6e1,#ffffff,espn
 Dnepr Dnepropetrovsk,https://tmssl.akamaized.net/images/wappen/head/339.png,,,transfermarkt
@@ -664,6 +732,7 @@ Dorchester Town,https://tmssl.akamaized.net/images/wappen/head/3824.png,,,transf
 Dorking,,,,
 Dover,,,,
 Dover Athletic,https://a.espncdn.com/i/teamlogos/soccer/500/293.png,#ffffff,#ffd700,espn
+Doxa Drama,,,,
 Drancy,,#000000,#c60000,espn
 Drechtsteden '79,,,,
 Drita Gjilan,https://a.espncdn.com/i/teamlogos/soccer/500-dark/19243.png,#000000,#c60000,espn
@@ -673,20 +742,24 @@ Droylsden,,,,
 Drumcondra Dublin,,,,
 Drumcondra FC,,,,
 Dudley Town,,,,
+Duisburger SpV,,,,
 Dukla Banská Bystrica,,,,
 Dukla Praha,,,,
 Dulwich Hamlet,https://tmssl.akamaized.net/images/wappen/head/6169.png,#d9abd4,#ffffff,transfermarkt
+Dumbarton,,,,
 Dumiense,,#000000,#c60000,espn
 Dunaferr,,,,
 Dunajska Streda,https://tmssl.akamaized.net/images/wappen/head/4529.png,#000000,#c60000,transfermarkt
 Dunakanyar-Vac,,,,
+Dunaujvaros,,,,
 Dunav Ruse,https://tmssl.akamaized.net/images/wappen/head/19780.png,#000000,#c60000,transfermarkt
 Dundalk,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2559.png,#ffffff,#000000,espn
-Dundee,,,,
+Dundee,https://tmssl.akamaized.net/images/wappen/head/511.png,#103050,#305070,transfermarkt+crest
 Dundee United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/264.png,#ff621a,#009f00,espn
-Dunfermline,,,,
+Dunfermline Athletic,,,,
 Dunkerque,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7732.png,#005a9c,#000000,espn
 Durham City,,,,
+Dynamo Brest,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7833.png,#000000,#000000,espn
 Dynamo Dresden,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7017.png,#f2a71d,#962807,espn
 E.B.O.H.,,,,
 E.D.O.,,,,
@@ -703,12 +776,15 @@ ESTAC Troyes,https://a.espncdn.com/i/teamlogos/soccer/500-dark/170.png,#0000bf,#
 ESV Ingolstadt,,,,
 EVV Echt,https://tmssl.akamaized.net/images/wappen/head/8994.png,#000000,#000000,transfermarkt
 Easington Colliery Welfare,,,,
+East Fife,,,,
+East Stirlingshire,,,,
 East Thurrock United,https://tmssl.akamaized.net/images/wappen/head/34461.png,,,transfermarkt
 Eastbourne Borough,https://tmssl.akamaized.net/images/wappen/head/3713.png,#c8142f,#f1ef00,transfermarkt
 Eastleigh,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3897.png,#0000ff,#e1e1e1,espn
 Eastwood Town,,,,
 Ebbsfleet United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/640.png,#c8142f,#0000ff,espn
 Ecija,https://tmssl.akamaized.net/images/wappen/head/4050.png,#105090,#101010,transfermarkt+crest
+Edessaikos,,,,
 Eemdijk,https://tmssl.akamaized.net/images/wappen/head/44455.png,#000000,#c60000,transfermarkt
 Eendracht Aalst,,,,
 Egaleo,,,,
@@ -723,8 +799,11 @@ Ejea,https://tmssl.akamaized.net/images/wappen/head/18693.png,#000000,#c60000,tr
 El Ejido,https://tmssl.akamaized.net/images/wappen/head/53283.png,#000000,#c60000,transfermarkt
 El Palmar,https://tmssl.akamaized.net/images/wappen/head/54633.png,#000000,#c60000,transfermarkt
 El Álamo,https://tmssl.akamaized.net/images/wappen/head/47051.png,#000000,#c60000,transfermarkt
+Elazigspor,https://tmssl.akamaized.net/images/wappen/head/2292.png,#d01010,#903030,transfermarkt+crest
 Elche CF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3751.png,#288a00,#4b2b67,espn
 Eldense,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7320.png,#000000,#f01010,espn+crest2
+Electroputere Craiova,,,,
+Eleysina,,,,
 Elfsborg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/529.png,#ffef32,#ff0900,espn
 Ellesmere Port Town,,,,
 Ely City,,,,
@@ -739,10 +818,13 @@ Ensidesa,,,,
 Entente SSG,,#000000,#c60000,espn
 Epernay,,#000000,#c60000,espn
 Epinal,,#000000,#c60000,espn
+Ergotelis,https://tmssl.akamaized.net/images/wappen/head/5220.png,#f0f010,#101010,transfermarkt+crest
 Erzgebirge Aue,https://a.espncdn.com/i/teamlogos/soccer/500/3849.png,#5d2c7a,#fbf9fc,espn
+Erzurum,https://tmssl.akamaized.net/images/wappen/head/39722.png,#1090d0,#101010,transfermarkt+crest
+Erzurumspor,,,,
 Esbjerg fB,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12504.png,#000000,#c60000,espn
 Escobedo,https://tmssl.akamaized.net/images/wappen/head/41444.png,#000000,#c60000,transfermarkt
-Eskişehirspor,https://tmssl.akamaized.net/images/wappen/head/825.png,,,transfermarkt
+Eskişehirspor,https://tmssl.akamaized.net/images/wappen/head/825.png,#f0f010,#101010,transfermarkt+crest
 Espaly,,#000000,#c60000,espn
 Espanyol Barcelona,https://a.espncdn.com/i/teamlogos/soccer/500-dark/88.png,#3366cc,#c8142f,espn
 España Tánger,,,,
@@ -752,6 +834,9 @@ Estrela da Amadora,https://a.espncdn.com/i/teamlogos/soccer/500-dark/21610.png,#
 Etar,,,,
 Etar Tarnovo,,,,
 Ethnikos Achna,,,,
+Ethnikos Asteras,,,,
+Ethnikos Piraeus,,,,
+Eupen,https://tmssl.akamaized.net/images/wappen/head/1245.png,#101010,#909090,transfermarkt+crest
 Europa,https://tmssl.akamaized.net/images/wappen/head/20528.png,#000000,#103090,transfermarkt+crest2
 Evenwood Town,,,,
 Everton,https://a.espncdn.com/i/teamlogos/soccer/500-dark/368.png,#0606fa,#ffffff,espn
@@ -762,6 +847,7 @@ Excelsior '31,https://tmssl.akamaized.net/images/wappen/head/9663.png,#c60000,#0
 Excelsior Maassluis,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10618.png,#0000ff,#ffffff,espn
 Exeter City,https://a.espncdn.com/i/teamlogos/soccer/500/324.png,#c8142f,#87ceeb,espn
 Extremadura UD,https://a.espncdn.com/i/teamlogos/soccer/500-dark/16741.png,#000000,#303070,espn+crest2
+Eyupspor,https://tmssl.akamaized.net/images/wappen/head/7160.png,#503090,#f0b010,transfermarkt+crest
 F. Andria,,,,
 F.K. Bodø/Glimt,,,,
 F91 Dudelange,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2512.png,#00c0ff,#ffff00,espn
@@ -779,6 +865,7 @@ FC Baia Mare,,,,
 FC Bastia-Borgo,,#000000,#c60000,espn
 FC Bayern Hof,,,,
 FC Bourgoin-Jallieu,,#800000,#cfecf7,espn
+FC Brussels,,,,
 FC Carl Zeiss Jena,https://a.espncdn.com/i/teamlogos/soccer/500-dark/9865.png,#000000,#f0b010,espn+crest2
 FC Challans,,#000000,#c60000,espn
 FC Chartres,,#000000,#c60000,espn
@@ -793,17 +880,21 @@ FC Fleury 91,,#000000,#c60000,espn
 FC Francavilla,https://tmssl.akamaized.net/images/wappen/head/27657.png,#000000,#c60000,transfermarkt
 FC Groningen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/145.png,#ffffff,#109070,espn+crest2
 FC Gueugnon,,,,
+FC Guichen,,#000000,#c60000,espn
 FC Gutersloh,https://tmssl.akamaized.net/images/wappen/head/220.png,#000000,#103070,transfermarkt+crest2
 FC Hanau 93,,,,
 FC Hennef 05,https://tmssl.akamaized.net/images/wappen/head/15171.png,,,transfermarkt
 FC Honka,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4495.png,#000000,#c60000,espn
+FC Hradec Králové,,#000000,#c60000,espn
 FC Ilves,https://tmssl.akamaized.net/images/wappen/head/3189.png,#000000,#c60000,transfermarkt
 FC Ingolstadt 04,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6367.png,#e62a2a,#1a1a1a,espn
 FC Istres,,#452bb3,#c60000,espn
 FC Jazz,,,,
 FC Karl-Marx-Stadt,,,,
+FC Kolos Kovalivka,https://tmssl.akamaized.net/images/wappen/head/48332.png,#000000,#c60000,transfermarkt
 FC Kuusysi,,,,
 FC La Chaux-de-Fonds,,,,
+FC Lantana,,,,
 FC Lienden,https://tmssl.akamaized.net/images/wappen/head/11055.png,#000000,#c60000,transfermarkt
 FC Limonest,,#000000,#c60000,espn
 FC Lisse,https://tmssl.akamaized.net/images/wappen/head/2821.png,#000000,#000000,transfermarkt
@@ -818,6 +909,7 @@ FC Mulhouse,,#000000,#c60000,espn
 FC Noah,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20712.png,#000000,#ffffff,espn
 FC Oberneuland,https://tmssl.akamaized.net/images/wappen/head/115.png,#000000,#c60000,transfermarkt
 FC Olexandriya,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18333.png,#ffd100,#ffffff,espn
+FC Olimpik Donetsk,https://tmssl.akamaized.net/images/wappen/head/23611.png,#000000,#c60000,transfermarkt
 FC Pavia 1911,https://tmssl.akamaized.net/images/wappen/head/5174.png,,,transfermarkt
 FC Politehnica Timisoara,,,,
 FC Porto,https://a.espncdn.com/i/teamlogos/soccer/500-dark/437.png,#0000dd,#ffa000,espn
@@ -829,10 +921,13 @@ FC Rouen,,#000000,#000000,espn
 FC Santa Coloma,https://a.espncdn.com/i/teamlogos/soccer/500-dark/542.png,#000000,#c60000,espn
 FC Schönberg 95,https://tmssl.akamaized.net/images/wappen/head/546.png,,,transfermarkt
 FC Sete,,#000000,#ef2f24,espn
+FC Slavia Mozyr,,,,
 FC Sochaux,https://a.espncdn.com/i/teamlogos/soccer/500-dark/272.png,#ffff00,#000040,espn
 FC St. Pauli,https://a.espncdn.com/i/teamlogos/soccer/500-dark/270.png,#442e23,#ffffff,espn
 FC Still 1930,,#000000,#c60000,espn
+FC Tiraspol,https://tmssl.akamaized.net/images/wappen/head/13278.png,,,transfermarkt
 FC Tirol,,,,
+FC Ufa,https://a.espncdn.com/i/teamlogos/soccer/500/17368.png,#db170c,#eaeaea,espn
 FC Universitatea Craiova,https://a.espncdn.com/i/teamlogos/soccer/500/8089.png,#000000,#c60000,espn
 FC Utrecht,https://a.espncdn.com/i/teamlogos/soccer/500-dark/153.png,#f31522,#1a316b,espn
 FC Vaduz,https://a.espncdn.com/i/teamlogos/soccer/500-dark/562.png,#ff0900,#000099,espn
@@ -844,10 +939,12 @@ FC Wageningen,,,,
 FC Xerxes,,,,
 FC Zaanstreek,,,,
 FC Zurich,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3019.png,#5ba5e2,#0b1433,espn
+FCI Tallinn,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12339.png,#000000,#c60000,espn
 FCSR Haguenau,,#000000,#c60000,espn
 FH,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2935.png,#000000,#000000,espn
 FHK Liepājas Metalurgs,,,,
 FK Astra Giurgiu,https://a.espncdn.com/i/teamlogos/soccer/500/17537.png,#000000,#c60000,espn
+FK Ekranas,https://tmssl.akamaized.net/images/wappen/head/3850.png,,,transfermarkt
 FK Inter Bratislava,,,,
 FK Kukesi,https://a.espncdn.com/i/teamlogos/soccer/500-dark/15713.png,#000000,#c60000,espn
 FK Obilic,,,,
@@ -856,8 +953,10 @@ FK Pirmasens,https://tmssl.akamaized.net/images/wappen/head/726.png,#305070,#b0b
 FK Pobeda,,,,
 FK Qabala,https://tmssl.akamaized.net/images/wappen/head/22010.png,#000000,#c60000,transfermarkt
 FK Red Star,,,,
+FK Rudar Pljevlja,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7823.png,#000000,#000000,espn
 FK Sarajevo,https://a.espncdn.com/i/teamlogos/soccer/500-dark/551.png,#000000,#000000,espn
 FK Sileks,https://tmssl.akamaized.net/images/wappen/head/535.png,#000000,#000000,transfermarkt
+FK Suduva,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2552.png,#ff0000,#000000,espn
 FK TSC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20713.png,#000066,#ffffff,espn
 FK Vllaznia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2716.png,#c60000,#000000,espn
 FK Zalgiris Vilnius,https://a.espncdn.com/i/teamlogos/soccer/500-dark/523.png,#000000,#000000,espn
@@ -874,6 +973,7 @@ FV Engers 07,https://tmssl.akamaized.net/images/wappen/head/2085.png,#000000,#c6
 FV Illertissen,https://tmssl.akamaized.net/images/wappen/head/1468.png,#000000,#c60000,transfermarkt
 FV Ravensburg,https://tmssl.akamaized.net/images/wappen/head/10780.png,#000000,#c60000,transfermarkt
 FV Wurzburg 04,,,,
+Falkirk,https://tmssl.akamaized.net/images/wappen/head/1191.png,#301030,#505050,transfermarkt+crest
 Falmouth Town,,,,
 Famalicao,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12698.png,#ffffff,#f0d010,espn+crest2
 Fanfulla,https://tmssl.akamaized.net/images/wappen/head/54575.png,#000000,#c60000,transfermarkt
@@ -891,20 +991,24 @@ Felgueiras 1932,,#000000,#c60000,espn
 Fenerbahce,https://a.espncdn.com/i/teamlogos/soccer/500/436.png,#ffff00,#ffffff,espn
 FeralpiSalo,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11140.png,#000000,#105070,espn+crest2
 Ferencvaros,https://a.espncdn.com/i/teamlogos/soccer/500-dark/622.png,#239b56,#000000,espn
+Feriköy,,,,
 Fermana,https://tmssl.akamaized.net/images/wappen/head/4033.png,#f0f070,#b01030,transfermarkt+crest
 Ferrol,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8448.png,#b01030,#507050,espn+crest
 Feyenoord,https://a.espncdn.com/i/teamlogos/soccer/500-dark/142.png,#ef2f24,#000000,espn
 Fidelis Andria,https://tmssl.akamaized.net/images/wappen/head/4085.png,,,transfermarkt
 Figueres,,,,
 Finn Harps,,,,
+First Vienna,,,,
 Fisher Athletic,,,,
 Flacăra Moreni,,,,
 Flamurtari,https://tmssl.akamaized.net/images/wappen/head/12460.png,,,transfermarkt
+Flamurtari Vlorë,,,,
 Fleetwood Town,https://a.espncdn.com/i/teamlogos/soccer/500/3891.png,#c8142f,#ffff00,espn
 Flevo Boys,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7053.png,#000000,#c60000,espn
 Flora Tallinn,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12146.png,#34a66d,#a9aaa9,espn
 Florgrade,,#000000,#c60000,espn
 Floriana,https://tmssl.akamaized.net/images/wappen/head/10603.png,#3bc705,#f5f126,transfermarkt
+Fola Esch,https://tmssl.akamaized.net/images/wappen/head/11976.png,#000000,#c60000,transfermarkt
 Foligno Calcio,https://tmssl.akamaized.net/images/wappen/head/11337.png,,,transfermarkt
 Folkestone,,,,
 Fontenay Foot,,#000000,#c60000,espn
@@ -916,6 +1020,7 @@ Fortuna Dusseldorf,https://a.espncdn.com/i/teamlogos/soccer/500-dark/9707.png,#f
 Fortuna Koln,https://tmssl.akamaized.net/images/wappen/head/92.png,#f01010,#f05050,transfermarkt+crest
 Fortuna Sittard,https://a.espncdn.com/i/teamlogos/soccer/500-dark/143.png,#fcee33,#ffffff,espn
 Fortuna Vlrd.,,,,
+Fostiras,,,,
 Fram Reykjavik,https://tmssl.akamaized.net/images/wappen/head/3832.png,,,transfermarkt
 Frattese,https://tmssl.akamaized.net/images/wappen/head/39989.png,#000000,#c60000,transfermarkt
 Fredrikstad FK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3039.png,#000000,#000000,espn
@@ -933,6 +1038,7 @@ GC Alcobaça,,,,
 GD CUF,,,,
 GD Riopele,,,,
 GFC Ajaccio,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7707.png,#e91514,#96bfdb,espn
+GI Gota,,,,
 GKS Katowice,,#000000,#c60000,espn
 GOAL FC,,#000000,#c60000,espn
 GSD RapalloBogliasco,https://tmssl.akamaized.net/images/wappen/head/34649.png,,,transfermarkt
@@ -947,16 +1053,17 @@ Gandzasar,https://tmssl.akamaized.net/images/wappen/head/23911.png,,,transfermar
 Gateshead,https://a.espncdn.com/i/teamlogos/soccer/500/3138.png,#ffffff,#000000,espn+crest2
 Gateshead United,,,,
 Gaz Metan Mediaș,,,,
-Gaziantepspor,,,,
+Gaziantep FK,https://tmssl.akamaized.net/images/wappen/head/2832.png,#101010,#f01030,transfermarkt+crest
+Gaziantepspor,https://tmssl.akamaized.net/images/wappen/head/524.png,#f01010,#101010,transfermarkt+crest
+Geel,,,,
 Gelbison,https://tmssl.akamaized.net/images/wappen/head/30326.png,#000000,#c60000,transfermarkt
 Gemert,https://tmssl.akamaized.net/images/wappen/head/18154.png,#000000,#c60000,transfermarkt
-Genoa,,,,
+Genk,https://a.espncdn.com/i/teamlogos/soccer/500-dark/938.png,#0000ff,#cccccc,espn
 Genoa CFC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3263.png,#08305d,#ffffff,espn
 Gent,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3611.png,#0000ff,#ffffff,espn
-Gençlerbirliği,,,,
+Gençlerbirliği,https://tmssl.akamaized.net/images/wappen/head/820.png,#101010,#f01010,transfermarkt+crest
 Germania Halberstadt,https://tmssl.akamaized.net/images/wappen/head/364.png,#000000,#c60000,transfermarkt
-Germinal Beerschot,,,,
-Germinal Ekeren,,,,
+Germinal,https://tmssl.akamaized.net/images/wappen/head/566.png,#301050,#503070,transfermarkt+crest
 Gernika Club,https://tmssl.akamaized.net/images/wappen/head/11590.png,#000000,#000000,transfermarkt
 Getafe CF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2922.png,#0000ff,#7f1734,espn
 Getxo,https://tmssl.akamaized.net/images/wappen/head/29739.png,#000000,#c60000,transfermarkt
@@ -966,8 +1073,11 @@ Gillingham,https://a.espncdn.com/i/teamlogos/soccer/500/389.png,#000099,#c60000,
 Gimn. Torrelavega,https://tmssl.akamaized.net/images/wappen/head/12588.png,#000000,#d03010,transfermarkt+crest2
 Gimnastic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4492.png,#ef2000,#000000,espn
 Gimnastica Segoviana,https://tmssl.akamaized.net/images/wappen/head/33306.png,#000000,#000000,transfermarkt
+Giresunspor,https://tmssl.akamaized.net/images/wappen/head/11688.png,#105050,#509070,transfermarkt+crest
 Girona,https://a.espncdn.com/i/teamlogos/soccer/500-dark/9812.png,#c60000,#004996,espn
 Girondins Bordeaux,https://a.espncdn.com/i/teamlogos/soccer/500-dark/159.png,#011f68,#ffffff,espn
+Gjilani,https://tmssl.akamaized.net/images/wappen/head/29053.png,#000000,#c60000,transfermarkt
+Gjøvik-Lyn,,,,
 Glenavon FC,https://tmssl.akamaized.net/images/wappen/head/3463.png,#000000,#000000,transfermarkt
 Glentoran,https://a.espncdn.com/i/teamlogos/soccer/500-dark/571.png,#000000,#000000,espn
 Gloria Bistrița,,,,
@@ -996,6 +1106,7 @@ Greifswalder SC,https://tmssl.akamaized.net/images/wappen/head/48991.png,#000000
 Grenoble Foot 38,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6994.png,#005da3,#000000,espn
 Gresley Rovers,,,,
 Gretna,,,,
+Grevenmacher,https://tmssl.akamaized.net/images/wappen/head/2230.png,,,transfermarkt
 Grimsby Town,https://a.espncdn.com/i/teamlogos/soccer/500/386.png,#1a1a1a,#903030,espn+crest2
 Groclin,,,,
 Grosseto,https://tmssl.akamaized.net/images/wappen/head/4333.png,#f01030,#d0b070,transfermarkt+crest
@@ -1008,8 +1119,10 @@ Guisborough Town,,,,
 Guiseley AFC,https://a.espncdn.com/i/teamlogos/soccer/500/2588.png,#000000,#000000,espn
 Gwardia Warszawa,,,,
 Gyori ETO,https://tmssl.akamaized.net/images/wappen/head/6055.png,#000000,#c60000,transfermarkt
-Göztepe,,,,
+Göztepe,https://tmssl.akamaized.net/images/wappen/head/1467.png,#d01010,#f0d010,transfermarkt+crest
 H.V.C.,,,,
+HB,https://a.espncdn.com/i/teamlogos/soccer/500-dark/566.png,#000000,#c60000,espn
+HB Koge,,,,
 HBS Craeyenhout,https://tmssl.akamaized.net/images/wappen/head/19231.png,,,transfermarkt
 HEBC Hamburg,,#000000,#c60000,espn
 HFC Haarlem,,,,
@@ -1025,6 +1138,8 @@ HSV Hoek,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18836.png,#000000,#c6
 HV & CV Quick,https://tmssl.akamaized.net/images/wappen/head/27088.png,#000000,#c60000,transfermarkt
 HVV Hollandia,https://tmssl.akamaized.net/images/wappen/head/18673.png,#000000,#000000,transfermarkt
 HVV Te Werve,https://tmssl.akamaized.net/images/wappen/head/54613.png,#000000,#c60000,transfermarkt
+Hacettepe,,,,
+Hacettepespor,,,,
 Hajduk Split,https://a.espncdn.com/i/teamlogos/soccer/500-dark/489.png,#000000,#000000,espn
 Haka Valkeakoski,,,,
 Halesowen Town,,,,
@@ -1032,6 +1147,7 @@ Halifax Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/312.png,#0000ff,#
 Hallescher FC,https://tmssl.akamaized.net/images/wappen/head/440.png,#1a1a1a,#f01010,transfermarkt+crest2
 Halmstads BK,,,,
 Hamburger SV,https://a.espncdn.com/i/teamlogos/soccer/500-dark/127.png,#1a26af,#1a1a1a,espn
+Hamilton Academical,https://tmssl.akamaized.net/images/wappen/head/2999.png,#d03030,#d07070,transfermarkt+crest
 Hammarby,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2495.png,#ffcc00,#007a43,espn
 Hampton & Richmond,https://tmssl.akamaized.net/images/wappen/head/8820.png,#000000,#000000,transfermarkt
 Hamrun Spartans,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7858.png,#c60000,#000000,espn
@@ -1045,6 +1161,7 @@ Hapoel Petah Tikva,,,,
 Hapoel Ramat Gan,https://tmssl.akamaized.net/images/wappen/head/2785.png,,,transfermarkt
 Hapoel Tel Aviv,https://tmssl.akamaized.net/images/wappen/head/1017.png,#000000,#000000,transfermarkt
 Harborough Town,https://tmssl.akamaized.net/images/wappen/head/87938.png,#000000,#c60000,transfermarkt
+Harelbeke,,,,
 Haringey Borough,https://tmssl.akamaized.net/images/wappen/head/46061.png,#000000,#c60000,transfermarkt
 Harkemase Boys,https://tmssl.akamaized.net/images/wappen/head/7408.png,#000000,#c60000,transfermarkt
 Harlow Town,,,,
@@ -1054,7 +1171,9 @@ Harrogate Town A.F.C.,https://a.espncdn.com/i/teamlogos/soccer/500-dark/19262.pn
 Harrow Borough,https://tmssl.akamaized.net/images/wappen/head/11438.png,#c8142f,#ffff00,transfermarkt
 Hartlepool United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/323.png,#0000ff,#1a1a1a,espn
 Harwich & Parkeston,,,,
+Hasselt,,,,
 Hastings United,https://tmssl.akamaized.net/images/wappen/head/8141.png,,,transfermarkt
+Hatayspor,https://tmssl.akamaized.net/images/wappen/head/7775.png,#701010,#109030,transfermarkt+crest
 Haugar,,,,
 Haugesund,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3327.png,#000000,#000000,espn
 Hauts Lyonnais,,#000000,#c60000,espn
@@ -1062,7 +1181,8 @@ Havant & Waterlooville,https://tmssl.akamaized.net/images/wappen/head/2794.png,#
 Hayes,,,,
 Hayes & Yeading,https://tmssl.akamaized.net/images/wappen/head/6908.png,#1a1a1a,#c60000,transfermarkt
 Heanor Town,,,,
-Heart of Midlothian,https://a.espncdn.com/i/teamlogos/soccer/500-dark/262.png,#8e003b,#ead6b7,espn
+Heart of Midlothian,,,,
+Hearts,https://a.espncdn.com/i/teamlogos/soccer/500-dark/262.png,#8e003b,#ead6b7,espn
 Hednesford Town,https://tmssl.akamaized.net/images/wappen/head/3724.png,,,transfermarkt
 Hellas Verona,https://a.espncdn.com/i/teamlogos/soccer/500-dark/119.png,#00239c,#ffffff,espn
 Helmond Sport,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3775.png,#c60000,#091453,espn
@@ -1078,8 +1198,10 @@ Hermes D.V.S.,,,,
 Hernán Cortés,https://tmssl.akamaized.net/images/wappen/head/92096.png,#000000,#c60000,transfermarkt
 Hertha BSC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/129.png,#0000dd,#091453,espn
 Hessen Kassel,https://tmssl.akamaized.net/images/wappen/head/373.png,#d01030,#f05070,transfermarkt+crest
+Heusden Zolder,,,,
 Heybridge Swifts,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2583.png,#000000,#c60000,espn
-Hibernian FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/258.png,#009f00,#ffffff,espn
+Hibernian,https://a.espncdn.com/i/teamlogos/soccer/500-dark/258.png,#009f00,#ffffff,espn
+Hibernian FC,,,,
 Hibernians,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2499.png,#fdf900,#ffffff,espn
 Hillingdon Borough,,,,
 Hilversum,,,,
@@ -1128,14 +1250,18 @@ Imolese,https://tmssl.akamaized.net/images/wappen/head/4324.png,,,transfermarkt
 Imortal,,#000000,#c60000,espn
 Indauchu,,,,
 Inter Baku,https://tmssl.akamaized.net/images/wappen/head/8956.png,#000000,#000000,transfermarkt
+Inter CableTel AFC,,,,
+Inter D'Escaldes,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20703.png,#000000,#c60000,espn
 Inter Turku,https://tmssl.akamaized.net/images/wappen/head/8042.png,#000000,#000000,transfermarkt
 Inter de Valdemoro,https://tmssl.akamaized.net/images/wappen/head/122524.png,#000000,#c60000,transfermarkt
 Interblock Ljubljana,,,,
 Internacional de Madrid,https://tmssl.akamaized.net/images/wappen/head/50260.png,#000000,#c60000,transfermarkt
 Internazionale,https://a.espncdn.com/i/teamlogos/soccer/500-dark/110.png,#00239c,#ffffff,espn
-Ionikos,,,,
+Inverness CT,https://tmssl.akamaized.net/images/wappen/head/2451.png,#101010,#f0f0f0,transfermarkt+crest
+Ionikos,https://tmssl.akamaized.net/images/wappen/head/553.png,#303070,#505090,transfermarkt+crest
 Ipswich Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/373.png,#0000fa,#f5f2dc,espn
-Iraklis,,,,
+Iraklis,https://tmssl.akamaized.net/images/wappen/head/47.png,#103070,#507090,transfermarkt+crest
+Irtysh Pavlodar,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2695.png,#000000,#000000,espn
 Istanbul Basaksehir,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7914.png,#ff6600,#091453,espn
 JOS Watergraafsmeer,https://tmssl.akamaized.net/images/wappen/head/7534.png,#000000,#000000,transfermarkt
 JS Saint-Pierroise,,#000000,#c60000,espn
@@ -1147,6 +1273,7 @@ Jeanne d'Arc Biarritz,,#000000,#c60000,espn
 Jerez Industrial,,,,
 Jeunesse Esch,https://tmssl.akamaized.net/images/wappen/head/1257.png,#000000,#000000,transfermarkt
 Jeunesse Hautcharage,,,,
+Jiul Petroşani,,,,
 Jodan Boys,https://tmssl.akamaized.net/images/wappen/head/36678.png,#000000,#c60000,transfermarkt
 Jong AZ,,,,
 Jong Ajax,,,,
@@ -1161,36 +1288,54 @@ Juventud Torremolinos,https://tmssl.akamaized.net/images/wappen/head/43454.png,#
 Juventude Lajense,,#000000,#c60000,espn
 Juventus,https://a.espncdn.com/i/teamlogos/soccer/500-dark/111.png,#000000,#ffffff,espn+crest2
 K.F.C.,,,,
+K.R.C. Mechelen,,,,
+KA Akureyri,https://tmssl.akamaized.net/images/wappen/head/1839.png,#000000,#c60000,transfermarkt
 KB Kobenhavn,,,,
+KF Laci,https://tmssl.akamaized.net/images/wappen/head/22140.png,#000000,#c60000,transfermarkt
+KF Malisheva,https://tmssl.akamaized.net/images/wappen/head/80996.png,#000000,#c60000,transfermarkt
 KF Tirana,https://a.espncdn.com/i/teamlogos/soccer/500-dark/526.png,#000000,#c60000,espn
 KFC Uerdingen 05,https://tmssl.akamaized.net/images/wappen/head/95.png,#f01010,#1090f0,transfermarkt+crest
 KI Klaksvik,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2547.png,#000000,#c60000,espn
+KPT Kuopio,,,,
 KPV Kokkola,,,,
 KR Reykjavik,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2694.png,#000000,#ffffff,espn
-KRC Genk,https://a.espncdn.com/i/teamlogos/soccer/500-dark/938.png,#0000ff,#cccccc,espn
+KRC Genk,,,,
+KS Flamurtari Vlore,,,,
 KS Teuta,https://tmssl.akamaized.net/images/wappen/head/3739.png,#000000,#c60000,transfermarkt
-KSK Beveren,,,,
 KSV Baunatal,https://tmssl.akamaized.net/images/wappen/head/1315.png,#f01010,#101010,transfermarkt+crest
 KTP,,,,
-KV Mechelen,,,,
+KV Mechelen,https://tmssl.akamaized.net/images/wappen/head/354.png,#f0b050,#f03010,transfermarkt+crest
 KV Oostende,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3612.png,#f2ff00,#ff0000,espn
 Kaan Marie,https://tmssl.akamaized.net/images/wappen/head/10226.png,#000000,#c60000,transfermarkt
+Kahramanmaraşspor,,,,
 Kairat,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2528.png,#fcee33,#81c0ff,espn
+Kaisar,https://tmssl.akamaized.net/images/wappen/head/19294.png,#000000,#c60000,transfermarkt
 Kaiserslautern,https://a.espncdn.com/i/teamlogos/soccer/500-dark/130.png,#8c273d,#1a1a1a,espn
+Kalamaria,,,,
+Kalamata,,,,
+Kallithea,https://tmssl.akamaized.net/images/wappen/head/3062.png,#b0b050,,transfermarkt+crest
+Kallonis,https://tmssl.akamaized.net/images/wappen/head/28956.png,#305090,#b01070,transfermarkt+crest
 Kalmar FF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3052.png,#db1b30,#c6870f,espn
 Kamen Ingrad,,,,
+Kapaz,https://tmssl.akamaized.net/images/wappen/head/7090.png,#000000,#c60000,transfermarkt
 Karabakh,,,,
-Karabükspor,https://tmssl.akamaized.net/images/wappen/head/1506.png,,,transfermarkt
-Karlsruhe,,,,
+Karabükspor,https://tmssl.akamaized.net/images/wappen/head/1506.png,#f03010,#305090,transfermarkt+crest
+Karagumruk SK,https://tmssl.akamaized.net/images/wappen/head/6646.png,#101010,#f03030,transfermarkt+crest
 Karlsruher SC,https://a.espncdn.com/i/teamlogos/soccer/500/4471.png,#2563b8,#2563b8,espn
 Karpaty Lviv,,,,
+Karsiyaka,,,,
+Kastoria,,,,
+Kasımpaşa,https://tmssl.akamaized.net/images/wappen/head/10484.png,#103070,#d01010,transfermarkt+crest
 Kauno Zalgiris,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20028.png,#000000,#c60000,espn
-Kayseri Erciyesspor,,,,
-Kayserispor,,,,
+Kavala,,,,
+Kayseri Erciyesspor,https://tmssl.akamaized.net/images/wappen/head/6894.png,#101010,#1070b0,transfermarkt+crest
+Kayserispor,https://tmssl.akamaized.net/images/wappen/head/3205.png,#b01030,#f0b010,transfermarkt+crest
 Keflavik ÍF,,,,
+Kerkyra,https://tmssl.akamaized.net/images/wappen/head/5219.png,#305090,#901030,transfermarkt+crest
 Kettering Town,https://tmssl.akamaized.net/images/wappen/head/3825.png,#c8142f,#000000,transfermarkt
 Kickers Offenbach,https://tmssl.akamaized.net/images/wappen/head/107.png,#000000,#f03030,transfermarkt+crest2
 Kidderminster Harriers,https://tmssl.akamaized.net/images/wappen/head/1195.png,#c8142f,#c60000,transfermarkt
+Kifisia,https://tmssl.akamaized.net/images/wappen/head/30120.png,#303070,#707090,transfermarkt+crest
 Kilmarnock,https://a.espncdn.com/i/teamlogos/soccer/500-dark/260.png,#0046ff,#babbbf,espn
 King's Lynn,,,,
 Kings Lynn Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20747.png,#1302b0,#dbaf00,espn
@@ -1198,13 +1343,15 @@ Kingstonian,https://tmssl.akamaized.net/images/wappen/head/3454.png,#c8142f,#fff
 Kispesti Honved,,,,
 Knowsley United FC,,,,
 Kobenhavn,https://a.espncdn.com/i/teamlogos/soccer/500-dark/909.png,#ffffff,#1a1a1a,espn
-Kocaelispor,,,,
+Kocaelispor,https://tmssl.akamaized.net/images/wappen/head/120.png,#107030,#101010,transfermarkt+crest
 Koge BK,,,,
 Koln,https://a.espncdn.com/i/teamlogos/soccer/500-dark/122.png,#ffffff,#f01030,espn+crest2
 Kolping Boys,https://tmssl.akamaized.net/images/wappen/head/80802.png,#000000,#c60000,transfermarkt
 Kongsvinger,,,,
 Koninklijke HFC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17992.png,#ffffff,#091453,espn
 Konyaspor,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7648.png,#288a00,#000000,espn
+Korinthos,,,,
+Kortrijk,https://tmssl.akamaized.net/images/wappen/head/601.png,#d03030,#f09090,transfermarkt+crest
 Kosice,https://tmssl.akamaized.net/images/wappen/head/51316.png,#000000,#000000,transfermarkt
 Kozakken Boys,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7059.png,#ffffff,#000000,espn
 Krasnodar,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11336.png,#03501b,#eaeaea,espn
@@ -1214,25 +1361,28 @@ Kryvbas,,,,
 Kryvbas KR,https://tmssl.akamaized.net/images/wappen/head/3592.png,#000000,#c60000,transfermarkt
 Kuban Krasnodar,https://tmssl.akamaized.net/images/wappen/head/2439.png,,,transfermarkt
 Kuopion PS,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8169.png,#000000,#000000,espn
+Kyzylzhar,https://tmssl.akamaized.net/images/wappen/head/22995.png,#000000,#c60000,transfermarkt
+Käerjéng 97,,,,
 Kärnten,,,,
+Kırıkkalespor,,,,
 L'Aquila 1927,https://tmssl.akamaized.net/images/wappen/head/4153.png,,,transfermarkt
 LASK Linz,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4411.png,#ffffff,#000000,espn
-LB Chateauroux,,,,
+LB Chateauroux,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2995.png,#f03010,#103090,espn+crest
 LKS Lodz,,,,
+LNZ Cherkasy,,#000000,#000000,espn
 La Chataigneraie,,#000000,#c60000,espn
 La Felguera,,,,
-La Louvière,,,,
 La Nucía,https://tmssl.akamaized.net/images/wappen/head/14796.png,#000000,#c60000,transfermarkt
 La Roche-sur-Yon,,#000000,#c60000,espn
 La Unión Atlético,https://tmssl.akamaized.net/images/wappen/head/132258.png,#000000,#c60000,transfermarkt
 Lagoa,,#000000,#c60000,espn
+Lamia,https://tmssl.akamaized.net/images/wappen/head/3999.png,#101070,#b0b0d0,transfermarkt+crest
 Lancaster City,,,,
 Landskrona BoIS,,,,
 Langreo,https://tmssl.akamaized.net/images/wappen/head/16646.png,#000000,#f0f010,transfermarkt+crest2
 Lannion,,#000000,#c60000,espn
 Lanusei,https://tmssl.akamaized.net/images/wappen/head/50358.png,#000000,#c60000,transfermarkt
 Larne,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20039.png,#c60000,#ffffff,espn
-Las Palmas,,,,
 Las Rozas CF,https://tmssl.akamaized.net/images/wappen/head/16736.png,#000000,#c60000,transfermarkt
 Latina,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3973.png,#1a1a1a,#1050b0,espn+crest2
 Latte Dolce,https://tmssl.akamaized.net/images/wappen/head/45353.png,#000000,#c60000,transfermarkt
@@ -1255,6 +1405,7 @@ Legia Warsaw,https://a.espncdn.com/i/teamlogos/soccer/500-dark/555.png,#2b6a36,#
 Legnano,,,,
 Leher TS,https://tmssl.akamaized.net/images/wappen/head/9470.png,#000000,#c60000,transfermarkt
 Leicester City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/375.png,#0202fb,#000000,espn
+Leiftur,,,,
 Leigh RMI,,,,
 Leioa,https://tmssl.akamaized.net/images/wappen/head/29733.png,#000000,#c60000,transfermarkt
 Leipzig XI,,,,
@@ -1263,6 +1414,7 @@ Leixoes,https://tmssl.akamaized.net/images/wappen/head/3345.png,#ee1c0f,#1a1a1a,
 Les Herbiers,https://a.espncdn.com/i/teamlogos/soccer/500/10691.png,#000000,#c60000,espn
 Les Sables,,#00008b,#c60000,espn
 Levadia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2540.png,#000000,#000000,espn
+Levadiakos,https://tmssl.akamaized.net/images/wappen/head/2672.png,#70b070,#1090d0,transfermarkt+crest
 Levante UD,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1538.png,#c8142f,#000000,espn
 Levski Sofia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/490.png,#6182cf,#fcfcfc,espn
 Lewes,,,,
@@ -1273,9 +1425,10 @@ Leytonstone/Ilford,,,,
 Libourne,,#000000,#000000,espn
 Licata,,,,
 Liepajas Metalurgs,https://tmssl.akamaized.net/images/wappen/head/3811.png,,,transfermarkt
-Lierse,,,,
+Lierse,https://tmssl.akamaized.net/images/wappen/head/204.png,#101010,#f0f010,transfermarkt+crest
 Lille OSC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/166.png,#c2051b,#e2d3d7,espn
 Lillestrom,,,,
+Lillestrøm,,,,
 Lillestrøm Sportsklubb,https://a.espncdn.com/i/teamlogos/soccer/500-dark/987.png,#e8e337,#ff0000,espn
 Limburgia,,,,
 Limerick FC,,,,
@@ -1291,18 +1444,21 @@ Linzer ASK,,,,
 Lisburn Distillery,,,,
 Littlehampton Town,,,,
 Liverpool,https://a.espncdn.com/i/teamlogos/soccer/500-dark/364.png,#d11317,#ffffff,espn
+Livingston,https://tmssl.akamaized.net/images/wappen/head/1241.png,#101010,#505010,transfermarkt+crest
 Llagostera,https://tmssl.akamaized.net/images/wappen/head/26132.png,#000000,#70b0d0,transfermarkt+crest2
+Llanelli,https://tmssl.akamaized.net/images/wappen/head/11915.png,,,transfermarkt
 Llanera,https://tmssl.akamaized.net/images/wappen/head/55881.png,#000000,#c60000,transfermarkt
 Lleida,https://tmssl.akamaized.net/images/wappen/head/33593.png,#000000,#c60000,transfermarkt
 Llerenense,https://tmssl.akamaized.net/images/wappen/head/73488.png,#000000,#c60000,transfermarkt
 Lohne,https://tmssl.akamaized.net/images/wappen/head/4883.png,#000000,#c60000,transfermarkt
 Loja CD,https://tmssl.akamaized.net/images/wappen/head/26319.png,,,transfermarkt
-Lokeren,https://tmssl.akamaized.net/images/wappen/head/498.png,,,transfermarkt
+Lokeren,https://tmssl.akamaized.net/images/wappen/head/498.png,#101010,#f0d010,transfermarkt+crest
 Lokomotiv Moskva,https://a.espncdn.com/i/teamlogos/soccer/500-dark/442.png,#03501b,#ffffff,espn
 Lokomotiv Sofia,,,,
 Lokomotiv Tbilisi,https://tmssl.akamaized.net/images/wappen/head/6365.png,,,transfermarkt
 Lokomotive Leipzig,https://tmssl.akamaized.net/images/wappen/head/497.png,#000000,#c60000,transfermarkt
 Lokomotíva Košice,,,,
+Lommel,,,,
 London XI,,,,
 Loon Plage FC,,#000000,#c60000,espn
 Lorca,https://tmssl.akamaized.net/images/wappen/head/34559.png,#000000,#5050d0,transfermarkt+crest2
@@ -1310,6 +1466,7 @@ Lorca Dep.,,,,
 Lorca Deportiva,https://tmssl.akamaized.net/images/wappen/head/49806.png,#000000,#c60000,transfermarkt
 Louhans-Cuis.,,#000000,#000000,espn
 Louletano,,#000000,#c60000,espn
+Louvieroise,,,,
 Lovells Athletic,,,,
 Lowestoft Town,,,,
 Lucchese,https://tmssl.akamaized.net/images/wappen/head/1253.png,#d01030,#101010,transfermarkt+crest
@@ -1320,6 +1477,7 @@ Lusitania,,#000000,#c60000,espn
 Lusitano Évora,,#008000,#000000,espn
 Lusitanos,https://tmssl.akamaized.net/images/wappen/head/28958.png,,,transfermarkt
 Luton Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/301.png,#ff4f00,#1d428a,espn
+Lyn,,,,
 Lyn Oslo,,,,
 Lyngby BK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7860.png,#000000,#000000,espn
 Lyon-Duchère,,#000000,#c60000,espn
@@ -1343,8 +1501,10 @@ Mafra,https://tmssl.akamaized.net/images/wappen/head/7056.png,#000000,#c60000,tr
 Magdeburg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10382.png,#0068b2,#ffffff,espn
 Maidenhead United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7156.png,#000000,#9932cc,espn
 Maidstone United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3110.png,#fecd32,#87ceeb,espn
+Makedonikos,,,,
 Malaga B,,,,
 Malaga CF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/99.png,#b9e8f0,#d19ca4,espn
+Malatyaspor,,,,
 Maldon & Tiptree,https://tmssl.akamaized.net/images/wappen/head/27045.png,#c60000,#fecd32,transfermarkt
 Mallorca B,,,,
 Malmo FF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2720.png,#5699eb,#052a87,espn
@@ -1352,6 +1512,7 @@ Malveira,,#000000,#c60000,espn
 Manacor,https://tmssl.akamaized.net/images/wappen/head/7803.png,#000000,#c60000,transfermarkt
 Manchester City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/382.png,#99c5ea,#000000,espn
 Manchester United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/360.png,#da020e,#4169e1,espn
+Manisaspor,,,,
 Manises CF,https://tmssl.akamaized.net/images/wappen/head/83483.png,#000000,#c60000,transfermarkt
 Manresa,https://tmssl.akamaized.net/images/wappen/head/41709.png,#000000,#c60000,transfermarkt
 Mansfield Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/304.png,#fecd32,#1a1a1a,espn
@@ -1382,12 +1543,15 @@ Matra Racing,,,,
 Meidericher SV,,,,
 Melilla,https://tmssl.akamaized.net/images/wappen/head/16492.png,#000000,#103090,transfermarkt+crest2
 Mensajero,https://tmssl.akamaized.net/images/wappen/head/36060.png,#000000,#c60000,transfermarkt
+Mersin Idman Yurdu,https://tmssl.akamaized.net/images/wappen/head/3216.png,#d03010,#303070,transfermarkt+crest
 Merstham,https://tmssl.akamaized.net/images/wappen/head/35197.png,#000000,#c60000,transfermarkt
 Merthyr Tydfil,,,,
 Mestalla,,,,
 Metalist Kharkiv,https://tmssl.akamaized.net/images/wappen/head/6414.png,,,transfermarkt
+Metalurg Skopje,https://tmssl.akamaized.net/images/wappen/head/18506.png,,,transfermarkt
 Metalurgist Rustavi,,,,
 Metalurh Donetsk,https://tmssl.akamaized.net/images/wappen/head/2783.png,,,transfermarkt
+Metalurh Zaporizhya,,,,
 Metalurh Zaporizhzhya,,,,
 Metropolitan Police,https://tmssl.akamaized.net/images/wappen/head/34468.png,#000000,#000000,transfermarkt
 Metz,https://a.espncdn.com/i/teamlogos/soccer/500-dark/177.png,#8c3140,#e6c168,espn
@@ -1395,11 +1559,13 @@ Middlesbrough,https://a.espncdn.com/i/teamlogos/soccer/500-dark/369.png,#f42727,
 Midtjylland,https://a.espncdn.com/i/teamlogos/soccer/500-dark/572.png,#000000,#ff0900,espn
 Miedź Legnica,,,,
 Mika,https://tmssl.akamaized.net/images/wappen/head/10639.png,,,transfermarkt
+Milano,,,,
 Millwall,https://a.espncdn.com/i/teamlogos/soccer/500-dark/391.png,#091453,#007066,espn
 Milsami Orhei,https://tmssl.akamaized.net/images/wappen/head/30686.png,#000000,#c60000,transfermarkt
 Milton Keynes Dons,https://a.espncdn.com/i/teamlogos/soccer/500-dark/390.png,#ffffff,#f0b030,espn+crest2
 Minehead,,,,
 Minguettes Venissieux,,#000000,#c60000,espn
+Minsk,https://tmssl.akamaized.net/images/wappen/head/23664.png,,,transfermarkt
 Mirandela,,#000000,#c60000,espn
 Mirandes,https://a.espncdn.com/i/teamlogos/soccer/500/4515.png,#000000,#d01010,espn+crest2
 Mjøndalen,,,,
@@ -1419,13 +1585,16 @@ Montreuil FC,,#4cbb17,#000000,espn
 Moor Green,,,,
 Morecambe,https://a.espncdn.com/i/teamlogos/soccer/500/278.png,#c8142f,#ffff00,espn
 Moreirense,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3696.png,#288a00,#000000,espn
+Morton,,,,
 Mortágua,,#000000,#c60000,espn
 Moscardó,,,,
 Moss FK,,,,
 Mossley FC,,,,
 Motherwell,https://a.espncdn.com/i/teamlogos/soccer/500-dark/266.png,#f7aa25,#535e64,espn
 Moulins,,,,espn
-Mouscron,,,,
+Mouscron,https://tmssl.akamaized.net/images/wappen/head/29228.png,#101010,#b01010,transfermarkt+crest
+Mouscron-Peruwelz,,,,
+Murata,,,,
 Mutilvera,https://tmssl.akamaized.net/images/wappen/head/40175.png,#000000,#c60000,transfermarkt
 Mérida,https://tmssl.akamaized.net/images/wappen/head/46854.png,#000000,#c60000,transfermarkt
 Móstoles URJC,https://tmssl.akamaized.net/images/wappen/head/21122.png,#000000,#c60000,transfermarkt
@@ -1433,6 +1602,7 @@ NAC Breda,https://a.espncdn.com/i/teamlogos/soccer/500-dark/141.png,#fcee33,#fff
 NEC Nijmegen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/147.png,#ef2f24,#84aee7,espn
 NK Celje,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3362.png,#000099,#ff6600,espn
 NK Domzale,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3360.png,#000000,#000000,espn
+NK Lokomotiva,https://tmssl.akamaized.net/images/wappen/head/11194.png,#ffffff,#000000,transfermarkt
 NK Maribor,https://a.espncdn.com/i/teamlogos/soccer/500-dark/619.png,#391669,#ffff00,espn
 NK Siroki Brijeg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2542.png,#000000,#000000,espn
 NK Zagreb,,,,
@@ -1441,12 +1611,16 @@ NS Mura,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20029.png,#000000,#fff
 NSI,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2710.png,#000000,#000000,espn
 Nacional,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3472.png,#000000,#f0d030,espn+crest2
 Naestved BK,,,,
+Naftan Novopolotsk,https://tmssl.akamaized.net/images/wappen/head/8563.png,,,transfermarkt
+Naftex Burgas,,,,
 Nantes,https://a.espncdn.com/i/teamlogos/soccer/500-dark/165.png,#ffff00,#011f68,espn
 Nantwich Town,https://tmssl.akamaized.net/images/wappen/head/12869.png,#378464,#ffff00,transfermarkt
+Naoussa,,,,
 Napredak Kruševac,,,,
 National București,,,,
 Naval,https://tmssl.akamaized.net/images/wappen/head/4814.png,#30d010,#909090,transfermarkt+crest
 Naxara,https://tmssl.akamaized.net/images/wappen/head/33818.png,#000000,#c60000,transfermarkt
+Nea Salamis,,,,
 Needham Market,https://tmssl.akamaized.net/images/wappen/head/25745.png,#000000,#c60000,transfermarkt
 Neftchi PFC Baku,https://a.espncdn.com/i/teamlogos/soccer/500-dark/504.png,#000000,#000000,espn
 Negreira,https://tmssl.akamaized.net/images/wappen/head/20233.png,#000000,#c60000,transfermarkt
@@ -1460,13 +1634,16 @@ Newcastle Town,,,,
 Newcastle United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/361.png,#000000,#10b0f0,espn+crest2
 Newport County,https://a.espncdn.com/i/teamlogos/soccer/500-dark/635.png,#fecd32,#cdcdcd,espn
 Newport IOW,,,,
+Niki Volos,https://tmssl.akamaized.net/images/wappen/head/5572.png,#1010d0,#b09050,transfermarkt+crest
 Nimes Olympique,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7730.png,#ef2f24,#ffffff,espn
 Nistru Otaci,,,,
 Nitra,,,,
 Nocerina,https://tmssl.akamaized.net/images/wappen/head/4114.png,#101010,#f01030,transfermarkt+crest
 Noisy-le-Grand,,#000000,#c60000,espn
+Nomme Kalju,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10376.png,#000000,#c60000,espn
 Noordwijk,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8503.png,#de292e,#6088ff,espn
 Nordsjaelland,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3101.png,#cf010e,#0093ec,espn
+Nordsjælland,,,,
 North Shields,,,,
 Northampton Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/353.png,#8e003b,#1a1a1a,espn
 Northwich Victoria,https://tmssl.akamaized.net/images/wappen/head/3053.png,,,transfermarkt
@@ -1484,7 +1661,7 @@ Nöttingen,https://tmssl.akamaized.net/images/wappen/head/1203.png,#000000,#c600
 O Elvas CAD,,#000000,#c60000,espn
 ODIN '59,https://tmssl.akamaized.net/images/wappen/head/33424.png,#000000,#c60000,transfermarkt
 OFC,https://tmssl.akamaized.net/images/wappen/head/43857.png,#000000,#ffff00,transfermarkt
-OFI,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1010.png,#ffffff,#000000,espn
+OFI Crete,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1010.png,#303030,#505050,espn+crest
 OFK Beograd,,,,
 OGC Nice,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2502.png,#ef2f24,#e2d3d7,espn
 OJC Rosmalen,https://tmssl.akamaized.net/images/wappen/head/2945.png,#000000,#c60000,transfermarkt
@@ -1498,6 +1675,7 @@ Odds BK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/602.png,#000000,#fffff
 Odense BK,,,,
 Odra Opole,,,,
 Offenburger FV,https://tmssl.akamaized.net/images/wappen/head/5280.png,,,transfermarkt
+Oftasspor,,,,
 Olde Veste '54,https://tmssl.akamaized.net/images/wappen/head/44682.png,,,transfermarkt
 Oldham Athletic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/332.png,#0e00f7,#f7aa25,espn
 Olhanense,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3712.png,#be2d30,#000000,espn
@@ -1508,6 +1686,9 @@ Oliveirense,,#000000,#c60000,espn
 Olot,https://tmssl.akamaized.net/images/wappen/head/38456.png,#000000,#c60000,transfermarkt
 Olympia Wilhelmshaven,,,,
 Olympiacos,https://a.espncdn.com/i/teamlogos/soccer/500-dark/435.png,#d01729,#0202fb,espn
+Olympiacos Volos,,,,
+Olympiakos Nicosia,,,,
+Olympic Charleroi,,,,
 Olympique Ales,,#000000,#c60000,espn
 Olympique Lyon,https://a.espncdn.com/i/teamlogos/soccer/500-dark/167.png,#ffffff,#103090,espn+crest2
 Olympique Marcquois,,#000000,#c60000,espn
@@ -1519,6 +1700,7 @@ Omonia Nicosia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/617.png,#025719
 Onteniente CF,,,,
 Ontinyent CF,https://tmssl.akamaized.net/images/wappen/head/15447.png,#000000,#c60000,transfermarkt
 Ontiñena CF,https://tmssl.akamaized.net/images/wappen/head/120579.png,#000000,#c60000,transfermarkt
+Orduspor,https://tmssl.akamaized.net/images/wappen/head/2323.png,#505090,#7070b0,transfermarkt+crest
 Orense,,,,
 Orgryte IS,,,,
 Oriental,https://tmssl.akamaized.net/images/wappen/head/4864.png,#101010,#d09010,transfermarkt+crest
@@ -1528,15 +1710,18 @@ Orleans,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17483.png,#000000,#f0f
 Os Marialvas,,#000000,#c60000,espn
 Osasuna,https://a.espncdn.com/i/teamlogos/soccer/500-dark/97.png,#cd0000,#ffffff,espn
 Osijek,https://a.espncdn.com/i/teamlogos/soccer/500-dark/567.png,#000000,#000000,espn
-Osmanlispor,https://a.espncdn.com/i/teamlogos/soccer/500/18321.png,#000000,#c60000,espn
+Osmanlispor,https://a.espncdn.com/i/teamlogos/soccer/500/18321.png,#000000,#301070,espn+crest2
 Oss '20,https://tmssl.akamaized.net/images/wappen/head/26488.png,#000000,#c60000,transfermarkt
 Osters IF,,,,
 Oswestry Town,,,,
 Otelul Galati,,,,
+Oud-Heverlee Leuven,https://tmssl.akamaized.net/images/wappen/head/2727.png,#101010,#f01030,transfermarkt+crest
 Ourense,https://tmssl.akamaized.net/images/wappen/head/2725.png,#000000,#f03010,transfermarkt+crest2
 Oxford City,https://tmssl.akamaized.net/images/wappen/head/22563.png,#0000d4,#00ff00,transfermarkt
 Oxford United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/311.png,#ffff00,#ffffff,espn
-PAOK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/605.png,#000000,#ffffff,espn
+P. Ofisi,,,,
+PAOK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/605.png,#101010,#303030,espn+crest
+PAS Giannina,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6848.png,#303090,#7070b0,espn+crest
 PD Santa Eulalia,https://tmssl.akamaized.net/images/wappen/head/18669.png,#000000,#c60000,transfermarkt
 PEC Zwolle,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2565.png,#0000d4,#000000,espn
 PFC Beroe,https://tmssl.akamaized.net/images/wappen/head/6764.png,,,transfermarkt
@@ -1545,30 +1730,41 @@ PFC Lokomotiv Plovdiv,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2952.png
 PFC Ludogorets Razgrad,https://a.espncdn.com/i/teamlogos/soccer/500-dark/13018.png,#008000,#ffffff,espn
 PFC Slavia Sofia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6216.png,#000000,#000000,espn
 PSV Eindhoven,https://a.espncdn.com/i/teamlogos/soccer/500-dark/148.png,#ef2f24,#000000,espn
+PTT,,,,
 Pacos de Ferreira,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3713.png,#ffea01,#fdfdf7,espn
 Pafos,https://a.espncdn.com/i/teamlogos/soccer/500-dark/22281.png,#82c0fe,#003399,espn
 Paganese,https://tmssl.akamaized.net/images/wappen/head/19164.png,,,transfermarkt
 Pagny-sur-Moselle,,#000000,#c60000,espn
+Paide Linnameeskond,https://tmssl.akamaized.net/images/wappen/head/23371.png,#000000,#c60000,transfermarkt
+Paksi SE,https://tmssl.akamaized.net/images/wappen/head/12163.png,#000000,#c60000,transfermarkt
 Palamós,,,,
 Palencia,,,,
-Palermo,,,,
 Palma del Río,https://tmssl.akamaized.net/images/wappen/head/107473.png,#000000,#c60000,transfermarkt
 Panachaiki,,,,
 Panaderia Pulido,https://tmssl.akamaized.net/images/wappen/head/76942.png,#000000,#c60000,transfermarkt
+Panargiakos,,,,
 Panathinaikos,https://a.espncdn.com/i/teamlogos/soccer/500-dark/443.png,#2b6a36,#ffffff,espn
 Pandurii Targu-Jiu,https://a.espncdn.com/i/teamlogos/soccer/500/6215.png,#000000,#000000,espn
+Panegialios,,,,
+Panetolikos,https://tmssl.akamaized.net/images/wappen/head/6418.png,#f0d010,#1050b0,transfermarkt+crest
+Paniliakos,,,,
 Panionios,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2789.png,#ff0000,#ff0000,espn
+Panserraikos,https://tmssl.akamaized.net/images/wappen/head/3385.png,#d03030,#f09090,transfermarkt+crest
+Panthrakikos,https://tmssl.akamaized.net/images/wappen/head/7185.png,#b0b070,#d0d0b0,transfermarkt+crest
 Paredes,,#000000,#c60000,espn
 Paris FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6851.png,#101030,#1090d0,espn+crest
 Paris Saint-Germain,https://a.espncdn.com/i/teamlogos/soccer/500-dark/160.png,#011f68,#ffffff,espn
 Parma,https://a.espncdn.com/i/teamlogos/soccer/500-dark/115.png,#19161d,#ffdd30,espn
+Partick Thistle,https://tmssl.akamaized.net/images/wappen/head/2760.png,#101010,#303030,transfermarkt+crest
 Partizan Belgrade,https://a.espncdn.com/i/teamlogos/soccer/500-dark/541.png,#020202,#ffffff,espn
-Pas Giannina,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6848.png,#000000,#000000,espn
 Pasching,https://tmssl.akamaized.net/images/wappen/head/935.png,,,transfermarkt
+Patro Eisden,,,,
 Pau FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10678.png,#0070b1,#f3cf56,espn
 Paulton Rovers,,,,
 Pays de Cassel,,#000000,#c60000,espn
+Pelister Bitola,https://tmssl.akamaized.net/images/wappen/head/534.png,,,transfermarkt
 Penafiel,https://tmssl.akamaized.net/images/wappen/head/3327.png,#b03010,#707030,transfermarkt+crest
+Pendikspor,https://tmssl.akamaized.net/images/wappen/head/3209.png,#d01010,#f09090,transfermarkt+crest
 Penrith,,,,
 Pero Pinheiro,,#000000,#c60000,espn
 Perpignan,,,,
@@ -1582,14 +1778,18 @@ Pezoporikos Larnaca,,,,
 Peña Azagresa,https://tmssl.akamaized.net/images/wappen/head/73877.png,#000000,#c60000,transfermarkt
 Peña Sport,https://tmssl.akamaized.net/images/wappen/head/16596.png,#000000,#000000,transfermarkt
 Piacenza Calcio,https://tmssl.akamaized.net/images/wappen/head/1408.png,#ff5733,#1a1a1a,transfermarkt
+Pierikos,,,,
 Pineto,https://tmssl.akamaized.net/images/wappen/head/46337.png,#000000,#c60000,transfermarkt
+Pirin Blagoevgrad,,,,
 Pisa SC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3956.png,#1a1a1a,#1070b0,espn+crest2
 Plabennec,,#000000,#c60000,espn
+Platanias,https://tmssl.akamaized.net/images/wappen/head/21957.png,#f03030,#f0f0f0,transfermarkt+crest
 Plymouth Argyle,https://a.espncdn.com/i/teamlogos/soccer/500/307.png,#003e00,#ffffff,espn
 Poblense,https://tmssl.akamaized.net/images/wappen/head/28014.png,#000000,#c60000,transfermarkt
 Pogon Szczecin,https://tmssl.akamaized.net/images/wappen/head/324.png,#000000,#000000,transfermarkt
 Poli Ejido,,,,
 Polissya Zhitomir,https://tmssl.akamaized.net/images/wappen/head/53646.png,#000000,#c60000,transfermarkt
+Polonia Bytom,,,,
 Polonia Warszawa,,,,
 Ponferradina,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5463.png,#b09010,#101010,espn+crest
 Pontarlier,,#000000,#c60000,espn
@@ -1610,11 +1810,13 @@ Prescot Cables,,,,
 Preston North End,https://a.espncdn.com/i/teamlogos/soccer/500-dark/394.png,#ffffff,#1090d0,espn+crest2
 Preussen Munster,https://a.espncdn.com/i/teamlogos/soccer/500-dark/9867.png,#000000,#ffffff,espn+crest2
 Primorje,,,,
+Principat,,,,
 Pro Patria,https://tmssl.akamaized.net/images/wappen/head/4146.png,#305090,#f01030,transfermarkt+crest
 Pro Piacenza,https://tmssl.akamaized.net/images/wappen/head/38290.png,#000000,#c60000,transfermarkt
 Pro Vercelli,https://a.espncdn.com/i/teamlogos/soccer/500/3995.png,#1a1a1a,#f01030,espn+crest2
 Progres Niedercorn,,,,
 Progres Niederkorn,https://tmssl.akamaized.net/images/wappen/head/12346.png,#000000,#c60000,transfermarkt
+Proodeftiki,,,,
 Puente Genil,,,,
 Puerto De Vega,https://tmssl.akamaized.net/images/wappen/head/134732.png,#000000,#c60000,transfermarkt
 Pulpileño,https://tmssl.akamaized.net/images/wappen/head/30863.png,#000000,#c60000,transfermarkt
@@ -1622,12 +1824,14 @@ Puskas Akademia,https://tmssl.akamaized.net/images/wappen/head/37169.png,#000000
 Pyunik,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2493.png,#000000,#000000,espn
 Pécsi Munkás,,,,
 Qarabag FK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10414.png,#000000,#ffffff,espn
+Queen of the South,,,,
+Queen's Park,,,,
 Queens Park Rangers,https://a.espncdn.com/i/teamlogos/soccer/500-dark/334.png,#0000d4,#1a1a1a,espn
 Quevilly Rouen,,,,
 Quick Boys,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8497.png,#0000ff,#ffffff,espn
 Quintanar del Rey,https://tmssl.akamaized.net/images/wappen/head/47486.png,#000000,#c60000,transfermarkt
-R. Union Saint-Gilloise,,,,
 R.C.H.,,,,
+RAAL La Louvière,https://tmssl.akamaized.net/images/wappen/head/3901.png,#109050,#90d0b0,transfermarkt+crest
 RBC Roosendaal,https://tmssl.akamaized.net/images/wappen/head/1227.png,#e96b05,#c60000,transfermarkt
 RC Lens,https://a.espncdn.com/i/teamlogos/soccer/500-dark/175.png,#e91514,#004c37,espn
 RC Saint-Joseph,,#000000,#c60000,espn
@@ -1635,6 +1839,7 @@ RC Strasbourg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/180.png,#0000bf,
 RCD Mallorca,https://a.espncdn.com/i/teamlogos/soccer/500-dark/84.png,#c8142f,#ccff00,espn
 RD Águeda,,,,
 RFC Liège,,,,
+RJ Bruxelles,,,,
 RKAV Volendam,https://a.espncdn.com/i/teamlogos/soccer/500-dark/19321.png,#000000,#c60000,espn
 RKC Waalwijk,https://a.espncdn.com/i/teamlogos/soccer/500-dark/155.png,#0c57f2,#84aee7,espn
 RKSV Groene Ster,https://tmssl.akamaized.net/images/wappen/head/12451.png,#000000,#c60000,transfermarkt
@@ -1642,11 +1847,12 @@ RKVV DESO Oss,https://tmssl.akamaized.net/images/wappen/head/37678.png,,,transfe
 RKVV Westlandia,https://tmssl.akamaized.net/images/wappen/head/11075.png,#000000,#c60000,transfermarkt
 RNK Split,https://tmssl.akamaized.net/images/wappen/head/420.png,,,transfermarkt
 ROHDA Raalte,https://tmssl.akamaized.net/images/wappen/head/7393.png,#000000,#c60000,transfermarkt
-RSC Anderlecht,https://a.espncdn.com/i/teamlogos/soccer/500-dark/441.png,#695196,#fafafc,espn
+RSC Anderlecht,,,,
 RSV Eintracht,https://tmssl.akamaized.net/images/wappen/head/29476.png,#000000,#c60000,transfermarkt
 RSV Meinerzhagen,https://tmssl.akamaized.net/images/wappen/head/1931.png,#000000,#c60000,transfermarkt
 RVVH Ridderkerk,https://tmssl.akamaized.net/images/wappen/head/17797.png,,,transfermarkt
-RWD Molenbeek,,,,
+RWD Molenbeek,https://tmssl.akamaized.net/images/wappen/head/54189.png,#301010,#f03030,transfermarkt+crest
+Raba ETO Gyor,,,,
 Rabat Ajax,,,,
 Rabo de Peixe,,#000000,#c60000,espn
 Rabotnicki,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5238.png,#000000,#000000,espn
@@ -1654,6 +1860,7 @@ Racing Club de France,,#000000,#c60000,espn
 Racing Murcia,https://tmssl.akamaized.net/images/wappen/head/75083.png,#000000,#c60000,transfermarkt
 Racing Rioja,https://tmssl.akamaized.net/images/wappen/head/78105.png,#000000,#c60000,transfermarkt
 Racing Santander,https://a.espncdn.com/i/teamlogos/soccer/500-dark/87.png,#ffffff,#509050,espn+crest2
+Rad,,,,
 Radcliffe Boro,,,,
 Radnicki Nis,https://tmssl.akamaized.net/images/wappen/head/7567.png,#000000,#c60000,transfermarkt
 Raith Rovers,,,,
@@ -1698,6 +1905,7 @@ Reggina Calcio,https://a.espncdn.com/i/teamlogos/soccer/500-dark/117.png,#a0222d
 Renate,https://tmssl.akamaized.net/images/wappen/head/24898.png,#000000,#c60000,transfermarkt
 Rende,https://tmssl.akamaized.net/images/wappen/head/8322.png,,,transfermarkt
 Rennes TA,,#000000,#c60000,espn
+Renova,https://tmssl.akamaized.net/images/wappen/head/10791.png,#000000,#c60000,transfermarkt
 Reus Deportiu,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17884.png,#000000,#b01010,espn+crest2
 Reus FC Reddis,https://tmssl.akamaized.net/images/wappen/head/83848.png,#000000,#c60000,transfermarkt
 Revel,,#000000,#c60000,espn
@@ -1707,31 +1915,35 @@ Ried,https://tmssl.akamaized.net/images/wappen/head/266.png,,,transfermarkt
 Riga FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/19246.png,#00aae4,#000000,espn
 Rigas Futbola Skola,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12030.png,#0000dd,#ffffff,espn
 Rigtersbleek,,,,
+Rijeka,,,,
 Rijnsburgse Boys,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7043.png,#ffde00,#6088ff,espn
 Rimini,https://tmssl.akamaized.net/images/wappen/head/4111.png,#ff0000,#ff0000,transfermarkt
 Rincón,https://tmssl.akamaized.net/images/wappen/head/52173.png,#000000,#c60000,transfermarkt
 Ringmer,,,,
 Rio Ave,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3822.png,#3b8649,#ff621a,espn
+Rizespor,https://tmssl.akamaized.net/images/wappen/head/126.png,#101090,#f03030,transfermarkt+crest
 RoPS,https://tmssl.akamaized.net/images/wappen/head/3776.png,,,transfermarkt
 Rochdale,https://a.espncdn.com/i/teamlogos/soccer/500-dark/303.png,#101087,#c6d4db,espn
 Roda,https://tmssl.akamaized.net/images/wappen/head/27448.png,#000000,#c60000,transfermarkt
 Roda JC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/149.png,#fcee33,#cdcdcd,espn
 Roda Sport,,,,
 Rodez,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7719.png,#a5042b,#a5042b,espn
+Rodos,,,,
+Roeselare,,,,
 Romford,,,,
 Rosenborg BK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/438.png,#ffffff,#000000,espn
+Ross County,https://tmssl.akamaized.net/images/wappen/head/2759.png,#101050,#f01030,transfermarkt+crest
 Rossendale United,,,,
 Rostock FC,https://tmssl.akamaized.net/images/wappen/head/5647.png,#000000,#c60000,transfermarkt
 Rostov,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3852.png,#000054,#ffff00,espn
 Rot Weiss Ahlen,,,,
-Rot-Weiss Erfurt,,,,
+Rot-Weiss Erfurt,https://tmssl.akamaized.net/images/wappen/head/111.png,#d80016,#000000,transfermarkt
 Rot-Weiss Essen,https://tmssl.akamaized.net/images/wappen/head/56.png,#000000,#f01010,transfermarkt+crest2
 Rot-Weiss Ludenscheid,,,,
 Rot-Weiss Oberhausen,https://tmssl.akamaized.net/images/wappen/head/57.png,#008000,#c70039,transfermarkt
-Rot-Weiß Erfurt,https://tmssl.akamaized.net/images/wappen/head/111.png,#d80016,#000000,transfermarkt
 Rotherham United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/402.png,#f42727,#1a1a1a,espn
 Rotor Volgograd,,,,
-Royal Antwerp FC,,,,
+Royal Antwerp FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17544.png,#c60000,#ffffff,espn
 Rubi,https://tmssl.akamaized.net/images/wappen/head/42928.png,#000000,#c60000,transfermarkt
 Rubin Kazan,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3851.png,#8e003b,#378464,espn
 Ruch Chorzow,https://tmssl.akamaized.net/images/wappen/head/318.png,,,transfermarkt
@@ -1758,6 +1970,7 @@ SC Freiburg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/126.png,#da0308,#f
 SC Genemuiden,https://tmssl.akamaized.net/images/wappen/head/16866.png,#000000,#000000,transfermarkt
 SC Gottingen 05,,,,
 SC Hauenstein,https://tmssl.akamaized.net/images/wappen/head/2162.png,,,transfermarkt
+SC Hazebrouck,,#000000,#c60000,espn
 SC Herford,,,,
 SC Leipzig,,,,
 SC Lusitânia dos Açores,,#000000,#c60000,espn
@@ -1791,11 +2004,12 @@ SG Wattenscheid 09,https://tmssl.akamaized.net/images/wappen/head/97.png,#101010
 SHO Oud Beijerland,https://tmssl.akamaized.net/images/wappen/head/10794.png,,,transfermarkt
 SHS,,,,
 SJC Noordwijk,https://tmssl.akamaized.net/images/wappen/head/44694.png,#000000,#c60000,transfermarkt
+SK Frigg,,,,
 SK Slovan Bratislava,https://a.espncdn.com/i/teamlogos/soccer/500-dark/521.png,#81c0ff,#1a1a1a,espn
 SK VOEST Linz,,,,
 SKA Rostov,,,,
 SL Benfica,https://a.espncdn.com/i/teamlogos/soccer/500-dark/1929.png,#ca281d,#1a1a1a,espn
-SM Caen,https://tmssl.akamaized.net/images/wappen/head/1162.png,#303050,#d0b070,transfermarkt+crest
+SM Caen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2927.png,#ef2f24,#fe5c55,espn
 SPAL 1907 Ferrara,https://a.espncdn.com/i/teamlogos/soccer/500/3958.png,#0a79cc,#ddac39,espn
 SS Akragas Città dei Templi,https://tmssl.akamaized.net/images/wappen/head/31255.png,,,transfermarkt
 SSC Napoli,https://a.espncdn.com/i/teamlogos/soccer/500-dark/114.png,#0677d2,#ffffff,espn
@@ -1835,6 +2049,7 @@ SVV Schiedam,,,,
 Saarbrucken,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18741.png,#000000,#f0d010,espn+crest2
 Sabah FK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/21922.png,#000000,#ff1493,espn
 Sablé FC,,#000000,#c60000,espn
+Saburtalo Tbilisi,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20025.png,#000000,#c60000,espn
 Sacavenense,,#000000,#c60000,espn
 Sachsenring Zwickau,,,,
 Saint Louis Neuweg,,#000000,#c60000,espn
@@ -1843,17 +2058,19 @@ Saint-Cyr Collonges,,#000000,#c60000,espn
 Saint-Omer,,#000000,#000000,espn
 Saint-Priest,,#000000,#c60000,espn
 Saint-Pryvé Saint Hilaire,,#000000,#c60000,espn
+Sainte Genevieve des Bois,,#000000,#c60000,espn
 Sakaryaspor,,,,
 Salamanca UDS,https://tmssl.akamaized.net/images/wappen/head/42039.png,#000000,#c60000,transfermarkt
 Salerm Puente Genil FC,https://tmssl.akamaized.net/images/wappen/head/60350.png,#000000,#c60000,transfermarkt
 Salernitana Calcio 1919,https://a.espncdn.com/i/teamlogos/soccer/500/3240.png,#990000,#ffffff,espn
 Salford City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4703.png,#ff6600,#000000,espn
 Salgueiros,,#000000,#c60000,espn
+Salgótarján,,,,
 Salisbury City,https://tmssl.akamaized.net/images/wappen/head/14773.png,,,transfermarkt
 Salzburg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2790.png,#d82c3a,#052a87,espn
 Sambenedettese,https://tmssl.akamaized.net/images/wappen/head/4330.png,#101030,#f0f0f0,transfermarkt+crest
 Sampdoria,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2734.png,#2234a4,#ffffff,espn
-Samsunspor,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11429.png,#000000,#c60000,espn
+Samsunspor,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11429.png,#000000,#f01010,espn+crest2
 San Agustín de Guadalix,https://tmssl.akamaized.net/images/wappen/head/60614.png,#000000,#c60000,transfermarkt
 San Andrés,https://tmssl.akamaized.net/images/wappen/head/12697.png,#3050b0,#f0d010,transfermarkt+crest
 San Fernando,https://tmssl.akamaized.net/images/wappen/head/12181.png,#000000,#1030b0,transfermarkt+crest2
@@ -1869,6 +2086,7 @@ Santa Clara,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12215.png,#c60000,
 Santa Maria,,#000000,#c60000,espn
 Santarcangelo Calcio,https://tmssl.akamaized.net/images/wappen/head/27525.png,,,transfermarkt
 Sao Roque,,#000000,#c60000,espn
+Sariyer,,,,
 Sarpsborg FK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5002.png,#000000,#000000,espn
 Sarreguemines,,#000000,#c60000,espn
 Sartid,,,,
@@ -1884,8 +2102,11 @@ Schott,https://tmssl.akamaized.net/images/wappen/head/9695.png,#000000,#c60000,t
 Schwarz-Weiss Essen,,,,
 Scunthorpe United,https://a.espncdn.com/i/teamlogos/soccer/500/313.png,#82dbf5,#228b22,espn
 Seixal FC,,,,
+Sekerspor,,,,
 Selby Town,,,,
+Senica,https://tmssl.akamaized.net/images/wappen/head/6163.png,,,transfermarkt
 Senlis,,#000000,#c60000,espn
+Seraing,https://tmssl.akamaized.net/images/wappen/head/2715.png,#101010,#b09050,transfermarkt+crest
 Serpa,,#000000,#c60000,espn
 Servette Geneve,https://a.espncdn.com/i/teamlogos/soccer/500-dark/20032.png,#b8273b,#f7e8a6,espn
 Sestao,,,,
@@ -1912,22 +2133,28 @@ Shrewsbury Town,https://a.espncdn.com/i/teamlogos/soccer/500/302.png,#0000fa,#29
 Sibir Novosibirsk,,,,
 Sicula Leonzio,https://tmssl.akamaized.net/images/wappen/head/54498.png,#000000,#c60000,transfermarkt
 Sigma Olomouc,https://a.espncdn.com/i/teamlogos/soccer/500-dark/609.png,#000000,#000000,espn
+Siirt Jet-PA,,,,
 Silkeborg IF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/607.png,#000000,#000000,espn
 Silves,,#000000,#c60000,espn
+Sint-Niklase,,,,
+Sint-Truiden,https://a.espncdn.com/i/teamlogos/soccer/500-dark/936.png,#f8ea2c,#000000,espn
 Sintrense,,#000000,#c60000,espn
 Sion,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3076.png,#ff0900,#000000,espn
 Sittardia,,,,
 Sivasspor,https://a.espncdn.com/i/teamlogos/soccer/500/3691.png,#bc0e17,#000000,espn
+Siófoki Bányász,,,,
 Skeid,,,,
 Skelmersdale United,https://tmssl.akamaized.net/images/wappen/head/22692.png,#000000,#c60000,transfermarkt
 Skenderbeu Korce,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17855.png,#fd0000,#c60000,espn
-Skoda Xanthi,,,,
 Skonto,https://tmssl.akamaized.net/images/wappen/head/1043.png,,,transfermarkt
 Slask Wroclaw,https://tmssl.akamaized.net/images/wappen/head/759.png,#000000,#c60000,transfermarkt
 Slaven Belupo,https://tmssl.akamaized.net/images/wappen/head/2362.png,,,transfermarkt
 Slavia Praha,https://a.espncdn.com/i/teamlogos/soccer/500-dark/494.png,#dc1f26,#81c0ff,espn
 Sliema Wanderers,https://tmssl.akamaized.net/images/wappen/head/329.png,#0091fd,#ffffff,transfermarkt
+Sligo Rovers,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7601.png,#000000,#000000,espn
 Sliven,,,,
+Sloboda Tuzla,https://tmssl.akamaized.net/images/wappen/head/5405.png,#000000,#000000,transfermarkt
+Sloga Jugomagnat Skopje,,,,
 Slough Town,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3806.png,#000000,#000000,espn
 Slovacko,https://a.espncdn.com/i/teamlogos/soccer/500-dark/18327.png,#000000,#c60000,espn
 Slovan Liberec,https://a.espncdn.com/i/teamlogos/soccer/500/594.png,#0000ff,#ffffff,espn
@@ -1982,10 +2209,11 @@ St Jean Beaulieu,,#000000,#c60000,espn
 St Johnstone,https://a.espncdn.com/i/teamlogos/soccer/500-dark/267.png,#0046ff,#9e0000,espn
 St Malo,,#000000,#c60000,espn
 St Marienne,,#000000,#c60000,espn
-St Mirren,https://a.espncdn.com/i/teamlogos/soccer/500-dark/250.png,#000000,#10d5f8,espn
+St Mirren,https://a.espncdn.com/i/teamlogos/soccer/500-dark/250.png,#000000,#f0f010,espn+crest2
 St Neots Town,,,,
 St Patrick's Athletic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7588.png,#000000,#000000,espn
 St. Gallen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/557.png,#007c27,#fcd116,espn
+St. Joseph's,https://tmssl.akamaized.net/images/wappen/head/38208.png,#000000,#c60000,transfermarkt
 St. Pölten,https://tmssl.akamaized.net/images/wappen/head/2662.png,,,transfermarkt
 Stabaek,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2554.png,#000000,#000000,espn
 Stade Brest,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6997.png,#ef2f24,#ffffff,espn
@@ -2002,6 +2230,7 @@ Stade Reims,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3243.png,#ef2f24,#
 Stade Rennes,https://a.espncdn.com/i/teamlogos/soccer/500-dark/169.png,#ef2f24,#ffffff,espn
 Stade de Paris FC,,,,
 Stafford Rangers,,,,
+Stahl Eisenhüttenstadt,,,,
 Staines Town,https://tmssl.akamaized.net/images/wappen/head/10956.png,,,transfermarkt
 Stal Mielec,,,,
 Stal Rzeszów,,,,
@@ -2011,6 +2240,7 @@ Standard Liege,https://a.espncdn.com/i/teamlogos/soccer/500-dark/559.png,#cc272e
 Steagul Roșu Brașov,,,,
 Steaua Bucuresti,https://a.espncdn.com/i/teamlogos/soccer/500-dark/484.png,#0000dd,#dc1f26,espn
 Stevenage Borough,https://a.espncdn.com/i/teamlogos/soccer/500-dark/285.png,#ffffff,#f03010,espn+crest2
+Stirling Albion,,,,
 Stjarnan,https://tmssl.akamaized.net/images/wappen/head/21875.png,#000000,#000000,transfermarkt
 Stockerau,,,,
 Stockport County,https://a.espncdn.com/i/teamlogos/soccer/500-dark/400.png,#0000ff,#ffffff,espn
@@ -2026,6 +2256,7 @@ Stuttgarter Kickers,https://tmssl.akamaized.net/images/wappen/head/71.png,#00000
 Sudbury Town,,,,
 Sudtirol,https://a.espncdn.com/i/teamlogos/soccer/500-dark/11139.png,#000000,#d03030,espn+crest2
 Sunderland,https://a.espncdn.com/i/teamlogos/soccer/500-dark/366.png,#eb172b,#ffb6c1,espn
+Sutjeska Niksic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8281.png,#000000,#000000,espn
 Sutton Coldfield Town,,,,
 Sutton Town,,,,
 Sutton United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3231.png,#ffd700,#ffffff,espn
@@ -2055,13 +2286,11 @@ Taranto,https://tmssl.akamaized.net/images/wappen/head/4093.png,#103050,#b01030,
 Tarazona,https://tmssl.akamaized.net/images/wappen/head/41403.png,#000000,#000000,transfermarkt
 Tardienta,https://tmssl.akamaized.net/images/wappen/head/112751.png,#000000,#c60000,transfermarkt
 Tasmania 1900 Berlin,,,,
-Tasmania Berlin,,,,
 Tatabányai Bányász,,,,
 Tatran Prešov,,,,
 Taunton Town,https://tmssl.akamaized.net/images/wappen/head/18263.png,#530c0c,#000000,transfermarkt
 Tauras Tauragė,,,,
 Tavriya Simferopol,,,,
-TeBe Berlin,,,,
 Team Bath,,,,
 Tekstilshchik Kamyshin,,,,
 Telford United,,,,
@@ -2076,21 +2305,29 @@ Terrassa,https://tmssl.akamaized.net/images/wappen/head/1881.png,#000000,#d03030
 Teruel,https://tmssl.akamaized.net/images/wappen/head/19301.png,#000000,#c60000,transfermarkt
 Teutonia Ottensen,https://tmssl.akamaized.net/images/wappen/head/14361.png,#000000,#c60000,transfermarkt
 The New Saints,https://a.espncdn.com/i/teamlogos/soccer/500-dark/576.png,#239b56,#c60000,espn
+Thermaikos,,,,
 Thionville,,#000000,#c60000,espn
+Third Lanark,,,,
+Thrasyvoulos,,,,
 Thun,https://a.espncdn.com/i/teamlogos/soccer/500-dark/3024.png,#ff0900,#fcd116,espn
 Thurrock,,,,
 Tilbury,,,,
+Tiligul Tiraspol,,,,
+Tilleur,,,,
 Timișoara,,,,
 Tipton Town,,,,
 Tirsense,,#000000,#c60000,espn
 Tiverton Town,,,,
+Tobol,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6748.png,#000000,#000000,espn
 Toledo,https://tmssl.akamaized.net/images/wappen/head/2929.png,#105030,#101010,transfermarkt+crest
 Tolosa,https://tmssl.akamaized.net/images/wappen/head/55976.png,#000000,#c60000,transfermarkt
 Tomares,https://tmssl.akamaized.net/images/wappen/head/26395.png,#000000,#c60000,transfermarkt
+Tomori,,,,
 Ton Pentre,,,,
 Tonbridge,,,,
 Tonbridge Angels,https://tmssl.akamaized.net/images/wappen/head/14672.png,#000000,#c60000,transfermarkt
 Tondela,https://a.espncdn.com/i/teamlogos/soccer/500-dark/12706.png,#ffea01,#293dc2,espn
+Tongeren,,,,
 Tooting & Mitcham United,,,,
 Torino,https://a.espncdn.com/i/teamlogos/soccer/500-dark/239.png,#9f0000,#ffffff,espn
 Torpedo Kutaisi,https://a.espncdn.com/i/teamlogos/soccer/500-dark/612.png,#000000,#000000,espn
@@ -2099,9 +2336,11 @@ Torquay United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/321.png,#ffd700
 Torrent,https://tmssl.akamaized.net/images/wappen/head/67509.png,#000000,#c60000,transfermarkt
 Tottenham Hotspur,https://a.espncdn.com/i/teamlogos/soccer/500-dark/367.png,#ffffff,#000000,espn+crest2
 Toulouse,https://a.espncdn.com/i/teamlogos/soccer/500-dark/179.png,#560080,#ffff00,espn
+Tournai,,,,
 Tours FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6992.png,#1a1a1a,#50d0f0,espn+crest2
 Tow Law Town,,,,
 Trabzonspor,https://a.espncdn.com/i/teamlogos/soccer/500-dark/997.png,#5699eb,#8e003b,espn
+Trakai,https://tmssl.akamaized.net/images/wappen/head/32832.png,#000000,#c60000,transfermarkt
 Trakia Plovdiv,https://tmssl.akamaized.net/images/wappen/head/2531.png,#000000,#000000,transfermarkt
 Trani,,,,
 Tranmere Rovers,https://a.espncdn.com/i/teamlogos/soccer/500-dark/345.png,#ffffff,#105090,espn+crest2
@@ -2111,6 +2350,7 @@ Trelissac FC,,#000000,#c60000,espn
 Trelleborg,,,,
 Treviso FBC,https://tmssl.akamaized.net/images/wappen/head/2251.png,#f01010,#d0b030,transfermarkt+crest
 Trešnjevka Zagreb,,,,
+Trikala,,,,
 Tritium,https://tmssl.akamaized.net/images/wappen/head/19367.png,#000000,#c60000,transfermarkt
 Trival Valderas Alcorcón,https://tmssl.akamaized.net/images/wappen/head/29198.png,,,transfermarkt
 Trofense,https://tmssl.akamaized.net/images/wappen/head/3348.png,#000000,#303070,transfermarkt+crest2
@@ -2126,7 +2366,10 @@ TuS Koblenz,https://tmssl.akamaized.net/images/wappen/head/996.png,#103090,#f0d0
 TuS Makkabi,https://tmssl.akamaized.net/images/wappen/head/5008.png,#000000,#c60000,transfermarkt
 TuS Rot-Weiß Koblenz,https://tmssl.akamaized.net/images/wappen/head/22327.png,#000000,#c60000,transfermarkt
 TuS Schloss-Neuhaus,,,,
+Tubize,,,,
 Tunbridge Wells Rangers,,,,
+Turan Tovuz,,,,
+Turnhout,,,,
 Turris,https://tmssl.akamaized.net/images/wappen/head/4096.png,#000000,#c60000,transfermarkt
 Turégano,https://tmssl.akamaized.net/images/wappen/head/102243.png,#000000,#c60000,transfermarkt
 Tuttocuoio,https://tmssl.akamaized.net/images/wappen/head/36745.png,#000000,#c60000,transfermarkt
@@ -2156,6 +2399,7 @@ UE Lleida,https://tmssl.akamaized.net/images/wappen/head/3239.png,#b0d0f0,#10101
 UE Santa Coloma,https://tmssl.akamaized.net/images/wappen/head/28633.png,#000000,#c60000,transfermarkt
 UE Vic,https://tmssl.akamaized.net/images/wappen/head/40735.png,#000000,#c60000,transfermarkt
 UNA,https://tmssl.akamaized.net/images/wappen/head/8449.png,#000000,#c60000,transfermarkt
+UNA Strassen,https://tmssl.akamaized.net/images/wappen/head/21835.png,#000000,#c60000,transfermarkt
 US Alessandria 1912,https://a.espncdn.com/i/teamlogos/soccer/500/10435.png,#000000,#901010,espn+crest2
 US Avellino,https://a.espncdn.com/i/teamlogos/soccer/500/4055.png,#1a1a1a,#107030,espn+crest2
 US Boulogne,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7869.png,#fb2e29,#fb2e29,espn
@@ -2165,6 +2409,7 @@ US Cremonese,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4050.png,#ff0000,
 US Foggia,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4054.png,#000000,#f01030,espn+crest2
 US Lecce,https://a.espncdn.com/i/teamlogos/soccer/500-dark/113.png,#fced0b,#08305d,espn
 US Lusitanos Saint-Maur,,#000000,#c60000,espn
+US Luxembourg,,,,
 US Palermo,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2923.png,#f9bed4,#fafafc,espn
 US Quevilly,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7721.png,#e91514,#000000,espn
 US Sarre-Union,,#000000,#c60000,espn
@@ -2176,14 +2421,15 @@ USV Hercules,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17982.png,#000000
 UT Arad,,,,
 Udinese,https://a.espncdn.com/i/teamlogos/soccer/500-dark/118.png,#19161d,#0f1c3f,espn
 Ujpesti Dozsa SC,https://tmssl.akamaized.net/images/wappen/head/708.png,#000000,#000000,transfermarkt
+Umraniyespor,https://tmssl.akamaized.net/images/wappen/head/24245.png,#d01010,#107010,transfermarkt+crest
 Unami CP,https://tmssl.akamaized.net/images/wappen/head/60356.png,#000000,#c60000,transfermarkt
 Uniao Madeira,https://tmssl.akamaized.net/images/wappen/head/976.png,#909050,#303070,transfermarkt+crest
 Uniao da Serra,,#000000,#c60000,espn
 Union Brescia,,#000000,#000000,espn
 Union Deportiva Montijo,https://tmssl.akamaized.net/images/wappen/head/77079.png,#000000,#c60000,transfermarkt
 Union Luxembourg,,,,
+Union Saint-Gilloise,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5807.png,#fcee33,#ffffff,espn
 Union Saint-Jean FC,,#000000,#c60000,espn
-Union St.-Gilloise,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5807.png,#fcee33,#ffffff,espn
 Unione Triestina,https://tmssl.akamaized.net/images/wappen/head/4271.png,#dc1425,#ffffff,transfermarkt
 Unionistas de Salamanca,https://tmssl.akamaized.net/images/wappen/head/52397.png,#000000,#c60000,transfermarkt
 Unirea Urziceni,,,,
@@ -2196,12 +2442,14 @@ União de Leiria,https://tmssl.akamaized.net/images/wappen/head/2639.png,#de1f26
 União de Tomar,,,,
 Unión Deportiva Los Garres,https://tmssl.akamaized.net/images/wappen/head/70288.png,#000000,#c60000,transfermarkt
 Utebo,https://tmssl.akamaized.net/images/wappen/head/13244.png,#000000,#c60000,transfermarkt
+Utrecht XI,,,,
 Utrera,https://tmssl.akamaized.net/images/wappen/head/6685.png,#000000,#c60000,transfermarkt
 Utrillas,https://tmssl.akamaized.net/images/wappen/head/91485.png,#000000,#c60000,transfermarkt
 V.C.V.Zeeland,,,,
 V.S.V.,,,,
 VC Vlissingen,https://tmssl.akamaized.net/images/wappen/head/23533.png,#101010,#b01010,transfermarkt+crest
 VFB Krieschow,,#000000,#c60000,espn
+VPS Vaasa,https://tmssl.akamaized.net/images/wappen/head/1102.png,#000000,#000000,transfermarkt
 VS Rugby,,,,
 VSG Altglienicke,https://tmssl.akamaized.net/images/wappen/head/17847.png,#000000,#c60000,transfermarkt
 VV Alkmaar '54,,,,
@@ -2223,22 +2471,27 @@ Valencia CF,https://a.espncdn.com/i/teamlogos/soccer/500-dark/94.png,#ffffff,#f0
 Valenciennes FC,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6732.png,#ef2f24,#6000bf,espn
 Valerenga IF,,,,
 Valletta,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2698.png,#ffffff,#ec1c10,espn
+Valur,https://a.espncdn.com/i/teamlogos/soccer/500-dark/6742.png,#000000,#000000,espn
 Valur Reykjavik,,,,
 Vanløse,,,,
 Vannes,,#e91514,#000000,espn
+Vanspor,,,,
 Vardar Skopje,https://a.espncdn.com/i/teamlogos/soccer/500-dark/560.png,#da070e,#000000,espn
 Varteks,https://a.espncdn.com/i/teamlogos/soccer/500-dark/561.png,#2d2f8d,#f7f7f7,espn
 Varzim,https://tmssl.akamaized.net/images/wappen/head/4297.png,#000000,#f0d030,transfermarkt+crest2
 Vaslui,https://tmssl.akamaized.net/images/wappen/head/8174.png,,,transfermarkt
 Vauxhall Motors,,,,
 Vecindario,,,,
+Vefa,,,,
 Vejle BK,,,,
 Velarde,https://tmssl.akamaized.net/images/wappen/head/20928.png,#000000,#c60000,transfermarkt
 Velez,https://tmssl.akamaized.net/images/wappen/head/38173.png,,,transfermarkt
 Velez Mostar,https://tmssl.akamaized.net/images/wappen/head/628.png,#000000,#c60000,transfermarkt
 Velox,,,,
 Ventspils,https://a.espncdn.com/i/teamlogos/soccer/500-dark/501.png,#000000,#000000,espn
+Veria,https://tmssl.akamaized.net/images/wappen/head/2079.png,#b03030,#103090,transfermarkt+crest
 Versailles 78,https://a.espncdn.com/i/teamlogos/soccer/500-dark/10675.png,#000000,#c60000,espn
+Verviers,,,,
 VfB Eichstätt,https://tmssl.akamaized.net/images/wappen/head/5646.png,#000000,#c60000,transfermarkt
 VfB Eppingen,,,,
 VfB Leipzig,,,,
@@ -2274,6 +2527,7 @@ Vila Meã,,#000000,#c60000,espn
 Vila Real,,#000000,#c60000,espn
 Vilar Perdizes,,#000000,#c60000,espn
 Vilaverdense,,#000000,#c60000,espn
+Viljandi Tulevik,,,,
 Villa de Fortuna,https://tmssl.akamaized.net/images/wappen/head/91484.png,#000000,#c60000,transfermarkt
 Villanovense,https://tmssl.akamaized.net/images/wappen/head/7052.png,#000000,#000000,transfermarkt
 Villarreal,https://a.espncdn.com/i/teamlogos/soccer/500-dark/102.png,#ffff00,#6cace4,espn
@@ -2287,6 +2541,7 @@ Virtus Casarano,https://tmssl.akamaized.net/images/wappen/head/6089.png,#000000,
 Virtus Entella,https://a.espncdn.com/i/teamlogos/soccer/500/11137.png,#000000,#90d0f0,espn+crest2
 Virtus Francavilla,https://tmssl.akamaized.net/images/wappen/head/49939.png,#000000,#c60000,transfermarkt
 Virtus Lanciano,https://tmssl.akamaized.net/images/wappen/head/4718.png,#f01010,#301030,transfermarkt+crest
+Viry-Chatillon,,#000000,#c60000,espn
 Viterbese,https://tmssl.akamaized.net/images/wappen/head/22294.png,#000000,#000000,transfermarkt
 Vitesse,https://a.espncdn.com/i/teamlogos/soccer/500-dark/154.png,#fcee33,#ffffff,espn
 Vitoria Guimaraes,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5309.png,#301030,#707070,espn+crest
@@ -2295,10 +2550,15 @@ Vitosha Sofia,,,,
 Vitre,,#000000,#c60000,espn
 Vitória de Setúbal,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5308.png,#3b8649,#ffea01,espn
 Vojvodina,https://a.espncdn.com/i/teamlogos/soccer/500-dark/7825.png,#000000,#000000,espn
+Volos NFC,https://tmssl.akamaized.net/images/wappen/head/60949.png,#d01010,#101090,transfermarkt+crest
 Voltigeurs,,#000000,#c60000,espn
 Vorskla,https://a.espncdn.com/i/teamlogos/soccer/500-dark/8094.png,#000000,#000000,espn
 Vorwärts Frankfurt,,,,
+Vyzas Megara,,,,
+Vålerengens Idrettsforening,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2791.png,#000000,#000000,espn
+Víkingur Gøta,https://a.espncdn.com/i/teamlogos/soccer/500-dark/13238.png,#bfd2e6,#ffffff,espn
 Vėtra,,,,
+Waasland-Beveren,https://tmssl.akamaized.net/images/wappen/head/28643.png,#303070,#f0d030,transfermarkt+crest
 Wacker 04 Berlin,,,,
 Wacker Burghausen,https://tmssl.akamaized.net/images/wappen/head/110.png,#303030,#f0f0f0,transfermarkt+crest
 Waldhof Mannheim,https://tmssl.akamaized.net/images/wappen/head/85.png,#000000,#105090,transfermarkt+crest2
@@ -2323,7 +2583,7 @@ West Auckland Town,,,,
 West Berlin XI,,,,
 West Bromwich Albion,https://a.espncdn.com/i/teamlogos/soccer/500-dark/383.png,#091453,#ffff00,espn
 West Ham United,https://a.espncdn.com/i/teamlogos/soccer/500-dark/371.png,#7c2c3b,#f1e7e0,espn
-Westerlo,,,,
+Westerlo,https://tmssl.akamaized.net/images/wappen/head/968.png,#1050b0,#d0b010,transfermarkt+crest
 Westfalia Herne,,,,
 Westfalia Rhynern,,#000000,#c60000,espn
 Weston-Super-Mare,,,,
@@ -2336,6 +2596,7 @@ Whitley Bay,,,,
 Whyteleafe,,,,
 Widzew Lodz,,,,
 Wiener Sport-Club,,,,
+Wiener Sportclub,,,,
 Wigan Athletic,https://a.espncdn.com/i/teamlogos/soccer/500-dark/350.png,#0000fa,#1a1a1a,espn
 Wilhelmina,,,,
 Wilhelmina '08,https://tmssl.akamaized.net/images/wappen/head/29325.png,,,transfermarkt
@@ -2364,16 +2625,19 @@ Wrexham,https://a.espncdn.com/i/teamlogos/soccer/500-dark/352.png,#c8142f,#fffff
 Wuppertaler SV,https://tmssl.akamaized.net/images/wappen/head/299.png,#f03010,#103090,transfermarkt+crest
 Wurzburger Kickers,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17491.png,#000000,#d03010,espn+crest2
 Wycombe Wanderers,https://a.espncdn.com/i/teamlogos/soccer/500/344.png,#4cb8e5,#ffff00,espn
-Xanthi,https://tmssl.akamaized.net/images/wappen/head/128.png,,,transfermarkt
+Xanthi,https://tmssl.akamaized.net/images/wappen/head/128.png,#301030,#b01030,transfermarkt+crest
 Xerez CD,https://tmssl.akamaized.net/images/wappen/head/134.png,#206dbb,#ffffff,transfermarkt
 Xerez Deportivo,https://tmssl.akamaized.net/images/wappen/head/44564.png,#000000,#c60000,transfermarkt
 XerxesDZB,https://tmssl.akamaized.net/images/wappen/head/90988.png,,,transfermarkt
 Yate Town,https://tmssl.akamaized.net/images/wappen/head/34860.png,#000000,#c60000,transfermarkt
 Yeading,,,,
 Yeclano Deportivo,https://tmssl.akamaized.net/images/wappen/head/21337.png,#000000,#c60000,transfermarkt
+Yeni Malatyaspor,https://a.espncdn.com/i/teamlogos/soccer/500/18790.png,#000000,#f0f010,espn+crest2
 Yeovil,https://a.espncdn.com/i/teamlogos/soccer/500/284.png,#378464,#1a1a1a,espn
+Yeşildirek,,,,
 Yiewsley,,,,
 York City,https://a.espncdn.com/i/teamlogos/soccer/500-dark/315.png,#c8142f,#c60000,espn
+Yozgatspor,,,,
 Yuncos,https://tmssl.akamaized.net/images/wappen/head/62414.png,#000000,#c60000,transfermarkt
 Yzeure,,#000000,#c60000,espn
 Z.F.C.,,,,
@@ -2382,14 +2646,19 @@ Zaglebie Lubin,https://tmssl.akamaized.net/images/wappen/head/168.png,#c60000,#0
 Zagreb XI,,,,
 Zagłębie Sosnowiec,,,,
 Zalaegerszegi TE,https://tmssl.akamaized.net/images/wappen/head/1391.png,#059ef7,#fcfcfa,transfermarkt
+Zalgiris Vilnius,,,,
 Zamora CF,https://tmssl.akamaized.net/images/wappen/head/10907.png,#000000,#000000,transfermarkt
 Zamudio SD,https://tmssl.akamaized.net/images/wappen/head/21402.png,,,transfermarkt
-Zaragoza,,,,
+Zawisza Bydgoszcz,https://tmssl.akamaized.net/images/wappen/head/7153.png,,,transfermarkt
 Zbrojovka Brno,,,,
 Zeleznicar Pancevo,,#000000,#c60000,espn
 Zeljeznicar Sarajevo,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2494.png,#000000,#000000,espn
 Zenit St. Petersburg,https://a.espncdn.com/i/teamlogos/soccer/500-dark/2533.png,#0098dc,#ffffff,espn
+Zestafoni,https://tmssl.akamaized.net/images/wappen/head/10719.png,,,transfermarkt
+Zeytinburnu,,,,
 Zimbru Chisinau,https://tmssl.akamaized.net/images/wappen/head/2714.png,#000000,#c60000,transfermarkt
+Zira FK,https://tmssl.akamaized.net/images/wappen/head/46710.png,#000000,#c60000,transfermarkt
+Zonguldakspor,,,,
 Zorya Voroshilovgrad,https://a.espncdn.com/i/teamlogos/soccer/500-dark/17520.png,#c60000,#1a1a1a,espn
 Zulte-Waregem,https://a.espncdn.com/i/teamlogos/soccer/500-dark/4691.png,#ff0000,#000000,espn
 Zwaluwen '30,https://tmssl.akamaized.net/images/wappen/head/33139.png,#000000,#c60000,transfermarkt
@@ -2398,4 +2667,6 @@ sc Heerenveen,https://a.espncdn.com/i/teamlogos/soccer/500-dark/146.png,#003eff,
 ÍBV,,,,
 Örebro,,,,
 Östersunds FK,https://a.espncdn.com/i/teamlogos/soccer/500-dark/5043.png,#000000,#000000,espn
+İstanbulspor,https://tmssl.akamaized.net/images/wappen/head/924.png,#101010,#f03010,transfermarkt+crest
+İzmirspor,,,,
 Żurrieq,,,,

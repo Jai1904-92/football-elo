@@ -48,6 +48,8 @@ class SourceReader:
             df = self._datarozhlas()
         elif source == "rsssf":
             df = self._rsssf(competition)
+        elif source == "rsssf_finals":
+            df = self._rsssf_finals(competition)
         elif source == "wikipedia":
             df = self._wikipedia(competition)
         elif source == "engsoccerdata":
@@ -71,6 +73,12 @@ class SourceReader:
                                    self.cfg["sources"]["datarozhlas"]["competitions"])
 
     @cache
+    def _rsssf_finals(self, competition: str) -> pd.DataFrame:
+        spec = self.cfg["sources"]["rsssf_finals"][competition]
+        return sources.rsssf_final_rounds(self.bronze / "rsssf" / spec["folder"] / spec["file"], competition,
+                                          self.cfg["competitions"][competition]["country"], tuple(spec["seasons"]))
+
+    @cache
     def _rsssf(self, competition: str) -> pd.DataFrame:
         spec = self.cfg["sources"]["rsssf"]["leagues"][competition]
         return sources.rsssf_league(self.bronze / "rsssf" / spec["folder"], competition,
@@ -79,9 +87,12 @@ class SourceReader:
     @cache
     def _wikipedia(self, competition: str) -> pd.DataFrame:
         country = self.cfg["competitions"][competition]["country"]
-        return pd.concat([sources.wikipedia_league(self.bronze / "wikipedia" / spec["folder"], competition,
-                                                   country, spec["tier"])
-                          for spec in self.cfg["sources"]["wikipedia"]["leagues"][competition]], ignore_index=True)
+        parts = []
+        for spec in self.cfg["sources"]["wikipedia"]["leagues"][competition]:
+            df = sources.wikipedia_league(self.bronze / "wikipedia" / spec["folder"], competition, country, spec["tier"])
+            first, last = spec["seasons"]   # specs can share a folder (a league renamed over the years)
+            parts.append(df[df["season"].between(first, last)])
+        return pd.concat(parts, ignore_index=True)
 
     @cache
     def _football_data(self) -> pd.DataFrame:
@@ -226,6 +237,9 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
     new_aliases_df = pd.DataFrame(new_aliases, columns=["source", "source_name", "club"])
     all_aliases = pd.concat([aliases, new_aliases_df], ignore_index=True)
     clubs = club_registry(df, all_aliases)
+    # clubs whose league games were abroad (Cypriot champions in the Greek league, 1967-74)
+    fixed = cfg.get("club_countries", {})
+    clubs["country"] = clubs["club"].map(fixed).fillna(clubs["country"])
     warn_thin_seasons(df)
     quality = check_matches(df)
     quality_path = cfg["paths"]["silver"] / "data_quality.csv"

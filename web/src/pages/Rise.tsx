@@ -61,7 +61,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
 
   return (
     <div className="page">
-      <Card title="Compare clubs over time" note="Pick up to eight clubs. Rating is the Elo rating month by month. Above average is the end-of-season rating minus the average top-flight club across the seven leagues that season, which makes eras comparable. Rank is the position among every club in the seven leagues at season end.">
+      <Card title="Compare clubs over time" note="Pick up to eight clubs. Rating is the Elo rating month by month. Above average is the end-of-season rating minus the average top-flight club across the eleven leagues that season, which makes eras comparable. Rank is the position among every club in the eleven leagues at season end.">
         <div className="controls">
           <ClubPicker id="rise-add" clubs={clubs} placeholder="Add a club" onPick={(c) => !slugs.includes(c.slug) && set([...slugs, c.slug].slice(-8))} />
           <select className="select" value={preset} aria-label="Quick picks" onChange={(e) => {

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+import re
 import time
 from pathlib import Path
 
@@ -99,6 +100,18 @@ def _season_fields(season: int) -> dict:
             "endw": str(end) if end % 100 == 0 else f"{end % 100:02d}"}
 
 
+def fetch_rsssf_finals(cfg: dict, force: bool = False) -> list[Path]:
+    """RSSSF championship-history pages (one page per competition, cached once)."""
+    out = []
+    for spec in cfg["sources"].get("rsssf_finals", {}).values():
+        dest = cfg["paths"]["bronze"] / "rsssf" / spec["folder"] / spec["file"]
+        if force or not dest.exists():
+            if not _download(spec["url"], dest, headers={"User-Agent": "Mozilla/5.0 (football-elo research)"}):
+                continue
+        out.append(dest)
+    return out
+
+
 def fetch_rsssf(cfg: dict, force: bool = False) -> list[Path]:
     """RSSSF season pages (static history: cached once)."""
     out = []
@@ -126,10 +139,17 @@ def fetch_wikipedia(cfg: dict, force: bool = False) -> list[Path]:
             dest = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"] / f"{season}.txt"
             if force or not dest.exists():
                 title = spec["title_template"].format(**_season_fields(season))
-                if not _download(src["url"], dest, params={"title": title, "action": "raw"},
-                                 headers={"User-Agent": "football-elo/0.1 (research project)"}):
+                for _ in range(3):   # action=raw returns a redirect's own text: follow it
+                    if not _download(src["url"], dest, params={"title": title, "action": "raw"},
+                                     headers={"User-Agent": "football-elo/0.1 (research project)"}):
+                        break
+                    time.sleep(0.5)
+                    m = re.match(r"\s*#REDIRECT\s*\[\[([^\]|#]+)", dest.read_text(encoding="utf-8"), re.I)
+                    if not m:
+                        break
+                    title = m.group(1).strip()
+                if not dest.exists():
                     continue
-                time.sleep(0.5)
             out.append(dest)
     return out
 
@@ -160,5 +180,6 @@ def fetch_all(cfg: dict) -> None:
     fetch_transfermarkt(cfg)
     fetch_datarozhlas(cfg)
     fetch_rsssf(cfg)
+    fetch_rsssf_finals(cfg)
     fetch_wikipedia(cfg)
     fetch_espn(cfg)

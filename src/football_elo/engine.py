@@ -57,6 +57,11 @@ class EloParams:
     hfa_eta: float = 0.0
     hfa_europe_separate: bool = True
     hfa_start: float | None = None
+    # competition -> tier whose start rating a club gets when it is first seen
+    # in that competition without a league tier (e.g. Germany's pre-1963
+    # championship final rounds, contested by top-flight Oberliga clubs). It
+    # only sets the starting rating; the club still has no league season.
+    start_tiers: dict = field(default_factory=dict)
 
     @classmethod
     def from_config(cls, cfg: dict) -> "EloParams":
@@ -77,7 +82,9 @@ class EloParams:
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
                    hfa_eta=float(e.get("hfa_dynamic", {}).get("eta", 0.0)),
                    hfa_europe_separate=bool(e.get("hfa_dynamic", {}).get("europe_separate", True)),
-                   hfa_start=e.get("hfa_dynamic", {}).get("start"))
+                   hfa_start=e.get("hfa_dynamic", {}).get("start"),
+                   start_tiers={c: int(s["start_tier"]) for c, s in cfg.get("competitions", {}).items()
+                                if "start_tier" in s})
 
     def start_rating(self, country, tier) -> float:
         spec = self.countries.get(country)
@@ -157,6 +164,8 @@ def assign_params(m: pd.DataFrame, params: EloParams) -> pd.DataFrame:
         tier = m[f"{side}_tier"]
         if params.newcomer_from_below and f"{side}_newcomer" in m:
             tier = tier.where(~m[f"{side}_newcomer"], tier + 1)   # start one tier down
+        if params.start_tiers and "competition" in m:
+            tier = tier.fillna(m["competition"].map(params.start_tiers))
         pairs = pd.DataFrame({"c": m[f"{side}_country"], "t": tier}).fillna({"t": -1})
         uniq = pairs.drop_duplicates()
         lookup = {(c, t): params.start_rating(c, t) for c, t in zip(uniq["c"], uniq["t"])}

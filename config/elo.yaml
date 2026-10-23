@@ -9,14 +9,15 @@ paths:
 sources:
   engsoccerdata:
     url_template: https://raw.githubusercontent.com/jalapic/engsoccerdata/master/data-raw/{name}.csv
-    files: [england, facup, leaguecup, englandplayoffs, champs, spain, germany, italy, france, portugal, holland]
+    files: [england, facup, leaguecup, englandplayoffs, champs, spain, germany, italy, france, portugal, holland,
+            scotland, belgium, turkey, greece]
   football_data:
     url_template: https://www.football-data.co.uk/mmz4281/{season_code}/{division}.csv
     # division -> [country, tier]
     divisions: {E0: [ENG, 1], E1: [ENG, 2], E2: [ENG, 3], E3: [ENG, 4],
                 SP1: [ESP, 1], SP2: [ESP, 2], D1: [GER, 1], D2: [GER, 2],
                 I1: [ITA, 1], I2: [ITA, 2], F1: [FRA, 1], F2: [FRA, 2],
-                P1: [POR, 1], N1: [NED, 1]}
+                P1: [POR, 1], N1: [NED, 1], SC0: [SCO, 1], B1: [BEL, 1], T1: [TUR, 1], G1: [GRE, 1]}
     first_season: 1993             # earlier seasons not needed (engsoccerdata covers them)
   transfermarkt:
     # dcaribou/transfermarkt-datasets; 2012/13 to July 2026 (collection stopped then)
@@ -26,7 +27,8 @@ sources:
                    FAC: ENG-FAC, CGB: ENG-LC,
                    CDR: ESP-CDR, DFB: GER-DFB, CIT: ITA-CI, NLP: NED-KNVB, POCP: POR-TP}
     # top flights, used only to match club ids to names (tools/derive_aliases.py)
-    match_only: {GB1: ENG-L, ES1: ESP-L, L1: GER-L, IT1: ITA-L, FR1: FRA-L, PO1: POR-L, NL1: NED-L}
+    match_only: {GB1: ENG-L, ES1: ESP-L, L1: GER-L, IT1: ITA-L, FR1: FRA-L, PO1: POR-L, NL1: NED-L,
+                 SC1: SCO-L, BE1: BEL-L, TR1: TUR-L, GR1: GRE-L}
   datarozhlas:
     # Wikipedia-scraped European club results (github.com/DataRozhlas/evropske-pohary).
     # Known gaps: Fairs Cup 1963-66, Cup Winners' Cup 1980/81 first round.
@@ -85,6 +87,16 @@ sources:
               end: '(Second Level \()?Eerste divisie.*|KNVB Beker|Cup \d{4}.*|Nacompetitie|Europa League Playoff'}
           2: {start: '(Second Level \()?Eerste divisie\)?( [A-Z])?\s*(\d{4}[-/]\d{2,4})?',
               end: 'Tweede divisie.*|Third Level.*|Nacompetitie.*|Amateur.*|list of champions.*|Promotion.*|Beslissing.*|Play-?offs?.*'}
+  rsssf_finals:
+    # National championship final rounds, one RSSSF history page per country.
+    GER-CH:
+      # Germany 1955/56-1962/63, before the Bundesliga: the regional Oberliga
+      # champions' qualifiers, groups and final (Oberliga matches themselves have
+      # no free match-level source). Credit: Pierre Winkler.
+      folder: germany
+      file: duithist4763.html
+      url: https://www.rsssf.org/tablesd/duithist4763.html
+      seasons: [1955, 1962]
   wikipedia:
     # Raw wikitext of English Wikipedia season articles, saved as <start
     # year>.txt; every {{Sports results}} grid on the page is read. Results are
@@ -99,6 +111,23 @@ sources:
         # link club names. La Liga pages only link club names.
         - {folder: spain, title_template: "{season}–{endw} Segunda División", seasons: [1955, 2007], tier: 2}
         - {folder: spain-1, title_template: "{season}–{endw} La Liga", seasons: [1955, 2007], tier: 1}
+      # Top flights of Scotland, Belgium, Turkey and Greece before engsoccerdata
+      # starts (1994/95): one grid per season, synthetic dates. Seasons after
+      # 1993/94 overlap engsoccerdata and are read only to link club names.
+      SCO-L:
+        - {folder: scotland, title_template: "{season}–{endw} Scottish Division One", seasons: [1955, 1974], tier: 1}
+        - {folder: scotland, title_template: "{season}–{endw} Scottish Premier Division", seasons: [1975, 1997], tier: 1}
+      BEL-L:
+        - {folder: belgium, title_template: "{season}–{endw} Belgian First Division", seasons: [1955, 2004], tier: 1}
+      TUR-L:
+        # a national league only from spring 1959
+        - {folder: turkey, title_template: "1959 Milli Lig", seasons: [1958, 1958], tier: 1}
+        - {folder: turkey, title_template: "{season}–{endw} Milli Lig", seasons: [1959, 1962], tier: 1}
+        - {folder: turkey, title_template: "{season}–{endw} 1.Lig", seasons: [1963, 2000], tier: 1}
+      GRE-L:
+        # 1955/56-1958/59: the national final round of the regional champions
+        - {folder: greece, title_template: "{season}–{endw} Panhellenic Championship", seasons: [1955, 1958], tier: 1}
+        - {folder: greece, title_template: "{season}–{endw} Alpha Ethniki", seasons: [1959, 2004], tier: 1}
       FRA-L:
         # Ligue 2 2002/03, which football-data holds only part of (no dates: the
         # grid gets a synthetic schedule). 2003/04 links names; RSSSF has its dates.
@@ -180,6 +209,42 @@ competitions:
       - {source: engsoccerdata, until: "2025-06-30"}
       - {source: rsssf}                             # 1955/56-1993/94, synthetic dates
       - {source: football_data}
+  SCO-L:
+    name: Scottish top flight (tier 1)
+    type: league
+    country: SCO
+    engsoccerdata: {file: scotland, max_tier: 1}  # from 1994/95
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+      - {source: wikipedia}                         # 1955/56-1993/94, synthetic dates
+  BEL-L:
+    name: Belgian top flight (tier 1)
+    type: league
+    country: BEL
+    engsoccerdata: {file: belgium, max_tier: 1}   # from 1995/96
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+      - {source: wikipedia}
+  TUR-L:
+    name: Turkish top flight (tier 1)
+    type: league
+    country: TUR
+    engsoccerdata: {file: turkey, max_tier: 1}    # from 1994/95
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+      - {source: wikipedia}
+  GRE-L:
+    name: Greek top flight (tier 1)
+    type: league
+    country: GRE
+    engsoccerdata: {file: greece, max_tier: 1}    # from 1994/95
+    windows:
+      - {source: engsoccerdata, until: "2025-06-30"}
+      - {source: football_data}
+      - {source: wikipedia}
   NED-L:
     name: Eredivisie / Eerste Divisie (tiers 1-2)
     type: league
@@ -189,6 +254,13 @@ competitions:
       - {source: engsoccerdata, until: "2025-06-30"}
       - {source: rsssf, tiers: [2]}                 # tier 2 1956/57-2024/25
       - {source: football_data}
+  GER-CH:
+    name: German championship final round (to 1963)
+    type: playoff
+    country: GER
+    start_tier: 1                   # Oberliga sides: a club first seen here starts at top-flight level
+    windows:
+      - {source: rsssf_finals}
   ENG-PO:
     name: EFL play-offs
     type: playoff
@@ -296,6 +368,11 @@ competitions:
 
 aliases: config/club_aliases.csv
 
+# A club's country is normally the one it most often played in; these are fixed
+# because their league games were abroad (Cypriot champions entered the Greek
+# league 1967/68-1973/74), so their European results count for their own country.
+club_countries: {Omonia Nicosia: CYP, APOEL Nikosia: CYP, AEL Limassol: CYP, EPA Larnaca: CYP, Olympiakos Nicosia: CYP}
+
 # Source errors that a plain alias can't fix (they only apply to some seasons).
 # Applied to the source's own club keys before aliasing.
 corrections:
@@ -309,6 +386,26 @@ corrections:
   # RSSSF's "Messina" is A.C.R. Messina up to the 1990s; the 2002/03 Serie B club
   # is the refounded FC Messina (as football-data has it)
   - {source: rsssf, competition: ITA-L, season: 2002, club: Messina, to: FC Messina}
+  # engsoccerdata's "Waregem" is KSV Waregem (to 2001) in 1995/96 but SV Zulte Waregem
+  # (founded 2001) from 2005/06
+  - {source: engsoccerdata, competition: BEL-L, season: 2005, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2006, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2007, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2008, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2009, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2010, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2011, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2012, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2013, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2014, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2015, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2016, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2017, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2018, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2019, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2020, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2021, club: Waregem, to: Zulte-Waregem}
+  - {source: engsoccerdata, competition: BEL-L, season: 2022, club: Waregem, to: Zulte-Waregem}
   # DataRozhlas keys every Sedan as CS_Sedan_Ardennes; the 1961/62 Cup Winners'
   # Cup side was UA Sedan-Torcy
   - {source: datarozhlas, competition: UCWC, season: 1961, club: CS_Sedan_Ardennes, to: UA_Sedan-Torcy}
@@ -373,6 +470,23 @@ elo:
     POR:                           # tier 1 only; promoted clubs start at the nonleague rating
       start_ratings: {1: 1561}
       nonleague: 1397
+    # Added 2026-10-23, tier 1 only like Portugal. Unlike the big seven they don't
+    # start level: starting equal left Turkish and Greek clubs (national leagues
+    # only from 1959) 25-30pp worse in Europe than predicted in the 1960s.
+    # Chosen on European log loss and bias by decade (tools/pool_experiment.py):
+    # bias RMS 2.47 -> 2.10pp, log loss unchanged.
+    SCO:
+      start_ratings: {1: 1436}       # -125
+      nonleague: 1272
+    BEL:
+      start_ratings: {1: 1461}       # -100
+      nonleague: 1297
+    TUR:
+      start_ratings: {1: 1311}       # -250
+      nonleague: 1147
+    GRE:
+      start_ratings: {1: 1311}       # -250
+      nonleague: 1147
     NED:
       start_ratings: {1: 1561, 2: 1397}
       nonleague: 1233

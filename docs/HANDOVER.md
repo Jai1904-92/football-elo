@@ -10,7 +10,7 @@ covers how everything works; this note covers where things stand and what's next
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
   - Size: 444,608 matches and 3,266 clubs (2026-10-23; about 1,000 of them cup-only).
   - Tests: 29, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 11 on
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 12 on
   2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
@@ -44,7 +44,9 @@ covers how everything works; this note covers where things stand and what's next
 - Data bug: engsoccerdata's FA Cup and League Cup files call the modern Accrington Stanley (founded 1968,
   league club "Accrington" from 2006) "Accrington Stanley", so about 75 cup games up to 2018 sit on the old
   club (folded 1962). Fix with `corrections` per season or a dated alias.
-- Git is local only: everything up to this note is committed on `master`, and there is no remote yet.
+- Git: public repo github.com/Jai1904-92/football-elo, branch `main`. The site deploys from it (README
+  "Website"); pushes that only change data code don't redeploy, so after a load run the `site` workflow by
+  hand (`gh workflow run site.yml`) or wait for the Tuesday refresh.
 
 ## Gap backlog, biggest effect on rankings first
 
@@ -94,11 +96,25 @@ update the dashboard.
      the DFB-Pokal and Copa del Rey are well covered from the 1980s; the Coppa Italia is in tables; the
      Coupe de France and KNVB Cup have only the late rounds; the Taça has nothing. That needs a new parser.
      The Taça 2020/21 has only its last 8.
-3. **Germany before 1963.** The regional Oberligen ran from 1955 to 1963. Check RSSSF for results grids;
-   until then German clubs are rated only from European games.
-4. **The rest of Europe.** engsoccerdata has `scotland`, `belgium`, `turkey` and `greece`, the same format as
-   the other countries. Each addition is mostly config plus name mapping, like Portugal and the Netherlands.
-   Clubs from other countries are rated only from European games.
+3. **Germany before 1963.** Partly done 2026-10-23: the national championship final rounds 1955/56–1962/63
+   (`GER-CH`, 176 matches, RSSSF `duithist4763.html`), with final-round clubs starting at top-flight level
+   (`start_tier`). The regional Oberligen themselves have no free match-level source: RSSSF and both
+   Wikipedias have final tables only; worldfootball.net-type sites have results but scraping them is not
+   allowed. German champions 1956–63 now count as trophies.
+4. **The rest of Europe.** Done 2026-10-23 for Scotland, Belgium, Turkey and Greece, top flight only (Alex's
+   call). Wikipedia grids 1955/56–1993/94, engsoccerdata 1994/95 on, football-data for the current season.
+   - Name linking: Wikipedia pages 1994–2004 are read only to link names by fixtures. About 80 pre-1994-only
+     clubs were added; about 60 duplicates were merged, mostly the clubs' European-only names against the
+     engsoccerdata ones ("RSC Anderlecht"/"Anderlecht", "AEK Athens"/"AEK") plus spelling variants
+     ("Kasimpasa"/"Kasımpaşa"). Waregem is split (KSV Waregem to 2001, Zulte-Waregem from 2005, via
+     `corrections`). "Clyde F.C." was mislinked to Clydebank and is fixed.
+     Unchecked: "Keçiörengücü" is linked to "Hacettepe".
+   - Starting levels lowered (see README "Big-5 coverage"); European bias RMS 2.47 → 2.10pp.
+   - The same work merged 16 older European-only duplicates in the big seven (Zaragoza, Bologna, Karlsruhe,
+     Alavés, Palermo, Genoa, ...). That removed a pooling artefact that had inflated Spain and Italy:
+     European log loss 0.5839 → 0.5826.
+   - Countries still rated only from European games: everyone else (Austria, Switzerland, the
+     Scandinavian countries, Eastern Europe).
 5. **Smaller items:**
    - Trophies: 11 unresolved two-legged European finals (UEL 7, FAIRS 3, UCWC 1). They need an away-goals
      rule, or a hand-entered list of winners.

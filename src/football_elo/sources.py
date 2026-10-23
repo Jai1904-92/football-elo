@@ -58,6 +58,7 @@ def season_from_date(d: pd.Series) -> pd.Series:
 def es_league(path: Path, country: str, competition: str, max_tier: int) -> pd.DataFrame:
     df = pd.read_csv(path, low_memory=False)
     df = df[pd.to_numeric(df["tier"], errors="coerce").between(1, max_tier)]
+    df = df[df["hgoal"].notna() & df["vgoal"].notna()]   # unplayed / abandoned (some non-English files)
     return _frame("engsoccerdata", file_name=_rel(path),
                   match_date=pd.to_datetime(df["Date"]), season=df["Season"].astype(int),
                   competition=competition, tier=df["tier"].astype(int), round="league",
@@ -436,6 +437,69 @@ def rsssf_league(folder: Path, competition: str, country: str, tiers: dict) -> p
     return _league_frame("rsssf", out, competition, country)
 
 
+# ------------------------------------------------------------ RSSSF championship final rounds
+_FR_SEASON = re.compile(r"^\s*(\d{4})-(\d{2})\s*$")
+_FR_HEADING = re.compile(r"^\s*([A-Z][^:]{0,60}):\s*$")
+# "(Berlin)   Borussia Dortmund    4-2 Karlsruher SC   [aet]" - a named venue is neutral
+_FR_KNOCKOUT = re.compile(r"^\s*(?:\(([^)]*)\)\s+)?(\S.*?\S)\s+(\d+)-(\d+)\s+(\S.*?\S)\s*(\[[^\]]*\])?\s*$")
+# "Schalke 04   -  1. FC Kaiserslautern  3:1   13.5.1956" - group games, home and away
+_FR_GROUP = re.compile(r"^\s*(?:\(([^)]*)\)\s+)?(\S.*?\S)\s+-\s+(\S.*?\S)\s+(\d+):(\d+)\s*(\[[^\]]*\])?\s*"
+                       r"(\d{1,2})?\.?(\d{1,2})?\.?(\d{4})?\s*$")
+
+
+def rsssf_final_rounds(path: Path, competition: str, country: str, seasons: tuple[int, int]) -> pd.DataFrame:
+    """A national championship's final rounds from one RSSSF history page
+    (sections headed "1955-56"): knockout ties at named neutral venues and
+    home-and-away groups. Dates come from "[Jun 24]" lines or a trailing
+    "13.5.1956"; an undated game takes the last date seen in its season."""
+    text = grids.page_text(path)
+    out, season, rnd, mode, last = [], None, None, None, None
+    for line in text.split("\n"):
+        m = _FR_SEASON.match(line)
+        if m:
+            season, rnd, mode, last = int(m.group(1)), None, None, None
+            continue
+        if season is None or not seasons[0] <= season <= seasons[1]:
+            continue
+        m = _FR_HEADING.match(line)
+        if m:
+            rnd = m.group(1).strip()
+            mode = "table" if rnd.lower() == "table" else "games"
+            continue
+        if mode != "games":
+            continue
+        s = line.strip()
+        if re.fullmatch(r"\[[^\]]*\]", s) and grids._month_day(s):
+            mon, day = grids._month_day(s)
+            last = pd.Timestamp(season + 1 if mon <= 7 else season, mon, day)
+            continue
+        m = _FR_GROUP.match(line)
+        if m:
+            venue, home, away, hg, ag, note, d, mo, y = m.groups()
+            if d and mo and y:
+                last = pd.Timestamp(int(y), int(mo), int(d))
+            out.append({"home": home, "away": away, "hg": int(hg), "ag": int(ag), "date": last,
+                        "neutral": venue is not None, "aet": bool(note and "aet" in note.lower()),
+                        "round": rnd, "season": season})
+            continue
+        m = _FR_KNOCKOUT.match(line)
+        if m:
+            venue, home, hg, ag, away, note = m.groups()
+            out.append({"home": home, "away": away, "hg": int(hg), "ag": int(ag), "date": last,
+                        "neutral": venue is not None, "aet": bool(note and "aet" in note.lower()),
+                        "round": rnd, "season": season})
+    df = pd.DataFrame(out)
+    if df.empty:
+        return _frame("rsssf")
+    # knockout ties before the first dated game: early June of the season's end year
+    df["date"] = df["date"].fillna(pd.Series([pd.Timestamp(s + 1, 6, 1) for s in df["season"]], index=df.index))
+    return _frame("rsssf", file_name=f"rsssf/{path.parent.name}/{path.name}",
+                  match_date=pd.to_datetime(df["date"]), season=df["season"], competition=competition,
+                  round=df["round"], home_club=df["home"], away_club=df["away"],
+                  home_goals=df["hg"], away_goals=df["ag"], neutral=df["neutral"], extra_time=df["aet"],
+                  home_country=country, away_country=country)
+
+
 # ------------------------------------------------------------ Wikipedia results grids
 _WP_LINK = re.compile(r"\[\[([^|\]]+)(?:\|([^\]]+))?\]\]")
 
@@ -500,15 +564,16 @@ def wikipedia_grids(text: str) -> list[dict]:
 def wikipedia_league(folder: Path, competition: str, country: str, tier: int) -> pd.DataFrame:
     """Wikipedia season articles saved as <start year>.txt (raw wikitext).
     Every results grid on the page is a block of `tier` (regional groups and
-    later phases included), except those under a play-off heading: promotion
-    play-off groups mix in top-flight clubs. Dates are synthetic, from the
+    later phases included), except those under a play-off or qualification
+    heading: promotion play-off groups mix in top-flight clubs, and qualifying
+    rounds (Greece's Panhellenic Championship) lower-level ones. Dates are synthetic, from the
     page's start_date or else the first Sunday of September; see _schedule."""
     out = []
     for path in sorted(folder.glob("*.txt")):
         season = int(path.stem)
         blocks, start = [], None
         for g, grid in enumerate(wikipedia_grids(path.read_text(encoding="utf-8"))):
-            if re.search(r"play-?offs?", grid["section"], re.I):
+            if re.search(r"play-?offs?|qualif", grid["section"], re.I):
                 continue
             if start is None and grid["start_date"]:
                 start = pd.to_datetime(grid["start_date"], errors="coerce")

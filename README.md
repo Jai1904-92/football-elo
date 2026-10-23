@@ -1,7 +1,8 @@
 # football-elo
 
 Club Elo-style ratings for English football (tiers 1–4), Spain, Germany, Italy, France and the Netherlands
-(tiers 1–2), and Portugal (tier 1), from 1955 to now, kept current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs,
+(tiers 1–2), and the top flights of Portugal, Scotland, Belgium, Turkey and Greece, from 1955 to now, kept
+current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs,
 the other countries' domestic cups from 2012/13, and the European club competitions. The Supabase project is
 `football-elo` (ref `mukyuvlvwozeihsrjjis`, Sydney).
 
@@ -36,6 +37,8 @@ pytest
 | Germany, tiers 1–2 | `GER-L` | engsoccerdata (from 1963; tier 2 from 1974) to 2024/25 → football-data |
 | Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97, and the partial 2002/03 and 2004/05) → football-data (tier 2 from 1997/98) |
 | Portugal, tier 1 | `POR-L` | RSSSF results grids 1955/56–1993/94 (dates assigned) → engsoccerdata 1994/95–2024/25 → football-data |
+| Scotland, Belgium, Turkey, Greece (tier 1) | `SCO-L`, `BEL-L`, `TUR-L`, `GRE-L` | Wikipedia results grids 1955/56–1993/94 (dates assigned; Turkey from 1958/59, Greece's 1956–58 Panhellenic final rounds) → engsoccerdata 1994/95–2024/25 → football-data |
+| German championship final round | `GER-CH` | RSSSF 1955/56–1962/63 (qualifiers, groups and final between the Oberliga champions) |
 | Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2024/25) → football-data (tier 1) |
 | France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) → RSSSF (the partial 2003/04) → Wikipedia grid (the partial 2002/03) |
 | Play-offs | `ENG-PO` | engsoccerdata to 2015/16 → ESPN |
@@ -91,7 +94,14 @@ How sources combine:
   partial source can't silently block a complete one. That is how the 2016/17–2017/18 Champions League bug
   was caught.
 - **Big-5 coverage:**
-  - The Bundesliga starts in 1963. Before that, German clubs are rated only from their European matches.
+  - The Bundesliga starts in 1963. Before that, German clubs are rated from the national championship final
+    rounds (`GER-CH`) and European matches: the regional Oberligen have no free match-level source (RSSSF and
+    Wikipedia have final tables only). Final-round clubs start at the top-flight rating (`start_tier` in
+    config), but get no league season, so they appear in season rankings only from 1963/64.
+  - Scotland, Belgium, Turkey and Greece: top flight only, like Portugal. Their starting levels are lower
+    than the big seven's (Scotland −125, Belgium −100, Turkey and Greece −250): starting level left Turkish
+    and Greek clubs 25–30pp worse in Europe than predicted in the 1960s. Cypriot champions played in the
+    Greek league 1967/68–1973/74; `club_countries` in config keeps them Cypriot.
   - Second tiers in Spain and Italy start in 1955 and the Netherlands in 1956; France's in 1996/97, when
     football-data begins.
   - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial

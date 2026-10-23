@@ -10,7 +10,8 @@ import { careerFigures, MeasureNote, seasonFigures, useMeasure } from '../lib/me
 type Trophy = { competition: string; season: number; winner: number; runner_up: number };
 const HONOURS: [string, string][] = [
   ['UCL', 'European Cup'], ['UEL', 'UEFA Cup / Europa League'], ['UCWC', "Cup Winners' Cup"], ['FAIRS', 'Fairs Cup'],
-  ['UECL', 'Conference League'], ...DOMESTIC_CUPS.map((c) => [c, COMP_SHORT[c]] as [string, string]),
+  ['UECL', 'Conference League'], ['GER-CH', 'German champions (to 1963)'],
+  ...DOMESTIC_CUPS.map((c) => [c, COMP_SHORT[c]] as [string, string]),
 ];
 
 export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
@@ -113,7 +114,7 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
         </Card>
       </div>
 
-      <Card club={club} title="Season by season" note="End rating is where the club finished the season; season rating is the whole-season performance rating. Above average, world rank and league rank follow the season view chosen at the top: against the average top-flight club, among every club in the seven leagues, and within the club's own league.">
+      <Card club={club} title="Season by season" note="End rating is where the club finished the season; season rating is the whole-season performance rating. Above average, world rank and league rank follow the season view chosen at the top: against the average top-flight club, among every club in the eleven leagues, and within the club's own league.">
         <MeasureNote />
         {file.data ? <Table rowKey={(s) => s.season} rows={[...file.data.seasons].reverse()} cols={[
           { key: 'season', label: 'Season', render: (s) => seasonLabel(s.season) },

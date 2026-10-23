@@ -33,7 +33,7 @@ export default function Rankings({ clubs }: { clubs: ClubIndex }) {
   const go = (m: string) => setP({ on: m }, { replace: true });
   return (
     <div className="page">
-      <Card title={month ? `Ranking · ${dateLong(month)}` : 'Ranking'} note="Every club in the seven modelled leagues at the end of the month, by Elo rating. Change is against the same month a year before.">
+      <Card title={month ? `Ranking · ${dateLong(month)}` : 'Ranking'} note="Every club in the eleven modelled leagues at the end of the month, by Elo rating. Change is against the same month a year before.">
         <div className="controls">
           <input className="input" type="month" aria-label="Month" value={month ?? ''} min={months[0]} max={months.at(-1)}
                  onChange={(e) => e.target.value && months.includes(e.target.value) && go(e.target.value)} />
