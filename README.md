@@ -367,6 +367,33 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
   in 14 of 61 seasons.
 - **Where it doesn't apply:** the monthly rating charts and the Rankings tab are point-in-time and unchanged.
 
+### Hindsight country levels (season views before 2000)
+
+Ratings run forwards, so a country's level in a season reflects only European results up to then. With few
+European games a season before the mid-1990s, levels drifted. Serie A was rated 30–40 points too low around
+1985–91: Italian clubs did about 5pp better in Europe than predicted. England stayed at its early-1980s level
+through the 1985–90 ban and came back about 25 points too high.
+- **Method (`src/football_elo/hindsight.py`, stored in `gold.country_hindsight`):** for each season, the
+  country offsets that best explain European results in the three seasons either side, weighted towards the
+  nearest. A ridge worth 60 games pulls each towards 0, and the average over the modelled countries stays
+  put. They're added to season ratings under both measures: in full to 1994/95, fading out by 1999/2000.
+- **Gaps:** seasons a country sat out of Europe step evenly from the level before to the level after. That's
+  England 1985/86–1990/91, counting 1990/91 when only Manchester United and Aston Villa were back (Liverpool returned in 1991/92). England returns at the
+  lower level instead of jumping to it.
+- **Tested on left-out seasons** (each predicted from its neighbours only), European log loss:
+
+  | Period | Forward only | With hindsight |
+  |---|---|---|
+  | 1958–74 | 0.5480 | 0.5404 |
+  | 1975–94 | 0.5498 | 0.5476 |
+  | 1995–2025 | 0.5964 | 0.5970 (slightly worse, hence the fade) |
+
+  Bias spread by 5-year block: 3.62 → 2.46pp.
+- **Effect:** Milan 1988/89 rises from 10th to about 7th, and 1989/90 and 1990/91 from 4th to 3rd.
+  Liverpool and Arsenal stay ahead in 1988–90, because the ban gives no European evidence to correct
+  England against during those years.
+- **Where it doesn't apply:** monthly ratings and the Rankings tab stay forward-only.
+
 ## Useful queries
 
 ```sql

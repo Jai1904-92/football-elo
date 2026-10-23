@@ -41,5 +41,9 @@ export function careerFigures(c: Club, m: Measure) {
 /** One line saying which season measure a card is showing. */
 export function MeasureNote() {
   const { measure } = useMeasure();
-  return <p className="measure-note"><b>{MEASURE_LABEL[measure]}.</b> {MEASURE_NOTE[measure]}</p>;
+  return (
+    <p className="measure-note"><b>{MEASURE_LABEL[measure]}.</b> {MEASURE_NOTE[measure]} Before 2000, season
+      ratings also correct each country's level with hindsight, from European results in the seasons before and
+      after; the monthly ratings and the rankings on a date don't.</p>
+  );
 }

@@ -758,7 +758,7 @@ datarozhlas,FC_La_Chaux-de-Fonds,FC La Chaux-de-Fonds
 datarozhlas,FC_Lahti,FC Reipas Lahti
 datarozhlas,FC_Lantana,FC Lantana
 datarozhlas,FC_Lantana_Tallinn,FC Lantana
-datarozhlas,FC_Lausanne-Sport,Carlisle United
+datarozhlas,FC_Lausanne-Sport,Lausanne-Sport
 datarozhlas,FC_Levadia_Tallinn,Levadia
 datarozhlas,FC_Linz,SK VOEST Linz
 datarozhlas,FC_Locomotive_Tbilisi,Lokomotiv Tbilisi
@@ -1395,7 +1395,7 @@ datarozhlas,Lahti,Lahti
 datarozhlas,Landskrona_BoIS,Landskrona BoIS
 datarozhlas,Larne,Larne
 datarozhlas,Larne_F.C.,Larne
-datarozhlas,Lausanne_Sports,Lausanne Sports
+datarozhlas,Lausanne_Sports,Lausanne-Sport
 datarozhlas,Lazio,Lazio
 datarozhlas,Laçi,KF Laci
 datarozhlas,Lech Poznań,Lech Poznan
@@ -2180,7 +2180,7 @@ datarozhlas,Werder_Bremen,Werder Bremen
 datarozhlas,West Ham United,West Ham United
 datarozhlas,West_Berlin,West Berlin XI
 datarozhlas,West_Bromwich_Albion_F.C.,West Bromwich Albion
-datarozhlas,West_Ham_United_F.C.,Reading
+datarozhlas,West_Ham_United_F.C.,West Ham United
 datarozhlas,Widzew_%C5%81%C3%B3d%C5%BA,Widzew Lodz
 datarozhlas,Wiener_Sport-Club,Wiener Sport-Club
 datarozhlas,Wiener_Sportclub,Wiener Sportclub
@@ -2891,7 +2891,7 @@ transfermarkt,5155,Metalurgi Rustavi
 transfermarkt,520,Cercle Brugge
 transfermarkt,5223,Maccabi Netanya
 transfermarkt,5228,FK Atlantas
-transfermarkt,527,Football Club Lausanne-Sport
+transfermarkt,527,Lausanne-Sport
 transfermarkt,53152,Cardiff MU
 transfermarkt,533,1899 Hoffenheim
 transfermarkt,534,Pelister Bitola
@@ -3147,7 +3147,7 @@ espn,11523,Paksi SE
 espn,11537,Renova
 espn,11543,FK Zeta
 espn,11547,JK Narva Trans
-espn,11551,Football Club Lausanne-Sport
+espn,11551,Lausanne-Sport
 espn,11553,Aris
 espn,11706,Viktoria Plzen
 espn,12030,Rigas Futbola Skola

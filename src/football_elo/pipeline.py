@@ -6,7 +6,7 @@ from dataclasses import asdict
 
 import pandas as pd
 
-from . import bronze, calibrate, db, engine, seasons, silver
+from . import bronze, calibrate, db, engine, hindsight, seasons, silver
 
 log = logging.getLogger(__name__)
 
@@ -56,6 +56,8 @@ def build_local(cfg: dict, fetch: bool = True) -> dict:
     built = silver.build(cfg)
     persist_new_aliases(cfg, built["new_aliases"])
     built.update(rate(cfg, built))
+    built["hindsight"] = hindsight.corrections(built["rated"], built["clubs"].set_index("club")["country"],
+                                               list(cfg["elo"]["countries"]), cfg["elo"]["hindsight"])
     built["scores"], cmp = calibration_scores(cfg, built["rated"])
 
     paths = cfg["paths"]
@@ -85,7 +87,7 @@ def full_load(cfg: dict, fetch: bool = True) -> int:
     with db.connect() as conn, conn.cursor() as cur:
         # the club_ratings copy (~870k rows, each FK-checked) outlasts the role's default timeout
         cur.execute("set local statement_timeout = '15min'")
-        cur.execute("truncate gold.hfa_levels, gold.league_offsets, gold.calibration_scores, gold.club_season_perf, "
+        cur.execute("truncate gold.hfa_levels, gold.league_offsets, gold.calibration_scores, gold.club_season_perf, gold.country_hindsight, "
                     "gold.club_ratings, gold.match_ratings, gold.runs, "
                     "silver.matches, silver.club_aliases, silver.clubs, silver.competitions, "
                     "bronze.source_matches, bronze.source_files")
@@ -98,6 +100,7 @@ def full_load(cfg: dict, fetch: bool = True) -> int:
         db.write_match_ratings(cur, built["rated"], run_id, cfg["elo"]["burn_in_until"])
         db.write_club_ratings(cur, built["periods"], run_id)
         db.write_season_perf(cur, built["season_perf"], run_id)
+        db.copy_frame(cur, "gold.country_hindsight", built["hindsight"].assign(run_id=run_id))
         db.write_league_offsets(cur, built["offsets"], run_id)
         db.write_hfa_levels(cur, built["hfa"], run_id)
         db.write_calibration(cur, run_id, built["scores"])

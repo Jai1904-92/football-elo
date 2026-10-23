@@ -45,7 +45,7 @@ def copy_frame(cur: psycopg.Cursor, table: str, df: pd.DataFrame) -> None:
             cp.write(chunk)
 
 
-FLOAT_COLUMNS = {"elo", "elo_perf", "elo_avg", "home_elo_pre", "away_elo_pre", "home_elo_post", "away_elo_post",
+FLOAT_COLUMNS = {"elo", "elo_perf", "elo_avg", "correction", "home_elo_pre", "away_elo_pre", "home_elo_post", "away_elo_post",
                  "home_win_exp", "elo_delta", "k_mult", "rmse", "bias", "rmse_shape", "mean_spearman",
                  "country_offset", "level_offset", "hfa"}
 

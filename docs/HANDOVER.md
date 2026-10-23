@@ -10,7 +10,7 @@ covers how everything works; this note covers where things stand and what's next
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
   - Size: 444,608 matches and 3,266 clubs (2026-10-23; about 1,000 of them cup-only).
   - Tests: 29, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 12 on
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 14 on
   2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.

@@ -490,5 +490,10 @@ elo:
     NED:
       start_ratings: {1: 1561, 2: 1397}
       nonleague: 1233
+  # Hindsight country levels for the season views (src/football_elo/hindsight.py):
+  # full correction to 1994/95, fading out by 1999/2000. England's ban seasons
+  # (1985/86-1989/90, plus 1990/91 when only Manchester United and Aston Villa were back) step
+  # evenly from the pre-ban to the post-ban level.
+  hindsight: {window: 3, ridge: 60, full_until: 1994, fade_until: 1999, gaps: {ENG: [1985, 1990]}}
   # Clubs from countries whose leagues are not modelled (met in Europe).
   foreign_start: {default: 1311}
