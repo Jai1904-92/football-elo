@@ -347,6 +347,10 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
     season average.
   - 15 draws splits it (promoted clubs +1.1pp overall, strongest quarter −0.9pp) and predicts better than
     8.
+  - Margin was retested with the pull tuned to the same split. Half-strength margin (gd^0.25) with 25
+    draws predicted a little better (log loss 0.64564 against 0.64633) and changed the #1 in six seasons,
+    Ajax 1972/73 among them. Full margin needed 40 draws, which dragged late-surging seasons down. Both
+    were judged not worth it; the measure stays margin-free.
 - **Example:** Aston Villa finished 7th in 2022/23 after a strong spring, then 4th in 2023/24 after a weak
   finish. Season end ranks them 22nd and 31st in Europe; whole season ranks them 23rd and 17th.
 - **How much it matters:** since 1965/66 the two rank orders correlate at 0.99, but the European #1 differs
