@@ -1,18 +1,30 @@
 name: weekly-elo-update
+# Rate the week's new and corrected matches in Supabase (python -m football_elo
+# update). The site workflow then exports and redeploys. Tested against the live
+# database on 2026-10-23: a seven-month replay matched a full rebuild exactly.
 on:
-  # Manual until the update path has been checked against the live database
-  # (docs/HANDOVER.md). Then restore the schedule:
-  # schedule:
-  #   - cron: "0 20 * * 1"   # Mondays 20:00 UTC (Tuesday morning AEST), after weekend + Monday games
+  schedule:
+    - cron: "0 20 * * 1"   # Mondays 20:00 UTC (Tuesday morning AEST), after weekend + Monday games
   workflow_dispatch:
+concurrency:
+  group: elo-update
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -e .
+      # Source files (RSSSF, Wikipedia, engsoccerdata, ...) are cached between
+      # runs; only live files re-download. The first run fetches everything.
+      - uses: actions/cache@v4
+        with:
+          path: data/bronze
+          key: bronze-${{ github.run_id }}
+          restore-keys: bronze-
       - run: python -m football_elo update
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}

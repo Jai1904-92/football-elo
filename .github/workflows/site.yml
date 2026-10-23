@@ -4,8 +4,9 @@ on:
   push:
     branches: [main]
     paths: ["web/**", "src/football_elo/export.py", "config/club_branding.csv", ".github/workflows/site.yml"]
-  schedule:
-    - cron: "0 2 * * 2"   # Tuesdays 02:00 UTC, after the weekly update
+  workflow_run:            # straight after each weekly update
+    workflows: [weekly-elo-update]
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,6 +17,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
+    # after an update, only when it succeeded
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

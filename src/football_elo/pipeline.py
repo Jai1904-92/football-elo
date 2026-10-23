@@ -126,7 +126,8 @@ def incremental_update(cfg: dict) -> int | None:
 
     bronze.fetch_all(cfg)  # past files are cached; live files re-download
     with db.connect() as conn, conn.cursor() as cur:
-        aliases = pd.concat([silver.load_aliases(cfg["aliases"]), db.fetch_aliases(cur)]) \
+        cur.execute("set local statement_timeout = '15min'")   # the serving-view refresh outlasts the default
+        aliases =pd.concat([silver.load_aliases(cfg["aliases"]), db.fetch_aliases(cur)]) \
             .drop_duplicates(["source", "source_name"])
         built = silver.build(cfg, aliases=aliases)
         persist_new_aliases(cfg, built["new_aliases"])

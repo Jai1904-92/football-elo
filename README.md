@@ -312,10 +312,19 @@ Clubs ESPN hasn't seen before, such as a new European opponent, are added automa
 name. The job logs a warning and appends them to `config/club_aliases.csv` for review. If the rating
 parameters or competition list in config change, the job does a full rebuild instead.
 
-To schedule it, use either:
-- `.github/workflows/weekly-update.yml`, with the `SUPABASE_DB_URL` repository secret (manual-only for now:
-  restore its `schedule` once the update path has been checked against the live database)
-- `scripts/weekly_update.ps1` with Windows Task Scheduler
+It runs every Monday at 20:00 UTC (Tuesday morning in Australia) as `.github/workflows/weekly-update.yml`,
+using the `SUPABASE_DB_URL` repository secret. Source files are kept in an Actions cache between runs. When
+it succeeds, the site workflow exports and redeploys. `scripts/weekly_update.ps1` with Windows Task Scheduler
+is the local alternative.
+
+Tested against the live database on 2026-10-23:
+- A routine run picked up 45 new or changed matches.
+- A forced replay removed seven months of matches (3,691, from 1 April 2026) and let the update re-add and
+  re-rate them.
+- In both cases every match rating, the latest club ratings and the whole-season ratings matched a full
+  rebuild exactly.
+
+The update leaves the hindsight country levels alone: they only cover seasons before 2000.
 
 ## Website
 

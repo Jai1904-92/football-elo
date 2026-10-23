@@ -10,7 +10,7 @@ covers how everything works; this note covers where things stand and what's next
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
   - Size: 444,608 matches and 3,266 clubs (2026-10-23; about 1,000 of them cup-only).
   - Tests: 29, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 14 on
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 14 (then incremental runs 15–16) on
   2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
@@ -36,11 +36,10 @@ covers how everything works; this note covers where things stand and what's next
 
 ## Not done yet
 
-- The weekly update isn't scheduled. Options: `.github/workflows/weekly-update.yml` (needs a GitHub repo
-  plus the `SUPABASE_DB_URL` secret) or `scripts/weekly_update.ps1` with Task Scheduler.
-- The update's re-rating path is covered by unit tests but hasn't run against the live database yet. The
-  first weekly run after new matches is the real test: compare it with a full rebuild. Its GitHub workflow
-  is manual-only until then.
+- Weekly update: scheduled 2026-10-23 (GitHub Actions, Mondays 20:00 UTC, site redeploys after). It was
+  tested live first: a seven-month forced replay matched a full rebuild exactly (README "Weekly update").
+  If a run fails, GitHub emails the repo owner; a full `load` from a local machine always restores a clean
+  state.
 - Data bug: engsoccerdata's FA Cup and League Cup files call the modern Accrington Stanley (founded 1968,
   league club "Accrington" from 2006) "Accrington Stanley", so about 75 cup games up to 2018 sit on the old
   club (folded 1962). Fix with `corrections` per season or a dated alias.
