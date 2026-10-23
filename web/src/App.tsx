@@ -1,6 +1,7 @@
 import { HashRouter, NavLink, Link, Route, Routes } from 'react-router-dom';
 import { useClubs, useMeta } from './lib/data';
-import { ClubDatalist, Status } from './components/ui';
+import { ClubDatalist, Seg, Status } from './components/ui';
+import { MEASURE_NOTE, MeasureProvider, useMeasure, type Measure } from './lib/measure';
 import { dateLong } from './lib/format';
 import Home from './pages/Home';
 import Rise from './pages/Rise';
@@ -26,7 +27,21 @@ function Mark() {
   );
 }
 
+function MeasureToggle() {
+  const { measure, setMeasure } = useMeasure();
+  return (
+    <div className="measure" title={MEASURE_NOTE[measure]}>
+      <span>Season view</span>
+      <Seg<Measure> label="Judge seasons by" value={measure} onChange={setMeasure} options={[['end', 'End'], ['perf', 'Whole']]} />
+    </div>
+  );
+}
+
 export default function App() {
+  return <MeasureProvider><Shell /></MeasureProvider>;
+}
+
+function Shell() {
   const clubs = useClubs();
   const meta = useMeta();
   return (
@@ -37,6 +52,7 @@ export default function App() {
           <nav className="nav" aria-label="Sections">
             {NAV.map(([to, label]) => <NavLink key={to} to={to}>{label}</NavLink>)}
           </nav>
+          <MeasureToggle />
           {meta.data && <div className="stamp">Data to {dateLong(meta.data.last_match_date)}</div>}
         </div>
       </header>

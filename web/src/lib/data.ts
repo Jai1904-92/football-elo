@@ -44,6 +44,7 @@ export type Club = {
   top_flight_seasons: number | null; first_season: number | null; last_season: number | null;
   peak_elo: number | null; peak_season: number | null; seasons_at_1: number | null; seasons_top10: number | null;
   best_rank: number | null; best_decade: number | null;
+  seasons_at_1_perf: number | null; seasons_top10_perf: number | null; best_rank_perf: number | null; best_decade_perf: number | null;
   logo: string | null; primary: string | null; secondary: string | null;
 };
 
@@ -80,6 +81,7 @@ export type Match = {
 export type Season = {
   season: number; tier: number; elo_end: number; elo_peak: number; above_field: number;
   world_rank: number; league_rank: number;
+  perf: number | null; above_perf: number | null; world_rank_perf: number | null; league_rank_perf: number | null;
 };
 export type ClubFile = { id: number; months: [string, number][]; seasons: Season[]; matches: Match[] };
 

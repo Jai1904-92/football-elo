@@ -2,8 +2,9 @@ import { useMemo, useState } from 'react';
 import { useView, type ClubIndex } from '../lib/data';
 import { Card, ClubName, Status, Table } from '../components/ui';
 import { clubColors } from '../lib/color';
+import { MeasureNote, useMeasure } from '../lib/measure';
 
-type Part = { club: number; country: string; peak_above: number; best5_above: number; seasons_at_1: number;
+type Part = { measure: string; club: number; country: string; peak_above: number; best5_above: number; seasons_at_1: number;
   seasons_top10: number; top_flight_seasons: number; s_peak: number; s_sus: number; s_at1: number; s_top10: number };
 
 const WEIGHTS: [keyof W, string][] = [['peak', 'Peak'], ['sustain', 'Sustained'], ['top', 'At #1'], ['long', 'Top 10']];
@@ -12,16 +13,18 @@ type W = { peak: number; sustain: number; top: number; long: number };
 export default function AllTime({ clubs }: { clubs: ClubIndex }) {
   const parts = useView<Part>('alltime_parts');
   const [w, setW] = useState<W>({ peak: 25, sustain: 35, top: 20, long: 20 });
+  const { measure } = useMeasure();
   const rows = useMemo(() => {
     const tot = w.peak + w.sustain + w.top + w.long || 1;
-    return (parts.data ?? []).map((p) => ({
+    return (parts.data ?? []).filter((p) => p.measure === measure).map((p) => ({
       ...p, score: Math.round(1000 * (w.peak * p.s_peak + w.sustain * p.s_sus + w.top * p.s_at1 + w.long * p.s_top10) / tot) / 10,
     })).sort((a, b) => b.score - a.score).slice(0, 60).map((r, i) => ({ ...r, pos: i + 1 }));
-  }, [parts.data, w]);
+  }, [parts.data, w, measure]);
 
   return (
     <div className="page">
       <Card title="All-time ranking" note="A weighted blend of four things since 1965/66: peak (best season above the top-flight average), sustained (best five-season average), seasons ranked #1 and seasons in the top 10. Each is scaled 0–1 against the best club. Move the weights to change the order.">
+        <MeasureNote />
         <div className="controls">
           {WEIGHTS.map(([k, label]) => (
             <label className="slider" key={k}>{label}

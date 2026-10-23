@@ -10,7 +10,7 @@ covers how everything works; this note covers where things stand and what's next
     Also English cups and play-offs, and the UEFA competitions, all from 1955.
   - Size: 444,608 matches and 3,266 clubs (2026-10-23; about 1,000 of them cup-only).
   - Tests: 29, all passing (`pytest`).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 10 on
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. The last full load was run 11 on
   2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
@@ -25,6 +25,9 @@ covers how everything works; this note covers where things stand and what's next
   design, club crests and per-club colours. It reads a static JSON snapshot (`python -m football_elo
   export`) instead of querying Supabase. Crests/colours: `tools/club_branding.py` → `config/club_branding.csv`.
   README "Website" covers running and deploying it. It has the old dashboard's seven tabs plus a home page.
+  - A header toggle switches every season-based figure between end-of-season and whole-season
+    (performance rating) judgement. README "Judging a season" covers the method; the season views carry a
+    `measure` column (`end`/`perf`), so queries on them must filter by it.
 - **Old dashboard:** https://claude.ai/artifact/6ZBJ8NoziTLrGuX6PDNexe (Dashboard artifact type, in Alex's
   other claude.ai account; not readable from this one). Mirrored in `dashboard/index.html` and
   `dashboard/queries.json`; superseded by the website.

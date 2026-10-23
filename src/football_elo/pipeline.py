@@ -6,7 +6,7 @@ from dataclasses import asdict
 
 import pandas as pd
 
-from . import bronze, calibrate, db, engine, silver
+from . import bronze, calibrate, db, engine, seasons, silver
 
 log = logging.getLogger(__name__)
 
@@ -38,7 +38,7 @@ def rate(cfg: dict, built: dict) -> dict:
     rated, _ = engine.run(built["matches"], params, club_country=country)
     per = engine.periods(rated, burn_in_until=cfg["elo"]["burn_in_until"])
     return {"rated": rated, "periods": per, "offsets": engine.league_offsets(rated),
-            "hfa": engine.hfa_levels(rated)}
+            "hfa": engine.hfa_levels(rated), "season_perf": seasons.season_performance(rated, per)}
 
 
 def calibration_scores(cfg: dict, rated: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -85,7 +85,8 @@ def full_load(cfg: dict, fetch: bool = True) -> int:
     with db.connect() as conn, conn.cursor() as cur:
         # the club_ratings copy (~870k rows, each FK-checked) outlasts the role's default timeout
         cur.execute("set local statement_timeout = '15min'")
-        cur.execute("truncate gold.hfa_levels, gold.league_offsets, gold.calibration_scores, gold.club_ratings, gold.match_ratings, gold.runs, "
+        cur.execute("truncate gold.hfa_levels, gold.league_offsets, gold.calibration_scores, gold.club_season_perf, "
+                    "gold.club_ratings, gold.match_ratings, gold.runs, "
                     "silver.matches, silver.club_aliases, silver.clubs, silver.competitions, "
                     "bronze.source_matches, bronze.source_files")
         written = db.replace_bronze_files(cur, built["source_rows"], _hashes(cfg, built["source_rows"]),
@@ -96,6 +97,7 @@ def full_load(cfg: dict, fetch: bool = True) -> int:
         run_id = db.start_run(cur, "full", run_params(cfg), built["matches"]["match_date"].min().date())
         db.write_match_ratings(cur, built["rated"], run_id, cfg["elo"]["burn_in_until"])
         db.write_club_ratings(cur, built["periods"], run_id)
+        db.write_season_perf(cur, built["season_perf"], run_id)
         db.write_league_offsets(cur, built["offsets"], run_id)
         db.write_hfa_levels(cur, built["hfa"], run_id)
         db.write_calibration(cur, run_id, built["scores"])
@@ -161,6 +163,10 @@ def incremental_update(cfg: dict) -> int | None:
         db.write_league_offsets(cur, engine.league_offsets(rated), run_id)
         db.write_hfa_levels(cur, engine.hfa_levels(rated), run_id)
         db.refresh_valid_to(cur)
+        # whole-season performance for every season the replay touched
+        from_season = int(rated["season"].min())
+        db.write_season_perf(cur, seasons.season_performance(*db.fetch_season_inputs(cur, from_season)),
+                             run_id, from_season=from_season)
         db.finish_run(cur, run_id, len(rated), rated["match_date"].max().date())
         db.refresh_serving(cur)
         conn.commit()

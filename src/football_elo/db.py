@@ -45,7 +45,7 @@ def copy_frame(cur: psycopg.Cursor, table: str, df: pd.DataFrame) -> None:
             cp.write(chunk)
 
 
-FLOAT_COLUMNS = {"elo", "home_elo_pre", "away_elo_pre", "home_elo_post", "away_elo_post",
+FLOAT_COLUMNS = {"elo", "elo_perf", "elo_avg", "home_elo_pre", "away_elo_pre", "home_elo_post", "away_elo_post",
                  "home_win_exp", "elo_delta", "k_mult", "rmse", "bias", "rmse_shape", "mean_spearman",
                  "country_offset", "level_offset", "hfa"}
 
@@ -280,6 +280,32 @@ def refresh_valid_to(cur: psycopg.Cursor) -> None:
         from x
         where c.club = x.club and c.valid_from = x.valid_from
           and c.valid_to is distinct from x.new_to""")
+
+
+def write_season_perf(cur: psycopg.Cursor, perf: pd.DataFrame, run_id: int, from_season: int | None = None) -> None:
+    """Replace whole-season performance ratings (all, or from a season on)."""
+    if from_season is None:
+        cur.execute("delete from gold.club_season_perf")
+    else:
+        cur.execute("delete from gold.club_season_perf where season >= %s", (from_season,))
+    if perf.empty:
+        return
+    copy_frame(cur, "gold.club_season_perf", perf[["club", "season", "elo_perf", "elo_avg", "matches"]].assign(run_id=run_id))
+
+
+def fetch_season_inputs(cur: psycopg.Cursor, from_season: int) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Rated matches and rating periods from a season on, for seasons.season_performance."""
+    cur.execute("""select m.season, m.home_club, m.away_club, m.home_goals, m.away_goals,
+                          r.home_elo_pre, r.away_elo_pre, r.home_win_exp, r.k_mult
+                   from silver.matches m join gold.match_ratings r using (match_id) where m.season >= %s""",
+                (from_season,))
+    rated = pd.DataFrame(cur.fetchall(), columns=[d.name for d in cur.description])
+    cur.execute("select club, season, tier, valid_from, valid_to, elo from gold.club_ratings where season >= %s",
+                (from_season,))
+    periods = pd.DataFrame(cur.fetchall(), columns=[d.name for d in cur.description])
+    for c in ("home_elo_pre", "away_elo_pre", "home_win_exp", "k_mult"):
+        rated[c] = rated[c].astype(float)
+    return rated, periods
 
 
 def refresh_serving(cur: psycopg.Cursor) -> None:

@@ -69,7 +69,11 @@ h2::before { content: ''; width: 10px; height: 11px; background: var(--club); cl
 }
 .nav a:hover { color: var(--text); text-decoration: none; background: rgba(63, 208, 255, 0.12); }
 .nav a.active { color: #03101c; background: linear-gradient(90deg, var(--cyan), #7be3ff); box-shadow: 0 0 18px rgba(63, 208, 255, .5); }
-.stamp { margin-left: auto; font-size: 0.75rem; color: var(--faint); font-family: var(--head); letter-spacing: 0.1em; text-transform: uppercase; }
+.measure { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.measure > span { font: 600 .7rem var(--head); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.measure .seg button { padding: 5px 11px; font-size: .76rem; }
+.measure-note { border-left: 3px solid var(--club); padding: 6px 12px; background: rgba(63,208,255,.05); font-size: .84rem; color: var(--muted); margin: 0 0 12px; }
+.stamp { font-size: 0.75rem; color: var(--faint); font-family: var(--head); letter-spacing: 0.1em; text-transform: uppercase; }
 
 .page { display: grid; gap: 22px; padding-top: 22px; }
 .page > *, .grid2 > *, .hero > * { min-width: 0; }   /* let wide tables scroll inside their card */
@@ -78,6 +82,7 @@ h2::before { content: ''; width: 10px; height: 11px; background: var(--club); cl
   .nav { flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; }
   .nav a { flex: none; padding: 6px 14px; }
   .stamp { display: none; }
+  .measure { margin-left: 0; }
 }
 .grid2 { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
 @media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }

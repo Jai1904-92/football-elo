@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useView, type ClubIndex } from '../lib/data';
 import { Card, ClubName, Status, Table } from '../components/ui';
 import { COMP_SHORT, COUNTRIES, int, pct, seasonLabel, signed } from '../lib/format';
+import { MeasureNote, useMeasure } from '../lib/measure';
 
-type GSeason = { club: number; country: string; season: number; season_label: string; elo_end: number; elo_peak: number; above_field: number; world_rank: number };
+type GSeason = { measure: string; rating: number; club: number; country: string; season: number; season_label: string; elo_end: number; elo_peak: number; above_field: number; world_rank: number };
 type Upset = { match_id: string; match_date: string; competition: string; comp_type: string; home_club: number; away_club: number;
   score: string; winner: number; loser: number; home_elo: number; away_elo: number; winner_chance: number };
 
@@ -11,21 +12,24 @@ export default function Greatest({ clubs }: { clubs: ClubIndex }) {
   const seasons = useView<GSeason>('greatest_seasons');
   const upsets = useView<Upset>('upsets');
   const [country, setCountry] = useState('');
+  const { measure } = useMeasure();
   const [type, setType] = useState('');
   return (
     <div className="page">
-      <Card title="Greatest single seasons" note="End-of-season rating above the average top-flight club that season, since 1965/66.">
+      <Card title="Greatest single seasons" note="Rating above the average top-flight club that season, since 1965/66.">
+        <MeasureNote />
         <div className="controls">
           <select className="select" aria-label="Country" value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value="">All countries</option>{Object.entries(COUNTRIES).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </select>
         </div>
         {seasons.data ? <Table rowKey={(r) => `${r.club}-${r.season}`} limit={50} initial={['above_field', 'desc']}
-          rows={seasons.data.filter((r) => !country || r.country === country)} cols={[
+          rows={seasons.data.filter((r) => r.measure === measure && (!country || r.country === country))} cols={[
             { key: 'club', label: 'Club', sort: (r) => clubs.byId[r.club]?.name, render: (r) => <ClubName club={clubs.byId[r.club]} /> },
             { key: 'season', label: 'Season', render: (r) => seasonLabel(r.season) },
             { key: 'above_field', label: 'Above average', num: true, render: (r) => signed(r.above_field) },
-            { key: 'elo_end', label: 'End rating', num: true, render: (r) => int(r.elo_end) },
+            { key: 'rating', label: measure === 'perf' ? 'Season rating' : 'End rating', num: true, render: (r) => int(r.rating) },
+            ...(measure === 'perf' ? [{ key: 'elo_end', label: 'End rating', num: true, hideSm: true, render: (r: GSeason) => int(r.elo_end) }] : []),
             { key: 'elo_peak', label: 'Peak', num: true, hideSm: true, render: (r) => int(r.elo_peak) },
             { key: 'world_rank', label: 'Rank', num: true },
           ]} /> : <Status error={seasons.error} />}

@@ -4,11 +4,12 @@ import { useView, type ClubIndex } from '../lib/data';
 import { Badge, Card, ClubName, Seg, Status, Table } from '../components/ui';
 import LineChart, { type Series } from '../components/LineChart';
 import { COUNTRIES, COUNTRY_ORDER, countryColor, int, seasonLabel } from '../lib/format';
+import { MeasureNote, useMeasure } from '../lib/measure';
 
-type One = { season: number; club: number; country: string; elo_end: number; margin: number; runner_up: number };
-type King = { decade: number; pos: number; club: number; country: string; seasons: number; avg_above_field: number; best_rank: number; seasons_at_1: number };
-type Strength = { season: number; country: string; avg_top_flight: number; best: number };
-type Dyn = { top_n: number; club: number; country: string; from_season: number; to_season: number; span: string; seasons: number; avg_rank: number; seasons_at_1: number; pos: number };
+type One = { measure: string; season: number; club: number; country: string; rating: number; elo_end: number; margin: number; runner_up: number };
+type King = { measure: string; decade: number; pos: number; club: number; country: string; seasons: number; avg_above_field: number; best_rank: number; seasons_at_1: number };
+type Strength = { measure: string; season: number; country: string; avg_top_flight: number; best: number };
+type Dyn = { measure: string; top_n: number; club: number; country: string; from_season: number; to_season: number; span: string; seasons: number; avg_rank: number; seasons_at_1: number; pos: number };
 
 function OnesChart({ rows, clubs }: { rows: One[]; clubs: ClubIndex }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -31,7 +32,7 @@ function OnesChart({ rows, clubs }: { rows: One[]; clubs: ClubIndex }) {
         .on('mousemove', (ev, r) => {
           const [px, py] = d3.pointer(ev, el);
           tip.style('display', null).style('left', `${Math.min(px + 12, width - 200)}px`).style('top', `${py - 60}px`)
-            .html(`<b>${seasonLabel(r.season)}</b><div><span>${clubs.byId[r.club]?.name}</span><span>${int(r.elo_end)}</span></div><div><span class="muted">Margin over ${clubs.byId[r.runner_up]?.name ?? '—'}</span><span>${r.margin}</span></div>`);
+            .html(`<b>${seasonLabel(r.season)}</b><div><span>${clubs.byId[r.club]?.name}</span><span>${int(r.rating)}</span></div><div><span class="muted">Margin over ${clubs.byId[r.runner_up]?.name ?? '—'}</span><span>${r.margin}</span></div>`);
         })
         .on('mouseleave', () => tip.style('display', 'none'));
     };
@@ -42,10 +43,17 @@ function OnesChart({ rows, clubs }: { rows: One[]; clubs: ClubIndex }) {
 }
 
 export default function Eras({ clubs }: { clubs: ClubIndex }) {
-  const ones = useView<One>('number_ones');
-  const kings = useView<King>('decade_kings');
-  const strength = useView<Strength>('league_strength');
-  const dyn = useView<Dyn>('dynasties');
+  const { measure } = useMeasure();
+  const ones0 = useView<One>('number_ones');
+  const kings0 = useView<King>('decade_kings');
+  const strength0 = useView<Strength>('league_strength');
+  const dyn0 = useView<Dyn>('dynasties');
+  const pick = <T extends { measure: string }>(s: { data?: T[]; error?: string }) =>
+    ({ data: s.data?.filter((r) => r.measure === measure), error: s.error });
+  const ones = useMemo(() => pick(ones0), [ones0, measure]); // eslint-disable-line react-hooks/exhaustive-deps
+  const kings = useMemo(() => pick(kings0), [kings0, measure]); // eslint-disable-line react-hooks/exhaustive-deps
+  const strength = useMemo(() => pick(strength0), [strength0, measure]); // eslint-disable-line react-hooks/exhaustive-deps
+  const dyn = useMemo(() => pick(dyn0), [dyn0, measure]); // eslint-disable-line react-hooks/exhaustive-deps
   const [topN, setTopN] = useState(5);
 
   const reigns = useMemo(() => {
@@ -67,7 +75,8 @@ export default function Eras({ clubs }: { clubs: ClubIndex }) {
 
   return (
     <div className="page">
-      <Card title="Top-rated club at the end of each season" note="Each bar is a season, coloured by the leader's country; height is the leader's margin over the runner-up. Hover for details.">
+      <Card title="Top-rated club of each season" note="Each bar is a season, coloured by the leader's country; height is the leader's margin over the runner-up. Hover for details.">
+        <MeasureNote />
         <div className="legend">{COUNTRY_ORDER.map((c) => <span key={c}><i style={{ background: countryColor(c) }} />{COUNTRIES[c]}</span>)}</div>
         {ones.data ? <OnesChart rows={ones.data} clubs={clubs} /> : <Status error={ones.error} />}
         <div className="reigns">{reigns.map((r) => (
@@ -76,7 +85,7 @@ export default function Eras({ clubs }: { clubs: ClubIndex }) {
         </div>
       </Card>
 
-      <Card title="Best clubs of each decade" note="Average end-of-season rating above the average top-flight club, top-flight seasons only, at least three seasons in the decade. The 1960s cover 1965–69.">
+      <Card title="Best clubs of each decade" note={`Average ${measure === 'perf' ? 'whole-season' : 'end-of-season'} rating above the average top-flight club, top-flight seasons only, at least three seasons in the decade. The 1960s cover 1965–69.`}>
         {kings.data ? (
           <div className="decades">{decades.map(([dec, list]) => (
             <div className="decade" key={dec}>
@@ -90,13 +99,13 @@ export default function Eras({ clubs }: { clubs: ClubIndex }) {
         ) : <Status error={kings.error} />}
       </Card>
 
-      <Card title="League strength over time" note="Average end-of-season rating of each country's top-flight clubs. Leagues rise and fall against each other through European results.">
+      <Card title="League strength over time" note={`Average ${measure === 'perf' ? 'whole-season' : 'end-of-season'} rating of each country's top-flight clubs. Leagues rise and fall against each other through European results.`}>
         <div className="legend">{strengthSeries.map((s) => <span key={s.key}><i style={{ background: s.color }} />{s.label}</span>)}</div>
         {strength.data ? <LineChart series={strengthSeries} gapDays={800} height={360} shadeBefore={new Date(Date.UTC(1965, 6, 1))}
                                     xFormat={(d) => 'Season ' + seasonLabel(d.getUTCFullYear() - 1)} /> : <Status error={strength.error} />}
       </Card>
 
-      <Card title="Dynasties" note="The longest unbroken runs of season-end finishes in the top places among all clubs in the seven leagues, since 1965.">
+      <Card title="Dynasties" note={`The longest unbroken runs of ${measure === 'perf' ? 'whole-season ratings' : 'season-end finishes'} in the top places among all clubs in the seven leagues, since 1965.`}>
         <div className="controls"><Seg label="Top places" value={topN} onChange={setTopN} options={[[1, 'Top 1'], [3, 'Top 3'], [5, 'Top 5'], [10, 'Top 10']]} /></div>
         {dyn.data ? (
           <Table rowKey={(r) => `${r.club}-${r.from_season}`} rows={dyn.data.filter((d) => d.top_n === topN)} initial={['seasons', 'desc']} limit={25} cols={[

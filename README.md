@@ -324,6 +324,26 @@ querying Supabase, so no database keys reach the browser.
 - **Deploy:** `.github/workflows/site.yml` exports, builds and publishes on every push to `main` that
   touches the site, weekly on Tuesdays, and on demand. It needs the `SUPABASE_DB_URL` repository secret.
 
+## Judging a season: end of season or whole season
+
+Every season-based figure exists in two versions, chosen on the site by the "Season view" toggle (stored as
+`measure` in the `gold.mv_*` season views). This covers world and league rank, above average, #1 per season,
+decade kings, greatest seasons, dynasties, league strength and the all-time ranking.
+- **End (`end`):** the rating after the club's last match of the season, i.e. where it finished. Good for
+  current standing. It undervalues a strong start: a club that slumps late is judged on the slump.
+- **Whole (`perf`):** a performance rating (`src/football_elo/seasons.py`, stored in
+  `gold.club_season_perf`). It's the one constant rating that best explains every result of the season,
+  against each opponent as rated at kick-off, with home advantage and league offsets as in the Elo run.
+  - Every match counts equally whatever its date, and cups count at half weight, as in the ratings.
+  - Eight virtual draws against a side of the club's season-average rating (August–May month ends) pull
+    short or freak seasons towards that average.
+  - Unlike a season-average rating, it doesn't lag behind form, since last season isn't carried in.
+- **Example:** Aston Villa finished 7th in 2022/23 after a strong spring, then 4th in 2023/24 after a weak
+  finish. Season end ranks them 22nd and 31st in Europe; whole season ranks them 22nd and 19th.
+- **How much it matters:** since 1965/66 the two rank orders correlate at 0.99, but the European #1 differs
+  in 18 of 61 seasons.
+- **Where it doesn't apply:** the monthly rating charts and the Rankings tab are point-in-time and unchanged.
+
 ## Useful queries
 
 ```sql

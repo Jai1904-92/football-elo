@@ -97,11 +97,18 @@ def export(out: Path = DEFAULT_OUT) -> Path:
         comps = q("select competition, name, comp_type, country from silver.competitions")
         clubs = q("select club, country, league_club from silver.clubs")
         summary = q("select * from gold.mv_club_summary")
+        # season-end ("end") figures under their own names, whole-season ("perf") ones with a _perf suffix
+        perf_cols = ["seasons_at_1", "seasons_top10", "best_rank", "best_decade"]
+        summary = (summary[summary["measure"] == "end"].drop(columns="measure")
+                   .merge(summary.loc[summary["measure"] == "perf", ["club"] + perf_cols], on="club", how="left",
+                          suffixes=("", "_perf")))
         views = {v: q(f"select * from gold.mv_{v}") for v in
                  ["number_ones", "decade_kings", "league_strength", "greatest_seasons", "upsets",
                   "trophies", "alltime_parts", "dynasties"]}
-        seasons = q("select club, season, tier, elo_end, elo_peak, above_field, world_rank, league_rank "
-                    "from gold.mv_club_seasons")
+        seasons = q("select e.club, e.season, e.tier, e.elo_end, e.elo_peak, e.above_field, e.world_rank, "
+                    "e.league_rank, p.rating as perf, p.above_field as above_perf, p.world_rank as world_rank_perf, "
+                    "p.league_rank as league_rank_perf from gold.mv_club_seasons e left join gold.mv_club_seasons p "
+                    "on p.club = e.club and p.season = e.season and p.measure = 'perf' where e.measure = 'end'")
         months = q("select club, to_char(month, 'YYYY-MM') as month, elo from gold.mv_club_months")
         ratings = q("select club, valid_from, valid_to, elo, tier from gold.club_ratings")
         matches = q("select m.match_id, m.match_date, m.competition, m.home_club, m.away_club, m.home_goals, "
@@ -134,6 +141,7 @@ def export(out: Path = DEFAULT_OUT) -> Path:
     _write(out / "clubs.json", _rows(clubs[[
         "id", "slug", "club", "country", "league_club", "has_page", "top_flight_seasons", "first_season",
         "last_season", "peak_elo", "peak_season", "seasons_at_1", "seasons_top10", "best_rank", "best_decade",
+        "seasons_at_1_perf", "seasons_top10_perf", "best_rank_perf", "best_decade_perf",
         "logo", "primary", "secondary"]].rename(columns={"club": "name"})))
 
     meta = {"run_id": int(run["run_id"].iloc[0]), "finished_at": str(run["finished_at"].iloc[0]),

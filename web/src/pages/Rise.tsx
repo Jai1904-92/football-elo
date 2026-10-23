@@ -5,6 +5,7 @@ import { Card, ClubName, ClubPicker, Seg, Status, Table } from '../components/ui
 import LineChart, { type Marker, type Series } from '../components/LineChart';
 import { seriesColors } from '../lib/color';
 import { EUROPEAN, int, seasonLabel, signed } from '../lib/format';
+import { careerFigures, MeasureNote, seasonFigures, useMeasure } from '../lib/measure';
 
 const PRESETS: Record<string, [string, string[]]> = {
   europe: ['European royalty', ['Real Madrid', 'Barcelona', 'Bayern Munich', 'AC Milan', 'Liverpool', 'Juventus']],
@@ -24,6 +25,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
   const measure = (params.get('m') as Measure) || 'elo';
   const set = (s: string[], m = measure) => setParams({ clubs: s.join(','), m }, { replace: true });
   const [preset, setPreset] = useState('');
+  const { measure: sm } = useMeasure();
 
   const files = useAsync(() => Promise.all(slugs.map(loadClub)), [slugs.join(',')]);
   const trophies = useView<Trophy>('trophies');
@@ -36,7 +38,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
       key: sel[i].slug, label: sel[i].name, color: colors[i],
       points: measure === 'elo'
         ? f.months.map(([m, v]) => ({ x: new Date(m + '-15T00:00:00Z'), y: v }))
-        : f.seasons.map((s) => ({ x: new Date(Date.UTC(s.season + 1, 4, 31)), y: measure === 'above' ? s.above_field : s.world_rank })),
+        : f.seasons.map((s) => { const v = seasonFigures(s, sm); return { x: new Date(Date.UTC(s.season + 1, 4, 31)), y: measure === 'above' ? v.above : v.world }; }),
     }));
     const markers: Marker[] = [];
     (trophies.data ?? []).forEach((t) => {
@@ -50,7 +52,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
         shape: t.competition === 'UCL' ? 'diamond' : 'ring', label: `${sel[i].name} — ${t.competition} ${seasonLabel(t.season)}` });
     });
     return { series, markers };
-  }, [files.data, trophies.data, measure, colors]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [files.data, trophies.data, measure, colors, sm]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const counts = (id: number) => {
     const won = (trophies.data ?? []).filter((t) => t.winner === id);
@@ -77,6 +79,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
             <span className="chip" key={c.slug}><i style={{ background: colors[i] }} /><ClubName club={c} size={20} />
               <button aria-label={`Remove ${c.name}`} onClick={() => set(slugs.filter((s) => s !== c.slug))}>×</button></span>))}
         </div>
+        {measure !== 'elo' && <MeasureNote />}
         {files.data ? (
           <LineChart series={series} markers={markers} invert={measure === 'rank'} log={measure === 'rank'} zero={measure === 'above'}
                      gapDays={measure === 'elo' ? 200 : 400} shadeBefore={new Date(Date.UTC(1965, 6, 1))}
@@ -88,17 +91,18 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
       </Card>
 
       <Card title="Head to head" note="Career numbers since 1965/66.">
+        <MeasureNote />
         <Table rowKey={(c) => c.id} rows={sel} initial={['peak_elo', 'desc']} cols={[
           { key: 'name', label: 'Club', render: (c) => <ClubName club={c} /> },
           { key: 'peak_elo', label: 'Peak', num: true, render: (c) => int(c.peak_elo) },
           { key: 'peak_season', label: 'Peak season', num: true, render: (c) => (c.peak_season ? seasonLabel(c.peak_season) : '—') },
-          { key: 'seasons_at_1', label: 'At #1', num: true },
-          { key: 'seasons_top10', label: 'Top 10', num: true },
-          { key: 'best_rank', label: 'Best rank', num: true },
+          { key: 'at1', label: 'At #1', num: true, sort: (c) => careerFigures(c, sm).at1, render: (c) => careerFigures(c, sm).at1 ?? 0 },
+          { key: 'top10', label: 'Top 10', num: true, sort: (c) => careerFigures(c, sm).top10, render: (c) => careerFigures(c, sm).top10 ?? 0 },
+          { key: 'best', label: 'Best rank', num: true, sort: (c) => careerFigures(c, sm).best, render: (c) => careerFigures(c, sm).best ?? '—' },
           { key: 'ec', label: 'European Cups', num: true, sort: (c) => counts(c.id).ec, render: (c) => counts(c.id).ec },
           { key: 'oe', label: 'Other European', num: true, sort: (c) => counts(c.id).oe, render: (c) => counts(c.id).oe },
           { key: 'top_flight_seasons', label: 'Top-flight seasons', num: true, hideSm: true },
-          { key: 'best_decade', label: 'Best decade', num: true, hideSm: true, render: (c) => (c.best_decade ? `${c.best_decade}s` : '—') },
+          { key: 'decade', label: 'Best decade', num: true, hideSm: true, sort: (c) => careerFigures(c, sm).decade, render: (c) => { const d = careerFigures(c, sm).decade; return d ? `${d}s` : '—'; } },
         ]} />
       </Card>
     </div>

@@ -5,6 +5,7 @@ import { Badge, Card, ClubName, ClubPicker, Ring, Status, Table } from '../compo
 import LineChart, { type Marker } from '../components/LineChart';
 import { clubColors, clubStyle } from '../lib/color';
 import { COMP_SHORT, COUNTRIES, DOMESTIC_CUPS, EUROPEAN, int, pct, seasonLabel, signed } from '../lib/format';
+import { careerFigures, MeasureNote, seasonFigures, useMeasure } from '../lib/measure';
 
 type Trophy = { competition: string; season: number; winner: number; runner_up: number };
 const HONOURS: [string, string][] = [
@@ -20,6 +21,7 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
   const comps = useCompetitions();
   const trophies = useView<Trophy>('trophies');
   const colors = clubColors(club);
+  const { measure } = useMeasure();
 
   const won = useMemo(() => (trophies.data ?? []).filter((t) => t.winner === club?.id), [trophies.data, club]);
   const results = useMemo(() => {
@@ -41,6 +43,7 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
 
   if (!club) return <Status error={`no club "${slug}"`} />;
   const latest = file.data?.months.at(-1);
+  const career = careerFigures(club, measure);
   const resultCols = [
     { key: 'date', label: 'Date', render: (m: Match) => m.date },
     { key: 'comp', label: 'Competition', hideSm: true, render: (m: Match) => COMP_SHORT[comps.data?.[m.comp] ?? ''] ?? '' },
@@ -76,11 +79,11 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
             </div>
             <div className="tiles">
               <div className="tile"><b>{latest ? int(latest[1]) : '—'}</b><span>Latest rating</span></div>
-              <div className="tile"><b>{club.seasons_at_1 ?? 0}</b><span>Seasons at #1</span></div>
-              <div className="tile"><b>{club.seasons_top10 ?? 0}</b><span>Seasons in top 10</span></div>
-              <div className="tile"><b>{club.best_rank ?? '—'}</b><span>Best rank</span></div>
+              <div className="tile"><b>{career.at1 ?? 0}</b><span>Seasons at #1</span></div>
+              <div className="tile"><b>{career.top10 ?? 0}</b><span>Seasons in top 10</span></div>
+              <div className="tile"><b>{career.best ?? '—'}</b><span>Best rank</span></div>
               <div className="tile"><b>{club.top_flight_seasons ?? 0}</b><span>Top-flight seasons</span></div>
-              <div className="tile"><b>{club.best_decade ? `${club.best_decade}s` : '—'}</b><span>Best decade</span></div>
+              <div className="tile"><b>{career.decade ? `${career.decade}s` : '—'}</b><span>Best decade</span></div>
             </div>
           </div>
         </div>
@@ -110,15 +113,17 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
         </Card>
       </div>
 
-      <Card club={club} title="Season by season" note="Above average: end-of-season rating minus the average top-flight club that season. World rank is among every club in the seven leagues.">
+      <Card club={club} title="Season by season" note="End rating is where the club finished the season; season rating is the whole-season performance rating. Above average, world rank and league rank follow the season view chosen at the top: against the average top-flight club, among every club in the seven leagues, and within the club's own league.">
+        <MeasureNote />
         {file.data ? <Table rowKey={(s) => s.season} rows={[...file.data.seasons].reverse()} cols={[
           { key: 'season', label: 'Season', render: (s) => seasonLabel(s.season) },
           { key: 'tier', label: 'Tier', num: true },
-          { key: 'league_rank', label: 'League rank', num: true },
+          { key: 'league', label: 'League rank', num: true, sort: (s) => seasonFigures(s, measure).league, render: (s) => seasonFigures(s, measure).league },
           { key: 'elo_end', label: 'End rating', num: true, render: (s) => int(s.elo_end) },
+          { key: 'perf', label: 'Season rating', num: true, render: (s) => int(s.perf) },
           { key: 'elo_peak', label: 'Peak', num: true, hideSm: true, render: (s) => int(s.elo_peak) },
-          { key: 'above_field', label: 'Above average', num: true, render: (s) => signed(s.above_field) },
-          { key: 'world_rank', label: 'World rank', num: true },
+          { key: 'above', label: 'Above average', num: true, sort: (s) => seasonFigures(s, measure).above, render: (s) => signed(seasonFigures(s, measure).above) },
+          { key: 'world', label: 'World rank', num: true, sort: (s) => seasonFigures(s, measure).world, render: (s) => seasonFigures(s, measure).world },
         ]} /> : <Status error={file.error} />}
       </Card>
     </div>
