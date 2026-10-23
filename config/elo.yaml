@@ -132,6 +132,45 @@ sources:
         # Ligue 2 2002/03, which football-data holds only part of (no dates: the
         # grid gets a synthetic schedule). 2003/04 links names; RSSSF has its dates.
         - {folder: france, title_template: "{season}–{endw} Ligue 2", seasons: [2002, 2003], tier: 2}
+    # Domestic cup season articles, 1955/56 on; titles and gaps from a probe of
+    # the Wikipedia API on 2026-10-23 (missing seasons have no article). Runs to
+    # 2014/15 overlap Transfermarkt for name linking; Scotland, Belgium, Turkey
+    # and Greece have no other cup source, so theirs run to the present. Read by
+    # sources.wikipedia_cup (layouts in wikicups.py); transcluded finals are cached
+    # in <folder>/transcluded. Not in any competition's windows yet: club names
+    # need linking first. Coverage: tools/cup_coverage.py.
+    # {endyear} is the four-digit end year (spring-only cups).
+    cups:
+      ESP-CDR:
+        - {folder: cup-spain, title_template: "{endyear} Copa del Generalísimo", seasons: [1955, 1957]}
+        - {folder: cup-spain, title_template: "{season}–{endw} Copa del Generalísimo", seasons: [1958, 1967]}
+        - {folder: cup-spain, title_template: "{endyear} Copa del Generalísimo", seasons: [1968, 1968]}
+        - {folder: cup-spain, title_template: "{season}–{endw} Copa del Generalísimo", seasons: [1969, 1975]}
+        - {folder: cup-spain, title_template: "{season}–{endw} Copa del Rey", seasons: [1976, 2014]}
+      GER-DFB:
+        - {folder: cup-germany, title_template: "{season}–{endw} DFB-Pokal", seasons: [1955, 2014]}
+      ITA-CI:
+        - {folder: cup-italy, title_template: "{endyear} Coppa Italia", seasons: [1957, 1957]}
+        - {folder: cup-italy, title_template: "{season}–{endw} Coppa Italia", seasons: [1958, 2014]}
+      FRA-CDF:
+        - {folder: cup-france, title_template: "{season}–{endw} Coupe de France", seasons: [1957, 2014]}
+      NED-KNVB:
+        - {folder: cup-netherlands, title_template: "{season}–{endw} KNVB Cup", seasons: [1969, 2014]}
+      POR-TP:
+        - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1962, 1968]}
+        - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1982, 1982]}
+        - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1990, 2014]}
+      SCO-SC:
+        - {folder: cup-scotland, title_template: "{season}–{endw} Scottish Cup", seasons: [1955, 2025]}
+      BEL-BC:
+        - {folder: cup-belgium, title_template: "{season}–{endw} Belgian Cup", seasons: [1978, 1978]}
+        - {folder: cup-belgium, title_template: "{season}–{endw} Belgian Cup", seasons: [1989, 2025]}
+      TUR-TC:
+        - {folder: cup-turkey, title_template: "{season}–{endw} Turkish Cup", seasons: [1965, 1965]}
+        - {folder: cup-turkey, title_template: "{season}–{endw} Turkish Cup", seasons: [1974, 1974]}
+        - {folder: cup-turkey, title_template: "{season}–{endw} Turkish Cup", seasons: [1987, 2025]}
+      GRE-GC:
+        - {folder: cup-greece, title_template: "{season}–{endw} Greek Football Cup", seasons: [1955, 2025]}
   espn:
     # Unofficial public scoreboard API, one request per league per calendar year.
     url_template: https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard

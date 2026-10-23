@@ -33,13 +33,16 @@ def _download(url: str, dest: Path, params: dict | None = None, attempts: int = 
         else:
             if resp.status_code == 404:
                 return False
-            if resp.status_code < 500:
+            if resp.status_code < 500 and resp.status_code != 429:
                 resp.raise_for_status()
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 dest.write_bytes(resp.content)
                 log.info("downloaded %s -> %s (%d bytes)", resp.url, dest, len(resp.content))
                 return True
             err = f"HTTP {resp.status_code}"
+            if resp.status_code == 429:      # rate-limited (Wikipedia): back off longer
+                time.sleep(int(resp.headers.get("Retry-After", 0) or 0) or 10 * (i + 1))
+                continue
         time.sleep(2 ** i)
     log.warning("giving up on %s after %d attempts (%s)%s", url, attempts, err,
                 "; keeping the cached copy" if dest.exists() else "")
@@ -97,7 +100,7 @@ def fetch_datarozhlas(cfg: dict, force: bool = False) -> Path:
 def _season_fields(season: int) -> dict:
     end = season + 1
     return {"season": season, "end2": f"{end % 100:02d}", "end": f"{end % 100:02d}" if end < 2010 else str(end),
-            "endw": str(end) if end % 100 == 0 else f"{end % 100:02d}"}
+            "endw": str(end) if end % 100 == 0 else f"{end % 100:02d}", "endyear": end}
 
 
 def fetch_rsssf_finals(cfg: dict, force: bool = False) -> list[Path]:
@@ -129,28 +132,45 @@ def fetch_rsssf(cfg: dict, force: bool = False) -> list[Path]:
     return out
 
 
+_REDIRECT = re.compile(r"\s*#REDIRECT\s*\[\[([^\]|#]+)", re.I)
+
+
+def _wiki_raw(url: str, title: str, dest: Path) -> bool:
+    """A Wikipedia page's raw wikitext. action=raw returns a redirect's own
+    text, so redirects are followed (up to three)."""
+    for _ in range(3):
+        if not _download(url, dest, params={"title": title, "action": "raw"},
+                         headers={"User-Agent": "football-elo/0.1 (research project)"}):
+            break
+        time.sleep(0.5)
+        m = _REDIRECT.match(dest.read_text(encoding="utf-8"))
+        if not m:
+            return True
+        title = m.group(1).strip()
+    return dest.exists() and not _REDIRECT.match(dest.read_text(encoding="utf-8"))
+
+
 def fetch_wikipedia(cfg: dict, force: bool = False) -> list[Path]:
-    """Raw wikitext of Wikipedia season articles (cached once)."""
+    """Raw wikitext of Wikipedia season articles, leagues and cups (cached once)."""
     src = cfg["sources"]["wikipedia"]
     out = []
-    for spec in (s for specs in src["leagues"].values() for s in specs):
+    for spec in (s for group in ("leagues", "cups") for specs in src.get(group, {}).values() for s in specs):
         first, last = spec["seasons"]
         for season in range(first, last + 1):
             dest = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"] / f"{season}.txt"
             if force or not dest.exists():
-                title = spec["title_template"].format(**_season_fields(season))
-                for _ in range(3):   # action=raw returns a redirect's own text: follow it
-                    if not _download(src["url"], dest, params={"title": title, "action": "raw"},
-                                     headers={"User-Agent": "football-elo/0.1 (research project)"}):
-                        break
-                    time.sleep(0.5)
-                    m = re.match(r"\s*#REDIRECT\s*\[\[([^\]|#]+)", dest.read_text(encoding="utf-8"), re.I)
-                    if not m:
-                        break
-                    title = m.group(1).strip()
-                if not dest.exists():
+                if not _wiki_raw(src["url"], spec["title_template"].format(**_season_fields(season)), dest):
                     continue
             out.append(dest)
+    # cup pages often transclude the final's own article: cache those beside them
+    from .wikicups import cache_name, transcluded
+    for spec in (s for specs in src.get("cups", {}).values() for s in specs):
+        folder = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"]
+        for page in sorted(folder.glob("*.txt")):
+            for title in transcluded(page.read_text(encoding="utf-8")):
+                dest = folder / "transcluded" / cache_name(title)
+                if force or not dest.exists() or _REDIRECT.match(dest.read_text(encoding="utf-8")):
+                    _wiki_raw(src["url"], title, dest)
     return out
 
 

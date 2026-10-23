@@ -586,3 +586,94 @@ def wikipedia_league(folder: Path, competition: str, country: str, tier: int) ->
         for r in _schedule(blocks, season, start):
             out.append(dict(r, season=season, tier=tier, file_name=f"wikipedia/{folder.name}/{path.name}"))
     return _league_frame("wikipedia", out, competition, country)
+
+
+# ------------------------------------------------------------ Wikipedia cup season articles
+def _cup_dates(rows: list[dict], season: int, span: tuple) -> None:
+    """Set "match_date" and "dating" in place. A match with a printed date
+    keeps it. Otherwise its slot (round, or round / replays / second leg, in
+    page order) gets the median printed date of the slot's dated matches, and
+    undated slots are spread evenly between the dated ones, from the page's
+    first date (else 1 September) to its last (else 31 May). Within a slot a
+    club's undated matches go a step apart in page order (a second leg or a
+    group's next match): 14 days in a two-legged round, else 7. A replay or
+    other sub-slot ("Semi-finals / Replays") comes at least 7 days after the
+    last match of its round."""
+    first = span[0] if span[0] is not None else pd.Timestamp(season, 9, 1)
+    last = span[1] if span[1] is not None else pd.Timestamp(season + 1, 5, 31)
+    order: dict[str, tuple] = {}
+    for r in rows:
+        k = (r["pos"], r.get("rd", 0))
+        order[r["slot"]] = min(order.get(r["slot"], k), k)
+    slots = sorted(order, key=order.get)
+    known = {}
+    for s in slots:
+        dated = sorted(r["date"] for r in rows if r["slot"] == s and r["date"] is not None)
+        if dated:
+            known[slots.index(s)] = dated[len(dated) // 2]
+    anchors = sorted(known.items())
+    if not anchors or anchors[0][0] > 0:
+        anchors = [(-1, first - pd.Timedelta(days=14))] + anchors
+    if anchors[-1][0] < len(slots) - 1:
+        anchors = anchors + [(len(slots), last + pd.Timedelta(days=14))]
+    when = {}
+    for i, s in enumerate(slots):
+        if i in known:
+            when[s] = known[i]
+            continue
+        (i0, d0), (i1, d1) = (max(a for a in anchors if a[0] < i), min(a for a in anchors if a[0] > i))
+        when[s] = (d0 + (d1 - d0) * (i - i0) / (i1 - i0)).normalize()
+    two_leg = {r["slot"] for r in rows if r["leg"] == 2} & {r["slot"] for r in rows if r["leg"] == 1}
+    latest: dict[str, pd.Timestamp] = {}
+    for s in slots:
+        base = s.split(" / ")[0]
+        start = when[s]
+        if base != s and base in latest:
+            start = max(start, latest[base] + pd.Timedelta(days=7))
+        step = pd.Timedelta(days=14 if s in two_leg else 7)
+        busy: dict[str, int] = {}
+        for r in sorted((r for r in rows if r["slot"] == s), key=lambda r: r["pos"]):
+            if r["date"] is not None:
+                r["match_date"], r["dating"] = r["date"], "cup"
+            else:
+                k = max(busy.get(r["home"], 0), busy.get(r["away"], 0))
+                busy[r["home"]] = busy[r["away"]] = k + 1
+                r["match_date"], r["dating"] = start + step * k, "cup (date from round)"
+            latest[base] = max(latest.get(base, r["match_date"]), r["match_date"])
+
+
+def wikipedia_cup(folder: Path, competition: str, neutral_rounds: str | None = None) -> pd.DataFrame:
+    """Wikipedia cup season articles saved as <start year>.txt; see wikicups
+    for the layouts read. A single-match final is neutral, as is a one-leg
+    bracket tie (venue not given) and any round matching `neutral_rounds`
+    (e.g. Scottish Cup semi-finals at Hampden). Clubs are keyed by the
+    article they link to; their country is filled from the cup's in silver."""
+    from . import wikicups
+    out = []
+    for path in sorted(folder.glob("*.txt")):
+        season = int(path.stem)
+        text = wikicups.expand(path.read_text(encoding="utf-8"), folder / "transcluded")
+        rows = wikicups.parse_page(text, season)
+        if not rows:
+            continue
+        _cup_dates(rows, season, wikicups.page_span(text, season))
+        finals = [r for r in rows if re.fullmatch(r"\s*finals?\s*", r["round"], re.I)]
+        two_leg_final = any(r["leg"] for r in finals)
+        for r in rows:
+            neutral = bool(r["neutral"])
+            if r in finals and not two_leg_final:      # replays of a final too
+                neutral = True
+            if neutral_rounds and re.search(neutral_rounds, r["round"], re.I):
+                neutral = True
+            r.update(neutral=neutral, season=season, file_name=f"wikipedia/{folder.name}/{path.name}")
+        out.extend(rows)
+    if not out:
+        return _frame("wikipedia")
+    df = pd.DataFrame(out)
+    pens = df["pens"].apply(lambda p: p if isinstance(p, tuple) else (np.nan, np.nan))
+    return _frame("wikipedia", file_name=df["file_name"], match_date=df["match_date"], season=df["season"],
+                  competition=competition, round=df["round"], leg=df["leg"],
+                  home_club=df["home"], away_club=df["away"], home_goals=df["hg"], away_goals=df["ag"],
+                  neutral=df["neutral"], extra_time=df["aet"],
+                  home_pens=pens.str[0], away_pens=pens.str[1],
+                  home_name=df["home_name"], away_name=df["away_name"])

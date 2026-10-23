@@ -19,11 +19,29 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
      and Italian late rounds from 1990.
    - Plain wikitables: likely where none of the above appear (DFB-Pokal 1970–90, Coupe de France, KNVB
      Cup, Turkish Cup), or late rounds only.
-   Plan: a parser for all four in `sources.py` (titles like "1984–85 DFB-Pokal"; older Spanish seasons
-   are "Copa del Generalísimo"; Wikipedia fetch already follows redirects), a coverage table per cup and
-   era, then RSSSF cup pages for the gaps. Cups count at full weight, so the effect is real but modest
-   (adding Barcelona's whole 2008/09 Copa run moved them 4 points). Clubs: name-link like the leagues;
-   new amateur clubs take the cup's country.
+   **Downloaded and parsed (2026-10-23), not loaded yet.** 536 season pages (`wikipedia.cups` in
+   `elo.yaml`, folders `data/bronze/wikipedia/cup-*`) plus 323 transcluded final articles
+   (`cup-*/transcluded`). `src/football_elo/wikicups.py` reads five layouts (Football box, OneLegResult,
+   TwoLegResult, brackets, wikitables), expands `{{:Final}}` / `{{#lst:}}` transclusions, and keeps each
+   match once (box first, bracket last). `sources.wikipedia_cup` dates undated rounds between the page's
+   dated ones (lead dates, else 1 Sep–31 May), spaces a club's matches within a round, and makes
+   single-match finals neutral. 41,298 matches; finals found in 526 of 536 seasons.
+   - Coverage: `python tools/cup_coverage.py` → `data/silver/cup_coverage.csv` (per cup and season:
+     matches per layout, final/semis/quarters found, share dated, Transfermarkt count where it overlaps).
+     2012–14 overlap matches Transfermarkt exactly for the Copa, DFB-Pokal, Coppa Italia; Wikipedia has more
+     amateur rounds for the KNVB and Taça.
+   - Gaps: Coppa Italia 1960s–80s group stages are standings only (no results); Coupe de France before
+     1990 has the last 32/64 only; no pages for KNVB before 1969, Taça 1955–61/1969–89 (except 1982),
+     Belgian Cup before 1989 (except 1978), Turkish Cup before 1987 (except 1965, 1974). RSSSF next for these.
+   - Known residue: reserve sides linked to their first team's article (Jong PSV → PSV, 6 self-matches),
+     about 110 same-day clashes from printed dates, and a few results awarded but printed as scores
+     (footnoted, e.g. Longuenesse v Caen 2005/06).
+   - Next: link club names (keys are Wikipedia article titles, as for the league grids;
+     `tools/link_grid_names.py`), add windows per cup (Wikipedia before 2012/13; Scotland, Belgium, Turkey,
+     Greece throughout, with new competition codes `SCO-SC`, `BEL-BC`, `TUR-TC`, `GRE-GC`), pass
+     `neutral_rounds` for Scottish semi-finals (Hampden), validate, calibrate, reload. Cups count at full
+     weight, so the effect is real but modest (Barcelona's whole 2008/09 Copa run moved them 4 points).
+     New amateur clubs take the cup's country.
 2. **Leagues of the other European trophy winners.** Clubs from unmodelled countries are rated only from
    European games: Steaua and Red Star (European Cup), Dinamo Kyiv, Dinamo Tbilisi, Slovan Bratislava,
    Magdeburg (Cup Winners' Cup), Göteborg, Ferencváros, Dinamo Zagreb, Shakhtar, Zenit (UEFA/Fairs Cup),
