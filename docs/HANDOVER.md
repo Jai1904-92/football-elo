@@ -14,7 +14,7 @@ covers how everything works; this note covers where things stand and what's next
   2026-10-23.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 4 minutes.
   - Every run ends with `gold.refresh_serving()`, which rebuilds the `gold.mv_*` views the dashboard reads.
-- **Model:** K 15, cup K × 0.5, √goal-difference margin. On top of plain Club Elo it adds dynamic home
+- **Model:** K 15, cups at full weight (since 2026-10-23), √goal-difference margin. On top of plain Club Elo it adds dynamic home
   advantage, league pooling 0.3, and provisional K × 2 for a club's first 40 matches. All countries start
   level in 1955. The README sections "Elo engine" and "Early-era calibration" give the reasoning.
   - Judge model changes with `tools/pool_experiment.py`: log loss, and bias between the modelled leagues by
@@ -79,7 +79,7 @@ update the dashboard.
 2. **Domestic cups outside England.** Done from 2012/13 on 2026-10-23, and loaded (run 10):
    - `ESP-CDR`, `GER-DFB`, `ITA-CI`, `NED-KNVB`, `POR-TP` from Transfermarkt 2012/13–2025/26, then ESPN
      (which also fills the Taça's partial Transfermarkt seasons from 2021/22). `FRA-CDF` from ESPN only, last
-     64 on, from 2015/16. 6,553 matches; cups use K × 0.5. Trophy winners come from the finals
+     64 on, from 2015/16. 6,553 matches; cups count at full weight (K × 0.5 until 2026-10-23). Trophy winners come from the finals
      (migration `20261023000000_domestic_cups.sql`).
    - About 1,000 cup-only clubs were added (amateur and lower-league sides); they take the cup's country
      (`silver.build`), so they start at the country's non-league rating. Linking: `tools/derive_aliases.py`,

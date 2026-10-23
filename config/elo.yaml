@@ -433,7 +433,9 @@ elo:
   # Provisional ratings: a club's first 40 rated matches use K x 2.
   provisional: {matches: 40, k_multiplier: 2.0}
   # K multiplier by competition type
-  k_multiplier: {league: 1.0, playoff: 1.0, cup: 0.5, europe: 1.0}
+  # Cups at full weight since 2026-10-23: better prediction of league, European and
+  # cup results than 0.5 (README "Calibration against Club Elo").
+  k_multiplier: {league: 1.0, playoff: 1.0, cup: 1.0, europe: 1.0}
   margin:
     # multiplier on K by absolute goal difference
     #   none:   1

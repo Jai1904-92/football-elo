@@ -32,15 +32,19 @@ def load_targets(cfg: dict, burn_in_until: str | None = None) -> pd.DataFrame:
     alias = _clubelo_aliases(cfg)
     frames = []
 
-    eh = pd.read_csv(cal / "clubelo-club-rankings.csv", usecols=["Club", "Country", "Elo", "date"])
-    countries = list(cfg["elo"]["countries"])
-    eh = eh[eh["Country"].isin(countries)]
-    eh["date"] = pd.to_datetime(eh["date"])
-    keep = eh["date"].drop_duplicates().sort_values()
-    keep = keep[keep.dt.to_period("M").duplicated() == False]  # first snapshot of each month  # noqa: E712
-    eh = eh[eh["date"].isin(keep)]
-    frames.append(pd.DataFrame({"date": eh["date"], "club": eh["Club"].map(alias), "country": eh["Country"],
-                                "clubelo_elo": eh["Elo"], "source": "elhabr"}))
+    # the large Club Elo history isn't committed: without it (e.g. in CI) only the snapshots below are used
+    if (cal / "clubelo-club-rankings.csv").exists():
+        eh = pd.read_csv(cal / "clubelo-club-rankings.csv", usecols=["Club", "Country", "Elo", "date"])
+        countries = list(cfg["elo"]["countries"])
+        eh = eh[eh["Country"].isin(countries)]
+        eh["date"] = pd.to_datetime(eh["date"])
+        keep = eh["date"].drop_duplicates().sort_values()
+        keep = keep[keep.dt.to_period("M").duplicated() == False]  # first snapshot of each month  # noqa: E712
+        eh = eh[eh["date"].isin(keep)]
+        frames.append(pd.DataFrame({"date": eh["date"], "club": eh["Club"].map(alias), "country": eh["Country"],
+                                    "clubelo_elo": eh["Elo"], "source": "elhabr"}))
+    else:
+        log.warning("no %s: calibration uses the Club Elo snapshots only", cal / "clubelo-club-rankings.csv")
 
     for path in sorted((cal / "wayback").glob("table_*.csv")):
         t = pd.read_csv(path)

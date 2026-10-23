@@ -284,8 +284,19 @@ How the parameters were chosen:
 - **K, HFA and the England tier gap** come from the league-only fit. Club Elo's own per-match changes imply
   K≈8.4, HFA≈71, but its ratings also move on matches outside the league; with league matches alone, K≈15
   tracked its rating spread best.
-- **Cup K multiplier:** chosen on a grid. Full-weight cups predict league games marginally better but pull
-  ratings away from Club Elo.
+- **Cup K multiplier:** first set to 0.5 on a grid: full weight predicted league games marginally better but
+  pulled ratings away from Club Elo. Retested 2026-10-23, with all eight domestic cups and judging on
+  prediction, full weight (1.0) won:
+
+  | Cup weight | League | Europe | Cups | Club Elo RMSE |
+  |---|---|---|---|---|
+  | 0.5 | 0.63172 | 0.58228 | 0.62696 | 29.6 |
+  | 1.0 | 0.63144 | 0.58222 | 0.62085 | 32.9 |
+
+  The first three columns are log loss. The bias between leagues is unchanged. Top-50 seasons move by 0.9
+  places on average, and six end-of-season #1s change, mostly towards double and treble winners
+  (Manchester United 1998/99, Arsenal 2001/02, Celtic 1968/69). English cups go back to 1955 but the
+  others only to 2012, so before 2012 English clubs gain a little more from cups.
 - **Country start levels, tier gaps and foreign start:** fitted on RMSE. With the other countries' leagues
   in, the four new countries' biases fell from −13…+24 to −6…+4, and league log loss improved.
 - **Overfitting:** letting every parameter float overfits. An earlier run gave cups near-zero K and a
@@ -353,7 +364,7 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
 - **Whole (`perf`):** a performance rating (`src/football_elo/seasons.py`, stored in
   `gold.club_season_perf`). It's the one constant rating that best explains every result of the season,
   against each opponent as rated at kick-off, with home advantage and league offsets as in the Elo run.
-  - Every match counts equally whatever its date, and cups count at half weight, as in the ratings.
+  - Every match counts equally whatever its date, cups included, as in the ratings.
   - Fifteen virtual draws against a side of the club's season-average rating (August–May month ends) pull
     every season towards that average, so a run of luck in one season isn't taken at face value.
   - Unlike a season-average rating, it doesn't lag behind form, since last season isn't carried in.
