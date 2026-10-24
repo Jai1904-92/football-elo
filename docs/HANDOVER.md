@@ -1,6 +1,6 @@
 # Handover: state of the project and the gap backlog
 
-Last updated 2026-10-24 (domestic cups back to 1955 loaded, run 21). The README covers how everything works; this note
+Last updated 2026-10-24 (sixteen more top flights built locally; last load run 21). The README covers how everything works; this note
 covers where things stand and what's next. Alex's working style: tackle gaps one at a time, biggest first;
 judge model changes on evidence (next-season / out-of-sample prediction and bias between leagues), not on
 Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
@@ -76,6 +76,37 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
    Scotland/Belgium/Turkey/Greece work (Wikipedia grids for the early seasons, link names via overlap years,
    then a duplicate scan against each country's European-only clubs, then starting levels tuned with
    `tools/pool_experiment.py`). Top flight only.
+   **Built locally 2026-10-24, not loaded yet (waiting for Alex's go-ahead).** Sixteen leagues, all from
+   Wikipedia's season grids 1955/56–2025/26: `AUT-L SUI-L SWE-L DEN-L ROU-L HUN-L`, the unions `URS-L YUG-L
+   TCH-L GDR-L`, and their successors `RUS-L UKR-L CZE-L SVK-L SRB-L CRO-L`. About 167,000 matches (718,676
+   in all) and 374 new clubs (6,307). Titles come from each league's "seasons" category; 779 pages were
+   fetched in bulk through the API (50 a request), later fetches go through `bronze.fetch_wikipedia`.
+   - Parser: `legs=2` grids (clubs meeting four times: Denmark, Hungary, Croatia, Slovakia) read as one
+     block per leg; `{{nowrap|...}}` names unwrapped; two clubs linked to one article in a grid are keyed
+     `<article> [<name>]`. Spec keys: `kind` (calendar-year seasons start in April; spring-only half seasons,
+     saved as `<season>s.txt`, in March) and `skip` (these leagues keep their championship/relegation groups).
+   - **Country per season** (engine + `silver.country_seasons`, README "Big-5 coverage"): a club's pool follows
+     its league (Dynamo Kyiv USSR → Ukraine, Dresden GDR → Germany); its rating carries over on a change.
+   - Linking: `tools/link_cup_names.py` now takes league competitions (successor-country sets, same-article
+     keys are one club unless they met). Review list `data/silver/league_alias_review.csv`. New
+     `tools/merge_clubs.py` merged 63 fragmented European-only clubs first (Sparta Praha/Sparta Prague,
+     LASK/Linzer ASK, Rijeka, Copenhagen, Red Star, Petržalka/Artmedia, ...) and Lok Leipzig into VfB Leipzig.
+     Hand links: Universitatea Craiova (a `corrections` row for 2021), NK Varaždin (2012) apart from Varteks;
+     Vaduz stays Liechtenstein (`club_countries`).
+   - Effect against run 21 (same European matches, `pool_experiment`-style alignment): European log loss
+     0.5819 → 0.5764; Club Elo RMSE 31.05 → 30.07, Spearman 0.9890 → 0.9892; league log loss (old 11)
+     unchanged; European bias RMS old 11 3.31 → 3.11pp, new countries 5.42 → 4.60pp. Against Club Elo the
+     new countries' levels since 2008 are within about ±25 (Serbia −24, Austria +28). All ratings sit about
+     36 points higher than before against Club Elo (bias +25 → +61): the new countries' pooled levels feed
+     back through Europe. Separating East from West Germany took Bayern 1975 from #4 to #12; Steaua 1986
+     #118 → #31, Red Star 1991 #24 → #6, Magdeburg 1975 #87 → #23.
+   - Left: no live source for the current season (2026/27; Sweden's 2026): ESPN has `aut.1 sui.1 den.1 swe.1
+     rus.1 rou.1`, Transfermarkt DK1/RU1/UKR1 2012–25 (dated, unused); Ukraine, Czechia, Serbia, Croatia,
+     Hungary have neither. Serbian clubs underperform in Europe 1992–2010 (−28/−14pp): Red Star and Partizan
+     carry Yugoslav ratings into the sanctions years. Club Elo names for the new countries are mapped by
+     name only (121; Zenit, Young Boys, Shakhtar unmapped). Crests/colours for the new clubs not fetched yet
+     (`tools/club_branding.py`). The site lists 16 more countries (`web/src/lib/format.ts`); the league
+     strength chart may need a filter.
 
 Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü" linked to "Hacettepe"
 (unchecked), Cypriot champions in the Greek league kept Cypriot via `club_countries`.
@@ -102,8 +133,8 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
   - Whole-season rating: performance rating with 15 virtual draws, no goal margin (README "Judging a
     season" records why, including the rejected margin options).
   - Judge model changes with `tools/pool_experiment.py` (log loss, bias between leagues by decade). Its
-    input `data/silver/matches_prepared.parquet` isn't written by the pipeline: regenerate it with
-    `engine.prepare(matches, params, club_country=clubs.country)` first.
+    input `data/silver/matches_prepared.parquet` is written by `build` (since 2026-10-24, with each club's
+    country per season); its `MODS` lists the countries it reports.
 - **Website:** https://jai1904-92.github.io/football-elo/ from `web/` (Vite + React + D3, geometric HUD
   design, club crests and colours, a "Season view: End / Whole" toggle). It reads a JSON snapshot
   (`python -m football_elo export`). Crests/colours: `tools/club_branding.py` → `config/club_branding.csv`;
@@ -156,9 +187,8 @@ update the dashboard.
      (RMSE 26.15, European log loss 0.5839). The same work fixed two duplicate clubs: RSSSF's 2002/03
      "Messina" (now FC Messina, by a correction), and a European-only "Sedan" (now CS Sedan, and UA
      Sedan-Torcy for 1961/62).
-   - `tools/pool_experiment.py` needs `data/silver/matches_prepared.parquet`, which nothing in the pipeline
-     writes: regenerate it with `engine.prepare(matches, params, club_country=clubs.country)` first, or the
-     experiment silently uses a stale file.
+   - `tools/pool_experiment.py` needs `data/silver/matches_prepared.parquet`; `build` writes it since
+     2026-10-24 (before that it had to be regenerated by hand, or the experiment used a stale file).
 2. **Domestic cups outside England.** Done from 2012/13 on 2026-10-23, and loaded (run 10):
    - `ESP-CDR`, `GER-DFB`, `ITA-CI`, `NED-KNVB`, `POR-TP` from Transfermarkt 2012/13–2025/26, then ESPN
      (which also fills the Taça's partial Transfermarkt seasons from 2021/22). `FRA-CDF` from ESPN only, last

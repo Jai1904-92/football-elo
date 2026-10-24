@@ -128,6 +128,83 @@ sources:
         # 1955/56-1958/59: the national final round of the regional champions
         - {folder: greece, title_template: "{season}–{endw} Panhellenic Championship", seasons: [1955, 1958], tier: 1}
         - {folder: greece, title_template: "{season}–{endw} Alpha Ethniki", seasons: [1959, 2004], tier: 1}
+      # Top flights of the other countries whose clubs won or reached European
+      # finals (added 2026-10-24), 1955/56-2025/26 complete seasons, one grid
+      # per season (two for "legs=2" leagues), synthetic dates. Successor
+      # leagues (Russia, Ukraine, Czechia, Slovakia, Serbia, Croatia) follow the
+      # union ones. `kind`: calendar-year seasons start in April, spring-only half
+      # seasons (saved as <season>s.txt) in March of the next year. Article titles
+      # from each league's "seasons" category (probed 2026-10-24). Their
+      # championship and relegation groups ("play-offs" in Romania and Serbia) are
+      # top-flight rounds, so only promotion and qualification groups are skipped
+      # (and the Nationalliga B rounds on the Swiss pages).
+      AUT-L:
+        - {folder: austria, title_template: "{season}–{endw} Austrian football championship", seasons: [1955, 1973], tier: 1, skip: "promotion|qualif"}
+        - {folder: austria, title_template: "{season}–{endw} Austrian Football Bundesliga", seasons: [1974, 2025], tier: 1, skip: "promotion|qualif"}
+      SUI-L:
+        - {folder: switzerland, title_template: "{season}–{endw} Nationalliga A", seasons: [1955, 2002], tier: 1, skip: "promotion|qualif|play-?offs?|nationalliga b"}
+        - {folder: switzerland, title_template: "{season}–{endw} Swiss Super League", seasons: [2003, 2025], tier: 1, skip: "promotion|qualif|play-?offs?|nationalliga b"}
+      SWE-L:
+        - {folder: sweden, title_template: "{season}–{endw} Allsvenskan", seasons: [1955, 1957], tier: 1, skip: "promotion|qualif"}
+        - {folder: sweden, title_template: "{season} Allsvenskan", seasons: [1959, 2025], tier: 1, kind: calendar, skip: "promotion|qualif"}
+      DEN-L:
+        - {folder: denmark, title_template: "{season}–{endw} Danish 1st Division", seasons: [1955, 1956], tier: 1, skip: "promotion|qualif"}
+        - {folder: denmark, title_template: "{season} Danish 1st Division", seasons: [1958, 1989], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: denmark, title_template: "{endyear} Danish Superliga", seasons: [1990, 1990], tier: 1, kind: spring, skip: "promotion|qualif"}
+        - {folder: denmark, title_template: "{season} Danish 1st Division", seasons: [1990, 1990], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: denmark, title_template: "{season}–{endw} Danish Superliga", seasons: [1991, 2025], tier: 1, skip: "promotion|qualif"}
+      ROU-L:
+        - {folder: romania, title_template: "{season} Divizia A", seasons: [1955, 1956], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: romania, title_template: "{season}–{endw} Divizia A", seasons: [1957, 2005], tier: 1, skip: "promotion|qualif"}
+        - {folder: romania, title_template: "{season}–{endw} Liga I", seasons: [2006, 2025], tier: 1, skip: "promotion|qualif"}
+      URS-L:
+        - {folder: ussr, title_template: "{season} Soviet Top League", seasons: [1955, 1958], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: ussr, title_template: "{season} Soviet Football Championship, Class A", seasons: [1959, 1959], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: ussr, title_template: "{season} Soviet Top League", seasons: [1960, 1991], tier: 1, kind: calendar, skip: "promotion|qualif"}
+      YUG-L:
+        - {folder: yugoslavia, title_template: "{season}–{endw} Yugoslav First League", seasons: [1955, 1991], tier: 1, skip: "promotion|qualif"}
+      TCH-L:
+        - {folder: czechoslovakia, title_template: "{season} Czechoslovak First League", seasons: [1955, 1956], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: czechoslovakia, title_template: "{season}–{endw} Czechoslovak First League", seasons: [1957, 1992], tier: 1, skip: "promotion|qualif"}
+      GDR-L:
+        # 1955: an autumn transition round to calendar-year seasons
+        - {folder: gdr, title_template: "{season} DDR-Oberliga", seasons: [1955, 1955], tier: 1, skip: "promotion|qualif"}
+        - {folder: gdr, title_template: "{season} DDR-Oberliga", seasons: [1956, 1960], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: gdr, title_template: "{season}–{endw} DDR-Oberliga", seasons: [1961, 1989], tier: 1, skip: "promotion|qualif"}
+        - {folder: gdr, title_template: "{season}–{endw} NOFV-Oberliga", seasons: [1990, 1990], tier: 1, skip: "promotion|qualif"}
+      HUN-L:
+        - {folder: hungary, title_template: "{season} Nemzeti Bajnokság I", seasons: [1955, 1955], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{endyear} Nemzeti Bajnokság I", seasons: [1956, 1956], tier: 1, kind: spring, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{season} Nemzeti Bajnokság I", seasons: [1956, 1956], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{season}–{endw} Nemzeti Bajnokság I", seasons: [1957, 1962], tier: 1, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{season} Nemzeti Bajnokság I", seasons: [1963, 1963], tier: 1, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{season} Nemzeti Bajnokság I", seasons: [1964, 1968], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{endyear} Nemzeti Bajnokság I", seasons: [1969, 1969], tier: 1, kind: spring, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{season} Nemzeti Bajnokság I", seasons: [1969, 1969], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: hungary, title_template: "{season}–{endw} Nemzeti Bajnokság I", seasons: [1970, 2025], tier: 1, skip: "promotion|qualif"}
+      RUS-L:
+        - {folder: russia, title_template: "{season} Russian Top League", seasons: [1992, 1997], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: russia, title_template: "{season} Russian Top Division", seasons: [1998, 2001], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: russia, title_template: "{season} Russian Premier League", seasons: [2002, 2010], tier: 1, kind: calendar, skip: "promotion|qualif"}
+        - {folder: russia, title_template: "{season}–{endw} Russian Premier League", seasons: [2011, 2025], tier: 1, skip: "promotion|qualif"}
+      UKR-L:
+        - {folder: ukraine, title_template: "{endyear} Vyshcha Liha", seasons: [1991, 1991], tier: 1, kind: spring, skip: "promotion|qualif"}
+        - {folder: ukraine, title_template: "{season}–{endw} Vyshcha Liha", seasons: [1992, 2007], tier: 1, skip: "promotion|qualif"}
+        - {folder: ukraine, title_template: "{season}–{endw} Ukrainian Premier League", seasons: [2008, 2025], tier: 1, skip: "promotion|qualif"}
+      CZE-L:
+        - {folder: czechia, title_template: "{season}–{endw} Czech First League", seasons: [1993, 2025], tier: 1, skip: "promotion|qualif"}
+      SRB-L:
+        - {folder: serbia, title_template: "{season}–{endw} First League of FR Yugoslavia", seasons: [1992, 2001], tier: 1, skip: "promotion|qualif"}
+        - {folder: serbia, title_template: "{season}–{endw} First League of Serbia and Montenegro", seasons: [2002, 2004], tier: 1, skip: "promotion|qualif"}
+        - {folder: serbia, title_template: "{season}–{endw} Serbia and Montenegro SuperLiga", seasons: [2005, 2005], tier: 1, skip: "promotion|qualif"}
+        - {folder: serbia, title_template: "{season}–{endw} Serbian SuperLiga", seasons: [2006, 2025], tier: 1, skip: "promotion|qualif"}
+      CRO-L:
+        - {folder: croatia, title_template: "{endyear} Croatian First Football League", seasons: [1991, 1991], tier: 1, kind: spring, skip: "promotion|qualif"}
+        - {folder: croatia, title_template: "{season}–{endw} Croatian First Football League", seasons: [1992, 2021], tier: 1, skip: "promotion|qualif"}
+        - {folder: croatia, title_template: "{season}–{endw} Croatian Football League", seasons: [2022, 2025], tier: 1, skip: "promotion|qualif"}
+      SVK-L:
+        - {folder: slovakia, title_template: "{season}–{endw} Slovak Superliga", seasons: [1993, 2010], tier: 1, skip: "promotion|qualif"}
+        - {folder: slovakia, title_template: "{season}–{endw} Slovak First Football League", seasons: [2011, 2025], tier: 1, skip: "promotion|qualif"}
       FRA-L:
         # Ligue 2 2002/03, which football-data holds only part of (no dates: the
         # grid gets a synthetic schedule). 2003/04 links names; RSSSF has its dates.
@@ -285,6 +362,103 @@ competitions:
     windows:
       - {source: engsoccerdata, until: "2025-06-30"}
       - {source: football_data}
+      - {source: wikipedia}
+  # Top flights from Wikipedia grids only (sources.wikipedia.leagues), tier 1.
+  AUT-L:
+    name: Austrian top flight
+    type: league
+    country: AUT
+    windows:
+      - {source: wikipedia}
+  SUI-L:
+    name: Swiss top flight
+    type: league
+    country: SUI
+    windows:
+      - {source: wikipedia}
+  SWE-L:
+    name: Allsvenskan
+    type: league
+    country: SWE
+    windows:
+      - {source: wikipedia}
+  DEN-L:
+    name: Danish top flight
+    type: league
+    country: DEN
+    windows:
+      - {source: wikipedia}
+  ROU-L:
+    name: Romanian top flight
+    type: league
+    country: ROU
+    windows:
+      - {source: wikipedia}
+  HUN-L:
+    name: Hungarian top flight
+    type: league
+    country: HUN
+    windows:
+      - {source: wikipedia}
+  URS-L:
+    name: Soviet Top League (to 1991)
+    type: league
+    country: URS
+    windows:
+      - {source: wikipedia}
+  YUG-L:
+    name: Yugoslav First League (to 1991/92)
+    type: league
+    country: YUG
+    windows:
+      - {source: wikipedia}
+  TCH-L:
+    name: Czechoslovak First League (to 1992/93)
+    type: league
+    country: TCH
+    windows:
+      - {source: wikipedia}
+  GDR-L:
+    name: DDR-Oberliga (to 1990/91)
+    type: league
+    country: GDR
+    windows:
+      - {source: wikipedia}
+  RUS-L:
+    name: Russian top flight (from 1992)
+    type: league
+    country: RUS
+    windows:
+      - {source: wikipedia}
+  UKR-L:
+    name: Ukrainian top flight (from 1992)
+    type: league
+    country: UKR
+    windows:
+      - {source: wikipedia}
+  CZE-L:
+    name: Czech First League (from 1993/94)
+    type: league
+    country: CZE
+    windows:
+      - {source: wikipedia}
+  SVK-L:
+    name: Slovak top flight (from 1993/94)
+    type: league
+    country: SVK
+    windows:
+      - {source: wikipedia}
+  SRB-L:
+    name: Serbian top flight (FR Yugoslavia / Serbia and Montenegro to 2005/06)
+    type: league
+    country: SRB
+    windows:
+      - {source: wikipedia}
+  CRO-L:
+    name: Croatian top flight (from 1992)
+    type: league
+    country: CRO
+    windows:
       - {source: wikipedia}
   NED-L:
     name: Eredivisie / Eerste Divisie (tiers 1-2)
@@ -446,7 +620,9 @@ aliases: config/club_aliases.csv
 # A club's country is normally the one it most often played in; these are fixed
 # because their league games were abroad (Cypriot champions entered the Greek
 # league 1967/68-1973/74), so their European results count for their own country.
-club_countries: {Omonia Nicosia: CYP, APOEL Nikosia: CYP, AEL Limassol: CYP, EPA Larnaca: CYP, Olympiakos Nicosia: CYP}
+# Vaduz plays in the Swiss league but in Europe for Liechtenstein.
+club_countries: {Omonia Nicosia: CYP, APOEL Nikosia: CYP, AEL Limassol: CYP, EPA Larnaca: CYP, Olympiakos Nicosia: CYP,
+                 FC Vaduz: LIE}
 
 # Source errors that a plain alias can't fix (they only apply to some seasons).
 # Applied to the source's own club keys before aliasing.
@@ -481,6 +657,9 @@ corrections:
   - {source: engsoccerdata, competition: BEL-L, season: 2020, club: Waregem, to: Zulte-Waregem}
   - {source: engsoccerdata, competition: BEL-L, season: 2021, club: Waregem, to: Zulte-Waregem}
   - {source: engsoccerdata, competition: BEL-L, season: 2022, club: Waregem, to: Zulte-Waregem}
+  # Wikipedia's 2021/22 Liga I links the refounded FC U Craiova 1948 under the
+  # article title its pages before 2011 use for the original club
+  - {source: wikipedia, competition: ROU-L, season: 2021, club: FC U Craiova 1948, to: FCU 1948 Craiova}
   # DataRozhlas keys every Sedan as CS_Sedan_Ardennes; the 1961/62 Cup Winners'
   # Cup side was UA Sedan-Torcy
   - {source: datarozhlas, competition: UCWC, season: 1961, club: CS_Sedan_Ardennes, to: UA_Sedan-Torcy}
@@ -567,6 +746,59 @@ elo:
     NED:
       start_ratings: {1: 1561, 2: 1397}
       nonleague: 1233
+    # Added 2026-10-24, tier 1 only. Levels tuned on European bias over each
+    # league's first two decades (1955-74; successor leagues 1992-2011), four
+    # rounds from first guesses: European log loss 0.5769 -> 0.5764, bias RMS of
+    # these countries 3.75 -> 3.25pp. Successor levels only set clubs new to the
+    # top flight after the split; the others carry their rating over.
+    AUT:
+      start_ratings: {1: 1362}
+      nonleague: 1198
+    SUI:
+      start_ratings: {1: 1401}
+      nonleague: 1237
+    SWE:
+      start_ratings: {1: 1391}
+      nonleague: 1227
+    DEN:
+      start_ratings: {1: 1359}
+      nonleague: 1195
+    HUN:
+      start_ratings: {1: 1472}
+      nonleague: 1308
+    ROU:
+      start_ratings: {1: 1460}
+      nonleague: 1296
+    URS:
+      start_ratings: {1: 1551}
+      nonleague: 1387
+    YUG:
+      start_ratings: {1: 1472}
+      nonleague: 1308
+    TCH:
+      start_ratings: {1: 1529}
+      nonleague: 1365
+    GDR:
+      start_ratings: {1: 1450}
+      nonleague: 1286
+    RUS:
+      start_ratings: {1: 1454}
+      nonleague: 1290
+    UKR:
+      start_ratings: {1: 1382}
+      nonleague: 1218
+    CZE:
+      start_ratings: {1: 1378}
+      nonleague: 1214
+    SVK:
+      start_ratings: {1: 1307}
+      nonleague: 1143
+    SRB:
+      start_ratings: {1: 1307}
+      nonleague: 1143
+    CRO:
+      start_ratings: {1: 1331}
+      nonleague: 1167
   # Hindsight country levels for the season views (src/football_elo/hindsight.py):
   # full correction to 1994/95, fading out by 1999/2000. England's ban seasons
   # (1985/86-1989/90, plus 1990/91 when only Manchester United and Aston Villa were back) step

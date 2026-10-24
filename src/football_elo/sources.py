@@ -12,6 +12,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -543,37 +544,56 @@ def wikipedia_grids(text: str) -> list[dict]:
         clubs = {}
         for code in order:
             raw = re.sub(r"<[^>]*>|'{2,}", "", params.get(f"name_{code}", code)).strip()
+            raw = re.sub(r"\{\{\s*(?:nowrap|nobr)\s*\|([^{}]*)\}\}", r"\1", raw, flags=re.I)
             raw = re.sub(r"\{\{[^{}]*\}\}", "", raw).strip()
             link = _WP_LINK.search(raw)
             clubs[code] = ((link.group(1).strip(), (link.group(2) or link.group(1)).strip()) if link
                            else (raw, raw))
-        scores = {}
+        # two clubs linked to one article (a later merger: Admira/Wacker and VfB
+        # Mödling both link FC Admira Wacker Mödling) are keyed "<article> [<name>]"
+        shared = Counter(key for key, _ in clubs.values())
+        clubs = {c: (f"{key} [{name}]", name) if shared[key] > 1 else (key, name) for c, (key, name) in clubs.items()}
+        # "legs=2" grids (clubs meeting four times) key each leg as matchN_A_B:
+        # one grid per leg, in leg order
+        legs = defaultdict(dict)
         for k, v in params.items():
-            mm = re.fullmatch(r"match_(.+?)_(.+)", k)
-            if not mm or mm.group(1) not in clubs or mm.group(2) not in clubs:
+            mm = re.fullmatch(r"match(\d*)_(.+?)_(.+)", k)
+            if not mm or mm.group(2) not in clubs or mm.group(3) not in clubs:
                 continue
             v = _WP_LINK.sub(lambda x: x.group(2) or x.group(1), v)
             sc = re.match(r"\s*(\d+)\s*[–—-]\s*(\d+)", v)
             if sc:
-                scores[(mm.group(1), mm.group(2))] = (int(sc.group(1)), int(sc.group(2)))
-        out.append({"clubs": clubs, "order": order, "scores": scores, "start_date": params.get("start_date"),
-                    "section": section})
+                legs[int(mm.group(1) or 1)][(mm.group(2), mm.group(3))] = (int(sc.group(1)), int(sc.group(2)))
+        for leg in sorted(legs) or [1]:
+            out.append({"clubs": clubs, "order": order, "scores": legs.get(leg, {}),
+                        "start_date": params.get("start_date"), "section": section})
     return out
 
 
-def wikipedia_league(folder: Path, competition: str, country: str, tier: int) -> pd.DataFrame:
+# season start when the page gives none: autumn-spring seasons in September,
+# calendar-year ones (Sweden, the USSR) in April, and spring-only half seasons
+# (saved as <season>s.txt: the spring after `season`, e.g. Hungary's 1957) in March
+WP_SEASON_START = {"split": (0, 9), "calendar": (0, 4), "spring": (1, 3)}
+
+
+def wikipedia_league(folder: Path, competition: str, country: str, tier: int,
+                     kinds: dict[str, str] | None = None, skip: str = r"play-?offs?|qualif") -> pd.DataFrame:
     """Wikipedia season articles saved as <start year>.txt (raw wikitext).
     Every results grid on the page is a block of `tier` (regional groups and
     later phases included), except those under a play-off or qualification
     heading: promotion play-off groups mix in top-flight clubs, and qualifying
-    rounds (Greece's Panhellenic Championship) lower-level ones. Dates are synthetic, from the
-    page's start_date or else the first Sunday of September; see _schedule."""
+    rounds (Greece's Panhellenic Championship) lower-level ones (`skip`: a
+    league whose play-off headings are top-flight rounds, a championship or
+    relegation group, passes a narrower pattern). Dates are synthetic, from the
+    page's start_date or else WP_SEASON_START (`kinds`: file stem -> kind,
+    default "split"); see _schedule."""
     out = []
     for path in sorted(folder.glob("*.txt")):
-        season = int(path.stem)
+        season = int(path.stem.rstrip("s"))
+        years, month = WP_SEASON_START[(kinds or {}).get(path.stem, "split")]
         blocks, start = [], None
         for g, grid in enumerate(wikipedia_grids(path.read_text(encoding="utf-8"))):
-            if re.search(r"play-?offs?|qualif", grid["section"], re.I):
+            if re.search(skip, grid["section"], re.I):
                 continue
             if start is None and grid["start_date"]:
                 start = pd.to_datetime(grid["start_date"], errors="coerce")
@@ -583,7 +603,7 @@ def wikipedia_league(folder: Path, competition: str, country: str, tier: int) ->
                             "home": grid["clubs"][h][0], "away": grid["clubs"][a][0],
                             "home_name": grid["clubs"][h][1], "away_name": grid["clubs"][a][1],
                             "hg": hg, "ag": ag} for (h, a), (hg, ag) in grid["scores"].items()])
-        for r in _schedule(blocks, season, start):
+        for r in _schedule(blocks, season, start or _first_sunday(season + years, month)):
             out.append(dict(r, season=season, tier=tier, file_name=f"wikipedia/{folder.name}/{path.name}"))
     return _league_frame("wikipedia", out, competition, country)
 

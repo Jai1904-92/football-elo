@@ -58,7 +58,7 @@ def main(argv: list[str] | None = None) -> int:
             names = args.fit or ["k_cup", "k_europe", "foreign"]
             targets = calibrate.load_targets(cfg, cfg["elo"]["burn_in_until"])
             params = engine.EloParams.from_config(cfg)
-            prepared = engine.prepare(built["matches"], params, built["clubs"].set_index("club")["country"])
+            prepared = engine.prepare(built["matches"], params, built["club_seasons"])
             best, s = calibrate.fit(prepared, targets, params, names, objective=args.objective)
             print("\nfitted:", best)
             print({k: round(v, 3) for k, v in s.items()})

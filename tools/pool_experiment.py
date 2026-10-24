@@ -11,7 +11,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from football_elo import calibrate as c, engine  # noqa: E402
 from football_elo.config import load_config  # noqa: E402
 
-MODS = ["ENG", "ESP", "GER", "ITA", "FRA", "POR", "NED", "SCO", "BEL", "TUR", "GRE"]
+MODS = ["ENG", "ESP", "GER", "ITA", "FRA", "POR", "NED", "SCO", "BEL", "TUR", "GRE", "AUT", "SUI", "SWE", "DEN", "ROU",
+        "HUN", "URS", "YUG", "TCH", "GDR", "RUS", "UKR", "CZE", "SVK", "SRB", "CRO"]
 
 
 def europe_bias(r: pd.DataFrame) -> pd.DataFrame:

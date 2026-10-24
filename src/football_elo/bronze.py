@@ -150,6 +150,15 @@ def _wiki_raw(url: str, title: str, dest: Path) -> bool:
     return dest.exists() and not _REDIRECT.match(dest.read_text(encoding="utf-8"))
 
 
+def wikipedia_stems(spec: dict) -> dict[str, int]:
+    """File stem -> season for a Wikipedia league or cup spec. A spring-only
+    half season (kind "spring") is saved as <season>s.txt: its season can
+    also have a page of its own (Hungary's 1956, then the spring of 1957)."""
+    suffix = "s" if spec.get("kind") == "spring" else ""
+    first, last = spec["seasons"]
+    return {f"{s}{suffix}": s for s in range(first, last + 1)}
+
+
 def fetch_wikipedia(cfg: dict, force: bool = False) -> list[Path]:
     """Raw wikitext of Wikipedia season articles, leagues and cups (cached;
     the current season's pages re-download, as their rounds are still played)."""
@@ -157,9 +166,8 @@ def fetch_wikipedia(cfg: dict, force: bool = False) -> list[Path]:
     live = current_season()
     out = []
     for spec in (s for group in ("leagues", "cups") for specs in src.get(group, {}).values() for s in specs):
-        first, last = spec["seasons"]
-        for season in range(first, last + 1):
-            dest = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"] / f"{season}.txt"
+        for stem, season in wikipedia_stems(spec).items():
+            dest = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"] / f"{stem}.txt"
             if force or not dest.exists() or season >= live:
                 if not _wiki_raw(src["url"], spec["title_template"].format(**_season_fields(season)), dest):
                     continue

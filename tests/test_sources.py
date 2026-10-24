@@ -150,3 +150,25 @@ def test_match_ids_drop_accented_letters_whatever_the_pandas_version():
     df = pd.DataFrame({"match_date": pd.to_datetime(["2025-09-28"]), "home_club": ["Kayserispor"],
                        "away_club": ["Gençlerbirliği"]})
     assert silver.match_ids(df).tolist() == ["20250928_Kayserispor_Genlerbirlii"]
+
+
+WIKI_LEGS = """==Results==
+{{#invoke:sports results|main|legs=2
+|team1=DIN|team2=HAJ|team3=ADM|team4=MOD
+|name_DIN=[[GNK Dinamo Zagreb|Dinamo Zagreb]]
+|name_HAJ={{nowrap|[[HNK Hajduk Split|Hajduk Split]]}}
+|name_ADM=[[FC Admira Wacker Mödling|Admira/Wacker]]
+|name_MOD=[[FC Admira Wacker Mödling|VfB Mödling]]
+|match1_DIN_HAJ=1–1
+|match2_DIN_HAJ=2–0
+|match1_ADM_MOD=3–2
+}}
+"""
+
+
+def test_wikipedia_grids_read_legs_and_tell_shared_articles_apart():
+    grids_ = sources.wikipedia_grids(WIKI_LEGS)
+    assert [g["scores"] for g in grids_] == [{("DIN", "HAJ"): (1, 1), ("ADM", "MOD"): (3, 2)}, {("DIN", "HAJ"): (2, 0)}]
+    clubs = grids_[0]["clubs"]
+    assert clubs["HAJ"] == ("HNK Hajduk Split", "Hajduk Split")
+    assert clubs["ADM"][0] == "FC Admira Wacker Mödling [Admira/Wacker]" != clubs["MOD"][0]

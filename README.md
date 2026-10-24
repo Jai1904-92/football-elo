@@ -1,7 +1,9 @@
 # football-elo
 
 Club Elo-style ratings for English football (tiers 1–4), Spain, Germany, Italy, France and the Netherlands
-(tiers 1–2), and the top flights of Portugal, Scotland, Belgium, Turkey and Greece, from 1955 to now, kept
+(tiers 1–2), and the top flights of Portugal, Scotland, Belgium, Turkey, Greece, Austria, Switzerland,
+Sweden, Denmark, Romania, Hungary, the Soviet Union, Yugoslavia, Czechoslovakia and East Germany (and their
+successors Russia, Ukraine, Czechia, Slovakia, Serbia and Croatia), from 1955 to now, kept
 current weekly in Supabase. Ratings include the FA Cup, League Cup, EFL play-offs,
 the other countries' domestic cups from 2012/13, and the European club competitions. The Supabase project is
 `football-elo` (ref `mukyuvlvwozeihsrjjis`, Sydney).
@@ -38,6 +40,9 @@ pytest
 | Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97, and the partial 2002/03 and 2004/05) → football-data (tier 2 from 1997/98) |
 | Portugal, tier 1 | `POR-L` | RSSSF results grids 1955/56–1993/94 (dates assigned) → engsoccerdata 1994/95–2024/25 → football-data |
 | Scotland, Belgium, Turkey, Greece (tier 1) | `SCO-L`, `BEL-L`, `TUR-L`, `GRE-L` | Wikipedia results grids 1955/56–1993/94 (dates assigned; Turkey from 1958/59, Greece's 1956–58 Panhellenic final rounds) → engsoccerdata 1994/95–2024/25 → football-data |
+| Austria, Switzerland, Sweden, Denmark, Romania, Hungary (tier 1) | `AUT-L`, `SUI-L`, `SWE-L`, `DEN-L`, `ROU-L`, `HUN-L` | Wikipedia results grids 1955/56–2025/26 (dates assigned; calendar-year seasons from April) |
+| Soviet Union, Yugoslavia, Czechoslovakia, East Germany (tier 1) | `URS-L`, `YUG-L`, `TCH-L`, `GDR-L` | Wikipedia results grids 1955–1991 (1992/93 Czechoslovakia, 1990/91 East Germany) |
+| Russia, Ukraine, Czechia, Slovakia, Serbia, Croatia (tier 1) | `RUS-L`, `UKR-L`, `CZE-L`, `SVK-L`, `SRB-L`, `CRO-L` | Wikipedia results grids from the split (1992 or 1993/94) to 2025/26; Serbia's includes Montenegro to 2005/06 |
 | German championship final round | `GER-CH` | RSSSF 1955/56–1962/63 (qualifiers, groups and final between the Oberliga champions) |
 | Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2024/25) → football-data (tier 1) |
 | France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) → RSSSF (the partial 2003/04) → Wikipedia grid (the partial 2002/03) |
@@ -102,6 +107,22 @@ How sources combine:
     than the big seven's (Scotland −125, Belgium −100, Turkey and Greece −250): starting level left Turkish
     and Greek clubs 25–30pp worse in Europe than predicted in the 1960s. Cypriot champions played in the
     Greek league 1967/68–1973/74; `club_countries` in config keeps them Cypriot.
+  - The sixteen leagues added 2026-10-24 (the other countries whose clubs won or reached European finals)
+    are also top flight only, from Wikipedia's season grids throughout: no source has their current season
+    yet (2026/27, Sweden's 2026), so they stop at 2025/26 for now. Championship and relegation groups count;
+    promotion and qualification groups (and the Nationalliga B rounds on the Swiss pages) don't. Starting
+    levels were tuned on European bias over each league's first two decades: Soviet Union 1551 (−10 on the
+    big seven), Czechoslovakia 1529, Hungary and Yugoslavia 1472, Romania 1460, East Germany 1450, Sweden
+    1391, Switzerland 1401, Austria 1362, Denmark 1359. A successor league's level only sets clubs new to the
+    top flight after the split; the rest carry their rating over.
+  - **A club's country can change.** Each club has a country per season, the country of the league it played
+    in (`silver.country_seasons`): Dynamo Kyiv pools with the Soviet Union to 1991 and Ukraine after, Dynamo
+    Dresden with East Germany to 1990/91 and Germany after. A season without league games takes the country
+    of its other matches (a cup's, or the association a European source names), so Dinamo Tbilisi is Georgian
+    after the Soviet league and Budućnost Montenegrin after the Serbian one. On a change the club's rating
+    carries over; only its pooled part moves to the new country. The club registry holds each club's latest
+    country (used by the weekly update). Before this, East German clubs counted as German and their European
+    results lifted West Germany's level (+190 by 1970).
   - Second tiers in Spain and Italy start in 1955 and the Netherlands in 1956; France's in 1996/97, when
     football-data begins.
   - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial

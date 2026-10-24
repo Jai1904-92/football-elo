@@ -121,8 +121,11 @@ def prepare(matches: pd.DataFrame, params: EloParams, club_country: pd.Series | 
     """Add the per-match inputs the rating loop needs: home/away tier and
     country, start ratings, HFA on/off and K multiplier.
 
-    `club_country` maps club -> country (default: every club belongs to the
-    first modelled country); `membership` maps (club, season) -> tier
+    `club_country` maps club -> country, or (club, season) -> country when a
+    club's country changes (Dynamo Kyiv: USSR to 1991, Ukraine after; see
+    silver.country_seasons); clubs or seasons it doesn't cover fall back to
+    the club's latest listed country. Default: every club belongs to the
+    first modelled country. `membership` maps (club, season) -> tier
     (default: derived from the league matches given)."""
     m = matches.copy()
     if "comp_type" not in m:
@@ -135,11 +138,19 @@ def prepare(matches: pd.DataFrame, params: EloParams, club_country: pd.Series | 
     for side in ("home", "away"):
         key = pd.MultiIndex.from_arrays([m[f"{side}_club"], m["season"]])
         m[f"{side}_tier"] = membership.reindex(key).to_numpy()
-        m[f"{side}_country"] = (m[f"{side}_club"].map(club_country).to_numpy()
+        m[f"{side}_country"] = (_countries(m[f"{side}_club"], m["season"], club_country)
                                 if club_country is not None else default_country)
         m[f"{side}_newcomer"] = newcomer.reindex(key).fillna(False).to_numpy(dtype=bool)
     m["hfa_on"] = ~m["neutral"].astype(bool)
     return assign_params(m, params)
+
+
+def _countries(clubs: pd.Series, season: pd.Series, club_country: pd.Series) -> np.ndarray:
+    if club_country.index.nlevels == 1:
+        return clubs.map(club_country).to_numpy()
+    by_season = club_country.reindex(pd.MultiIndex.from_arrays([clubs, season])).to_numpy()
+    latest = club_country.groupby(level=0).last()
+    return np.where(pd.isna(by_season), clubs.map(latest).to_numpy(), by_season)
 
 
 def _newcomer_seasons(membership: pd.Series, club_country: pd.Series | None,
@@ -148,7 +159,8 @@ def _newcomer_seasons(membership: pd.Series, club_country: pd.Series | None,
     season, it is not its country's first modelled season, and the club is
     in the lowest tier modelled for its country that season."""
     df = membership.rename("tier").reset_index()
-    df["country"] = df["club"].map(club_country) if club_country is not None else default_country
+    df["country"] = (_countries(df["club"], df["season"], club_country) if club_country is not None
+                     else default_country)
     first_club = df.groupby("club")["season"].transform("min")
     first_country = df.groupby("country")["season"].transform("min")
     lowest = df.groupby(["country", "season"])["tier"].transform("max")
@@ -249,9 +261,15 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         bh = base.get(h)
         if bh is None:
             bh = hs[i]
+        elif country_of.get(h, ch) != ch:
+            # the club changed country (USSR -> Ukraine): its rating carries over
+            bh += off.get(country_of[h], 0.0) - oh
         ba = base.get(a)
         if ba is None:
             ba = as_[i]
+        elif country_of.get(a, ca) != ca:
+            ba += off.get(country_of[a], 0.0) - oa
+        country_of[h], country_of[a] = ch, ca
         rh, ra = bh + oh, ba + oa
         hkey = None
         h_adv = 0.0

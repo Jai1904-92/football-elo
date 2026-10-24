@@ -258,3 +258,36 @@ def test_all_features_incremental_equals_full():
     ref = full.set_index("match_id").sort_index()
     pd.testing.assert_series_equal(both.home_elo_post, ref.home_elo_post)
     pd.testing.assert_series_equal(both.hfa_used, ref.hfa_used)
+
+
+def test_a_club_changing_country_keeps_its_rating():
+    # A wins in Europe for country X, which lifts X's pooled level; when A moves to
+    # country Y (a union league breaking up) its rating carries over unchanged
+    m = _matches([
+        ("2000-09-01", 2000, 1, "A", "F", 3, 0),
+        ("2001-09-01", 2001, 1, "A", "B", 1, 1),
+    ]).assign(comp_type=["europe", "league"])
+    p = engine.EloParams(k=20, hfa=0, league_pool=0.5, countries={"X": {"start_ratings": {1: 1500}, "nonleague": 1300},
+                                                                   "Y": {"start_ratings": {1: 1500}, "nonleague": 1300}})
+    country = pd.Series({("A", 2000): "X", ("F", 2000): "Z", ("A", 2001): "Y", ("B", 2001): "Y"})
+    rated, _ = engine.run(m, p, club_country=country)
+    first, second = rated.iloc[0], rated.iloc[1]
+    assert first.home_offset > 0                              # X lifted by A's European win
+    assert second.home_country == "Y" and second.home_offset == 0
+    assert second.home_elo_pre == pytest.approx(first.home_elo_post)
+
+
+def test_country_seasons_follow_the_league():
+    cfg = {"competitions": {"U-L": {"type": "league", "country": "URS"}, "K-L": {"type": "league", "country": "UKR"},
+                            "UCL": {"type": "europe"}}}
+    df = pd.DataFrame({
+        "season": [1990, 1990, 1991, 1992, 1992, 1993],
+        "competition": ["U-L", "UCL", "UCL", "K-L", "UCL", "UCL"],
+        "comp_type": ["league", "europe", "europe", "league", "europe", "europe"],
+        "home_club": ["Kyiv", "Kyiv", "Tbilisi", "Kyiv", "Kyiv", "Tbilisi"],
+        "away_club": ["Tbilisi", "Ajax", "Ajax", "Dnipro", "Ajax", "Ajax"],
+        "home_country": ["URS", "URS", "GEO", "UKR", "UKR", "GEO"],
+        "away_country": ["URS", "NED", "NED", "UKR", "NED", "NED"]})
+    cs = silver.country_seasons(df, cfg)
+    assert cs[("Kyiv", 1990)] == "URS" and cs[("Kyiv", 1992)] == "UKR"
+    assert cs[("Tbilisi", 1990)] == "URS" and cs[("Tbilisi", 1993)] == "GEO"

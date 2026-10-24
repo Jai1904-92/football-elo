@@ -34,8 +34,7 @@ def persist_new_aliases(cfg: dict, new: pd.DataFrame) -> None:
 
 def rate(cfg: dict, built: dict) -> dict:
     params = engine.EloParams.from_config(cfg)
-    country = built["clubs"].set_index("club")["country"]
-    rated, _ = engine.run(built["matches"], params, club_country=country)
+    rated, _ = engine.run(built["matches"], params, club_country=built["club_seasons"])
     per = engine.periods(rated, burn_in_until=cfg["elo"]["burn_in_until"])
     return {"rated": rated, "periods": per, "offsets": engine.league_offsets(rated),
             "hfa": engine.hfa_levels(rated), "season_perf": seasons.season_performance(rated, per)}
@@ -56,8 +55,7 @@ def build_local(cfg: dict, fetch: bool = True) -> dict:
     built = silver.build(cfg)
     persist_new_aliases(cfg, built["new_aliases"])
     built.update(rate(cfg, built))
-    built["hindsight"] = hindsight.corrections(built["rated"], built["clubs"].set_index("club")["country"],
-                                               list(cfg["elo"]["countries"]), cfg["elo"]["hindsight"])
+    built["hindsight"] = hindsight.corrections(built["rated"], list(cfg["elo"]["countries"]), cfg["elo"]["hindsight"])
     built["scores"], cmp = calibration_scores(cfg, built["rated"])
 
     paths = cfg["paths"]
@@ -65,6 +63,10 @@ def build_local(cfg: dict, fetch: bool = True) -> dict:
     paths["gold"].mkdir(parents=True, exist_ok=True)
     built["matches"].to_parquet(paths["silver"] / "matches.parquet", index=False)
     built["clubs"].to_parquet(paths["silver"] / "clubs.parquet", index=False)
+    built["club_seasons"].rename("country").reset_index().to_parquet(paths["silver"] / "club_seasons.parquet",
+                                                                     index=False)
+    # input of tools/pool_experiment.py
+    engine.prepare(built["matches"], engine.EloParams.from_config(cfg), built["club_seasons"])         .to_parquet(paths["silver"] / "matches_prepared.parquet", index=False)
     built["rated"].to_parquet(paths["gold"] / "match_ratings.parquet", index=False)
     built["periods"].to_parquet(paths["gold"] / "club_ratings.parquet", index=False)
     built["scores"].to_csv(paths["gold"] / "calibration_scores.csv")

@@ -155,7 +155,7 @@ datarozhlas,1._FC_Frankfurt,ASK Vorwarts Berlin
 datarozhlas,1._FC_Heidenheim,1. FC Heidenheim
 datarozhlas,1._FC_K%C3%B6ln,Koln
 datarozhlas,1._FC_Kaiserslautern,Kaiserslautern
-datarozhlas,1._FC_Lokomotive_Leipzig,Lokomotive Leipzig
+datarozhlas,1._FC_Lokomotive_Leipzig,VfB Leipzig
 datarozhlas,1._FC_Magdeburg,Magdeburg
 datarozhlas,1._FC_N%C3%BCrnberg,Nurnberg
 datarozhlas,1._FC_Saarbr%C3%BCcken,Saarbrucken
@@ -221,7 +221,7 @@ datarozhlas,AS_Roma,AS Roma
 datarozhlas,AS_Saint-%C3%89tienne,AS Saint-Etienne
 datarozhlas,AS_Tren%C4%8D%C3%ADn,AS Trencin
 datarozhlas,AZ,AZ
-datarozhlas,AZAL_PFC_Baku,AZAL Baku
+datarozhlas,AZAL_PFC_Baku,Olimpik Baku
 datarozhlas,AZ_(football_club),AZ Alkmaar
 datarozhlas,AZ_Alkmaar,AZ Alkmaar
 datarozhlas,AaB_Fodbold,Aalborg BK
@@ -229,7 +229,7 @@ datarozhlas,AaB_Football,Aalborg BK
 datarozhlas,Aalborg_BK,Aalborg BK
 datarozhlas,Aalesunds_FK,Aalesund
 datarozhlas,Aarhus,Aarhus
-datarozhlas,Aarhus_Gymnastik_Forening,AGF Aarhus
+datarozhlas,Aarhus_Gymnastik_Forening,Aarhus GF
 datarozhlas,Aarhus_Gymnastikforening,Aarhus GF
 datarozhlas,Aberdeen,Aberdeen
 datarozhlas,Aberdeen_F.C.,Aberdeen
@@ -384,11 +384,11 @@ datarozhlas,Boavista_F.C.,Boavista
 datarozhlas,Bodø/Glimt,Bodo/Glimt
 datarozhlas,Bohemian F.C.,Bohemian F.C.
 datarozhlas,Bohemian_F.C.,Bohemians
-datarozhlas,Bohemians 1905,Bohemians 1905
+datarozhlas,Bohemians 1905,Bohemians EKD Praha
 datarozhlas,Bohemians_1905,Bohemians EKD Praha
-datarozhlas,Bohemians_CKD_Praha,Bohemians (TCH)
+datarozhlas,Bohemians_CKD_Praha,Bohemians EKD Praha
 datarozhlas,Bokelj,Bokelj
-datarozhlas,Boldklubben_1901,B1901
+datarozhlas,Boldklubben_1901,B 1901 Nykøbing
 datarozhlas,Boldklubben_1903,B 1903 Kobenhavn
 datarozhlas,Boldklubben_1909,B 1909 Odense
 datarozhlas,Boldklubben_1913,B 1913 Odense
@@ -482,7 +482,7 @@ datarozhlas,Charleroi,Charleroi
 datarozhlas,Chelsea,Chelsea
 datarozhlas,Chelsea_F.C,Chelsea
 datarozhlas,Chelsea_F.C.,Chelsea
-datarozhlas,Chemnitzer_FC,FC Karl-Marx-Stadt
+datarozhlas,Chemnitzer_FC,Chemnitzer FC
 datarozhlas,Cherno More,Cherno More
 datarozhlas,Cherno More Varna,Cherno More Varna
 datarozhlas,Chikhura Sachkhere,Chikhura Sachkhere
@@ -499,7 +499,7 @@ datarozhlas,Cologne,Cologne XI
 datarozhlas,Connah%27s_Quay_Nomads_F.C.,Connah's Quay
 datarozhlas,Connah's Quay Nomads,Connah's Quay
 datarozhlas,Constel%C2%B7laci%C3%B3_Esportiva,Constel·lació
-datarozhlas,Constructorul_Chisinau,Constructorul Chisinau
+datarozhlas,Constructorul_Chisinau,FC Tiraspol
 datarozhlas,Copenhagen,Kobenhavn
 datarozhlas,Cork City,Cork City
 datarozhlas,Cork_Celtic_F.C.,Cork Celtic
@@ -555,7 +555,7 @@ datarozhlas,Dukla_Bansk%C3%A1_Bystrica,Dukla Banská Bystrica
 datarozhlas,Dukla_Prague,Dukla Praha
 datarozhlas,Duna%C3%BAjv%C3%A1ros_FC,Dunaujvaros
 datarozhlas,Dunaferr_SE,Dunaferr
-datarozhlas,Dunakanyar-V%C3%A1c_FC,Vác FC Samsung
+datarozhlas,Dunakanyar-V%C3%A1c_FC,Dunakanyar-Vac
 datarozhlas,Dunav Ruse,Dunav Ruse
 datarozhlas,Dundalk,Dundalk
 datarozhlas,Dundalk_F.C.,Dundalk
@@ -611,7 +611,7 @@ datarozhlas,F.C._Hansa_Rostock,Hansa Rostock
 datarozhlas,F.C._Internazionale_Milano,Internazionale
 datarozhlas,F.C._Pa%C3%A7os_de_Ferreira,Pacos de Ferreira
 datarozhlas,F.C._Porto,FC Porto
-datarozhlas,F.C._Rustavi_Metalurgist,Metalurgist Rustavi
+datarozhlas,F.C._Rustavi_Metalurgist,Metalurgi Rustavi
 datarozhlas,F.C._Utrecht,FC Utrecht
 datarozhlas,F.K._Bod%C3%B8/Glimt,F.K. Bodø/Glimt
 datarozhlas,F91 Dudelange,F91 Dudelange
@@ -619,7 +619,7 @@ datarozhlas,F91_Dudelange,F91 Dudelange
 datarozhlas,FA_%C5%A0iauliai,FA Siauliai
 datarozhlas,FA_Red_Boys_Differdange,Red Boys Differdange
 datarozhlas,FBK_Kaunas,FBK Kaunas
-datarozhlas,FC Lucerne,FC Lucerne
+datarozhlas,FC Lucerne,FC Luzern
 datarozhlas,FC Santa Coloma,FC Santa Coloma
 datarozhlas,FC Utrecht,FC Utrecht
 datarozhlas,FCI Levadia,FCI Levadia
@@ -630,7 +630,7 @@ datarozhlas,FCM_Bac%C4%83u,Bacău
 datarozhlas,FCM_Dun%C4%83rea_Gala%C8%9Bi,CSU Galați
 datarozhlas,FCSB,Steaua Bucuresti
 datarozhlas,FCV_Farul_Constan%C8%9Ba,Farul Constanța
-datarozhlas,FC_%C5%BDalgiris,Žalgiris
+datarozhlas,FC_%C5%BDalgiris,FK Zalgiris Vilnius
 datarozhlas,FC_AP_Brera,Akademija Pandev
 datarozhlas,FC_Aarau,FC Aarau
 datarozhlas,FC_Admira_Wacker_M%C3%B6dling,FC Admira Wacker Modling
@@ -651,11 +651,11 @@ datarozhlas,FC_Arge%C8%99_Pite%C8%99ti,Arges Pitesti
 datarozhlas,FC_Aris_Bonnevoie,Aris Bonnevoie
 datarozhlas,FC_Arsenal_Kyiv,Arsenal Kyiv
 datarozhlas,FC_Arsenal_Tula,FC Arsenal Tula
-datarozhlas,FC_Artmedia_Bratislava,Artmedia Bratislava
-datarozhlas,FC_Artmedia_Petr%C5%BEalka,Artmedia
+datarozhlas,FC_Artmedia_Bratislava,Petrzalka Akademia
+datarozhlas,FC_Artmedia_Petr%C5%BEalka,Petrzalka Akademia
 datarozhlas,FC_Astana,Astana
 datarozhlas,FC_Astana-1964,Astana-64
-datarozhlas,FC_Astana-64,Zhenis
+datarozhlas,FC_Astana-64,Astana-64
 datarozhlas,FC_Astra_Giurgiu,FK Astra Giurgiu
 datarozhlas,FC_Atyrau,Atyrau
 datarozhlas,FC_Augsburg,FC Augsburg
@@ -681,10 +681,10 @@ datarozhlas,FC_Chernomorets_Burgas,Chernomorets
 datarozhlas,FC_Chernomorets_Novorossiysk,Chernomorets Novorossiysk
 datarozhlas,FC_Chikhura_Sachkhere,Chikhura Sachkhere
 datarozhlas,FC_Chornomorets_Odesa,Chornomorets Odesa
-datarozhlas,FC_Copenhagen,Copenhagen
+datarozhlas,FC_Copenhagen,Kobenhavn
 datarozhlas,FC_Corvinul_Hunedoara,Corvinul Hunedoara
 datarozhlas,FC_DAC_1904_Dunajsk%C3%A1_Streda,Dunajska Streda
-datarozhlas,FC_Dacia_Chi%C5%9Fin%C4%83u,Dacia
+datarozhlas,FC_Dacia_Chi%C5%9Fin%C4%83u,Dacia Chisinau
 datarozhlas,FC_Dacia_Chi%C8%99in%C4%83u,Dacia Chisinau
 datarozhlas,FC_Daugava,Daugava Daugavpils
 datarozhlas,FC_Den_Haag,ADO Den Haag
@@ -738,7 +738,7 @@ datarozhlas,FC_Jazz,FC Jazz
 datarozhlas,FC_Jazz_Pori,FC Jazz
 datarozhlas,FC_Jokerit,Jokerit
 datarozhlas,FC_K%C3%A4rnten,Kärnten
-datarozhlas,FC_K%C9%99p%C9%99z,Kapaz Ganja
+datarozhlas,FC_K%C9%99p%C9%99z,Kapaz
 datarozhlas,FC_Kairat,Kairat
 datarozhlas,FC_Kaisar,Kaisar
 datarozhlas,FC_Karpaty_Lviv,Karpaty Lviv
@@ -747,10 +747,10 @@ datarozhlas,FC_Kolos_Kovalivka,FC Kolos Kovalivka
 datarozhlas,FC_Koper,Koper
 datarozhlas,FC_Kotayk,Kotayk Abovyan
 datarozhlas,FC_Krasnodar,Krasnodar
-datarozhlas,FC_Krylia_Sovetov_Samara,Krylia Sovetov
+datarozhlas,FC_Krylia_Sovetov_Samara,Krylya Sovetov Samara
 datarozhlas,FC_Krylya_Sovetov_Samara,Krylya Sovetov Samara
 datarozhlas,FC_Kryvbas_Kryvyi_Rih_(1959%E2%80%932013),Kryvbas
-datarozhlas,FC_Kryvbas_Kryvyi_Rih_(2020),Kryvbas KR
+datarozhlas,FC_Kryvbas_Kryvyi_Rih_(2020),Kryvbas
 datarozhlas,FC_Kuban_Krasnodar,Kuban Krasnodar
 datarozhlas,FC_Kuusysi,FC Kuusysi
 datarozhlas,FC_Kyzylzhar,Kyzylzhar
@@ -766,7 +766,7 @@ datarozhlas,FC_Lokomot%C3%ADva_Ko%C5%A1ice,Lokomotíva Košice
 datarozhlas,FC_Lokomotiv_1929_Sofia,Lokomotiv Sofia
 datarozhlas,FC_Lokomotiv_Moscow,Lokomotiv Moskva
 datarozhlas,FC_Lorient,FC Lorient
-datarozhlas,FC_Lucerne,FC Lucerne
+datarozhlas,FC_Lucerne,FC Luzern
 datarozhlas,FC_Lugano,Lugano
 datarozhlas,FC_Lusitanos,Lusitanos
 datarozhlas,FC_Luzern,FC Luzern
@@ -780,7 +780,7 @@ datarozhlas,FC_Metalist_Kharkiv,Metalist Kharkiv
 datarozhlas,FC_Metalurgi_Rustavi,Metalurgi Rustavi
 datarozhlas,FC_Metalurh_Donetsk,Metalurh Donetsk
 datarozhlas,FC_Metalurh_Zaporizhya,Metalurh Zaporizhya
-datarozhlas,FC_Metalurh_Zaporizhzhya,Metalurh Zaporizhzhya
+datarozhlas,FC_Metalurh_Zaporizhzhya,Metalurh Zaporizhya
 datarozhlas,FC_Metz,Metz
 datarozhlas,FC_Midtjylland,Midtjylland
 datarozhlas,FC_Mika,Mika
@@ -793,7 +793,7 @@ datarozhlas,FC_Naftan_Novopolotsk,Naftan Novopolotsk
 datarozhlas,FC_Nantes,Nantes
 datarozhlas,FC_Narva_Trans,JK Narva Trans
 datarozhlas,FC_Neman_Grodno,Neman Grodno
-datarozhlas,FC_Nikol_Tallinn,Nikol Tallinn
+datarozhlas,FC_Nikol_Tallinn,TVMK
 datarozhlas,FC_Nistru_Otaci,Nistru Otaci
 datarozhlas,FC_Nitra,Nitra
 datarozhlas,FC_Noah,FC Noah
@@ -810,12 +810,12 @@ datarozhlas,FC_Ordabasy,Ordabasy Shymkent
 datarozhlas,FC_Partizan_Minsk,MTZ-RIPO Minsk
 datarozhlas,FC_Pasching,Pasching
 datarozhlas,FC_Petr%C5%BEalka,Petrzalka Akademia
-datarozhlas,FC_Petr%C5%BEalka_1898,Artmedia Bratislava
+datarozhlas,FC_Petr%C5%BEalka_1898,Petrzalka Akademia
 datarozhlas,FC_Petr%C5%BEalka_akad%C3%A9mia,Petrzalka Akademia
 datarozhlas,FC_Petrocub_H%C3%AEnce%C8%99ti,Petrocub
 datarozhlas,FC_Petrolul_Ploie%C8%99ti,Petrolul Ploiesti
 datarozhlas,FC_Polissya_Zhytomyr,Polissya Zhitomir
-datarozhlas,FC_Politehnica_Timi%C8%99oara,Timișoara
+datarozhlas,FC_Politehnica_Timi%C8%99oara,FC Politehnica Timisoara
 datarozhlas,FC_Porto,FC Porto
 datarozhlas,FC_Prishtina,Prishtina
 datarozhlas,FC_Progr%C3%A8s_Niedercorn,Progres Niedercorn
@@ -856,11 +856,11 @@ datarozhlas,FC_Spartak_Moscow,Spartak Moskva
 datarozhlas,FC_Spartak_Plovdiv,Spartak Plovdiv
 datarozhlas,FC_Spartak_Trnava,Spartak TAZ Trnava
 datarozhlas,FC_Spartak_Varna,Spartak Varna
-datarozhlas,FC_Spartak_Vladikavkaz,Spartak Vladikavkaz
+datarozhlas,FC_Spartak_Vladikavkaz,Alania Vladikavkaz
 datarozhlas,FC_Sportul_Studen%C5%A3esc_Bucure%C8%99ti,Sportul Studenţesc
 datarozhlas,FC_Sportul_Studen%C8%9Besc_Bucure%C8%99ti,Sportul Studenţesc
 datarozhlas,FC_St._Gallen,St. Gallen
-datarozhlas,FC_Stahl_Brandenburg,Stahl Brandenburg
+datarozhlas,FC_Stahl_Brandenburg,BSG Stahl Brandenburg
 datarozhlas,FC_Steaua_Bucure%C8%99ti,Steaua Bucuresti
 datarozhlas,FC_Struga,Struga
 datarozhlas,FC_Stumbras,FC Stumbras
@@ -881,7 +881,7 @@ datarozhlas,FC_Torpedo-BelAZ_Zhodino,Torpedo-BelAZ Zhodino
 datarozhlas,FC_Torpedo_Kutaisi,Torpedo Kutaisi
 datarozhlas,FC_Torpedo_Moscow,Torpedo Moskva
 datarozhlas,FC_Torpedo_Zhodino,Torpedo Zhodino
-datarozhlas,FC_Trinity_Zl%C3%ADn,TJ Gottwaldov
+datarozhlas,FC_Trinity_Zl%C3%ADn,FC Zlín
 datarozhlas,FC_Tskhinvali,Tskhinvali
 datarozhlas,FC_Twente,Twente
 datarozhlas,FC_UNA_Strassen,UNA Strassen
@@ -891,7 +891,7 @@ datarozhlas,FC_Ufa,FC Ufa
 datarozhlas,FC_Unirea_Urziceni,Unirea Urziceni
 datarozhlas,FC_Universitatea_Cluj,Universitatea Cluj
 datarozhlas,FC_Universitatea_Craiova,FC Universitatea Craiova
-datarozhlas,FC_Urartu,Urartu
+datarozhlas,FC_Urartu,Banants
 datarozhlas,FC_Utrecht,FC Utrecht
 datarozhlas,FC_VSS_Ko%C5%A1ice,Kosice
 datarozhlas,FC_Vaduz,FC Vaduz
@@ -904,7 +904,7 @@ datarozhlas,FC_Viktoria_Plze%C5%88,Viktoria Plzen
 datarozhlas,FC_Vitebsk,FC Vitebsk
 datarozhlas,FC_Volov_Shumen,Shumen
 datarozhlas,FC_Vorskla_Poltava,Vorskla
-datarozhlas,FC_Vorw%C3%A4rts_Frankfurt,Vorwärts Frankfurt
+datarozhlas,FC_Vorw%C3%A4rts_Frankfurt,ASK Vorwarts Berlin
 datarozhlas,FC_WIT_Georgia,WIT Georgia
 datarozhlas,FC_Wacker_Innsbruck,SSW Innsbruck
 datarozhlas,FC_Wettingen,Wettingen
@@ -912,22 +912,22 @@ datarozhlas,FC_Wil,Wil
 datarozhlas,FC_Yerevan,FC Yerevan
 datarozhlas,FC_Z%C3%BCrich,FC Zurich
 datarozhlas,FC_Zaria_B%C4%83l%C8%9Bi,FC Zaria Balti
-datarozhlas,FC_Zbrojovka_Brno,Boby Brno
+datarozhlas,FC_Zbrojovka_Brno,Zbrojovka Brno
 datarozhlas,FC_Zenit_Saint_Petersburg,Zenit St. Petersburg
 datarozhlas,FC_Zestafoni,Zestafoni
-datarozhlas,FC_Zestaponi,Zestaponi
+datarozhlas,FC_Zestaponi,Zestafoni
 datarozhlas,FC_Zhetysu,Zhetysu
 datarozhlas,FC_Zimbru_Chi%C5%9Fin%C4%83u,Zimbru Chisinau
 datarozhlas,FC_Zimbru_Chi%C8%99in%C4%83u,Zimbru Chisinau
 datarozhlas,FC_Zorya_Luhansk,Zorya Voroshilovgrad
 datarozhlas,FH,FH
-datarozhlas,FHK_Liep%C4%81jas_Metalurgs,FHK Liepājas Metalurgs
+datarozhlas,FHK_Liep%C4%81jas_Metalurgs,Liepajas Metalurgs
 datarozhlas,FH_men%27s_football,FH
 datarozhlas,FK_%C4%8Celik_Nik%C5%A1i%C4%87,Čelik Nikšić
 datarozhlas,FK_%C4%8Cukari%C4%8Dki,Cukaricki Belgrade
 datarozhlas,FK_%C5%A0iauliai,FA Siauliai
 datarozhlas,FK_%C5%BDalgiris,FK Zalgiris Vilnius
-datarozhlas,FK_%C5%BDalgiris_Vilnius,Zalgiris Vilnius (LTU)
+datarozhlas,FK_%C5%BDalgiris_Vilnius,FK Zalgiris Vilnius
 datarozhlas,FK_%C5%BDeleznik,Železnik
 datarozhlas,FK_%C5%BDeljezni%C4%8Dar_Sarajevo,Zeljeznicar Sarajevo
 datarozhlas,FK_AS_Tren%C4%8D%C3%ADn,AS Trencin
@@ -964,15 +964,15 @@ datarozhlas,FK_Inkaras_Kaunas,Inkaras Kaunas
 datarozhlas,FK_Inter_Bratislava,FK Inter Bratislava
 datarozhlas,FK_Iskra_Danilovgrad,Iskra
 datarozhlas,FK_Jablonec,Jablonec
-datarozhlas,FK_Jablonec_97,Jablonec 97
+datarozhlas,FK_Jablonec_97,Jablonec
 datarozhlas,FK_Jagodina,Jagodina
 datarozhlas,FK_Jelgava,FK Jelgava
-datarozhlas,FK_Karabakh,Karabakh
+datarozhlas,FK_Karabakh,Qarabag FK
 datarozhlas,FK_Kareda_Kaunas,FK Kareda Kaunas
 datarozhlas,FK_Karvan,Karvan
 datarozhlas,FK_Kauno_%C5%BDalgiris,Kauno Zalgiris
 datarozhlas,FK_Khazar_Lankaran,Khazar Lankaran
-datarozhlas,FK_Khazar_Lenkoran,Khazar Lenkoran
+datarozhlas,FK_Khazar_Lenkoran,Khazar Lankaran
 datarozhlas,FK_Kruoja_Pakruojis,Kruoja Pakruojis
 datarozhlas,FK_Kuk%C3%ABsi,FK Kukesi
 datarozhlas,FK_Leotar,FK Leotar
@@ -1010,7 +1010,7 @@ datarozhlas,FK_Rad,Rad
 datarozhlas,FK_Radni%C4%8Dki_1923,Radnicki 1923
 datarozhlas,FK_Radni%C4%8Dki_Ni%C5%A1,Radnicki Nis
 datarozhlas,FK_Radnik_Bijeljina,Radnik Bijeljina
-datarozhlas,FK_Red_Star,FK Red Star
+datarozhlas,FK_Red_Star,Crvena Zvezda
 datarozhlas,FK_Renova,Renova
 datarozhlas,FK_Riteriai,Riteriai
 datarozhlas,FK_Rudar_Pljevlja,FK Rudar Pljevlja
@@ -1029,7 +1029,7 @@ datarozhlas,FK_Sloboda_Tuzla,Sloboda Tuzla
 datarozhlas,FK_Sloga_Jugomagnat,Sloga Jugomagnat Skopje
 datarozhlas,FK_Smederevo,Sartid
 datarozhlas,FK_Spartak_Subotica,Spartak Subotica
-datarozhlas,FK_Spartak_Zlatibor_Voda,Spartak Zlatibor Voda
+datarozhlas,FK_Spartak_Zlatibor_Voda,Spartak Subotica
 datarozhlas,FK_Spartaks_J%C5%ABrmala,FK Spartaks Jurmala
 datarozhlas,FK_Struga,Struga
 datarozhlas,FK_Sutjeska_Nik%C5%A1i%C4%87,Sutjeska Niksic
@@ -1050,11 +1050,11 @@ datarozhlas,FK_Ventspils,Ventspils
 datarozhlas,FK_Viktoria_%C5%BDi%C5%BEkov,Viktoria Žižkov
 datarozhlas,FK_Vojvodina,Vojvodina
 datarozhlas,FK_Zeta,FK Zeta
-datarozhlas,FSV_Zwickau,Sachsenring Zwickau
+datarozhlas,FSV_Zwickau,FSV Zwickau
 datarozhlas,Falkirk_F.C.,Falkirk
 datarozhlas,Farul Constanța,Farul Constanța
 datarozhlas,Feh%C3%A9rv%C3%A1r_FC,Videoton
-datarozhlas,Fehérvár,Fehérvár
+datarozhlas,Fehérvár,Videoton
 datarozhlas,Fenerbah%C3%A7e_S.K.,Fenerbahce
 datarozhlas,Fenerbah%C3%A7e_S.K._(football),Fenerbahce
 datarozhlas,Fenerbah%C3%A7e_SK,Fenerbahce
@@ -1140,7 +1140,7 @@ datarozhlas,Granada,Granada CF
 datarozhlas,Granada_CF,Granada CF
 datarozhlas,Grasshopper,Grasshopper
 datarozhlas,Grasshopper_Club_Z%C3%BCrich,Grasshoppers Zurich
-datarozhlas,Grasshopper_Club_Zurich,Grasshoppers
+datarozhlas,Grasshopper_Club_Zurich,Grasshoppers Zurich
 datarozhlas,Grazer_AK,Grazer AK
 datarozhlas,Gretna_F.C.,Gretna
 datarozhlas,Grindav%C3%ADk_men%27s_football,Grindavík
@@ -1166,7 +1166,7 @@ datarozhlas,HNK_Rijeka,HNK Rijeka
 datarozhlas,Hajduk Split,Hajduk Split
 datarozhlas,Hajduk_Split,Hajduk Split
 datarozhlas,Haka,FC Haka
-datarozhlas,Halad%C3%A1s_VSE,Haladás VSE
+datarozhlas,Halad%C3%A1s_VSE,Haladás
 datarozhlas,Hallescher_FC,Hallescher FC
 datarozhlas,Halmstads_BK,Halmstads BK
 datarozhlas,Hamburger_SV,Hamburger SV
@@ -1213,7 +1213,7 @@ datarozhlas,Hibernians_FC,Hibernians
 datarozhlas,Holb%C3%A6k_B%26I,Holbæk
 datarozhlas,Home_Farm_F.C.,Home Farm
 datarozhlas,Honka,FC Honka
-datarozhlas,Honvéd,Honvéd
+datarozhlas,Honvéd,Budapest Honved SE
 datarozhlas,Hull_City_A.F.C.,Hull City
 datarozhlas,Hutnik_Krak%C3%B3w,Hutnik Kraków
 datarozhlas,Hvidovre_IF,Hvidovre IF
@@ -1248,7 +1248,7 @@ datarozhlas,Inter_Baku_PFC,Inter Baku
 datarozhlas,Inter_Baku_PIK,Inter Baku
 datarozhlas,Inter_Club_d%27Escaldes,Inter D'Escaldes
 datarozhlas,Inter_Milan,Internazionale
-datarozhlas,Interblock_Ljubljana,Interblock Ljubljana
+datarozhlas,Interblock_Ljubljana,Interblock
 datarozhlas,Internazionale,Internazionale
 datarozhlas,Inverness CT,Inverness CT
 datarozhlas,Inverness_Caledonian_Thistle_F.C.,Inverness CT
@@ -1378,7 +1378,7 @@ datarozhlas,Kotkan_Ty%C3%B6v%C3%A4en_Palloilijat,KTP
 datarozhlas,Krasnodar,Krasnodar
 datarozhlas,Kremser_SC,Kremser SC
 datarozhlas,Kruoja Pakruojis,Kruoja Pakruojis
-datarozhlas,Kryvbas Kryvyi Rih,Kryvbas KR
+datarozhlas,Kryvbas Kryvyi Rih,Kryvbas
 datarozhlas,KuPS,Kuopion PS
 datarozhlas,Kukësi,FK Kukesi
 datarozhlas,Kuopion_Palloseura,Kuopion PS
@@ -1388,7 +1388,7 @@ datarozhlas,KÍ Klaksvík,KI Klaksvik
 datarozhlas,L.B._Ch%C3%A2teauroux,LB Chateauroux
 datarozhlas,L.R._Vicenza_Virtus,Vicenza Calcio
 datarozhlas,LASK,LASK Linz
-datarozhlas,LASK_Linz,Linzer ASK
+datarozhlas,LASK_Linz,LASK Linz
 datarozhlas,LR_Vicenza,Vicenza Calcio
 datarozhlas,La Fiorita,La Fiorita
 datarozhlas,Lahti,Lahti
@@ -1464,13 +1464,13 @@ datarozhlas,M%C3%A1laga_CF,Malaga CF
 datarozhlas,M%C5%A0K_%C5%BDilina,MSK Zilina
 datarozhlas,M%C5%A0K_P%C3%BAchov,Matador Púchov
 datarozhlas,MFK_Ko%C5%A1ice,Kosice
-datarozhlas,MFK_Petr%C5%BEalka,Artmedia Bratislava
+datarozhlas,MFK_Petr%C5%BEalka,Petrzalka Akademia
 datarozhlas,MFK_Ru%C5%BEomberok,MFK Ruzomberok
 datarozhlas,MFK_V%C3%ADtkovice,TJ Vitkovice
 datarozhlas,MKE_Ankarag%C3%BCc%C3%BC,Ankaragücü
-datarozhlas,MOL_Feh%C3%A9rv%C3%A1r_FC,Fehérvár
+datarozhlas,MOL_Feh%C3%A9rv%C3%A1r_FC,Videoton
 datarozhlas,MSV_Duisburg,MSV Duisburg
-datarozhlas,MTK Budapest,MTK Budapest
+datarozhlas,MTK Budapest,MTK
 datarozhlas,MTK_Budapest,MTK
 datarozhlas,MTK_Budapest_FC,MTK
 datarozhlas,MTK_Hung%C3%A1ria_FC,MTK
@@ -1565,7 +1565,7 @@ datarozhlas,NK_Olimpija_Ljubljana_(2005),Olimpija Ljubljana
 datarozhlas,NK_Olimpija_Ljubljana_(defunct),Olimpija Ljubljana
 datarozhlas,NK_Osijek,Osijek
 datarozhlas,NK_Primorje,Primorje
-datarozhlas,NK_Rijeka,Rijeka
+datarozhlas,NK_Rijeka,HNK Rijeka
 datarozhlas,NK_Rudar_Velenje,Rudar Velenje
 datarozhlas,NK_Slaven_Belupo,Slaven Belupo
 datarozhlas,NK_Tre%C5%A1njevka,Trešnjevka Zagreb
@@ -1573,7 +1573,7 @@ datarozhlas,NK_Vara%C5%BEdin_(1931%E2%80%932015),Varteks
 datarozhlas,NK_Zagreb,NK Zagreb
 datarozhlas,NS%C3%8D_Runav%C3%ADk,NSI
 datarozhlas,NSÍ Runavík,NSÍ Runavík
-datarozhlas,Naestved_BK,Naestved BK
+datarozhlas,Naestved_BK,Næstved
 datarozhlas,Nantes,Nantes
 datarozhlas,Napoli,SSC Napoli
 datarozhlas,Narva Trans,JK Narva Trans
@@ -1787,7 +1787,7 @@ datarozhlas,Real_Valladolid,Real Valladolid
 datarozhlas,Real_Zaragoza,Real Zaragoza
 datarozhlas,Real_Zaragoza_CD,Real Zaragoza
 datarozhlas,Red Bull Salzburg,Salzburg
-datarozhlas,Red Star Belgrade,Red Star Belgrade
+datarozhlas,Red Star Belgrade,Crvena Zvezda
 datarozhlas,Red_Boys_Differdange,Red Boys Differdange
 datarozhlas,Red_Star_Belgrade,Crvena Zvezda
 datarozhlas,Reipas_Lahti,FC Reipas Lahti
@@ -1797,7 +1797,7 @@ datarozhlas,Rheindorf Altach,SC Rheindorf Altach
 datarozhlas,Rhyl_F.C.,Rhyl
 datarozhlas,Riga,Riga FC
 datarozhlas,Riga_FC,Riga FC
-datarozhlas,Rijeka,Rijeka
+datarozhlas,Rijeka,HNK Rijeka
 datarozhlas,Rio Ave,Rio Ave
 datarozhlas,Rio_Ave_F.C.,Rio Ave
 datarozhlas,Riteriai,Riteriai
@@ -1851,7 +1851,7 @@ datarozhlas,SC_Freiburg,SC Freiburg
 datarozhlas,SC_Gjilani,Gjilani
 datarozhlas,SC_Heerenveen,sc Heerenveen
 datarozhlas,SC_Jiul_Petro%C5%9Fani,Jiul Petroşani
-datarozhlas,SC_Leipzig,SC Leipzig
+datarozhlas,SC_Leipzig,VfB Leipzig
 datarozhlas,SC_Rheindorf_Altach,SC Rheindorf Altach
 datarozhlas,SC_Tavriya_Simferopol,Tavriya Simferopol
 datarozhlas,SC_Vaslui,Vaslui
@@ -1867,7 +1867,7 @@ datarozhlas,SK_Slovan_Bratislava,SK Slovan Bratislava
 datarozhlas,SK_Sturm_Graz,Sturm Graz
 datarozhlas,SP_La_Fiorita,La Fiorita
 datarozhlas,SP_Tre_Penne,Tre Penne
-datarozhlas,SR_Bra%C8%99ov,Steagul Roșu Brașov
+datarozhlas,SR_Bra%C8%99ov,Brașov
 datarozhlas,SSC_Napoli,SSC Napoli
 datarozhlas,SS_Lazio,Lazio
 datarozhlas,SV_Gr%C3%B6dig,Grödig
@@ -1936,11 +1936,11 @@ datarozhlas,Skoda_Xanthi,Xanthi
 datarozhlas,Skoda_Xanthi_F.C.,Xanthi
 datarozhlas,Skonto,Skonto
 datarozhlas,Skonto_FC,Skonto
-datarozhlas,Skonto_Riga,Skonto Riga
+datarozhlas,Skonto_Riga,Skonto
 datarozhlas,Skënderbeu,Skënderbeu
-datarozhlas,Slavia Prague,Slavia Prague
+datarozhlas,Slavia Prague,Slavia Praha
 datarozhlas,Slavia Sofia,PFC Slavia Sofia
-datarozhlas,Slavia_Prague,Slavia Prague
+datarozhlas,Slavia_Prague,Slavia Praha
 datarozhlas,Sliema Wanderers,Sliema Wanderers
 datarozhlas,Sliema_Wanderers_F.C.,Sliema Wanderers
 datarozhlas,Sligo Rovers,Sligo Rovers
@@ -1954,15 +1954,15 @@ datarozhlas,Sochi,Sochi
 datarozhlas,Southampton,Southampton
 datarozhlas,Southampton_F.C.,Southampton
 datarozhlas,Sparta Prague,Sparta Praha
-datarozhlas,Sparta_Prague,Sparta Prague
+datarozhlas,Sparta_Prague,Sparta Praha
 datarozhlas,Sparta_Rotterdam,Sparta Rotterdam
 datarozhlas,Spartak Moscow,Spartak Moscow
 datarozhlas,Spartak Myjava,Spartak Myjava
 datarozhlas,Spartak Subotica,Spartak Subotica
-datarozhlas,Spartak Trnava,Spartak Trnava
+datarozhlas,Spartak Trnava,Spartak TAZ Trnava
 datarozhlas,Spartak_Brno_KPS,Spartak KPS Brno
 datarozhlas,Spartak_Myjava,Spartak Myjava
-datarozhlas,Spartak_Trnava,Spartak Trnava
+datarozhlas,Spartak_Trnava,Spartak TAZ Trnava
 datarozhlas,Spartak_Yerevan_FC,Araks Ararat
 datarozhlas,Spartaks Jūrmala,FK Spartaks Jurmala
 datarozhlas,Speran%C8%9Ba_Nisporeni,Speranta Nisporeni
@@ -2101,7 +2101,7 @@ datarozhlas,Union_Luxembourg,Union Luxembourg
 datarozhlas,Union_Titus_P%C3%A9tange,Union Titus Petange
 datarozhlas,Universitatea Craiova,FC Universitatea Craiova
 datarozhlas,University_College_Dublin_A.F.C.,UCD
-datarozhlas,Urartu,Urartu
+datarozhlas,Urartu,Banants
 datarozhlas,Utrecht,FC Utrecht
 datarozhlas,Utrecht_(city),Utrecht XI
 datarozhlas,V%C3%A1c_FC,Dunakanyar-Vac
@@ -2109,7 +2109,7 @@ datarozhlas,V%C3%A5lerenga_Fotball,Valerenga IF
 datarozhlas,V%C3%A5lerenga_IF_Fotball,Valerenga IF
 datarozhlas,V%C3%ADkingur_G%C3%B8ta,Víkingur Gøta
 datarozhlas,VB_V%C3%A1gur,VB Vágur
-datarozhlas,VMFD_%C5%BDalgiris_Vilnius,Zalgiris Vilnius
+datarozhlas,VMFD_%C5%BDalgiris_Vilnius,FK Zalgiris Vilnius
 datarozhlas,VPS,VPS Vaasa
 datarozhlas,Vaasan_Palloseura,VPS Vaasa
 datarozhlas,Vaduz,FC Vaduz
@@ -2128,14 +2128,14 @@ datarozhlas,Valur_Football_Club,Valur
 datarozhlas,Valur_men%27s_football,Valur Reykjavik
 datarozhlas,Vanl%C3%B8se_IF,Vanløse
 datarozhlas,Vardar,Vardar Skopje
-datarozhlas,Vasas,Vasas
+datarozhlas,Vasas,Budapesti Vasas
 datarozhlas,Vasas_SC,Budapesti Vasas
 datarozhlas,Vejle_Boldklub,Vejle BK
 datarozhlas,Velež Mostar,Velez Mostar
 datarozhlas,Ventspils,Ventspils
 datarozhlas,VfB Stuttgart,VfB Stuttgart
-datarozhlas,VfB_Admira_Wacker_M%C3%B6dling,Admira Wien
-datarozhlas,VfB_Leipzig,Lokomotive Leipzig
+datarozhlas,VfB_Admira_Wacker_M%C3%B6dling,FC Admira Wacker Modling
+datarozhlas,VfB_Leipzig,VfB Leipzig
 datarozhlas,VfB_Stuttgart,VfB Stuttgart
 datarozhlas,VfL Wolfsburg,VfL Wolfsburg
 datarozhlas,VfL_Bochum,VfL Bochum
@@ -2183,7 +2183,7 @@ datarozhlas,West_Bromwich_Albion_F.C.,West Bromwich Albion
 datarozhlas,West_Ham_United_F.C.,West Ham United
 datarozhlas,Widzew_%C5%81%C3%B3d%C5%BA,Widzew Lodz
 datarozhlas,Wiener_Sport-Club,Wiener Sport-Club
-datarozhlas,Wiener_Sportclub,Wiener Sportclub
+datarozhlas,Wiener_Sportclub,Wiener Sport-Club
 datarozhlas,Wigan_Athletic_F.C.,Wigan Athletic
 datarozhlas,Willem_II_(football_club),Willem II
 datarozhlas,Wis%C5%82a_Krak%C3%B3w,Wisla Krakow
@@ -2228,7 +2228,7 @@ datarozhlas,İstanbul Başakşehir,Istanbul Basaksehir
 datarozhlas,Śląsk Wrocław,Śląsk Wrocław
 datarozhlas,Šiauliai,FA Siauliai
 datarozhlas,Široki Brijeg,NK Siroki Brijeg
-datarozhlas,Žalgiris,Žalgiris
+datarozhlas,Žalgiris,FK Zalgiris Vilnius
 datarozhlas,Žalgiris Vilnius,FK Zalgiris Vilnius
 datarozhlas,Željezničar,Željezničar
 datarozhlas,Željezničar Sarajevo,Zeljeznicar Sarajevo
@@ -2712,7 +2712,7 @@ transfermarkt,355,Bolton Wanderers
 transfermarkt,3551,SC Rheindorf Altach
 transfermarkt,35545,Iskra
 transfermarkt,358,Charlton Athletic
-transfermarkt,3592,Kryvbas KR
+transfermarkt,3592,Kryvbas
 transfermarkt,36,Fenerbahce
 transfermarkt,36136,Veris Chișinău
 transfermarkt,3647,Stalybridge Celtic
@@ -2898,7 +2898,7 @@ transfermarkt,534,Pelister Bitola
 transfermarkt,53453,Ararat-Armenia
 transfermarkt,535,FK Sileks
 transfermarkt,53646,Polissya Zhitomir
-transfermarkt,5378,Vasas
+transfermarkt,5378,Budapesti Vasas
 transfermarkt,540,SK Slovan Bratislava
 transfermarkt,5405,Sloboda Tuzla
 transfermarkt,5411,FC Honka
@@ -3009,7 +3009,7 @@ transfermarkt,7123,Maidenhead United
 transfermarkt,713,BATE Borisov
 transfermarkt,7130,JK Narva Trans
 transfermarkt,714,Espanyol Barcelona
-transfermarkt,715,"Bohemians Praha 1905, a.s."
+transfermarkt,715,Bohemians EKD Praha
 transfermarkt,7153,Zawisza Bydgoszcz
 transfermarkt,720,FC Porto
 transfermarkt,72702,Spaeri
@@ -3351,7 +3351,7 @@ espn,21530,Aris Limassol
 espn,21531,Kisvárda FC
 espn,21532,Kyzylzhar
 espn,21615,SCU Torreense
-espn,21631,"Bohemians Praha 1905, a.s."
+espn,21631,Bohemians EKD Praha
 espn,21633,SC Dnipro-1
 espn,21708,Bracknell Town
 espn,21709,Needham Market
@@ -3384,7 +3384,7 @@ espn,22293,TransINVEST Vilnius
 espn,22294,Polissya Zhitomir
 espn,22295,Radnicki 1923
 espn,22298,Zeleznicar Pancevo
-espn,22332,Kryvbas KR
+espn,22332,Kryvbas
 espn,22468,Harborough Town
 espn,22469,Rushall Olympic
 espn,2250,Sporting CP
@@ -3816,7 +3816,7 @@ espn,8070,Velez Mostar
 espn,8089,FC Universitatea Craiova
 espn,8091,Universitatea Cluj
 espn,8094,Vorskla
-espn,8097,Vasas
+espn,8097,Budapesti Vasas
 espn,8102,AS Trencin
 espn,8118,Sønderjyske Fodbold
 espn,8127,Gandzasar Kapan
@@ -6011,7 +6011,7 @@ transfermarkt,49430,AZ Picerno
 transfermarkt,4955,SC Wiedenbrück 2000
 transfermarkt,49610,Trastevere
 transfermarkt,49699,UD San Pedro
-transfermarkt,497,Lokomotive Leipzig
+transfermarkt,497,VfB Leipzig
 transfermarkt,49734,FC Jumilla (- 2019)
 transfermarkt,49806,Lorca Deportiva
 transfermarkt,49878,VV SCM Maastricht
@@ -6862,7 +6862,7 @@ espn,20876,Loon Plage FC
 espn,20877,Mtsapéré
 espn,20878,Chamalierès FC
 espn,20879,Voltigeurs
-espn,20987,Lokomotive Leipzig
+espn,20987,VfB Leipzig
 espn,20988,Greifswalder SC
 espn,20989,Türkgücü München
 espn,20995,FC Vizela
@@ -12877,3 +12877,1068 @@ wikipedia,Veria NFC,Veria
 wikipedia,Visaltiakos Nigrita F.C.,Visaltiakos
 wikipedia,Volos F.C.,Volos
 wikipedia,Zakynthos F.C.,Zakynthos
+engsoccerdata,Budapesti Voros Lobogo,MTK
+engsoccerdata,CCA Bucuresti,Steaua Bucuresti
+datarozhlas,Boby Brno,Zbrojovka Brno
+datarozhlas,Sachsenring Zwickau,FSV Zwickau
+engsoccerdata,Linzer ASK,LASK Linz
+engsoccerdata,Lausanne Sports,Lausanne-Sport
+datarozhlas,Wiener Sportclub,Wiener Sport-Club
+engsoccerdata,AC Sparta Praha,Sparta Praha
+datarozhlas,SC Leipzig,VfB Leipzig
+engsoccerdata,Admira Wien,FC Admira Wacker Modling
+datarozhlas,FK Red Star,Crvena Zvezda
+engsoccerdata,FC Karl-Marx-Stadt,Chemnitzer FC
+datarozhlas,Linzer ASK,LASK Linz
+datarozhlas,B1901,B 1901 Nykøbing
+datarozhlas,TJ Gottwaldov,FC Zlín
+datarozhlas,Steagul Roșu Brașov,Brașov
+datarozhlas,Haladás VSE,Haladás
+datarozhlas,Timișoara,FC Politehnica Timisoara
+datarozhlas,Naestved BK,Næstved
+datarozhlas,Bohemians (TCH),Bohemians EKD Praha
+datarozhlas,Vorwärts Frankfurt,ASK Vorwarts Berlin
+datarozhlas,Admira Wien,FC Admira Wacker Modling
+engsoccerdata,Raba ETO Gyor,Gyori ETO
+datarozhlas,FC Karl-Marx-Stadt,Chemnitzer FC
+engsoccerdata,Kispesti Honved,Budapest Honved SE
+datarozhlas,Nikol Tallinn,TVMK
+datarozhlas,Spartak Vladikavkaz,Alania Vladikavkaz
+datarozhlas,Kapaz Ganja,Kapaz
+datarozhlas,Vác FC Samsung,Dunakanyar-Vac
+datarozhlas,Zalgiris Vilnius,FK Zalgiris Vilnius
+datarozhlas,AGF Aarhus,Aarhus GF
+datarozhlas,Zalgiris Vilnius (LTU),FK Zalgiris Vilnius
+engsoccerdata,Zalgiris Vilnius,FK Zalgiris Vilnius
+datarozhlas,Constructorul Chisinau,FC Tiraspol
+datarozhlas,Metalurh Zaporizhzhya,Metalurh Zaporizhya
+datarozhlas,Zhenis,Astana-64
+datarozhlas,FHK Liepājas Metalurgs,Liepajas Metalurgs
+datarozhlas,Dacia,Dacia Chisinau
+datarozhlas,Khazar Lenkoran,Khazar Lankaran
+datarozhlas,Artmedia Bratislava,Petrzalka Akademia
+datarozhlas,Artmedia,Petrzalka Akademia
+datarozhlas,Karabakh,Qarabag FK
+datarozhlas,Jablonec 97,Jablonec
+datarozhlas,Interblock Ljubljana,Interblock
+datarozhlas,Zestaponi,Zestafoni
+datarozhlas,Krylia Sovetov,Krylya Sovetov Samara
+datarozhlas,Spartak Zlatibor Voda,Spartak Subotica
+datarozhlas,AZAL Baku,Olimpik Baku
+datarozhlas,Metalurgist Rustavi,Metalurgi Rustavi
+transfermarkt,Vasas,Budapesti Vasas
+transfermarkt,"Bohemians Praha 1905, a.s.",Bohemians EKD Praha
+transfermarkt,Kryvbas KR,Kryvbas
+datarozhlas,Grasshoppers,Grasshoppers Zurich
+datarozhlas,Skonto Riga,Skonto
+wikipedia,Admiralteet Leningrad,Admiralteet Leningrad
+wikipedia,Admiralteets Leningrad,Admiralteets Leningrad
+wikipedia,Admiralteyets Leningrad,Admiralteyets Leningrad
+wikipedia,Ararat Yerevan,FC Ararat
+wikipedia,Avangard Kharkov,Metalist Kharkiv
+wikipedia,CDSA Moscow,CSKA Moskva
+wikipedia,Dynamo Leningrad,Dynamo Leningrad
+wikipedia,FC Alania Vladikavkaz,Alania Vladikavkaz
+wikipedia,FC Ararat Yerevan,FC Ararat
+wikipedia,FC Chernomorets Odessa,Chornomorets Odesa
+wikipedia,FC Chornomorets Odesa,Chornomorets Odesa
+wikipedia,FC Chornomorets Odessa,Chornomorets Odesa
+wikipedia,FC Daugava Riga,Daugava Rīga
+wikipedia,FC Dinamo Minsk,Dinamo Minsk
+wikipedia,FC Dinamo Tbilisi,Dinamo Tbilisi
+wikipedia,FC Dnipro,Dnepr Dnepropetrovsk
+wikipedia,FC Dnipro Dnipropetrovsk,Dnepr Dnepropetrovsk
+wikipedia,FC Dynamo Kiev,Dinamo Kiev
+wikipedia,FC Dynamo Kyiv,Dinamo Kiev
+wikipedia,FC Dynamo Moscow,Dinamo Moskva
+wikipedia,FC Dynamo Tbilisi,Dinamo Tbilisi
+wikipedia,FC Fakel Voronezh,Fakel Voronezh
+wikipedia,FC Guria Lanchkhuti,Guria Lanchkhuti
+wikipedia,FC Kairat,Kairat
+wikipedia,FC Kairat Almaty,Kairat
+wikipedia,FC Karpaty Lviv,Karpaty Lviv
+wikipedia,FC Krylia Sovetov Samara,Krylya Sovetov Samara
+wikipedia,FC Krylya Sovetov Samara,Krylya Sovetov Samara
+wikipedia,FC Kuban Krasnodar,Kuban Krasnodar
+wikipedia,FC Lokomotiv Moscow,Lokomotiv Moskva
+wikipedia,FC Metalist Kharkiv,Metalist Kharkiv
+wikipedia,FC Metalurh Zaporizhzhia,Metalurh Zaporizhya
+wikipedia,FC Pakhtakor Tashkent,Pakhtakor Tashkent
+wikipedia,FC Pamir Dushanbe,Pamir Dushanbe
+wikipedia,FC Rotor Volgograd,Rotor Volgograd
+wikipedia,FC SKA Rostov-na-Donu,SKA Rostov
+wikipedia,FC SKA Rostov-on-Don,SKA Rostov
+wikipedia,FC SKVO Rostov-on-Don,SKA Rostov
+wikipedia,FC Shakhtar Donetsk,Shakhtar Donetsk
+wikipedia,FC Shinnik Yaroslavl,Shinnik Yaroslavl
+wikipedia,FC Spartak Moscow,Spartak Moskva
+wikipedia,FC Torpedo Kutaisi,Torpedo Kutaisi
+wikipedia,FC Torpedo Moscow,Torpedo Moskva
+wikipedia,FC Trudovyye Rezervy Leningrad,Trudovyye Rezervy Leningrad
+wikipedia,FC Uralmash Sverdlovsk,Ural Yekaterinburg
+wikipedia,FC Volga Nizhny Novgorod,Volga Nizhny Novgorod
+wikipedia,FC Zenit Leningrad,Zenit St. Petersburg
+wikipedia,FC Zenit Saint Petersburg,Zenit St. Petersburg
+wikipedia,FC Zimbru Chişinău,Zimbru Chisinau
+wikipedia,FC Zimbru Chișinău,Zimbru Chisinau
+wikipedia,FC Zimbru Kishinyov,Zimbru Chisinau
+wikipedia,FC Zorya Luhansk,Zorya Voroshilovgrad
+wikipedia,FK Gäncä,Kapaz
+wikipedia,FK Žalgiris,FK Zalgiris Vilnius
+wikipedia,FK Žalgiris Vilnius,FK Zalgiris Vilnius
+wikipedia,JK Tallinna Kalev,Kalev Tallinn
+wikipedia,Krylya Sovetov Kuibyshev,Krylya Sovetov Samara
+wikipedia,Krylya Sovetov Kuybyshev,Krylya Sovetov Samara
+wikipedia,Moldova Chisinau,Zimbru Chisinau
+wikipedia,Neftçi PFK,Neftchi PFC Baku
+wikipedia,Nistru Kishinev,Zimbru Chisinau
+wikipedia,ODO Sverdlovsk,ODO Sverdlovsk
+wikipedia,PFC CSKA Moscow,CSKA Moskva
+wikipedia,PFC Neftchi,Neftchi PFC Baku
+wikipedia,PFC Neftchi Baku,Neftchi PFC Baku
+wikipedia,SC Tavriya Simferopol,Tavriya Simferopol
+wikipedia,SKA Odessa,SC Odesa
+wikipedia,Shakhtar Donetsk,Shakhtar Donetsk
+wikipedia,Shakhter Stalino,Shakhtar Donetsk
+wikipedia,Torpedo Moscow,Torpedo Moskva
+wikipedia,Zaria Voroshilovgrad,Zorya Voroshilovgrad
+wikipedia,Zenit Saint Petersburg,Zenit St. Petersburg
+wikipedia,FC Prishtina,Priština
+wikipedia,FK Bor,FK Bor
+wikipedia,FK Borac Banja Luka,Borac Banja Luka
+wikipedia,FK Budućnost Podgorica,Buducnost
+wikipedia,FK Crvenka,Crvenka
+wikipedia,FK Napredak Kruševac,Napredak Kruševac
+wikipedia,FK Novi Sad,Novi Sad
+wikipedia,FK Partizan,Partizan Belgrade
+wikipedia,FK Pelister,Pelister Bitola
+wikipedia,FK Proleter Zrenjanin,Proleter Zrenjanin
+wikipedia,FK Rad,Rad
+wikipedia,FK Radnički 1923,Radnicki 1923
+wikipedia,FK Radnički Beograd,Radnički Beograd
+wikipedia,FK Radnički Niš,Radnicki Nis
+wikipedia,FK Sarajevo,FK Sarajevo
+wikipedia,FK Sloboda Tuzla,Sloboda Tuzla
+wikipedia,FK Spartak Subotica,Spartak Subotica
+wikipedia,FK Sutjeska Nikšić,Sutjeska Niksic
+wikipedia,FK Teteks,Teteks
+wikipedia,FK Vardar,Vardar Skopje
+wikipedia,FK Vardar Skopje,Vardar Skopje
+wikipedia,FK Velež Mostar,Velez Mostar
+wikipedia,FK Vojvodina,Vojvodina
+wikipedia,FK Zemun,Zemun
+wikipedia,FK Željezničar Sarajevo,Zeljeznicar Sarajevo
+wikipedia,GNK Dinamo Zagreb,Dinamo Zagreb
+wikipedia,HNK Cibalia,Cibalia
+wikipedia,HNK Hajduk Split,Hajduk Split
+wikipedia,HNK Rijeka,HNK Rijeka
+wikipedia,KF Trepça,Trepça
+wikipedia,NK Iskra Bugojno,NK Iskra Bugojno
+wikipedia,NK Lokomotiva Zagreb,NK Lokomotiva
+wikipedia,NK Maribor,NK Maribor
+wikipedia,NK Olimpija Ljubljana (1911–2004),Olimpija Ljubljana
+wikipedia,NK Olimpija Ljubljana (1945–2005),Olimpija Ljubljana
+wikipedia,NK Osijek,Osijek
+wikipedia,NK Trešnjevka,Trešnjevka Zagreb
+wikipedia,NK Zagreb,NK Zagreb
+wikipedia,NK Čelik Zenica,Čelik
+wikipedia,OFK Beograd,OFK Beograd
+wikipedia,RNK Split,RNK Split
+wikipedia,Red Star Belgrade,Crvena Zvezda
+wikipedia,1. FC Tatran Prešov,Tatran Prešov
+wikipedia,AC Sparta Prague,Sparta Praha
+wikipedia,Baník Ostrava,Banik Ostrava
+wikipedia,Bohemians 1905,Bohemians EKD Praha
+wikipedia,Dukla Pardubice,Dukla Pardubice
+wikipedia,Dukla Prague,Dukla Praha
+wikipedia,FC Baník Ostrava,Banik Ostrava
+wikipedia,FC Boby Brno,Zbrojovka Brno
+wikipedia,FC DAC 1904 Dunajská Streda,Dunajska Streda
+wikipedia,FC Fastav Zlín,FC Zlín
+wikipedia,FC Hradec Králové,DSO Spartak Hradec Kralove
+wikipedia,FC LeRK Brno,Spartak KPS Brno
+wikipedia,FC Lokomotíva Košice,Lokomotíva Košice
+wikipedia,FC Nitra,Nitra
+wikipedia,FC Petržalka,Petrzalka Akademia
+wikipedia,FC Petržalka 1898,Petrzalka Akademia
+wikipedia,FC Spartak Trnava,Spartak TAZ Trnava
+wikipedia,FC VSS Košice,Kosice
+wikipedia,FC Viktoria Plzeň,Viktoria Plzen
+wikipedia,FC Vítkovice,TJ Vitkovice
+wikipedia,FC Zbrojovka Brno,Zbrojovka Brno
+wikipedia,FK Dukla Banská Bystrica,Dukla Banská Bystrica
+wikipedia,FK Dukla Prague,Dukla Praha
+wikipedia,FK Fotbal Třinec,TŽ Třinec
+wikipedia,FK Hvězda Cheb,Union Cheb
+wikipedia,FK Inter Bratislava,FK Inter Bratislava
+wikipedia,FK Jablonec,Jablonec
+wikipedia,FK Motorlet Prague,Spartak Motorlet Prague
+wikipedia,FK Pardubice 1899,VCHZ Pardubice
+wikipedia,FK Teplice,Teplice
+wikipedia,FK Ústí nad Labem,Ústí nad Labem
+wikipedia,Inter Bratislava,FK Inter Bratislava
+wikipedia,Jiskra Liberec,Jiskra Liberec
+wikipedia,MFK Frýdek-Místek,Frýdek-Místek
+wikipedia,MFK Vítkovice,TJ Vitkovice
+wikipedia,MŠK Považská Bystrica (football),Považská Bystrica
+wikipedia,MŠK Žilina,MSK Zilina
+wikipedia,Rudá Hvězda Brno,Rudá Hvězda Brno
+wikipedia,SK Baťov 1930,Jiskra Otrokovice
+wikipedia,SK Dynamo České Budějovice,České Budějovice
+wikipedia,SK Kladno,Kladno
+wikipedia,SK Sigma Olomouc,Sigma Olomouc
+wikipedia,SK Slavia Prague,Slavia Praha
+wikipedia,TTS Trenčín,Jednota Trenčín
+wikipedia,Viktoria Plzeň,Viktoria Plzen
+wikipedia,ŠK Slovan Bratislava,SK Slovan Bratislava
+wikipedia,1. FC Frankfurt,ASK Vorwarts Berlin
+wikipedia,1. FC Lokomotive Leipzig,VfB Leipzig
+wikipedia,1. Suhler SV,1. Suhler SV 06
+wikipedia,ASG Vorwärts Stralsund,Vorwärts Stralsund
+wikipedia,ASK Vorwärts Berlin,ASK Vorwarts Berlin
+wikipedia,BSG Chemie Böhlen,Chemie Böhlen
+wikipedia,BSG Chemie Leipzig (1950),BSG Chemie Leipzig
+wikipedia,BSG Chemie Zeitz,Chemie Zeitz
+wikipedia,BSG Energie Cottbus,Energie Cottbus
+wikipedia,BSG Fortschritt Bischofswerda,Bischofswerdaer FV
+wikipedia,BSG Stahl Riesa,Stahl Riesa
+wikipedia,BSG Wismut Aue,SC Wismut Karl-Marx-Stadt
+wikipedia,BSG Wismut Gera,Wismut Gera
+wikipedia,Chemie Böhlen,Chemie Böhlen
+wikipedia,Eisenhüttenstädter FC Stahl,Stahl Eisenhüttenstadt
+wikipedia,FC Berlin (Germany),BFC Dynamo
+wikipedia,FC Karl-Marx-Stadt,Chemnitzer FC
+wikipedia,FC Rot-Weiss Erfurt,Rot-Weiss Erfurt
+wikipedia,FC Stahl Eisenhüttenstadt,Stahl Eisenhüttenstadt
+wikipedia,FC Viktoria Frankfurt,ASK Vorwarts Berlin
+wikipedia,FC Vorwärts Berlin,ASK Vorwarts Berlin
+wikipedia,FC Vorwärts Frankfurt,ASK Vorwarts Berlin
+wikipedia,FC Wismut Aue,SC Wismut Karl-Marx-Stadt
+wikipedia,Fortschritt Weißenfels,Fortschritt Weißenfels
+wikipedia,Fortuna Babelsberg,Rotation Babelsberg
+wikipedia,Lok Stendal,1. FC Lok Stendal
+wikipedia,Lokomotive Leipzig,VfB Leipzig
+wikipedia,SC Aktivist Brieske-Senftenberg,Aktivist Brieske-Senftenberg
+wikipedia,SC Einheit Dresden,Einheit Dresden
+wikipedia,SC Neubrandenburg,1.FC Neubrandenburg 04
+wikipedia,SG Dynamo Dresden,Dynamo Dresden
+wikipedia,SV 08 Steinach,Motor Steinach
+wikipedia,SV Merseburg 99,Chemie Buna Schkopau
+wikipedia,Sachsen Leipzig,Sachsen Leipzig
+wikipedia,Stahl Brandenburg,BSG Stahl Brandenburg
+wikipedia,Stahl Riesa,Stahl Riesa
+wikipedia,Weissenfelser HV 91,Fortschritt Weißenfels
+wikipedia,1. Schwechater SC,1. Schwechater SC
+wikipedia,1. Simmeringer SC,Simmeringer SC
+wikipedia,1. Wiener Neustädter SC,Wiener Neustadt
+wikipedia,ASKÖ Pasching,Pasching
+wikipedia,DSV Leoben,Donawitzer SV Alpine
+wikipedia,Donawitzer SV Alpine,Donawitzer SV Alpine
+wikipedia,ESV Austria Graz,Austria Graz
+wikipedia,FC Admira Wacker Mödling,FC Admira Wacker Modling
+wikipedia,FC Admira Wacker Mödling [Admira/Wacker],Admira/Wacker
+wikipedia,FC Admira Wacker Mödling [VfB Mödling],VfB Mödling
+wikipedia,FC Admira Wacker Mödling#SK Admira Vienna,FC Admira Wacker Modling
+wikipedia,FC Blau-Weiß Linz,Blau-Weiß Linz
+wikipedia,FC Dornbirn,Dornbirn
+wikipedia,FC Dornbirn 1913,Dornbirn
+wikipedia,FC Kufstein,Kufstein
+wikipedia,FC Kärnten,Kärnten
+wikipedia,FC Linz,SK VOEST Linz
+wikipedia,FC Red Bull Salzburg,Salzburg
+wikipedia,FC St. Veit,St. Veit
+wikipedia,FC Stadlau,Stadlau
+wikipedia,FC Swarovski Tirol,FC Tirol
+wikipedia,FC Tirol Innsbruck,SSW Innsbruck
+wikipedia,FC Union Wels,Union Wels
+wikipedia,FC Vorarlberg,Bregenz
+wikipedia,FC Wacker Innsbruck,SSW Innsbruck
+wikipedia,FC Wacker Innsbruck (2002),SSW Innsbruck
+wikipedia,FC Wien,FC Wien
+wikipedia,FK Austria Wien,Austria Wien
+wikipedia,Favoritner AC,Favoritner AC
+wikipedia,First Vienna FC,First Vienna
+wikipedia,Grazer AK,Grazer AK
+wikipedia,Kapfenberger SV,Kapfenberger SV
+wikipedia,Kremser SC,Kremser SC
+wikipedia,LASK,LASK Linz
+wikipedia,LASK Linz,LASK Linz
+wikipedia,Radenthein/Villacher SV,Radenthein/Villacher SV
+wikipedia,SC Austria Lustenau,Austria Lustenau
+wikipedia,SC Bregenz,Bregenz
+wikipedia,SC Eisenstadt,Eisenstadt
+wikipedia,SC Neusiedl am See 1919,Neusiedl
+wikipedia,SC Olympia 33,Olympia 33
+wikipedia,SC Rheindorf Altach,SC Rheindorf Altach
+wikipedia,SC Wacker,Wacker Wien
+wikipedia,SC Wiener Neustadt,Wiener Neustadt
+wikipedia,SK Austria Klagenfurt (2007),Austria Klagenfurt
+wikipedia,SK Austria Kärnten,Austria Kärnten
+wikipedia,SK Bischofshofen,Bischofshofen
+wikipedia,SK Rapid Wien,Rapid Wien
+wikipedia,SK Sturm Graz,Sturm Graz
+wikipedia,SK VOEST Linz,SK VOEST Linz
+wikipedia,SK Vorwärts Steyr,Vorwärts Steyr
+wikipedia,SKN St. Pölten,VSE St. Pölten
+wikipedia,SV Admira Wiener Neustadt,Admira Wiener Neustadt
+wikipedia,SV Flavia Solva Wagna,Flavia Solva Wagna
+wikipedia,SV Grödig,SV Grödig
+wikipedia,SV Mattersburg,Mattersburg
+wikipedia,SV Ried,Ried
+wikipedia,SV Spittal an der Drau,Spittal an der Drau
+wikipedia,SV Stockerau,Stockerau
+wikipedia,SVS Linz,SVS Linz
+wikipedia,Salzburger AK,Salzburger AK 1914
+wikipedia,Salzburger AK 1914,Salzburger AK 1914
+wikipedia,Schwarz-Weiß Bregenz,Bregenz
+wikipedia,TSV Hartberg,TSV Hartberg
+wikipedia,VSE Sankt Pölten,VSE St. Pölten
+wikipedia,VfB Admira Wacker Mödling,FC Admira Wacker Modling
+wikipedia,VfB Mödling,VfB Mödling
+wikipedia,VÖEST Linz,SK VOEST Linz
+wikipedia,WSG Radenthein,Radenthein
+wikipedia,WSG Swarovski Tirol,WSG Tirol
+wikipedia,WSG Tirol,WSG Tirol
+wikipedia,WSG Wattens,WSG Tirol
+wikipedia,WSV Donawitz,Donawitzer SV Alpine
+wikipedia,Wiener AC,Wiener AC
+wikipedia,Wiener AC#Football,Wiener AC
+wikipedia,Wiener Sport-Club,Wiener Sport-Club
+wikipedia,Wiener Sportclub,Wiener Sport-Club
+wikipedia,Wolfsberger AC,Wolfsberger
+wikipedia,AC Bellinzona,Bellinzona
+wikipedia,AC Lugano,Lugano
+wikipedia,BSC Young Boys,BSC Young Boys
+wikipedia,CS Chênois,Chênois
+wikipedia,FC Aarau,FC Aarau
+wikipedia,FC Baden,Baden
+wikipedia,FC Basel,Basel
+wikipedia,FC Biel-Bienne,Biel-Bienne
+wikipedia,FC Bulle,Bulle
+wikipedia,FC Chiasso,Chiasso
+wikipedia,FC Fribourg,Fribourg
+wikipedia,FC Grenchen,Grenchen
+wikipedia,FC La Chaux-de-Fonds,FC La Chaux-de-Fonds
+wikipedia,FC Lausanne-Sport,Lausanne-Sport
+wikipedia,FC Lausanne-Sports,Lausanne-Sport
+wikipedia,FC Locarno,Locarno
+wikipedia,FC Lugano,Lugano
+wikipedia,FC Luzern,FC Luzern
+wikipedia,FC Moutier,Moutier
+wikipedia,FC Nordstern Basel,Nordstern Basel
+wikipedia,FC Schaffhausen,Schaffhausen
+wikipedia,FC Servette,Servette Geneve
+wikipedia,FC Sion,Sion
+wikipedia,FC St. Gallen,St. Gallen
+wikipedia,FC Stade Lausanne Ouchy,Lausanne Ouchy
+wikipedia,FC Thun,Thun
+wikipedia,FC Vaduz,FC Vaduz
+wikipedia,FC Vevey-Sports 05,Vevey-Sports
+wikipedia,FC Wettingen,Wettingen
+wikipedia,FC Wil,Wil
+wikipedia,FC Wil 1900,Wil
+wikipedia,FC Winterthur,Winterthur
+wikipedia,FC Yverdon-Sport,Yverdon-Sport
+wikipedia,FC Zürich,FC Zurich
+wikipedia,Grasshopper Club Zurich,Grasshoppers Zurich
+wikipedia,Grasshopper Club Zürich,Grasshoppers Zurich
+wikipedia,Neuchâtel Xamax,Neuchatel Xamax FC
+wikipedia,Neuchâtel Xamax FCS,Neuchatel Xamax FC
+wikipedia,SC Kriens,Kriens
+wikipedia,SC Young Fellows Juventus,Young Fellows
+wikipedia,SC Zug,Zug
+wikipedia,SR Delémont,Delémont
+wikipedia,Servette FC,Servette Geneve
+wikipedia,Urania Genève Sport,Urania
+wikipedia,Yverdon-Sport FC,Yverdon-Sport
+wikipedia,Étoile Carouge FC,Étoile Carouge
+wikipedia,AFC Eskilstuna,Eskilstuna
+wikipedia,AIK Fotboll,AIK Solna
+wikipedia,Assyriska FF,Assyriska FF
+wikipedia,BK Derby,BK Derby
+wikipedia,BK Häcken,BK Häcken
+wikipedia,Brynäs IF Fotboll,Brynäs
+wikipedia,Dalkurd FF,Dalkurd
+wikipedia,Degerfors IF,Degerfors
+wikipedia,Djurgårdens IF Fotboll,Djurgardens IF
+wikipedia,Enköpings SK,Enköpings SK
+wikipedia,Falkenbergs FF,Falkenbergs FF
+wikipedia,GAIS,GAIS
+wikipedia,GIF Sundsvall,GIF Sundsvall
+wikipedia,Gefle IF,Gefle
+wikipedia,Halmstads BK,Halmstads BK
+wikipedia,Hammarby Fotboll,Hammarby
+wikipedia,Helsingborgs IF,Helsingborgs IF
+wikipedia,Högadals IS,Högadals IS
+wikipedia,IF Brommapojkarna,Brommapojkarna
+wikipedia,IF Elfsborg,Elfsborg
+wikipedia,IF Saab,IF Saab
+wikipedia,IFK Eskilstuna,IFK Eskilstuna
+wikipedia,IFK Göteborg,IFK Goteborg
+wikipedia,IFK Holmsund,IFK Holmsund
+wikipedia,IFK Luleå,IFK Luleå
+wikipedia,IFK Malmö FK,IFK Malmo
+wikipedia,IFK Malmö Fotboll,IFK Malmo
+wikipedia,IFK Norrköping,IFK Norrkoping
+wikipedia,IFK Sundsvall,IFK Sundsvall
+wikipedia,IFK Värnamo,IFK Värnamo
+wikipedia,IK Brage,IK Brage
+wikipedia,IK Oddevold,IK Oddevold
+wikipedia,IK Sirius Fotboll,IK Sirius
+wikipedia,IS Halmia,IS Halmia
+wikipedia,Jönköpings Södra IF,Jönköpings Södra
+wikipedia,Kalmar FF,Kalmar FF
+wikipedia,Landskrona BoIS,Landskrona BoIS
+wikipedia,Ljungskile SK,Ljungskile SK
+wikipedia,Malmö FF,Malmo FF
+wikipedia,Mjällby AIF,Mjällby AIF (SWE)
+wikipedia,Motala AIF FK,Motala AIF
+wikipedia,Norrby IF,Norrby IF
+wikipedia,Sandvikens IF,Sandvikens IF
+wikipedia,Sandvikens IF Fotboll,Sandvikens IF
+wikipedia,Syrianska FC,Syrianska FC
+wikipedia,Trelleborgs FF,Trelleborg
+wikipedia,Umeå FC,Umeå FC
+wikipedia,Varbergs BoIS,Varbergs BoIS
+wikipedia,Västerås SK Fotboll,Västerås SK
+wikipedia,Västra Frölunda IF,Västra Frölunda
+wikipedia,Åtvidabergs FF,Atvidabergs FF
+wikipedia,Örebro SK,Örebro
+wikipedia,Örgryte IS,Orgryte IS
+wikipedia,Östers IF,Osters IF
+wikipedia,Östersunds FK,Östersunds FK (SWE)
+wikipedia,AC Horsens,Horsens
+wikipedia,AaB Fodbold,Aalborg BK
+wikipedia,Aarhus Fremad,Aarhus Fremad
+wikipedia,Aarhus Gymnastik Forening,Aarhus GF
+wikipedia,Aarhus Gymnastikforening,Aarhus GF
+wikipedia,Akademisk Boldklub,Akademisk BK
+wikipedia,Akademisk Boldklub Gladsaxe,Akademisk BK
+wikipedia,Arbejdernes Idrætsklub Aarhus,AI Aarhus
+wikipedia,B 1909,B 1909 Odense
+wikipedia,BK Frem,BK Frem
+wikipedia,Boldklubben 1893,B.93
+wikipedia,Boldklubben 1903,B 1903 Kobenhavn
+wikipedia,Boldklubben 1909,B 1909 Odense
+wikipedia,Boldklubben 1913,B 1913 Odense
+wikipedia,Boldklubben Frem,BK Frem
+wikipedia,Boldklubben af 1893,B.93
+wikipedia,Brøndby IF,Brondby IF
+wikipedia,Brønshøj BK,Brønshøj BK
+wikipedia,Brønshøj Boldklub,Brønshøj BK
+wikipedia,Esbjerg fB,Esbjerg fB
+wikipedia,F.C. Copenhagen,Kobenhavn
+wikipedia,FC Copenhagen,Kobenhavn
+wikipedia,FC Fredericia,Fredericia
+wikipedia,FC Helsingør,Helsingør
+wikipedia,FC Midtjylland,Midtjylland
+wikipedia,FC Nordsjælland,Nordsjaelland
+wikipedia,FC Vestsjælland,Vestsjælland
+wikipedia,Farum BK,Nordsjaelland
+wikipedia,Frederikshavn fI,Frederikshavn fI
+wikipedia,Fremad Amager,Fremad Amager
+wikipedia,HB Køge,HB Koge
+wikipedia,Herfølge BK,Herfølge BK
+wikipedia,Herning Fremad,Herning Fremad
+wikipedia,Hobro IK,Hobro
+wikipedia,Holbæk B&I,Holbæk
+wikipedia,Horsens fS,Horsens
+wikipedia,Hvidovre IF,Hvidovre IF
+wikipedia,IK Skovbakken,IK Skovbakken
+wikipedia,Ikast FS,Ikast
+wikipedia,Ikast fS,Ikast
+wikipedia,KFUM's Boldklub (Copenhagen),KFUM
+wikipedia,Kastrup BK,Kastrup BK
+wikipedia,Kjøbenhavns Boldklub,KB Kobenhavn
+wikipedia,Koge BK,Koge BK
+wikipedia,Kolding IF,Kolding IF
+wikipedia,Køge BK,Koge BK
+wikipedia,Lyngby BK,Lyngby BK
+wikipedia,Lyngby Boldklub,Lyngby BK
+wikipedia,Lyngby FC,Lyngby BK
+wikipedia,Naestved IF,Næstved
+wikipedia,Nykøbing Falster Boldklub af 1901,B 1901 Nykøbing
+wikipedia,Næstved BK,Næstved
+wikipedia,Næstved IF,Næstved
+wikipedia,Odense BK,Odense BK
+wikipedia,Odense Boldklub,Odense BK
+wikipedia,Randers FC,Randers FC
+wikipedia,Randers Freja,Randers FC
+wikipedia,Silkeborg IF,Silkeborg IF
+wikipedia,Skovshoved IF,Skovshoved IF
+wikipedia,Slagelse B&I,Slagelse B&I
+wikipedia,SønderjyskE Fodbold,Sønderjyske Fodbold
+wikipedia,Sønderjyske Fodbold,Sønderjyske Fodbold
+wikipedia,Vanløse IF,Vanløse
+wikipedia,Vejle BK,Vejle BK
+wikipedia,Vejle Boldklub,Vejle BK
+wikipedia,Vendsyssel FF,Vendsyssel
+wikipedia,Viborg FF,Viborg FF
+wikipedia,ACF Gloria Bistrița,Gloria Bistrița
+wikipedia,ACS Dacia Unirea Brăila,Dacia Unirea Brăila
+wikipedia,ACS Poli Timișoara,ACS Poli Timișoara
+wikipedia,ACS Sepsi OSK Sfântu Gheorghe,Sepsi Sfantu Gheorghe
+wikipedia,AF Gloria Bistrița,Gloria Bistrița
+wikipedia,AFC Chindia Târgoviște,Chindia Târgoviște
+wikipedia,AFC Rocar București,Rocar București
+wikipedia,AFC Săgeata Năvodari,Săgeata Năvodari
+wikipedia,AFC Unirea Slobozia,Unirea Slobozia
+wikipedia,AS Progresul București,National București
+wikipedia,ASA 2013 Târgu Mureș,ASA Târgu Mureș
+wikipedia,ASA Târgu Mureș (1962),ASA Târgu Mureș
+wikipedia,ASC Corona 2010 Brașov (football team),Corona Brașov
+wikipedia,ASC Oțelul Galați,Otelul Galati
+wikipedia,CFM Universitatea Cluj,Universitatea Cluj
+wikipedia,CFR Cluj,CFR Cluj
+wikipedia,CS Concordia Chiajna,Concordia Chiajna
+wikipedia,CS Dacia Mioveni,Mioveni
+wikipedia,CS Gaz Metan Mediaș,Gaz Metan Mediaș
+wikipedia,CS Jiul Petroşani,Jiul Petroşani
+wikipedia,CS Jiul Petroșani,Jiul Petroşani
+wikipedia,CS Minerul Lupeni,Minerul Lupeni
+wikipedia,CS Mioveni,Mioveni
+wikipedia,CS Municipal Studențesc Iași,Politehnica Iasi
+wikipedia,CS Otopeni,Otopeni
+wikipedia,CS Pandurii Târgu Jiu,Pandurii Târgu Jiu
+wikipedia,CS Petrom Flacăra Moreni,Flacăra Moreni
+wikipedia,CS Sporting Vaslui,Vaslui
+wikipedia,CS Turnu Severin,Turnu Severin
+wikipedia,CS Târgoviște,Târgoviște
+wikipedia,CS Târgu Mureș,Locomotiva Târgu Mureș
+wikipedia,CS Universitatea Craiova,FC Universitatea Craiova
+wikipedia,CSA Steaua București (football),Steaua Bucuresti
+wikipedia,CSM Avântul Reghin,Avântul Reghin
+wikipedia,CSM Flacăra Moreni,Flacăra Moreni
+wikipedia,CSM Jiul Petroșani,Jiul Petroşani
+wikipedia,CSM Politehnica Iași,Politehnica Iasi
+wikipedia,CSM Reșița,CSM Reșița
+wikipedia,CSM Suceava,Suceava
+wikipedia,CSM Școlar Reșița,CSM Reșița
+wikipedia,CSP UM Timișoara,UMT Timișoara
+wikipedia,CSU Voința Sibiu,Voința Sibiu
+wikipedia,Chimia Râmnicu Vâlcea,Chimia Râmnicu Vâlcea
+wikipedia,Club Atletic Oradea,Progresul Oradea
+wikipedia,FC Academica Clinceni,Academica Clinceni
+wikipedia,FC Argeș Pitești,Arges Pitesti
+wikipedia,FC Astra Giurgiu,Astra Giurgiu
+wikipedia,FC Astra Ploiești,Astra Giurgiu
+wikipedia,FC Baia Mare,FC Baia Mare
+wikipedia,FC Bihor Oradea (1958),Bihor Oradea
+wikipedia,FC Botoșani,FC Botosani
+wikipedia,FC Brașov (1936),Brașov
+wikipedia,FC CFR Timișoara,Locomotiva Timișoara
+wikipedia,FC Ceahlăul Piatra Neamț,Ceahlăul Piatra Neamț
+wikipedia,FC Corvinul Hunedoara,Corvinul Hunedoara
+wikipedia,FC Dinamo București,Dinamo Bucuresti
+wikipedia,FC Dunărea Călărași,Dunărea Călărași
+wikipedia,FC Electroputere Craiova,Electroputere Craiova
+wikipedia,FC Extensiv Craiova,Electroputere Craiova
+wikipedia,FC Farul Constanța,Viitorul Constanta
+wikipedia,FC Gloria Buzău,Gloria Buzău
+wikipedia,FC Hermannstadt,Hermannstadt
+wikipedia,FC Inter Sibiu,Inter Sibiu
+wikipedia,FC Internațional Curtea de Argeș,Internațional Curtea de Argeș
+wikipedia,FC Naţional București,National București
+wikipedia,FC Național București,National București
+wikipedia,FC Olimpia Satu Mare,Olimpia Satu Mare
+wikipedia,FC Olt Scorniceşti,Olt Scornicești
+wikipedia,FC Olt Scornicești,Olt Scornicești
+wikipedia,FC Onești,FC Onești
+wikipedia,FC Oțelul Galați,Otelul Galati
+wikipedia,FC Petrolul Ploiești,Petrolul Ploiesti
+wikipedia,FC Politehnica AEK Timișoara,FC Politehnica Timisoara
+wikipedia,FC Politehnica Iași (1945),Politehnica Iasi
+wikipedia,FC Politehnica Iași (2010),Politehnica Iasi
+wikipedia,FC Politehnica Timișoara,FC Politehnica Timisoara
+wikipedia,FC Rapid București,Rapid Bucuresti
+wikipedia,FC Râmnicu Vâlcea,Chimia Râmnicu Vâlcea
+wikipedia,FC Sportul Studențesc București,Sportul Studenţesc
+wikipedia,FC Steaua București,Steaua Bucuresti
+wikipedia,FC U Craiova 1948,FC Universitatea Craiova
+wikipedia,FC UTA Arad,UT Arad
+wikipedia,FC Unirea Alba Iulia,Apulum Alba Iulia
+wikipedia,FC Unirea Urziceni,Unirea Urziceni
+wikipedia,FC Universitatea Cluj,Universitatea Cluj
+wikipedia,FC Universitatea Craiova,FC Universitatea Craiova
+wikipedia,FC Vaslui,Vaslui
+wikipedia,FC Victoria Brănești,Victoria Brănești
+wikipedia,FC Viitorul Constanța,Viitorul Constanta
+wikipedia,FC Voluntari,Voluntari
+wikipedia,FCM Bacău,Bacău
+wikipedia,FCM Baia Mare,FC Baia Mare
+wikipedia,FCM Brașov,Brașov
+wikipedia,FCM Dunărea Galați,CSU Galați
+wikipedia,FCM Galați,CSU Galați
+wikipedia,FCM Reșița,CSM Reșița
+wikipedia,FCM Târgoviște,Târgoviște
+wikipedia,FCSB,Steaua Bucuresti
+wikipedia,FCU 1948 Craiova,FCU 1948 Craiova
+wikipedia,FCU Politehnica Timișoara,FC Politehnica Timisoara
+wikipedia,FCV Farul Constanța,Viitorul Constanta
+wikipedia,FK Csíkszereda Miercurea Ciuc,Csíkszereda Miercurea Ciuc
+wikipedia,Farul Constanța,Viitorul Constanta
+wikipedia,Foresta Fălticeni,Foresta Fălticeni
+wikipedia,Politehnica 1921 Știința Timișoara,FC Politehnica Timisoara
+wikipedia,SC Juventus București,Juventus București
+wikipedia,SCM Gloria Buzău,Gloria Buzău
+wikipedia,Sepsi OSK Sfântu Gheorghe,Sepsi Sfantu Gheorghe
+wikipedia,Siderurgistul Galați,Siderurgistul Galați
+wikipedia,UTA Arad,UT Arad
+wikipedia,Unirea Tricolor București,Dinamo Orașul Stalin
+wikipedia,Vagonul Arad,Vagonul Arad
+wikipedia,Victoria București,Victoria București
+wikipedia,Viitorul București,Viitorul București
+wikipedia,Anger réti SFAC 1900 SE,EMDSZ Sopron
+wikipedia,BFC Siófok,Siófoki Bányász
+wikipedia,Balmazújvárosi FC,Balmazújváros
+wikipedia,Budafoki MTE,Budafok
+wikipedia,Budapest Honvéd FC,Budapest Honved SE
+wikipedia,Budapesti VSC,BVSC Budapest
+wikipedia,Békéscsaba 1912 Elöre SE,Békéscsabai Előre
+wikipedia,Békéscsaba 1912 Előre,Békéscsabai Előre
+wikipedia,Békéscsaba 1912 Előre SE,Békéscsabai Előre
+wikipedia,Csepel SC,Csepel SC
+wikipedia,Debreceni VSC,Debreceni VSC
+wikipedia,Diósgyőri VTK,Diósgyőr
+wikipedia,Dorogi AC,Dorogi AC
+wikipedia,Dorogi Bányász,Dorogi AC
+wikipedia,Dunaferr SE,Dunaferr
+wikipedia,Dunakanyar-Vác FC,Dunakanyar-Vac
+wikipedia,Dunaújváros FC (1952),Dunaferr
+wikipedia,Dunaújváros FC (1998),Dunaujvaros
+wikipedia,Dunaújváros PASE,Dunaujvaros
+wikipedia,EMDSZ Sopron LC,EMDSZ Sopron
+wikipedia,Eger SE,Egri Dózsa
+wikipedia,Egri FC,Egri Dózsa
+wikipedia,FC Fehérvár,Videoton
+wikipedia,FC Sopron,Sopron
+wikipedia,FC Tatabánya,Tatabányai Bányász
+wikipedia,FC Újpest,Ujpesti Dozsa SC
+wikipedia,Fehérvár FC,Videoton
+wikipedia,Ferencvárosi TC,Ferencvaros
+wikipedia,Ferencvárosi TC (football),Ferencvaros
+wikipedia,Gyirmót FC Győr,Gyirmót
+wikipedia,Gyirmót SE,Gyirmót
+wikipedia,Győri ETO FC,Gyori ETO
+wikipedia,Gázszer FC,Gázszer
+wikipedia,III. Kerületi TVE,III. Kerület
+wikipedia,Kaposvári Rákóczi FC,Kaposvár
+wikipedia,Kazincbarcikai SC,Kazincbarcika
+wikipedia,Kecskeméti TE,Kecskemeti TE
+wikipedia,Kiskőrösi FC,Stadler
+wikipedia,Kisvárda FC,Kisvárda
+wikipedia,Komlói Bányász SK,Komlói Bányász
+wikipedia,Lombard-Pápa TFC,Pápa
+wikipedia,MTK Budapest,MTK
+wikipedia,MTK Budapest FC,MTK
+wikipedia,MTK Hungária FC,MTK
+wikipedia,Mezőkövesd-Zsóry SE,Mezőkövesd
+wikipedia,Mezőkövesdi SE,Mezőkövesd
+wikipedia,Miskolci VSC,MVSC
+wikipedia,Nagykanizsa FC,Nagykanizsa
+wikipedia,Nyíregyháza Spartacus,Nyíregyháza
+wikipedia,Nyíregyháza Spartacus FC,Nyíregyháza
+wikipedia,Paksi FC,Paksi SE
+wikipedia,Paksi SE,Paksi SE
+wikipedia,Puskás Akadémia FC,Puskás Akadémia
+wikipedia,Pápai FC,Pápa
+wikipedia,Pécsi MFC,Pécsi Munkás
+wikipedia,Pécsi Mecsek FC,Pécsi Munkás
+wikipedia,Pécsi Vasutas SK,Pécsi VSK
+wikipedia,Rákospalotai EAC,Rákospalota
+wikipedia,SZEOL,Szegedi EAC
+wikipedia,Salgótarjáni BTC,Salgótarján
+wikipedia,Siofoki Bányász,Siófoki Bányász
+wikipedia,Szegedi EAC,Szegedi EAC
+wikipedia,Szegedi EOL,Szegedi EAC
+wikipedia,Szegedi Egységes Oktatási Labdarúgó SC,SZEOL
+wikipedia,Szolnoki Légierő SK,Szolnoki Légierő
+wikipedia,Szolnoki MÁV FC,Szolnok
+wikipedia,Szombathelyi Haladas,Haladás
+wikipedia,Szombathelyi Haladás,Haladás
+wikipedia,Szombathelyi Haladás VSE,Haladás
+wikipedia,Székesfehérvári MÁV Előre SC,Székesfehérvári MÁV Előre
+wikipedia,Tatabánya FC,Tatabányai Bányász
+wikipedia,Tiszakécske FC,Tiszakécske
+wikipedia,Tungsram SC,Vasas Izzó
+wikipedia,Vasas SC,Budapesti Vasas
+wikipedia,Veszprémi LC,Veszprém
+wikipedia,Videoton FC,Videoton
+wikipedia,Videoton SC,Videoton
+wikipedia,Vidi FC,Videoton
+wikipedia,Volán FC,Volán
+wikipedia,Vác FC,Dunakanyar-Vac
+wikipedia,Vác-Újbuda LTC,Dunakanyar-Vac
+wikipedia,Váci Izzó,Dunakanyar-Vac
+wikipedia,Vörös Meteor Egyetértés SK,Egyetértés VM
+wikipedia,Zalaegerszegi TE,Zalaegerszegi TE
+wikipedia,Ózdi Kohasz,Ózdi Kohász
+wikipedia,Ózdi Kohász SE,Ózdi Kohász
+wikipedia,Újpest FC,Ujpesti Dozsa SC
+wikipedia,FC Akhmat Grozny,Terek Grozny
+wikipedia,FC Akron Tolyatti,Akron Tolyatti
+wikipedia,FC Amkar Perm,Amkar Perm
+wikipedia,FC Anzhi Makhachkala,Anzhi Makhachkala
+wikipedia,FC Arsenal Tula,FC Arsenal Tula
+wikipedia,FC Asmaral Moscow,Asmaral Moscow
+wikipedia,FC Baltika Kaliningrad,Baltika Kaliningrad
+wikipedia,FC Chernomorets Novorossiysk,Chernomorets Novorossiysk
+wikipedia,FC Dynamo Makhachkala,Dynamo Makhachkala
+wikipedia,FC Dynamo Stavropol,Dynamo Stavropol
+wikipedia,FC Elista,Uralan Elista
+wikipedia,FC Energiya-Tekstilshchik Kamyshin,Tekstilshchik Kamyshin
+wikipedia,FC KAMAZ Naberezhnye Chelny,KAMAZ Naberezhnye Chelny
+wikipedia,FC Khimki,Khimki
+wikipedia,FC Krasnodar,Krasnodar
+wikipedia,FC Lada-Togliatti,Lada-Togliatti
+wikipedia,FC Lokomotiv Nizhny Novgorod,Lokomotiv N.N.
+wikipedia,FC Luch Vladivostok,Luch-Energiya
+wikipedia,FC Luch-Energia Vladivostok,Luch-Energiya
+wikipedia,FC Luch-Energiya Vladivostok,Luch-Energiya
+wikipedia,FC Mordovia Saransk,Mordovia Saransk
+wikipedia,FC Moscow,FC Moscow
+wikipedia,FC Nizhny Novgorod,Pari Nizhny Novgorod
+wikipedia,FC Okean Nakhodka,Okean Nakhodka
+wikipedia,FC Orenburg,Orenburg
+wikipedia,FC Pari Nizhny Novgorod,Pari Nizhny Novgorod
+wikipedia,FC Rostov,Rostov
+wikipedia,FC Rubin Kazan,Rubin Kazan
+wikipedia,FC SKA-Khabarovsk,SKA-Khabarovsk
+wikipedia,FC Saturn Moscow Oblast (1946-2011),Saturn
+wikipedia,FC Saturn Moscow Oblast (1946–2011),Saturn
+wikipedia,FC Sibir Novosibirsk,Sibir Novosibirsk
+wikipedia,FC Sokol Saratov,Sokol Saratov
+wikipedia,FC Tambov,Tambov
+wikipedia,FC Tekstilshchik Kamyshin,Tekstilshchik Kamyshin
+wikipedia,FC Terek Grozny,Terek Grozny
+wikipedia,FC Tom Tomsk,Tom Tomsk
+wikipedia,FC Torpedo-Luzhniki Moscow,Torpedo Moskva
+wikipedia,FC Torpedo-ZIL Moscow,Torpedo-ZIL Moscow
+wikipedia,FC Tosno,Tosno
+wikipedia,FC Tyumen,Dynamo-Gazovik Tyumen
+wikipedia,FC Ufa,FC Ufa
+wikipedia,FC Ural Sverdlovsk Oblast,Ural Yekaterinburg
+wikipedia,FC Ural Yekaterinburg,Ural Yekaterinburg
+wikipedia,FC Uralmash Yekaterinburg,Ural Yekaterinburg
+wikipedia,FC Yenisey Krasnoyarsk,Yenisey Krasnoyarsk
+wikipedia,FC Zhemchuzhina Sochi,Zhemchuzhina Sochi
+wikipedia,PFC Krylia Sovetov Samara,Krylya Sovetov Samara
+wikipedia,PFC Sochi,Sochi
+wikipedia,PFC Spartak Nalchik,Spartak Nalchik
+wikipedia,FC Arsenal Kyiv,Arsenal Kyiv
+wikipedia,FC Borysfen Boryspil,Borysfen Boryspil
+wikipedia,FC Bukovyna Chernivtsi,Bukovyna Chernivtsi
+wikipedia,FC Desna Chernihiv,Desna Chernihiv
+wikipedia,FC Epitsentr Kamianets-Podilskyi,Epitsentr
+wikipedia,FC Hoverla Uzhhorod,Hoverla Uzhhorod
+wikipedia,FC Inhulets Petrove,Inhulets Petrove
+wikipedia,FC Kharkiv,FC Kharkiv
+wikipedia,FC Kolos Kovalivka,FC Kolos Kovalivka
+wikipedia,FC Kremin Kremenchuk,Kremin Kremenchuk
+wikipedia,FC Kryvbas Kryvyi Rih,Kryvbas
+wikipedia,FC Kryvbas Kryvyi Rih (1959–2013),Kryvbas
+wikipedia,FC Kryvbas Kryvyi Rih (2020),Kryvbas
+wikipedia,FC Kudrivka,Kudrivka
+wikipedia,FC LNZ Cherkasy,FC LNZ Cherkasy
+wikipedia,FC Livyi Bereh Kyiv,Livyi Bereh Kyiv
+wikipedia,FC Lviv,FC Lviv
+wikipedia,FC Mariupol,FC Mariupol
+wikipedia,FC Metalist 1925 Kharkiv,Metalist 1925 Kharkiv
+wikipedia,FC Metalurh Donetsk,Metalurh Donetsk
+wikipedia,FC Metalurh Zaporizhya,Metalurh Zaporizhya
+wikipedia,FC Metalurh Zaporizhzhya,Metalurh Zaporizhya
+wikipedia,FC Mynai,Mynai
+wikipedia,FC Naftovyk Okhtyrka,Naftovyk-Ukrnafta Okhtyrka
+wikipedia,FC Naftovyk-Ukrnafta Okhtyrka,Naftovyk-Ukrnafta Okhtyrka
+wikipedia,FC Nyva Ternopil,Nyva Ternopil
+wikipedia,FC Nyva Vinnytsia,Nyva Vinnytsia
+wikipedia,FC Obolon Kyiv,Obolon Kyiv
+wikipedia,FC Oleksandriya,FC Olexandriya
+wikipedia,FC Olimpik Donetsk,FC Olimpik Donetsk
+wikipedia,FC Polissya Zhytomyr,Polissya Zhitomir
+wikipedia,FC Rukh Lviv,Rukh Lviv
+wikipedia,FC Sevastopol,Sevastopol
+wikipedia,FC Spartak Ivano-Frankivsk,Prykarpattya Ivano-Frankivsk
+wikipedia,FC Stal Alchevsk,Stal Alchevsk
+wikipedia,FC Stal Dniprodzerzhynsk,Stal Kamianske
+wikipedia,FC Stal Kamianske,Stal Kamianske
+wikipedia,FC Temp Shepetivka,Temp Shepetivka
+wikipedia,FC Torpedo Zaporizhzhia,Torpedo Zaporizhzhia
+wikipedia,FC Volyn Lutsk,Volyn Lutsk
+wikipedia,FC Vorskla Poltava,Vorskla
+wikipedia,FC Zakarpattia Uzhhorod,Hoverla Uzhhorod
+wikipedia,FC Zirka Kirovohrad,Zirka Kropyvnytskyi
+wikipedia,FC Zirka Kropyvnytskyi,Zirka Kropyvnytskyi
+wikipedia,FSC Bukovyna Chernivtsi,Bukovyna Chernivtsi
+wikipedia,MFC Mykolaiv,SC Mykolaiv
+wikipedia,Metalist Kharkiv,Metalist Kharkiv
+wikipedia,Metalurh Donetsk,Metalurh Donetsk
+wikipedia,Metalurh Zaporizhzhia,Metalurh Zaporizhya
+wikipedia,NK Veres Rivne,Veres Rivne
+wikipedia,PFC Nyva Ternopil,Nyva Ternopil
+wikipedia,PFC Oleksandriya,FC Olexandriya
+wikipedia,SC Dnipro-1,SC Dnipro-1
+wikipedia,SC Odesa,SC Odesa
+wikipedia,SC Poltava,Poltava
+wikipedia,1. FC Slovácko,Slovacko
+wikipedia,1. FK Drnovice,Drnovice
+wikipedia,1. FK Příbram,Marila Příbram
+wikipedia,1. SC Znojmo,Znojmo
+wikipedia,AFK Atlantic Lázně Bohdaneč,Lázně Bohdaneč
+wikipedia,FC Karviná,Karviná
+wikipedia,FC Slovan Liberec,Slovan Liberec
+wikipedia,FC Slovácká Slavia Uherské Hradiště,Uherské Hradiště
+wikipedia,FC Trinity Zlín,FC Zlín
+wikipedia,FC Vysočina Jihlava,Vysočina Jihlava
+wikipedia,FC Zlín,FC Zlín
+wikipedia,FK Baník Most,Most
+wikipedia,FK Bohemians Prague (Střížkov),Bohemians Prague (Střížkov)
+wikipedia,FK Chmel Blšany,Blšany
+wikipedia,FK Mladá Boleslav,Mlada Boleslav
+wikipedia,FK Pardubice,Pardubice
+wikipedia,FK Viktoria Žižkov,Viktoria Žižkov
+wikipedia,MFK Karviná,Karviná
+wikipedia,SFC Opava,Opava
+wikipedia,SK Benešov,Švarc Benešov
+wikipedia,AS Trenčín,AS Trencin
+wikipedia,FC Baník Prievidza,Baník Prievidza
+wikipedia,FC Košice,Kosice
+wikipedia,FC Košice (2018),Kosice
+wikipedia,FC Senec,Koba Senec
+wikipedia,FC ViOn Zlaté Moravce,Zlaté Moravce
+wikipedia,FK Dubnica,ZTS Dubnica
+wikipedia,FK Pohronie,Pohronie
+wikipedia,FK Senica,Senica
+wikipedia,FK Železiarne Podbrezová,Podbrezová
+wikipedia,FO ŽP Šport Podbrezová,Podbrezová
+wikipedia,KFC Komárno,Komárno
+wikipedia,MFK Petržalka,Petrzalka Akademia
+wikipedia,MFK Ružomberok,MFK Ruzomberok
+wikipedia,MFK Skalica,Skalica
+wikipedia,MFK Tatran Liptovský Mikuláš,Tatran Liptovský Mikuláš
+wikipedia,MFK Zemplín Michalovce,Zemplín Michalovce
+wikipedia,MŠK Púchov,Matador Púchov
+wikipedia,MŠK Rimavská Sobota,Rimavská Sobota
+wikipedia,Partizán Bardejov,Bardejov
+wikipedia,Spartak Myjava,Spartak Myjava (SVK)
+wikipedia,ŠK Futura Humenné,Chemlon Humenné
+wikipedia,ŠKF Sereď,Sereď
+wikipedia,BSK Borča,BSK Borča
+wikipedia,FK Banat Zrenjanin,Banat Zrenjanin
+wikipedia,FK Bečej,Bečej
+wikipedia,FK Bežanija,Bežanija
+wikipedia,FK Borac Čačak,Borac Čačak
+wikipedia,FK Budućnost Banatski Dvor,Budućnost Banatski Dvor
+wikipedia,FK Budućnost Valjevo,Budućnost Valjevo
+wikipedia,FK Dinamo Vranje,Dinamo Vranje
+wikipedia,FK Donji Srem,Donji Srem
+wikipedia,FK Hajduk Beograd,Hajduk Beograd
+wikipedia,FK Hajduk Kula,Hajduk Kula
+wikipedia,FK IMT,IMT
+wikipedia,FK Inđija,Inđija
+wikipedia,FK Jagodina,FK Jagodina
+wikipedia,FK Jastrebac Niš,Jastrebac
+wikipedia,FK Javor Ivanjica,Javor Ivanjica
+wikipedia,FK Jedinstvo Bijelo Polje,Jedinstvo Bijelo Polje
+wikipedia,FK Kolubara,Kolubara
+wikipedia,FK Kom,Kom
+wikipedia,FK Loznica,Loznica
+wikipedia,FK Mačva Šabac,Mačva Šabac
+wikipedia,FK Metalac Gornji Milanovac,Metalac G.M.
+wikipedia,FK Milicionar,Milicionar
+wikipedia,FK Mladi Radnik,Mladi Radnik
+wikipedia,FK Mladost Apatin,Mladost Apatin
+wikipedia,FK Mladost Bački Jarak,Mladost Bački Jarak
+wikipedia,FK Mladost Lučani,Mladost Lucani
+wikipedia,FK Mladost Novi Sad,Mladost GAT
+wikipedia,FK Mogren,FK Mogren
+wikipedia,FK Novi Pazar,Novi Pazar
+wikipedia,FK Obilić,FK Obilic
+wikipedia,FK Priština,Priština
+wikipedia,FK Proleter Novi Sad,Proleter Novi Sad
+wikipedia,FK Radnik Surdulica,Radnik Surdulica
+wikipedia,FK Radnički Obrenovac,Radnički Obrenovac
+wikipedia,FK Rudar Pljevlja,FK Rudar Pljevlja
+wikipedia,FK Sloboda Užice,Sloboda Užice
+wikipedia,FK Smederevo,Sartid
+wikipedia,FK Spartak Zlatibor Voda,Spartak Subotica
+wikipedia,FK TSC,FK TSC
+wikipedia,FK Tekstilac Odžaci,Tekstilac Odžaci
+wikipedia,FK Voždovac,Voždovac
+wikipedia,FK Zeta,FK Zeta
+wikipedia,FK Zlatibor,Zlatibor
+wikipedia,FK Zvezdara,Zvezdara
+wikipedia,FK Čukarički,Cukaricki Belgrade
+wikipedia,FK Železnik,Železnik
+wikipedia,FK Železničar Pančevo,Železničar
+wikipedia,OFK Bačka,Bačka
+wikipedia,OFK Kikinda,Kikinda
+wikipedia,HNK Dubrovnik 1919,Dubrovnik
+wikipedia,HNK Gorica,Gorica (CRO)
+wikipedia,HNK Segesta,Segesta
+wikipedia,HNK Suhopolje,Mladost 127
+wikipedia,HNK Vukovar 1991,Vukovar 1991
+wikipedia,HNK Vukovar 1991.,Vukovar '91
+wikipedia,HNK Šibenik,Šibenik
+wikipedia,NK Belišće,Belišće
+wikipedia,NK Croatia Sesvete,Croatia Sesvete
+wikipedia,NK Dubrava,Dubrava
+wikipedia,NK Hrvatski Dragovoljac,Hrvatski Dragovoljac
+wikipedia,NK Inter Zaprešić,Inter Zaprešić
+wikipedia,NK Istra,Istra Pula
+wikipedia,NK Istra 1961,Istra 1961
+wikipedia,NK Kamen Ingrad,Kamen Ingrad
+wikipedia,NK Karlovac,Karlovac
+wikipedia,NK Lokomotiva,NK Lokomotiva
+wikipedia,NK Lučko,Lučko
+wikipedia,NK Marsonia,Marsonia
+wikipedia,NK Međimurje,Međimurje
+wikipedia,NK Neretva,Neretva
+wikipedia,NK Orijent,Orijent
+wikipedia,NK Pazinka,Pazinka
+wikipedia,NK Pomorac Kostrena,Pomorac
+wikipedia,NK Primorac 1929,Primorac
+wikipedia,NK Pula,Istra 1961
+wikipedia,NK Radnik Velika Gorica,Radnik Velika Gorica
+wikipedia,NK Rudeš,Rudeš
+wikipedia,NK Samobor,Samobor
+wikipedia,NK Slaven Belupo,Slaven Belupo
+wikipedia,NK Slavonija Požega,Slavonija Požega
+wikipedia,NK TŠK Topolovac,TŠK Topolovac
+wikipedia,NK Uskok,Uskok Klis
+wikipedia,NK Varaždin (1931–2015),Varteks
+wikipedia,NK Varaždin (2012),Varaždin
+wikipedia,NK Zadar,Zadar
+wikipedia,NK Čakovec,Čakovec
+datarozhlas,Lokomotive Leipzig,VfB Leipzig
+datarozhlas,Stahl Brandenburg,BSG Stahl Brandenburg
+transfermarkt,Lokomotive Leipzig,VfB Leipzig
+wikipedia,VfB Fortuna Chemnitz,Chemnitzer SV 1951 Heckert
+wikipedia,SV Chemie Guben,SV Chemie Guben
+wikipedia,Blau-Weiß 69 Parchim,Blau-Weiß 69 Parchim
+wikipedia,TSG Backnang,TSG Backnang
+wikipedia,BSV Spindlersfeld,BSV Spindlersfeld
+wikipedia,1. FC Markkleeberg,1. FC Markkleeberg
+wikipedia,FSV Glückauf Brieske-Senftenberg,FSV Glückauf Brieske-Senftenberg
+wikipedia,FSV Hoyerswerda,FSV Hoyerswerda
+clubelo,Salzburg,Salzburg
+clubelo,FC Kobenhavn,Kobenhavn
+clubelo,Crvena Zvezda,Crvena Zvezda
+clubelo,Dinamo Zagreb,Dinamo Zagreb
+clubelo,Slavia Praha,Slavia Praha
+clubelo,Sturm Graz,Sturm Graz
+clubelo,Sparta Praha,Sparta Praha
+clubelo,Spartak Moskva,Spartak Moskva
+clubelo,Viktoria Plzen,Viktoria Plzen
+clubelo,Midtjylland,Midtjylland
+clubelo,CSKA Moskva,CSKA Moskva
+clubelo,Basel,Basel
+clubelo,Rostov,Rostov
+clubelo,StGallen,St. Gallen
+clubelo,Nordsjaelland,Nordsjaelland
+clubelo,Djurgarden,Djurgården
+clubelo,Ferencvaros,Ferencvaros
+clubelo,FC Krasnodar,Krasnodar
+clubelo,Rapid Wien,Rapid Wien
+clubelo,Sochi,Sochi
+clubelo,Hammarby,Hammarby
+clubelo,Luzern,FC Luzern
+clubelo,Lugano,Lugano
+clubelo,Terek Grozny,Terek Grozny
+clubelo,Partizan,Partizan
+clubelo,Slovacko,Slovacko
+clubelo,Austria Wien,Austria Wien
+clubelo,Servette,Servette
+clubelo,Silkeborg,Silkeborg
+clubelo,Aarhus,Aarhus
+clubelo,Randers,Randers FC
+clubelo,Elfsborg,Elfsborg
+clubelo,Osijek,Osijek
+clubelo,AIK,AIK
+clubelo,Orenburg,Orenburg
+clubelo,Sigma Olomouc,Sigma Olomouc
+clubelo,Odense,Odense BK
+clubelo,Winterthur,Winterthur
+clubelo,Aalborg,Aalborg BK
+clubelo,Sion,Sion
+clubelo,Mlada Boleslav,Mlada Boleslav
+clubelo,Olexandriya,FC Olexandriya
+clubelo,Jablonec,Jablonec
+clubelo,FC Khimki,Khimki
+clubelo,Banik Ostrava,Banik Ostrava
+clubelo,Fakel Voronezh,Fakel Voronezh
+clubelo,Vorskla,Vorskla
+clubelo,Istra 1961,Istra 1961
+clubelo,Ried,Ried
+clubelo,Horsens,Horsens
+clubelo,Lyngby,Lyngby BK
+clubelo,Slovan Liberec,Slovan Liberec
+clubelo,Videoton,Videoton
+clubelo,Slaven Belupo,Slaven Belupo
+clubelo,Hradec Kralove,FC Hradec Králové
+clubelo,IK Sirius,IK Sirius
+clubelo,Ceske Budejovice,České Budějovice
+clubelo,Degerfors,Degerfors
+clubelo,Varazdin,Varaždin
+clubelo,Debrecen,Debrecen
+clubelo,Novi Sad,Novi Sad
+clubelo,HNK Gorica,HNK Gorica
+clubelo,Ujpest,Újpest
+clubelo,Pardubice,Pardubice
+clubelo,Torpedo Moskva,Torpedo Moskva
+clubelo,Rukh Lviv,Rukh Lviv
+clubelo,Sibenik,Šibenik
+clubelo,Kryvbas,Kryvbas
+clubelo,Brommapojkarna,Brommapojkarna
+clubelo,Novi Pazar,Novi Pazar
+clubelo,Teplice,Teplice
+clubelo,FC Lviv,FC Lviv
+clubelo,Mynai,Mynai
+clubelo,Radnik Surdulica,Radnik Surdulica
+clubelo,Mladost Lucani,Mladost Lucani
+clubelo,Zlatibor,Zlatibor
+clubelo,Pribram,Aris Limassol
+clubelo,Rubin Kazan,Rubin Kazan
+clubelo,Yverdon Sport,Yverdon-Sport
+clubelo,Vejle,Vejle BK
+clubelo,Lausanne Ouchy,Lausanne Ouchy
+clubelo,Obolon Kyiv,Obolon Kyiv
+clubelo,MTK,MTK
+clubelo,Karvina,Karviná
+clubelo,Zeleznicar Pancevo,Zeleznicar Pancevo
+clubelo,IMT,IMT
+clubelo,GAIS,GAIS
+clubelo,Thun,Thun
+clubelo,Tekstilac Odzaci,Tekstilac Odžaci
+clubelo,Nyiregyhaza,Nyíregyháza
+clubelo,Dynamo Makhachkala,Dynamo Makhachkala
+clubelo,Aarau,FC Aarau
+clubelo,Macva Sabac,Mačva Šabac
+clubelo,Fredericia,Fredericia
+clubelo,Kudrivka,Kudrivka
+clubelo,SK Poltava,Poltava
+clubelo,Kazincbarcika,Kazincbarcika
+clubelo,Amkar Perm,Amkar Perm
+clubelo,Spartak Nalchik,Spartak Nalchik
+clubelo,Mattersburg,Mattersburg
+clubelo,Esbjerg,Esbjerg
+clubelo,Kladno,Kladno
+clubelo,Viktoria Zizkov,Viktoria Žižkov
+clubelo,Gefle,Gefle
+clubelo,Bezanija,Bežanija
+clubelo,Arsenal Kyiv,Arsenal Kyiv
+clubelo,Ljungskile,Ljungskile SK
+clubelo,NK Zagreb,NK Zagreb
+clubelo,Trelleborg,Trelleborg
+clubelo,FC Kharkiv,FC Kharkiv
+clubelo,Varteks,Varteks
+clubelo,Zadar,Zadar
+clubelo,Inter Zapresic,Inter Zaprešić
+clubelo,Ufa,FC Ufa
+clubelo,Olimpik Donetsk,FC Olimpik Donetsk
+clubelo,Volyn Lutsk,Volyn Lutsk
+clubelo,Eskilstuna,Eskilstuna
+clubelo,Haladas,Haladás
+clubelo,Rad,Rad
+clubelo,Borac Cacak,Borac Čačak
+clubelo,Gyirmot,Gyirmót

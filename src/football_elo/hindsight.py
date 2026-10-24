@@ -23,12 +23,12 @@ import numpy as np
 import pandas as pd
 
 
-def europe_frame(rated: pd.DataFrame, club_country: pd.Series, countries: list[str]) -> pd.DataFrame:
+def europe_frame(rated: pd.DataFrame, countries: list[str]) -> pd.DataFrame:
     e = rated[rated["comp_type"] == "europe"].copy()
     p = e["home_win_exp"].clip(1e-6, 1 - 1e-6)
     e["gap"] = 400 * np.log10(p / (1 - p))
     e["s"] = np.where(e["home_goals"] > e["away_goals"], 1.0, np.where(e["home_goals"] == e["away_goals"], 0.5, 0.0))
-    hc, ac = e["home_club"].map(club_country), e["away_club"].map(club_country)
+    hc, ac = e["home_country"], e["away_country"]       # each club's country that season
     e["hc"] = np.where(hc.isin(countries), hc, "other")
     e["ac"] = np.where(ac.isin(countries), ac, "other")
     return e[["season", "gap", "s", "hc", "ac"]]
@@ -62,9 +62,9 @@ def fit(e: pd.DataFrame, weights: np.ndarray, countries: list[str], ridge: float
     return dict(zip(keys, c))
 
 
-def corrections(rated: pd.DataFrame, club_country: pd.Series, countries: list[str], spec: dict) -> pd.DataFrame:
+def corrections(rated: pd.DataFrame, countries: list[str], spec: dict) -> pd.DataFrame:
     """country, season, correction (rating points) for the modelled countries."""
-    e = europe_frame(rated, club_country, countries)
+    e = europe_frame(rated, countries)
     half, ridge = int(spec.get("window", 3)), float(spec.get("ridge", 60))
     full_until, fade_until = int(spec["full_until"]), int(spec["fade_until"])
     rows = []

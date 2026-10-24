@@ -1,5 +1,6 @@
-"""Link club keys from the Wikipedia cup pages (sources.wikipedia_cup) to
-canonical clubs, as alias rows for source "wikipedia".
+"""Link club keys from the Wikipedia cup pages (sources.wikipedia_cup), or
+from the league grids of a country new to the model (sources.wikipedia_league),
+to canonical clubs, as alias rows for source "wikipedia".
 
 Keys are the articles the pages link to ("Calcio Como"), "<country>:<name>"
 for unlinked names, or "<article> [<label>]" for a reserve side linked to its
@@ -19,24 +20,33 @@ through Wikipedia's redirects (cached in data/bronze/wikipedia/redirects.json):
   4. variant   a near-identical name among the country's clubs (accents,
                spelling: "Elazığspor"/"Elazigspor"); not for reserve or
                amateur sides ("X II", "X (A)") of league clubs
+  4b. article  (leagues) a key whose resolved title is an already linked
+               key's: old names redirect to the club's current article
   5. new       a new club, named as the page shows it (with the title or the
                country added when that name is taken). Keys the cup shows
                under one name ("BEL:Aalter", "K.V.V. Eendracht Aalter") are one
-               new club.
+               new club; in a league, keys with one resolved title are.
 
 Two keys that meet in a match must not share a club: those links are
 dropped and the keys become new clubs. Existing alias rows win.
 
-Only matches with a league club on at least one side are rated (silver.league_ties),
+Only cup matches with a league club on at least one side are rated (silver.league_ties),
 so new clubs are made, and alias rows written, only for keys in those matches;
-the rest show as "dropped" in the review.
+the rest show as "dropped" in the review. Every league key is linked.
+
+A league's clubs can already exist under a successor or predecessor country
+(SUCCESSORS): a Soviet league club as a Ukrainian or Georgian one from the
+European sources, a Czech league club as a Czechoslovak one. Union leagues
+go before their successors, so a club keeps one key across both.
 
     python tools/link_cup_names.py                    # all cups in config
     python tools/link_cup_names.py SCO-SC GRE-GC      # some
+    python tools/link_cup_names.py URS-L UKR-L ...    # league grids
     python tools/link_cup_names.py --dry-run ...      # review only
 
 Uses the clubs and matches of the last build (data/silver). Writes new rows
-to config/club_aliases.csv and a review list to data/silver/cup_alias_review.csv.
+to config/club_aliases.csv and a review list to data/silver/cup_alias_review.csv
+(league_alias_review.csv for leagues).
 """
 import difflib
 import json
@@ -61,11 +71,25 @@ from link_grid_names import link, loose  # noqa: E402
 
 API = "https://en.wikipedia.org/w/api.php"
 
+# Countries a club of a league's country may be registered under (successor
+# states, predecessors, Liechtenstein's clubs in the Swiss league).
+SUCCESSORS = {
+    "URS": {"RUS", "UKR", "GEO", "ARM", "AZE", "BLR", "KAZ", "UZB", "LTU", "LVA", "EST", "MDA", "TJK", "KGZ", "TKM"},
+    "YUG": {"SRB", "CRO", "SVN", "BIH", "MKD", "MNE", "SCG", "KOS"},
+    "TCH": {"CZE", "SVK"}, "GDR": {"GER"}, "RUS": {"URS"}, "UKR": {"URS"}, "CZE": {"TCH"}, "SVK": {"TCH"},
+    "SRB": {"YUG", "SCG", "MNE", "BIH"}, "CRO": {"YUG"}, "SUI": {"LIE"},
+}
+
 # Hand links, checked against club histories: (competition, key) -> club.
 MANUAL: dict[tuple[str, str], str] = {
     # Wikipedia now redirects the Racing article to Paris FC; they are separate clubs here
     ("FRA-CDF", "Racing Club de France Football"): "Racing Club de France",
     ("FRA-CDF", "Gazélec Ajaccio"): "GFC Ajaccio",
+    # pages of 1987-2010 link the original club under its successor's article
+    # (the 2021 season is the refounded club: a correction in elo.yaml)
+    ("ROU-L", "FC U Craiova 1948"): "FC Universitatea Craiova",
+    # founded 2012; the old NK Varaždin (Varteks) folded in 2015
+    ("CRO-L", "NK Varaždin (2012)"): "NK Varaždin (2012)",
 }
 
 
@@ -177,6 +201,8 @@ def main(competitions: list[str], dry_run: bool) -> None:
     rows, report = [], []
     for comp in competitions:
         country = cfg["competitions"][comp]["country"]
+        countries = {country} | SUCCESSORS.get(country, set())
+        is_league = cfg["competitions"][comp]["type"] == "league"
         src = srcs[comp]
         long = pd.concat([src[["home_club", "home_name", "season"]].set_axis(["key", "name", "season"], axis=1),
                           src[["away_club", "away_name", "season"]].set_axis(["key", "name", "season"], axis=1)])
@@ -185,10 +211,10 @@ def main(competitions: list[str], dry_run: bool) -> None:
         first = long.groupby("key")["season"].min()
         last = long.groupby("key")["season"].max()
         keys = set(display.index)
-        country_clubs = [c for c, k in club_country.items() if k == country]
+        country_clubs = [c for c, k in club_country.items() if k in countries]
         index = {f: defaultdict(set) for f in (norm, loose)}
         variants = [(c, c) for c in country_clubs] + [
-            (n, c) for n, c in zip(names["name"], names["club"]) if club_country.get(c) == country]
+            (n, c) for n, c in zip(names["name"], names["club"]) if club_country.get(c) in countries]
         for n, c in variants:
             for f, idx in index.items():
                 if f(bare_title(n)):
@@ -210,7 +236,7 @@ def main(competitions: list[str], dry_run: bool) -> None:
         for key in sorted(keys - set(links)):
             if not is_title(key):
                 continue
-            hits = {c for c in by_title.get(resolved.get(key, key), ()) if club_country.get(c) in (country, None)}
+            hits = {c for c in by_title.get(resolved.get(key, key), ()) if club_country.get(c) in countries | {None}}
             if len(hits) != 1:
                 continue
             club = next(iter(hits))
@@ -259,8 +285,20 @@ def main(competitions: list[str], dry_run: bool) -> None:
                 continue                      # "AD Oliveirense" is not "UD Oliveirense"
             if len(hits) == 1 and not (amateur and targets[hits[0]] in league_clubs):
                 links[key], how[key] = targets[hits[0]], f"variant of {targets[hits[0]]}"
+        # 4b. leagues: a key whose resolved title is another key's (this league's or
+        # an earlier one's: "Uralmash Sverdlovsk" in the Soviet league, "Ural
+        # Yekaterinburg" in the Russian) is that key's club
+        if is_league:
+            article = defaultdict(set)
+            for k, c in list(known.items()) + list(links.items()):
+                if is_title(k):
+                    article[resolved.get(k, k)].add(c)
+            for key in sorted(keys - set(links)):
+                hits = article.get(resolved.get(key, key), set()) if is_title(key) else set()
+                if len(hits) == 1 and club_country.get(next(iter(hits))) in countries | {None}:
+                    links[key], how[key] = next(iter(hits)), "article"
         # keys that meet but share a club: keep the stronger link only
-        rank = {"alias": 0, "manual": 0, "title": 1, "name": 2, "fixtures": 2}
+        rank = {"alias": 0, "manual": 0, "title": 1, "name": 2, "fixtures": 2, "article": 2}
         for h, a in set(zip(src["home_club"], src["away_club"])):
             if h in links and a in links and links[h] == links[a]:
                 weak = max((h, a), key=lambda k: (rank.get(how[k], 3), -games[k]))
@@ -272,14 +310,17 @@ def main(competitions: list[str], dry_run: bool) -> None:
                 how[weak] = "new (met its link)"
         # keys in matches that will be rated: a league club on one side
         lg = src["home_club"].map(links).isin(league_clubs) | src["away_club"].map(links).isin(league_clubs)
-        needed = set(src.loc[lg, "home_club"]) | set(src.loc[lg, "away_club"])
+        needed = keys if is_league else set(src.loc[lg, "home_club"]) | set(src.loc[lg, "away_club"])
         for key in keys - needed:
             links.pop(key, None)
             how[key] = "dropped"
-        # 5. the rest: new clubs, one per name the cup shows
+        # 5. the rest: new clubs, one per name the cup shows (in a league, one per
+        # resolved title: "Luch Vladivostok", "Luch-Energiya"), except keys that met
+        # the club their title gave
         groups = defaultdict(list)
         for key in needed - set(links):
-            groups[light(display[key])].append(key)
+            by_article = is_league and is_title(key) and how.get(key) != "new (met its link)"
+            groups[resolved.get(key, key) if by_article else light(display[key])].append(key)
         for group in groups.values():
             group.sort(key=lambda k: (-games[k], k))
             key = group[0]
@@ -304,7 +345,8 @@ def main(competitions: list[str], dry_run: bool) -> None:
                 known[key] = links[key]
 
     rep = pd.DataFrame(report)
-    out = cfg["paths"]["silver"] / "cup_alias_review.csv"
+    leagues = all(cfg["competitions"][c]["type"] == "league" for c in competitions)
+    out = cfg["paths"]["silver"] / ("league_alias_review.csv" if leagues else "cup_alias_review.csv")
     rep.sort_values(["competition", "how", "games"], ascending=[True, True, False]).to_csv(out, index=False)
     summary = rep.assign(how=rep["how"].str.replace(r"variant of .*", "variant", regex=True)
                          .str.replace(r"new.*", "new", regex=True))

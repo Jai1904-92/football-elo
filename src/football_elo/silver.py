@@ -9,11 +9,12 @@ from __future__ import annotations
 
 import logging
 import re
+from collections import defaultdict
 from functools import cache
 
 import pandas as pd
 
-from . import sources
+from . import bronze, sources
 
 log = logging.getLogger(__name__)
 
@@ -96,10 +97,14 @@ class SourceReader:
                                        next((s["neutral_rounds"] for s in specs if "neutral_rounds" in s), None))
             return df[df["season"].isin(seasons)].reset_index(drop=True)
         parts = []
-        for spec in self.cfg["sources"]["wikipedia"]["leagues"][competition]:
-            df = sources.wikipedia_league(self.bronze / "wikipedia" / spec["folder"], competition, country, spec["tier"])
-            first, last = spec["seasons"]   # specs can share a folder (a league renamed over the years)
-            parts.append(df[df["season"].between(first, last)])
+        specs = self.cfg["sources"]["wikipedia"]["leagues"][competition]
+        kinds = {stem: s.get("kind", "split") for s in specs for stem in bronze.wikipedia_stems(s)}
+        for spec in specs:
+            df = sources.wikipedia_league(self.bronze / "wikipedia" / spec["folder"], competition, country,
+                                          spec["tier"], kinds, **({"skip": spec["skip"]} if "skip" in spec else {}))
+            # specs can share a folder (a league renamed over the years): each reads its own pages
+            files = {f"wikipedia/{spec['folder']}/{stem}.txt" for stem in bronze.wikipedia_stems(spec)}
+            parts.append(df[df["file_name"].isin(files)])
         return pd.concat(parts, ignore_index=True)
 
     @cache
@@ -248,6 +253,11 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
     clubs = club_registry(df, all_aliases)
     # clubs whose league games were abroad (Cypriot champions in the Greek league, 1967-74)
     fixed = cfg.get("club_countries", {})
+    seasons = country_seasons(df, cfg)
+    seasons = pd.Series([fixed.get(c, k) for c, k in zip(seasons.index.get_level_values(0), seasons)],
+                        index=seasons.index, name="country")
+    # a club's country is the one it has now (its latest season's)
+    clubs["country"] = clubs["club"].map(seasons.groupby(level=0).last()).fillna(clubs["country"])
     clubs["country"] = clubs["club"].map(fixed).fillna(clubs["country"])
     warn_thin_seasons(df)
     quality = check_matches(df)
@@ -256,8 +266,56 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
     quality.to_csv(quality_path, index=False)
     source_rows = pd.concat(raw, ignore_index=True)
     source_rows = source_rows[source_rows["match_date"] >= start]
-    return {"matches": df[MATCH_COLUMNS], "clubs": clubs, "aliases": all_aliases,
+    return {"matches": df[MATCH_COLUMNS], "clubs": clubs, "club_seasons": seasons, "aliases": all_aliases,
             "new_aliases": new_aliases_df, "source_rows": source_rows}
+
+
+def _mode(s: pd.Series):
+    return s.value_counts().index[0]
+
+
+def country_seasons(df: pd.DataFrame, cfg: dict) -> pd.Series:
+    """(club, season) -> country, for every season a club has a match. A
+    club's country can change: Dynamo Kyiv played in the Soviet league to 1991
+    and the Ukrainian one after, Dynamo Dresden in the DDR-Oberliga then the
+    Bundesliga. So a season's country is that of the league the club played
+    in. A season without league games takes the country its other matches
+    give (a domestic cup's, or the association a European source names:
+    Dinamo Tbilisi is Georgian after the Soviet league, Budućnost Montenegrin
+    after the Serbian one), else the latest earlier league's while that league
+    still runs, else the country its later matches give, else the first league's."""
+    comp_country = {c: s.get("country") for c, s in cfg["competitions"].items()}
+    cols = ["club", "season", "competition", "comp_type", "country"]
+    long = pd.concat([df[["home_club", "season", "competition", "comp_type", "home_country"]].set_axis(cols, axis=1),
+                      df[["away_club", "season", "competition", "comp_type", "away_country"]].set_axis(cols, axis=1)])
+    league = long[long["comp_type"] == "league"].copy()
+    league["country"] = league["competition"].map(comp_country)
+    running = set(zip(league["competition"], league["season"]))
+    lg = league.groupby(["club", "season"])[["competition", "country"]].agg(_mode)
+    other = long[long["comp_type"] != "league"].dropna(subset=["country"])
+    oc = other.groupby(["club", "season"])["country"].agg(_mode).to_dict()
+    lg_by_club = {c: g.droplevel(0) for c, g in lg.groupby(level=0)}
+    later_oc = defaultdict(dict)
+    for (c, s), k in oc.items():
+        later_oc[c][(c, s)] = k
+    keys = long[["club", "season"]].drop_duplicates().sort_values(["club", "season"])
+    out = []
+    for club, season in zip(keys["club"], keys["season"]):
+        g = lg_by_club.get(club)
+        if g is not None and season in g.index:
+            out.append(g.at[season, "country"])
+            continue
+        earlier = g[g.index < season] if g is not None else None
+        if (club, season) in oc:
+            out.append(oc[(club, season)])
+        elif earlier is not None and len(earlier):
+            later = [k for (c, s), k in later_oc.get(club, {}).items() if s > earlier.index[-1]]                 if (earlier["competition"].iloc[-1], season) not in running else []
+            out.append(max(set(later), key=later.count) if later else earlier["country"].iloc[-1])
+        elif g is not None:
+            out.append(g["country"].iloc[0])
+        else:
+            out.append(None)
+    return pd.Series(out, index=pd.MultiIndex.from_frame(keys), name="country").dropna()
 
 
 def league_ties(part: pd.DataFrame, aliases: pd.DataFrame, frames: list, cfg: dict) -> pd.DataFrame:
