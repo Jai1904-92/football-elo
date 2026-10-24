@@ -9,7 +9,8 @@ compact JSON under `out`:
   field.json           average top-flight rating at each month end
   <view>.json          number_ones, decade_kings, league_strength,
                        greatest_seasons, upsets, trophies, alltime_parts,
-                       dynasties
+                       dynasties (trophies adds the league champions of
+                       config/league_champions.csv, competition = the league)
   club/<slug>.json     one league club: monthly ratings, seasons, matches
   tables/<year>.json   month-end rankings of league clubs in that year
 
@@ -43,6 +44,7 @@ log = logging.getLogger(__name__)
 
 DEFAULT_OUT = ROOT / "web" / "public" / "data"
 BRANDING = ROOT / "config" / "club_branding.csv"
+CHAMPIONS = ROOT / "config" / "league_champions.csv"     # tools/league_champions.py
 
 
 def _query(cur, sql: str) -> pd.DataFrame:
@@ -172,6 +174,12 @@ def export(out: Path = DEFAULT_OUT) -> Path:
                              for r in comps.itertuples()}}
     _write(out / "meta.json", meta)
 
+    if CHAMPIONS.exists():
+        champs = pd.read_csv(CHAMPIONS).rename(columns={"club": "winner"})
+        champs = champs[champs["winner"].isin(cid)]
+        champs = champs.assign(season_label=champs["season"].map(lambda s: f"{s}/{(s + 1) % 100:02d}"),
+                               runner_up=None, legs=None)
+        views["trophies"] = pd.concat([views["trophies"], champs[views["trophies"].columns]], ignore_index=True)
     for name, df in views.items():
         for col in [c for c in df.columns if c in ("club", "runner_up", "winner", "loser", "home_club", "away_club")]:
             df[col] = df[col].map(cid)

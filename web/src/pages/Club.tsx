@@ -4,11 +4,12 @@ import { loadClub, useAsync, useCompetitions, useView, type ClubIndex, type Matc
 import { Badge, Card, ClubName, ClubPicker, Ring, Status, Table } from '../components/ui';
 import LineChart, { type Marker } from '../components/LineChart';
 import { clubColors, clubStyle } from '../lib/color';
-import { COMP_SHORT, COUNTRIES, DOMESTIC_CUPS, EUROPEAN, int, pct, seasonLabel, signed } from '../lib/format';
+import { COMP_SHORT, COUNTRIES, DOMESTIC_CUPS, EUROPEAN, int, LEAGUE_TITLES, pct, seasonLabel, signed } from '../lib/format';
 import { careerFigures, MeasureNote, seasonFigures, useMeasure } from '../lib/measure';
 
 type Trophy = { competition: string; season: number; winner: number; runner_up: number };
 const HONOURS: [string, string][] = [
+  ...LEAGUE_TITLES,
   ['UCL', 'European Cup'], ['UEL', 'UEFA Cup / Europa League'], ['UCWC', "Cup Winners' Cup"], ['FAIRS', 'Fairs Cup'],
   ['UECL', 'Conference League'], ['GER-CH', 'German champions (to 1963)'],
   ...DOMESTIC_CUPS.map((c) => [c, COMP_SHORT[c]] as [string, string]),
@@ -96,13 +97,13 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
           : <Status error={file.error} />}
       </Card>
 
-      <Card club={club} title="Honours" note="Worked out from the finals in the rated data. Domestic cups outside England from 2012/13.">
+      <Card club={club} title="Honours" note="League titles from Wikipedia's lists of champions, checked against the rated results; cups and European trophies worked out from the finals in the rated data.">
         {won.length ? (
           <div className="honours">{HONOURS.map(([code, name]) => {
             const list = won.filter((t) => t.competition === code);
             return list.length ? <div className="honour" key={code}><b>{list.length}</b>{name}<small>{list.map((t) => seasonLabel(t.season)).join(', ')}</small></div> : null;
           })}</div>
-        ) : <p className="muted">No European trophies or domestic cups in the rated data.</p>}
+        ) : <p className="muted">No league titles, European trophies or domestic cups in the rated data.</p>}
       </Card>
 
       <div className="grid2">

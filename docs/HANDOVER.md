@@ -136,6 +136,15 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
      (`tools/club_branding.py`). The site lists 16 more countries (`web/src/lib/format.ts`); the league
      strength chart may need a filter.
 
+**League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
+`config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
+football champions", matched to that season's top-flight clubs and checked against a table from our results
+(review: `data/silver/league_champions_review.csv`; about 70 seasons differ, nearly all play-offs, split
+seasons or points halving where the list is right). Slovakia and Croatia have no list page: table plus hand
+entries (`MANUAL`). Seasons without a title are left out (Ligue 1 1992/93, Serie A 2004/05, Eredivisie 2019/20,
+Ukraine 2021/22). `export.py` adds them to `trophies.json`; the club page lists them first. Re-run the tool each
+summer when a season ends (CI doesn't).
+
 Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü" linked to "Hacettepe"
 (unchecked), Cypriot champions in the Greek league kept Cypriot via `club_countries`.
 
