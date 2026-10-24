@@ -198,8 +198,12 @@ update the dashboard.
    - Countries still rated only from European games: everyone else (Austria, Switzerland, the
      Scandinavian countries, Eastern Europe).
 5. **Smaller items:**
-   - Trophies: 11 unresolved two-legged European finals (UEL 7, FAIRS 3, UCWC 1). They need an away-goals
-     rule, or a hand-entered list of winners.
+   - Trophies: the 11 unresolved European finals are hand-entered in the trophies view since 2026-10-24
+     (migration `20261024010000_european_finals.sql`: away goals, shoot-outs the source lacks, a 35-day
+     final). Two data gaps found there change ratings, so they wait for the next reload: the Fairs Cup
+     1966/67 semi-finals and final (Dinamo Zagreb v Eintracht Frankfurt, Leeds v Kilmarnock, Dinamo v
+     Leeds) are missing from DataRozhlas, and its Juventus v Leeds 0–0 of 26 May 1971 was abandoned and
+     replayed, so it shouldn't be rated.
    - Play-offs: 2019/20 has only 5 of 15 matches.
    - Dates: 3,784 club-days with two matches since run 21 (210 before): cup rounds without a printed date
     often land on a league matchday. Only match order is affected; moving estimated cup dates to the
