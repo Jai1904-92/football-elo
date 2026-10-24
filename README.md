@@ -409,7 +409,7 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
   in 14 of 61 seasons.
 - **Where it doesn't apply:** the monthly rating charts and the Rankings tab are point-in-time and unchanged.
 
-### Hindsight country levels (season views before 2000)
+### Hindsight country levels (season and date views before 2000)
 
 Ratings run forwards, so a country's level in a season reflects only European results up to then. With few
 European games a season before the mid-1990s, levels drifted. Serie A was rated 30–40 points too low around
@@ -434,7 +434,12 @@ through the 1985–90 ban and came back about 25 points too high.
 - **Effect:** Milan 1988/89 rises from 10th to about 7th, and 1989/90 and 1990/91 from 4th to 3rd.
   Liverpool and Arsenal stay ahead in 1988–90, because the ban gives no European evidence to correct
   England against during those years.
-- **Where it doesn't apply:** monthly ratings and the Rankings tab stay forward-only.
+- **Where it applies on the site:** season views, and since 2026-10-24 also the date views (monthly club
+  ratings, the Rankings tab's month-end tables and the field average), added in `export.py` per rating period
+  by its country and season. Match ratings (the pre-match ratings and win chances) stay forward-only, and so do
+  the database's `gold.mv_club_months` and `gold.ratings_on`. With the sixteen leagues of run 22, end of May
+  1990 reads Liverpool 1910, Milan 1908 (Milan 4th → 2nd, Bayern 2nd → 4th); Liverpool falls from 3rd to 7th
+  at the end of 1990/91.
 
 ## Useful queries
 

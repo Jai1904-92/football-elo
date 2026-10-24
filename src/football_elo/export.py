@@ -13,6 +13,11 @@ compact JSON under `out`:
   club/<slug>.json     one league club: monthly ratings, seasons, matches
   tables/<year>.json   month-end rankings of league clubs in that year
 
+Monthly ratings, month-end tables and field.json carry the hindsight country
+levels before 2000 (gold.country_hindsight, as the season views do): each
+rating period gets its country's correction for its season. Match ratings
+stay forward-only (they are the predictions).
+
 Rows are arrays with the column names given once per file ("cols"), and
 clubs are referred to by their id in clubs.json.
 
@@ -70,6 +75,20 @@ def _write(path: Path, obj) -> None:
     path.write_text(json.dumps(obj, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
 
 
+def with_hindsight(ratings: pd.DataFrame, hindsight: pd.DataFrame) -> pd.DataFrame:
+    """Add each rating period's hindsight correction (its country, its season) to elo."""
+    corr = hindsight.set_index(["country", "season"])["correction"]
+    key = pd.MultiIndex.from_arrays([ratings["country"], ratings["season"].astype(int)])
+    return ratings.assign(elo=ratings["elo"] + corr.reindex(key).fillna(0).to_numpy())
+
+
+def club_months(ratings: pd.DataFrame) -> pd.DataFrame:
+    """Each club's rating at the end of every month it played (as gold.mv_club_months)."""
+    r = ratings.assign(month=pd.to_datetime(ratings["valid_from"]).dt.to_period("M")).sort_values("valid_from")
+    out = r.groupby(["club", "month"], as_index=False)["elo"].last()
+    return out.assign(month=out["month"].astype(str), elo=out["elo"].round().astype(int))
+
+
 def month_tables(ratings: pd.DataFrame) -> pd.DataFrame:
     """Rank of every league club at each month end: the rating period that
     covers the date, among periods with a league tier (as gold.ratings_on)."""
@@ -109,8 +128,10 @@ def export(out: Path = DEFAULT_OUT) -> Path:
                     "e.league_rank, p.rating as perf, p.above_field as above_perf, p.world_rank as world_rank_perf, "
                     "p.league_rank as league_rank_perf from gold.mv_club_seasons e left join gold.mv_club_seasons p "
                     "on p.club = e.club and p.season = e.season and p.measure = 'perf' where e.measure = 'end'")
-        months = q("select club, to_char(month, 'YYYY-MM') as month, elo from gold.mv_club_months")
-        ratings = q("select club, valid_from, valid_to, elo, tier from gold.club_ratings")
+        hindsight = q("select country, season, correction from gold.country_hindsight")
+        ratings = with_hindsight(q("select club, country, season, valid_from, valid_to, elo, tier "
+                                   "from gold.club_ratings"), hindsight)
+        months = club_months(ratings)
         matches = q("select m.match_id, m.match_date, m.competition, m.home_club, m.away_club, m.home_goals, "
                     "m.away_goals, m.neutral, m.home_pens, m.away_pens, r.home_elo_pre, r.away_elo_pre, "
                     "r.home_win_exp, r.elo_delta from silver.matches m join gold.match_ratings r using (match_id)")

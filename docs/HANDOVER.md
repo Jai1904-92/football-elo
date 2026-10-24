@@ -156,7 +156,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 - **Model:** K 15, cups at full weight (since 2026-10-23), √goal-difference margin, dynamic home
   advantage, league pooling 0.3, provisional K × 2 for a club's first 40 matches. The big seven start level
   in 1955; Scotland −125, Belgium −100, Turkey and Greece −250 (README "Big-5 coverage").
-  - Season views add hindsight country levels before 2000 (README "Hindsight country levels"; England's ban
+  - Season and date views (site export) add hindsight country levels before 2000 (README "Hindsight country levels"; England's ban
     seasons step down evenly).
   - Whole-season rating: performance rating with 15 virtual draws, no goal margin (README "Judging a
     season" records why, including the rejected margin options).
