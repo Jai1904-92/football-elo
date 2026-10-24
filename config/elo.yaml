@@ -19,6 +19,15 @@ sources:
                 I1: [ITA, 1], I2: [ITA, 2], F1: [FRA, 1], F2: [FRA, 2],
                 P1: [POR, 1], N1: [NED, 1], SC0: [SCO, 1], B1: [BEL, 1], T1: [TUR, 1], G1: [GRE, 1]}
     first_season: 1993             # earlier seasons not needed (engsoccerdata covers them)
+  football_data_extra:
+    # football-data.co.uk's extra leagues: one file per country, every season since
+    # 2012/13, dated. Used for the current season of top flights whose
+    # Wikipedia grids stop at 2025/26 and that ESPN no longer covers (it dropped
+    # sui.1 and rou.1 in September 2025). Its Russian file stops after two rounds
+    # of 2026/27, so Russia comes from ESPN.
+    url_template: https://www.football-data.co.uk/new/{code}.csv
+    files: {SWZ: SUI-L, ROU: ROU-L}
+    first_season: 2026
   transfermarkt:
     # dcaribou/transfermarkt-datasets; 2012/13 to July 2026 (collection stopped then)
     url_template: https://pub-e682421888d945d684bcae8890b0ec20.r2.dev/data/{name}.csv.gz
@@ -261,6 +270,11 @@ sources:
             eng.fa: ENG-FAC, eng.league_cup: ENG-LC, eng.2: ENG-PO, eng.3: ENG-PO, eng.4: ENG-PO,
             esp.copa_del_rey: ESP-CDR, ger.dfb_pokal: GER-DFB, ita.coppa_italia: ITA-CI,
             fra.coupe_de_france: FRA-CDF, ned.cup: NED-KNVB, por.taca.portugal: POR-TP}
+    # Top flights read in full, for the seasons after their Wikipedia grids
+    # (2026/27; Sweden's 2026). Earlier seasons are blocked by the grids
+    # (silver.combine_windows); 2025 is fetched only to link club ids.
+    leagues: {aut.1: AUT-L, den.1: DEN-L, rus.1: RUS-L, swe.1: SWE-L}
+    leagues_first_year: 2025
 
 # Competitions and where their results come from. Windows are in priority
 # order: each source contributes rows inside its date window, but only for
@@ -363,37 +377,45 @@ competitions:
       - {source: engsoccerdata, until: "2025-06-30"}
       - {source: football_data}
       - {source: wikipedia}
-  # Top flights from Wikipedia grids only (sources.wikipedia.leagues), tier 1.
+  # Top flights from Wikipedia grids (sources.wikipedia.leagues), tier 1, to
+  # 2025/26; the current season, dated, from ESPN (Austria, Sweden, Denmark,
+  # Russia) or football-data (Switzerland, Romania). Ukraine, Czechia, Slovakia,
+  # Serbia, Croatia and Hungary have no free dated source yet.
   AUT-L:
     name: Austrian top flight
     type: league
     country: AUT
     windows:
       - {source: wikipedia}
+      - {source: espn}                  # the current season
   SUI-L:
     name: Swiss top flight
     type: league
     country: SUI
     windows:
       - {source: wikipedia}
+      - {source: football_data_extra}   # the current season
   SWE-L:
     name: Allsvenskan
     type: league
     country: SWE
     windows:
       - {source: wikipedia}
+      - {source: espn}                  # the current season
   DEN-L:
     name: Danish top flight
     type: league
     country: DEN
     windows:
       - {source: wikipedia}
+      - {source: espn}                  # the current season
   ROU-L:
     name: Romanian top flight
     type: league
     country: ROU
     windows:
       - {source: wikipedia}
+      - {source: football_data_extra}   # the current season
   HUN-L:
     name: Hungarian top flight
     type: league
@@ -430,6 +452,7 @@ competitions:
     country: RUS
     windows:
       - {source: wikipedia}
+      - {source: espn}                  # the current season
   UKR-L:
     name: Ukrainian top flight (from 1992)
     type: league

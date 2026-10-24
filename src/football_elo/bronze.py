@@ -78,6 +78,18 @@ def fetch_football_data(cfg: dict, seasons: list[int] | None = None, force: bool
     return out
 
 
+def fetch_football_data_extra(cfg: dict) -> list[Path]:
+    """football-data.co.uk's extra-league files hold every season in one
+    file, so they re-download on every run (a cached copy is kept on failure)."""
+    src = cfg["sources"]["football_data_extra"]
+    out = []
+    for code in src["files"]:
+        dest = cfg["paths"]["bronze"] / "football_data_extra" / f"{code}.csv"
+        if _download(src["url_template"].format(code=code), dest) or dest.exists():
+            out.append(dest)
+    return out
+
+
 def fetch_transfermarkt(cfg: dict, force: bool = False) -> list[Path]:
     """transfermarkt-datasets stopped updating in July 2026, so cache it."""
     src = cfg["sources"]["transfermarkt"]
@@ -190,10 +202,10 @@ def fetch_espn(cfg: dict, years: list[int] | None = None, force: bool = False) -
     January) is always re-downloaded."""
     src = cfg["sources"]["espn"]
     this_year = dt.date.today().year
-    years = years or list(range(src["first_year"], this_year + 1))
     out = []
-    for slug in src["slugs"]:
-        for year in years:
+    for slug in [*src["slugs"], *src.get("leagues", {})]:
+        first = src["leagues_first_year"] if slug in src.get("leagues", {}) else src["first_year"]
+        for year in years or range(first, this_year + 1):
             dest = cfg["paths"]["bronze"] / "espn" / slug / f"{year}.json"
             if force or year >= this_year - 1 or not dest.exists():
                 if not _download(src["url_template"].format(slug=slug), dest,
@@ -207,6 +219,7 @@ def fetch_espn(cfg: dict, years: list[int] | None = None, force: bool = False) -
 def fetch_all(cfg: dict) -> None:
     fetch_engsoccerdata(cfg)
     fetch_football_data(cfg)
+    fetch_football_data_extra(cfg)
     fetch_transfermarkt(cfg)
     fetch_datarozhlas(cfg)
     fetch_rsssf(cfg)

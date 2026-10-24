@@ -166,6 +166,29 @@ def football_data(folder: Path, divisions: dict[str, list]) -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True) if frames else _frame("football_data")
 
 
+def football_data_extra(folder: Path, files: dict[str, str], first_season: int) -> pd.DataFrame:
+    """football-data.co.uk's extra leagues: one file per country, every season
+    from 2012/13 ("2012/2013", or "2012" for calendar-year leagues), saved as
+    <code>.csv. `files` maps the code (SWZ, ROU, ...) -> a '<country>-L' code;
+    tier 1, seasons from `first_season` on."""
+    frames = []
+    for code, comp in files.items():
+        path = folder / f"{code}.csv"
+        if not path.exists():
+            continue
+        df = pd.read_csv(path, encoding="utf-8-sig").dropna(subset=["Home", "Away", "HG", "AG"])
+        df = df.assign(season=df["Season"].astype(str).str[:4].astype(int))
+        df = df[df["season"] >= first_season]
+        country = comp.split("-")[0]
+        frames.append(_frame("football_data_extra", file_name=_rel(path),
+                             match_date=pd.to_datetime(df["Date"], dayfirst=True, format="mixed"),
+                             season=df["season"], competition=comp, tier=1, round="league",
+                             home_club=df["Home"].str.strip(), away_club=df["Away"].str.strip(),
+                             home_goals=df["HG"].astype(int), away_goals=df["AG"].astype(int),
+                             home_country=country, away_country=country))
+    return pd.concat(frames, ignore_index=True) if frames else _frame("football_data_extra")
+
+
 # ------------------------------------------------------------ transfermarkt-datasets
 # Country names (Transfermarkt, DataRozhlas) -> 3-letter codes as used by
 # engsoccerdata's champs.csv. Historical states keep their own codes.
@@ -216,12 +239,18 @@ def transfermarkt(folder: Path, competitions: dict[str, str]) -> pd.DataFrame:
 
 
 # ------------------------------------------------------------ ESPN scoreboard
-def espn(folder: Path, slugs: dict[str, str], playoffs_only: bool = True) -> pd.DataFrame:
+def espn(folder: Path, slugs: dict[str, str], playoffs_only: bool = True,
+         leagues: dict[str, str] | None = None) -> pd.DataFrame:
     """Read cached ESPN scoreboard JSON (one file per slug per year).
     `slugs` maps ESPN league slug -> our competition code. League slugs
-    (eng.2 etc.) are only used for their play-off matches."""
+    (eng.2 etc.) are only used for their play-off matches. `leagues` maps
+    top-flight slugs read in full -> a '<country>-L' code: tier 1, the
+    season ESPN gives (Sweden's calendar-year seasons included), and only
+    venues ESPN marks neutral are neutral."""
     rows = []
-    for slug, comp in slugs.items():
+    leagues = leagues or {}
+    for slug, comp in {**slugs, **leagues}.items():
+        league = slug in leagues
         for path in sorted((folder / slug).glob("*.json")):
             for ev in json.loads(path.read_text(encoding="utf-8")).get("events", []):
                 if not ev.get("status", {}).get("type", {}).get("completed"):
@@ -245,15 +274,19 @@ def espn(folder: Path, slugs: dict[str, str], playoffs_only: bool = True) -> pd.
                     "home_name": h["team"]["displayName"], "away_name": a["team"]["displayName"],
                     "home_goals": int(h["score"]), "away_goals": int(a["score"]),
                     # finals are at neutral venues, as are FA Cup semi-finals
-                    "neutral": bool(c.get("neutralSite")) or stage.endswith("final")
+                    "neutral": bool(c.get("neutralSite")) or (not league and stage.endswith("final"))
                                or (comp == "ENG-FAC" and "semi" in stage),
                     "extra_time": status in ("STATUS_FINAL_AET", "STATUS_FINAL_PEN"),
                     "home_pens": h.get("shootoutScore"), "away_pens": a.get("shootoutScore"),
+                    "season": (ev.get("season") or {}).get("year") if league else None,
+                    "tier": 1 if league else None,
+                    "home_country": comp.split("-")[0] if league else None,
+                    "away_country": comp.split("-")[0] if league else None,
                 })
     if not rows:
         return _frame("espn")
     df = pd.DataFrame(rows).drop_duplicates(["match_date", "home_club", "away_club"])
-    df["season"] = season_from_date(df["match_date"])
+    df["season"] = df["season"].fillna(pd.Series(season_from_date(df["match_date"]), index=df.index)).astype(int)
     return _frame("espn", **{c: df[c] for c in df.columns})
 
 
@@ -366,9 +399,17 @@ def _schedule(blocks: list[list[dict]], season: int, start: pd.Timestamp | None 
             idx = {c: k for k, c in enumerate(names)}
             rounds = _round_robin(len(names))
             slot = {}
-            for k, rnd in enumerate(rounds + [[(b, a) for a, b in r] for r in rounds]):
-                for h, a in rnd:
-                    slot[(h, a)] = k
+            pairs = {(idx[r["home"]], idx[r["away"]]) for r in undated}
+            if any((a, h) in pairs for h, a in pairs):
+                for k, rnd in enumerate(rounds + [[(b, a) for a, b in r] for r in rounds]):
+                    for h, a in rnd:
+                        slot[(h, a)] = k
+            else:
+                # a single round-robin (the third round of a Swiss or Hungarian
+                # season, a championship group): n - 1 weeks, not 2(n - 1)
+                for k, rnd in enumerate(rounds):
+                    for h, a in rnd:
+                        slot[(h, a)] = slot[(a, h)] = k
             for r in undated:
                 r["match_date"] = t0 + pd.Timedelta(weeks=slot[(idx[r["home"]], idx[r["away"]])])
                 r["dating"] = "league (date assigned)"
@@ -530,7 +571,8 @@ def wikipedia_grids(text: str) -> list[dict]:
     out = []
     heads = [(h.start(), h.group(1).strip()) for h in re.finditer(r"^==([^=\n]+)==\s*$", text, re.M)]
     for m in re.finditer(r"\{\{\s*#invoke:\s*sports results", text, re.I):
-        body = _template(text, m.start())
+        # comments can follow a value ("|team_order= ..., MET <!-- NOTE ... -->")
+        body = re.sub(r"<!--.*?-->", "", _template(text, m.start()), flags=re.S)
         section = next((h for pos, h in reversed(heads) if pos < m.start()), "")
         params = {}
         for part in re.split(r"\|(?=\s*[\wÀ-ɏ]+\s*=)", body):

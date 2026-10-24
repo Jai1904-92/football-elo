@@ -99,6 +99,14 @@ def test_schedule_dates_rounds_and_grids():
     out = sources._schedule([grid], 1960)
     days = pd.DataFrame([(r["match_date"], c) for r in out for c in (r["home"], r["away"])])
     assert not days.duplicated().any() and days[0].nunique() == 6
+    # a single-leg grid after it (a third round): three weeks, starting the week after
+    third = [{"round": None, "md": None, "home": h, "away": a, "i": i, "j": j, "hg": 0, "ag": 0}
+             for i, h in enumerate("ABCD") for j, a in enumerate("ABCD") if i < j]
+    grid = [dict(r) for r in grid]
+    out = sources._schedule([grid, third], 1960)
+    later = pd.DataFrame([(r["match_date"], c) for r in out[12:] for c in (r["home"], r["away"])])
+    assert not later.duplicated().any() and later[0].nunique() == 3
+    assert later[0].min() == max(r["match_date"] for r in out[:12]) + pd.Timedelta(weeks=1)
 
 
 WIKI = """==Group North==
@@ -172,3 +180,56 @@ def test_wikipedia_grids_read_legs_and_tell_shared_articles_apart():
     clubs = grids_[0]["clubs"]
     assert clubs["HAJ"] == ("HNK Hajduk Split", "Hajduk Split")
     assert clubs["ADM"][0] == "FC Admira Wacker Mödling [Admira/Wacker]" != clubs["MOD"][0]
+
+
+def test_wikipedia_grids_ignore_comments_after_a_value():
+    text = """{{#invoke:sports results|main
+|team_order= DIN, HAJ
+
+<!-- NOTE update every match_XXX_YYY when you add a team! -->
+|name_DIN=[[GNK Dinamo Zagreb|Dinamo Zagreb]]
+|name_HAJ=[[HNK Hajduk Split|Hajduk Split]]
+|match_DIN_HAJ=1–1 <!-- Maksimir -->
+|match_HAJ_DIN=2–0
+}}
+"""
+    (g,) = sources.wikipedia_grids(text)
+    assert g["order"] == ["DIN", "HAJ"]
+    assert g["scores"] == {("DIN", "HAJ"): (1, 1), ("HAJ", "DIN"): (2, 0)}
+
+
+def _espn_event(date, season_year, stage, home, away, score, neutral=False):
+    return {"date": date, "season": {"year": season_year, "slug": stage},
+            "status": {"type": {"completed": True, "name": "STATUS_FULL_TIME"}},
+            "competitions": [{"neutralSite": neutral, "competitors": [
+                {"homeAway": "home", "team": {"id": home, "displayName": f"Club {home}"}, "score": str(score[0])},
+                {"homeAway": "away", "team": {"id": away, "displayName": f"Club {away}"}, "score": str(score[1])}]}]}
+
+
+def test_espn_league_slugs_keep_every_game_with_espns_season(tmp_path):
+    import json
+    (tmp_path / "swe.1").mkdir()
+    (tmp_path / "aut.1").mkdir()
+    (tmp_path / "swe.1" / "2026.json").write_text(json.dumps({"events": [
+        _espn_event("2026-04-05T13:00Z", 2026, "2026-allsvenskan", "1", "2", (2, 1))]}))
+    (tmp_path / "aut.1" / "2026.json").write_text(json.dumps({"events": [
+        _espn_event("2026-05-20T17:00Z", 2025, "conference-league-playoff-semifinal", "3", "4", (0, 0)),
+        _espn_event("2026-08-01T17:00Z", 2026, "regular-season", "4", "3", (1, 3))]}))
+    df = sources.espn(tmp_path, {}, leagues={"swe.1": "SWE-L", "aut.1": "AUT-L"}).sort_values("match_date")
+    assert df["season"].tolist() == [2026, 2025, 2026]     # Sweden's April game is its 2026 season
+    assert df["tier"].tolist() == [1, 1, 1]
+    assert df["home_country"].tolist() == ["SWE", "AUT", "AUT"]
+    assert not df["neutral"].any()                          # a league play-off semi-final is at home
+
+
+def test_football_data_extra_reads_split_and_calendar_seasons(tmp_path):
+    header = "Country,League,Season,Date,Time,Home,Away,HG,AG,Res\n"
+    (tmp_path / "SWZ.csv").write_text(header + "Switzerland,Super League,2025/2026,24/05/2026,16:30,Basel,Sion,2,0,H\n"
+                                      "Switzerland,Super League,2026/2027,25/07/2026,18:00,Sion,Basel,1,1,D\n",
+                                      encoding="utf-8-sig")
+    (tmp_path / "SWE.csv").write_text(header + "Sweden,Allsvenskan,2026,05/04/2026,15:00,AIK,GAIS,0,1,A\n",
+                                      encoding="utf-8")
+    df = sources.football_data_extra(tmp_path, {"SWZ": "SUI-L", "SWE": "SWE-L"}, 2026)
+    assert sorted(zip(df["competition"], df["season"], df["home_club"], df["away_goals"])) == [
+        ("SUI-L", 2026, "Sion", 1), ("SWE-L", 2026, "AIK", 1)]
+    assert df["match_date"].min() == pd.Timestamp("2026-04-05")

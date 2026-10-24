@@ -40,9 +40,9 @@ pytest
 | Italy, tiers 1–2 | `ITA-L` | engsoccerdata (tier 1) to 2024/25 → RSSSF (tier 2 1955/56–1996/97, and the partial 2002/03 and 2004/05) → football-data (tier 2 from 1997/98) |
 | Portugal, tier 1 | `POR-L` | RSSSF results grids 1955/56–1993/94 (dates assigned) → engsoccerdata 1994/95–2024/25 → football-data |
 | Scotland, Belgium, Turkey, Greece (tier 1) | `SCO-L`, `BEL-L`, `TUR-L`, `GRE-L` | Wikipedia results grids 1955/56–1993/94 (dates assigned; Turkey from 1958/59, Greece's 1956–58 Panhellenic final rounds) → engsoccerdata 1994/95–2024/25 → football-data |
-| Austria, Switzerland, Sweden, Denmark, Romania, Hungary (tier 1) | `AUT-L`, `SUI-L`, `SWE-L`, `DEN-L`, `ROU-L`, `HUN-L` | Wikipedia results grids 1955/56–2025/26 (dates assigned; calendar-year seasons from April) |
+| Austria, Switzerland, Sweden, Denmark, Romania, Hungary (tier 1) | `AUT-L`, `SUI-L`, `SWE-L`, `DEN-L`, `ROU-L`, `HUN-L` | Wikipedia results grids 1955/56–2025/26 (dates assigned; calendar-year seasons from April) → 2026/27 (Sweden's 2026) dated: ESPN (Austria, Sweden, Denmark), football-data's extra leagues (Switzerland, Romania); Hungary none yet |
 | Soviet Union, Yugoslavia, Czechoslovakia, East Germany (tier 1) | `URS-L`, `YUG-L`, `TCH-L`, `GDR-L` | Wikipedia results grids 1955–1991 (1992/93 Czechoslovakia, 1990/91 East Germany) |
-| Russia, Ukraine, Czechia, Slovakia, Serbia, Croatia (tier 1) | `RUS-L`, `UKR-L`, `CZE-L`, `SVK-L`, `SRB-L`, `CRO-L` | Wikipedia results grids from the split (1992 or 1993/94) to 2025/26; Serbia's includes Montenegro to 2005/06 |
+| Russia, Ukraine, Czechia, Slovakia, Serbia, Croatia (tier 1) | `RUS-L`, `UKR-L`, `CZE-L`, `SVK-L`, `SRB-L`, `CRO-L` | Wikipedia results grids from the split (1992 or 1993/94) to 2025/26; Serbia's includes Montenegro to 2005/06 → 2026/27 dated from ESPN (Russia only; the others have no free dated source yet) |
 | German championship final round | `GER-CH` | RSSSF 1955/56–1962/63 (qualifiers, groups and final between the Oberliga champions) |
 | Netherlands, tiers 1–2 | `NED-L` | engsoccerdata (tier 1) 1956/57–2024/25 → RSSSF (tier 2 1956/57–2024/25) → football-data (tier 1) |
 | France, tiers 1–2 | `FRA-L` | engsoccerdata (tier 1; 1993/94 missing) to 2024/25 → football-data (tier 2 from 1996/97) → RSSSF (the partial 2003/04) → Wikipedia grid (the partial 2002/03) |
@@ -333,15 +333,16 @@ How the parameters were chosen:
 ## Weekly update
 
 `python -m football_elo update` runs these steps:
-1. **Refresh sources.** Re-downloads the live files: football-data's current season, plus ESPN's current and
-   previous year.
+1. **Refresh sources.** Re-downloads the live files: football-data's current season and its extra-league files
+   (Switzerland, Romania), plus ESPN's current and previous year.
 2. **Store changed files** in bronze.
 3. **Add matches.** Upserts new or corrected matches from the last two seasons into silver.
 4. **Re-rate.** Re-rates from the earliest changed match date, starting from the stored ratings just before
    it.
 
-Clubs ESPN hasn't seen before, such as a new European opponent, are added automatically under ESPN's display
-name. The job logs a warning and appends them to `config/club_aliases.csv` for review. If the rating
+Clubs ESPN or football-data's extra leagues haven't seen before, such as a new European opponent or a promoted
+club, are added automatically under the source's display name (`tools/link_live_leagues.py` links the league
+sources' keys to existing clubs by season and score, since the Wikipedia grids before them have no real dates). The job logs a warning and appends them to `config/club_aliases.csv` for review. If the rating
 parameters or competition list in config change, the job does a full rebuild instead.
 
 It runs every Monday at 20:00 UTC (Tuesday morning in Australia) as `.github/workflows/weekly-update.yml`,

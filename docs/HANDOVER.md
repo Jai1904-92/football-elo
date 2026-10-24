@@ -1,6 +1,6 @@
 # Handover: state of the project and the gap backlog
 
-Last updated 2026-10-24 (sixteen more top flights built locally; last load run 21). The README covers how everything works; this note
+Last updated 2026-10-24 (sixteen more top flights and their current season built locally; last load run 21). The README covers how everything works; this note
 covers where things stand and what's next. Alex's working style: tackle gaps one at a time, biggest first;
 judge model changes on evidence (next-season / out-of-sample prediction and bias between leagues), not on
 Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
@@ -100,9 +100,37 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
      36 points higher than before against Club Elo (bias +25 → +61): the new countries' pooled levels feed
      back through Europe. Separating East from West Germany took Bayern 1975 from #4 to #12; Steaua 1986
      #118 → #31, Red Star 1991 #24 → #6, Magdeburg 1975 #87 → #23.
-   - Left: no live source for the current season (2026/27; Sweden's 2026): ESPN has `aut.1 sui.1 den.1 swe.1
-     rus.1 rou.1`, Transfermarkt DK1/RU1/UKR1 2012–25 (dated, unused); Ukraine, Czechia, Serbia, Croatia,
-     Hungary have neither. Serbian clubs underperform in Europe 1992–2010 (−28/−14pp): Red Star and Partizan
+   - **Current season, dated (built locally 2026-10-24, not loaded).** 2026/27 (Sweden's 2026) follows the
+     grids: ESPN league slugs `aut.1 den.1 rus.1 swe.1` (`sources.espn.leagues`, read in full: tier 1,
+     ESPN's season year, fetched from 2025) and football-data.co.uk's extra-league files `new/SWZ.csv`,
+     `new/ROU.csv` (new source `football_data_extra`, one file per country, re-downloaded every run). ESPN
+     dropped `sui.1` and `rou.1` in late September 2025 (that was the "truncated" look); football-data's
+     Russian file stops after two rounds of 2026/27. Windows: `{source: wikipedia}` then the dated source;
+     the grids' (season, tier) blocks keep the dated source out of 2025/26 and earlier. 561 matches so far
+     (AUT 55, SUI 60, SWE 194, DEN 67, ROU 96, RUS 89).
+     - Linking: `tools/link_live_leagues.py` (ESPN ids, football-data names → clubs) seeds from existing
+       aliases and same-season names, then votes on season + score with the opponent already linked
+       (the grids' dates are synthetic); promoted clubs by country name or unique prefix. 89 aliases
+       added; report `data/silver/live_league_links.csv`. New club: Rodina Moscow. Merged a run-22
+       duplicate, "Mjällby AIF (SWE)" into "Mjällby AIF".
+     - Grid parser fix: an HTML comment after `team_order` was glued to the last club code, dropping
+       its games: +30 Liga I 2025/26 (Metaloglobus București, a new club), +30 each Serbian 2024/25 and
+       2025/26 (Jedinstvo Ub, new), +10 Danish 2024/25, +30 Segunda 1955/56 (España Industrial = CD Condal).
+     - Synthetic-date fix (`sources._schedule`): a single-leg grid (the third round of a Swiss or Hungarian
+       season, a championship group) took a double round-robin's weeks, so Swiss seasons ran a full
+       year (2025/26 to 13 Sep 2026, among the real 2026/27 games: 17 same-day clashes). Now n − 1
+       weeks: Swiss 2025/26 ends 24 May 2026. 72 seasons' dates change (Denmark 21, Hungary 13, Slovakia
+       10, Segunda 10, ...).
+     - Effect (local build): 719,337 matches, 6,309 clubs, no 2026/27 clashes. Club Elo bias +68.6
+       either way (the new rows alone move it by 0.02), debiased RMSE 33.48 → 33.46, Spearman 0.987;
+       `pool_experiment 0.3`: European log loss 0.5764 (as run 22), league 0.6259, bias RMS 2.52pp.
+     - Still no free dated source for Ukraine, Czechia, Slovakia, Serbia, Croatia, Hungary (ESPN has no
+       slugs; TheSportsDB's free key caps at 15 games). Options for Alex: Transfermarkt's
+       `gesamtspielplan` pages (dated, club ids, 1 page per league a week, but its terms forbid scraping),
+       or the current Wikipedia grid dated by the week a result first appears.
+   - Left: Transfermarkt DK1/RU1/UKR1 2012–25 (dated, unused; could replace synthetic dates). Wikipedia keys
+     the pre-2016 FC Farul Constanța as Viitorul Constanta (DataRozhlas keeps "Farul Constanța" apart):
+     unchecked. Serbian clubs underperform in Europe 1992–2010 (−28/−14pp): Red Star and Partizan
      carry Yugoslav ratings into the sanctions years. Club Elo names for the new countries are mapped by
      name only (121; Zenit, Young Boys, Shakhtar unmapped). Crests/colours for the new clubs not fetched yet
      (`tools/club_branding.py`). The site lists 16 more countries (`web/src/lib/format.ts`); the league
@@ -118,7 +146,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
     countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
     German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 551,000 matches and 5,996 clubs. Tests: 44, all passing (`pytest`).
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 50, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one

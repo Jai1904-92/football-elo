@@ -46,6 +46,8 @@ class SourceReader:
             df = self._espn()
         elif source == "football_data":
             df = self._football_data()
+        elif source == "football_data_extra":
+            df = self._football_data_extra()
         elif source == "datarozhlas":
             df = self._datarozhlas()
         elif source == "rsssf":
@@ -67,7 +69,8 @@ class SourceReader:
 
     @cache
     def _espn(self) -> pd.DataFrame:
-        return sources.espn(self.bronze / "espn", self.cfg["sources"]["espn"]["slugs"])
+        src = self.cfg["sources"]["espn"]
+        return sources.espn(self.bronze / "espn", src["slugs"], leagues=src.get("leagues"))
 
     @cache
     def _datarozhlas(self) -> pd.DataFrame:
@@ -111,6 +114,11 @@ class SourceReader:
     def _football_data(self) -> pd.DataFrame:
         return sources.football_data(self.bronze / "football_data",
                                      self.cfg["sources"]["football_data"]["divisions"])
+
+    @cache
+    def _football_data_extra(self) -> pd.DataFrame:
+        src = self.cfg["sources"]["football_data_extra"]
+        return sources.football_data_extra(self.bronze / "football_data_extra", src["files"], src["first_season"])
 
     @cache
     def _engsoccerdata(self, competition: str) -> pd.DataFrame:
@@ -216,7 +224,7 @@ def combine_windows(cfg: dict, competition: str, reader: SourceReader) -> pd.Dat
     return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=sources.COLUMNS)
 
 
-def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("espn",)) -> dict:
+def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("espn", "football_data_extra")) -> dict:
     """Build silver. Returns a dict with:
       matches   - the combined match table (MATCH_COLUMNS)
       clubs     - club registry (club, country, league_club)
