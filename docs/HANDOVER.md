@@ -57,9 +57,13 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
      30.1 → 31.1 and Spearman 0.9894 → 0.9890: a level shift at the top, not a reordering. Mean change for
      clubs rated before: −3 (1965), 0 (1980), +5 (1995), +17 (2010), +4 (2025); the big clubs are about
      +12 in 2025. New clubs leak only ~16,000 points in total, so the likely cause is spread: top clubs
-     play many more cup ties against weaker sides. Not yet judged with `tools/pool_experiment.py` (log
-     loss, bias between leagues) — do that next; if the spread matters, the new clubs' start rating or a
-     lower cup K for ties against non-league sides are the levers. Individual moves worth a look: Bayern
+     play many more cup ties against weaker sides. **Judged 2026-10-24 with `pool_experiment`'s measures
+     (configured pool 0.3, before vs after):** league log loss 0.6314 → 0.6313, European log loss
+     0.5822 → 0.5819 (better in the 1960s/70s by 0.002–0.003, 1980s 0.001 worse), European bias RMS
+     2.10 → 2.14pp; after re-levelling, Club Elo RMSE 30.14 → 31.05. Prediction is no worse, so no fix:
+     the shift is a level change, and Elo predictions depend only on rating differences. If absolute
+     numbers should match Club Elo again, lowering every start rating by ~12 (`calibrate.align_level`) is
+     purely cosmetic. Individual moves worth a look: Bayern
      +53 and Real Madrid −31 in 1965 (cups 1955–65 now count; the Oberligen still aren't modelled).
    - Gaps left: Coppa Italia group stages 1960s–80s, Coupe de France before 1990 beyond the last 32/64,
      KNVB before 1969, Taça 1955–61/1969–89 (except 1982), Belgian Cup before 1989, Turkish Cup before 1987:
