@@ -12,7 +12,8 @@ The correction is added to season ratings only (season views, both measures),
 in full up to `full_until`, fading to nothing by `fade_until`; afterwards the
 forward ratings are already well levelled. Seasons in which a country played no
 European football (`gaps`, England's ban) step evenly from the correction before
-the gap to the one after it.
+the gap to the one after it: the average over the first `gap_after` seasons
+back (default 1), steadier than one thinly played season.
 
 Checked on seasons left out of the fit (each predicted from its neighbours only):
 European log loss 1958-74 0.5480 -> 0.5404, 1975-94 0.5498 -> 0.5476.
@@ -76,10 +77,12 @@ def corrections(rated: pd.DataFrame, countries: list[str], spec: dict) -> pd.Dat
         rows += [{"country": k, "season": s, "correction": c[k] * scale} for k in countries]
     out = pd.DataFrame(rows)
     # seasons a country sat out of Europe: step evenly from before the gap to after it
+    n_after = int(spec.get("gap_after", 1))
     for country, (first, last) in spec.get("gaps", {}).items():
         sel = out["country"] == country
         val = out[sel].set_index("season")["correction"]
-        before, after = val.get(first - 1), val.get(last + 1)
+        back = [val[s] for s in range(last + 1, last + 1 + n_after) if s in val.index]
+        before, after = val.get(first - 1), (sum(back) / len(back) if back else None)
         if before is None or after is None:
             continue
         for s in range(first, last + 1):

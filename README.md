@@ -419,7 +419,10 @@ through the 1985–90 ban and came back about 25 points too high.
   country offsets that best explain European results in the three seasons either side, weighted towards the
   nearest. A ridge worth 60 games pulls each towards 0, and the average over the modelled countries stays
   put. They're added to season ratings under both measures: in full to 1994/95, fading out by 1999/2000.
-- **Gaps:** seasons a country sat out of Europe step evenly from the level before to the level after. That's
+- **Gaps:** seasons a country sat out of Europe step evenly from the level before to the level after, the
+  average of the first four seasons back (`gap_after`; since 2026-10-24, when Alex asked for a gentle slide
+  given English clubs' underperformance in 1991–96). England 1985/86–1990/91 now reads +4, −2, −7, −13, −19,
+  −25 (was +6, +1, −3, −8, −12, −17 towards 1991/92 alone); predictions are unaffected. That's
   England 1985/86–1990/91, counting 1990/91 when only Manchester United and Aston Villa were back (Liverpool returned in 1991/92). England returns at the
   lower level instead of jumping to it.
 - **Tested on left-out seasons** (each predicted from its neighbours only), European log loss:

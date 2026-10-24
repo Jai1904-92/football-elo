@@ -35,3 +35,12 @@ def test_a_gap_steps_evenly_between_its_neighbours():
     a = out[out.country == "A"].set_index("season")["correction"]
     assert np.isclose(a[2002] - a[2001], a[2004] - a[2003], atol=0.2)
     assert np.isclose(a[2003] - a[2002], a[2004] - a[2003], atol=0.2)
+
+
+def test_a_gap_can_aim_at_the_average_of_the_seasons_after_it():
+    e = pd.concat([_europe(range(2000, 2002), 0.5), _europe(range(2004, 2008), 0.8)])
+    spec = dict(SPEC, full_until=2007, fade_until=2007, gaps={"A": [2002, 2003]}, gap_after=3)
+    a = hindsight.corrections(e, ["A", "B"], spec).query("country == 'A'").set_index("season")["correction"]
+    a = a.reindex(range(2000, 2008), fill_value=0.0)
+    target = a[[2004, 2005, 2006]].mean()
+    assert np.isclose(a[2003] - a[2001], 2 * (target - a[2001]) / 3, atol=0.3)
