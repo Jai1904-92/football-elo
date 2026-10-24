@@ -106,7 +106,8 @@ def month_tables(ratings: pd.DataFrame) -> pd.DataFrame:
             .to_frame(index=False).sort_values("d"))
     hit = pd.merge_asof(grid, r[["club", "valid_from", "valid_to", "elo", "tier"]],
                         left_on="d", right_on="valid_from", by="club", direction="backward")
-    hit = hit[hit["valid_from"].notna() & (hit["d"] <= hit["valid_to"])]
+    # an open period (no next match yet) runs to the present
+    hit = hit[hit["valid_from"].notna() & (hit["valid_to"].isna() | (hit["d"] <= hit["valid_to"]))]
     hit["rank"] = hit.groupby("d")["elo"].rank(ascending=False, method="min").astype(int)
     return hit[["d", "club", "elo", "tier", "rank"]].sort_values(["d", "rank"])
 
