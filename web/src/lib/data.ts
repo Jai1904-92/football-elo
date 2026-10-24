@@ -6,7 +6,9 @@ const cache = new Map<string, Promise<unknown>>();
 
 export function fetchJSON<T>(path: string): Promise<T> {
   if (!cache.has(path)) {
-    cache.set(path, fetch(BASE + path).then((r) => {
+    // Revalidate every file with the server (a 304 when unchanged): club ids are positions in clubs.json,
+    // so a cached clubs.json from before a deploy mixed with fresh tables would mislabel clubs.
+    cache.set(path, fetch(BASE + path, { cache: 'no-cache' }).then((r) => {
       if (!r.ok) throw new Error(`${path}: ${r.status}`);
       return r.json();
     }).catch((e) => { cache.delete(path); throw e; }));
