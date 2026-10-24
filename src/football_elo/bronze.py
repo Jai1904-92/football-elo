@@ -151,14 +151,16 @@ def _wiki_raw(url: str, title: str, dest: Path) -> bool:
 
 
 def fetch_wikipedia(cfg: dict, force: bool = False) -> list[Path]:
-    """Raw wikitext of Wikipedia season articles, leagues and cups (cached once)."""
+    """Raw wikitext of Wikipedia season articles, leagues and cups (cached;
+    the current season's pages re-download, as their rounds are still played)."""
     src = cfg["sources"]["wikipedia"]
+    live = current_season()
     out = []
     for spec in (s for group in ("leagues", "cups") for specs in src.get(group, {}).values() for s in specs):
         first, last = spec["seasons"]
         for season in range(first, last + 1):
             dest = cfg["paths"]["bronze"] / "wikipedia" / spec["folder"] / f"{season}.txt"
-            if force or not dest.exists():
+            if force or not dest.exists() or season >= live:
                 if not _wiki_raw(src["url"], spec["title_template"].format(**_season_fields(season)), dest):
                     continue
             out.append(dest)

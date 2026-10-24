@@ -24,9 +24,11 @@ export const COMP_SHORT: Record<string, string> = {
   'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'ENG-PO': 'Play-off', UCL: 'European Cup', UEL: 'UEFA Cup', UECL: 'Conference League',
   UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'Super Cup', 'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal',
   'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça',
+  'SCO-SC': 'Scottish Cup', 'BEL-BC': 'Belgian Cup', 'TUR-TC': 'Turkish Cup', 'GRE-GC': 'Greek Cup',
 };
 export const EUROPEAN = ['UEL', 'UCWC', 'FAIRS', 'UECL'];
-export const DOMESTIC_CUPS = ['ENG-FAC', 'ENG-LC', 'ESP-CDR', 'GER-DFB', 'ITA-CI', 'FRA-CDF', 'NED-KNVB', 'POR-TP'];
+export const DOMESTIC_CUPS = ['ENG-FAC', 'ENG-LC', 'ESP-CDR', 'GER-DFB', 'ITA-CI', 'FRA-CDF', 'NED-KNVB', 'POR-TP',
+  'SCO-SC', 'BEL-BC', 'TUR-TC', 'GRE-GC'];
 
 export const initials = (name: string) =>
   name.replace(/\b(FC|AC|AS|SC|CF|CD|SL|SV|VfB|VfL|US|SSC|AFC|RC|UD|SD|1\.)\b/g, '').trim().split(/[\s-]+/)

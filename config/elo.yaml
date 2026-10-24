@@ -161,7 +161,9 @@ sources:
         - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1982, 1982]}
         - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1990, 2014]}
       SCO-SC:
-        - {folder: cup-scotland, title_template: "{season}–{endw} Scottish Cup", seasons: [1955, 2025]}
+        # semi-finals at Hampden (or another neutral ground)
+        - {folder: cup-scotland, title_template: "{season}–{endw} Scottish Cup", seasons: [1955, 2025],
+           neutral_rounds: '^semi[- ]?finals?'}
       BEL-BC:
         - {folder: cup-belgium, title_template: "{season}–{endw} Belgian Cup", seasons: [1978, 1978]}
         - {folder: cup-belgium, title_template: "{season}–{endw} Belgian Cup", seasons: [1989, 2025]}
@@ -323,8 +325,10 @@ competitions:
       - {source: engsoccerdata}
       - {source: espn}                # complete from 2019/20; Transfermarkt only from 2023
       - {source: transfermarkt, until: "2026-06-30"}
-  # Domestic cups outside England: Transfermarkt from 2012/13 to 2025/26, ESPN
-  # after that and for Transfermarkt's partial seasons. Clubs with no known
+  # Domestic cups outside England: Wikipedia season articles before 2012/13
+  # (sources.wikipedia.cups; ties with a league club on one side only, see
+  # silver.league_ties), Transfermarkt from 2012/13 to 2025/26, ESPN after that
+  # and for Transfermarkt's partial seasons. Clubs with no known
   # country take the cup's (silver.build), so amateur sides start at the
   # country's non-league rating.
   ESP-CDR:
@@ -332,6 +336,7 @@ competitions:
     type: cup
     country: ESP
     windows:
+      - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
       - {source: espn, replace_partial: 0.9}
   GER-DFB:
@@ -339,6 +344,7 @@ competitions:
     type: cup
     country: GER
     windows:
+      - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
       - {source: espn, replace_partial: 0.9}
   ITA-CI:
@@ -346,6 +352,7 @@ competitions:
     type: cup
     country: ITA
     windows:
+      - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
       - {source: espn, replace_partial: 0.9}
   FRA-CDF:
@@ -353,12 +360,14 @@ competitions:
     type: cup
     country: FRA
     windows:
+      - {source: wikipedia, until: "2015-06-30"}   # ESPN from 2015/16
       - {source: espn}                # last 64 onwards, from 2015/16; not in Transfermarkt
   NED-KNVB:
     name: KNVB Cup
     type: cup
     country: NED
     windows:
+      - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
       - {source: espn, replace_partial: 0.9}
   POR-TP:
@@ -366,8 +375,35 @@ competitions:
     type: cup
     country: POR
     windows:
+      - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}   # some seasons from the last 8 only
       - {source: espn, replace_partial: 0.9}            # from 2021/22
+  # Cups of the top-flight-only countries: Wikipedia season articles throughout
+  # (sources.wikipedia.cups lists the seasons that have one).
+  SCO-SC:
+    name: Scottish Cup
+    type: cup
+    country: SCO
+    windows:
+      - {source: wikipedia}
+  BEL-BC:
+    name: Belgian Cup
+    type: cup
+    country: BEL
+    windows:
+      - {source: wikipedia}
+  TUR-TC:
+    name: Turkish Cup
+    type: cup
+    country: TUR
+    windows:
+      - {source: wikipedia}
+  GRE-GC:
+    name: Greek Cup
+    type: cup
+    country: GRE
+    windows:
+      - {source: wikipedia}
   UCL:
     name: European Cup / Champions League (incl. qualifying)
     type: europe

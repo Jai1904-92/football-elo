@@ -642,12 +642,13 @@ def _cup_dates(rows: list[dict], season: int, span: tuple) -> None:
             latest[base] = max(latest.get(base, r["match_date"]), r["match_date"])
 
 
-def wikipedia_cup(folder: Path, competition: str, neutral_rounds: str | None = None) -> pd.DataFrame:
+def wikipedia_cup(folder: Path, competition: str, country: str, neutral_rounds: str | None = None) -> pd.DataFrame:
     """Wikipedia cup season articles saved as <start year>.txt; see wikicups
     for the layouts read. A single-match final is neutral, as is a one-leg
     bracket tie (venue not given) and any round matching `neutral_rounds`
     (e.g. Scottish Cup semi-finals at Hampden). Clubs are keyed by the
-    article they link to; their country is filled from the cup's in silver."""
+    article they link to, unlinked names by "<country>:<name>"; their country
+    is filled from the cup's in silver."""
     from . import wikicups
     out = []
     for path in sorted(folder.glob("*.txt")):
@@ -670,9 +671,19 @@ def wikipedia_cup(folder: Path, competition: str, neutral_rounds: str | None = N
     if not out:
         return _frame("wikipedia")
     df = pd.DataFrame(out)
+    for side in ("home", "away"):
+        df[side] = df[side].str.replace(r"^~", f"{country}:", regex=True)
+    same = df["home"] == df["away"]        # both sides linked to one article (a reserve side unmarked)
+    for r in df[same].itertuples():
+        log.warning("%s %s: %s v %s link to the same article %r; dropped", competition, r.season,
+                    r.home_name, r.away_name, r.home)
+    df = df[~same]
     pens = df["pens"].apply(lambda p: p if isinstance(p, tuple) else (np.nan, np.nan))
+    # legs as the other sources write them: "1", "2", "replay"
+    leg = df["leg"].map(lambda x: str(int(x)) if pd.notna(x) else None)
+    leg = leg.where(leg.notna() | ~df["slot"].str.contains(r"replay|meeting", case=False), "replay")
     return _frame("wikipedia", file_name=df["file_name"], match_date=df["match_date"], season=df["season"],
-                  competition=competition, round=df["round"], leg=df["leg"],
+                  competition=competition, round=df["round"], leg=leg,
                   home_club=df["home"], away_club=df["away"], home_goals=df["hg"], away_goals=df["ag"],
                   neutral=df["neutral"], extra_time=df["aet"],
                   home_pens=pens.str[0], away_pens=pens.str[1],

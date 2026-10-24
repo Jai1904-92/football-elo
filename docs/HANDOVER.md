@@ -1,6 +1,6 @@
 # Handover: state of the project and the gap backlog
 
-Last updated 2026-10-23, at the end of a long session. The README covers how everything works; this note
+Last updated 2026-10-24 (domestic cups back to 1955 loaded, run 21). The README covers how everything works; this note
 covers where things stand and what's next. Alex's working style: tackle gaps one at a time, biggest first;
 judge model changes on evidence (next-season / out-of-sample prediction and bias between leagues), not on
 Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
@@ -19,7 +19,7 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
      and Italian late rounds from 1990.
    - Plain wikitables: likely where none of the above appear (DFB-Pokal 1970–90, Coupe de France, KNVB
      Cup, Turkish Cup), or late rounds only.
-   **Downloaded and parsed (2026-10-23), not loaded yet.** 536 season pages (`wikipedia.cups` in
+   **Done (2026-10-23/24), loaded as run 21.** 536 season pages (`wikipedia.cups` in
    `elo.yaml`, folders `data/bronze/wikipedia/cup-*`) plus 323 transcluded final articles
    (`cup-*/transcluded`). `src/football_elo/wikicups.py` reads five layouts (Football box, OneLegResult,
    TwoLegResult, brackets, wikitables), expands `{{:Final}}` / `{{#lst:}}` transclusions, and keeps each
@@ -36,12 +36,34 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
    - Known residue: reserve sides linked to their first team's article (Jong PSV → PSV, 6 self-matches),
      about 110 same-day clashes from printed dates, and a few results awarded but printed as scores
      (footnoted, e.g. Longuenesse v Caen 2005/06).
-   - Next: link club names (keys are Wikipedia article titles, as for the league grids;
-     `tools/link_grid_names.py`), add windows per cup (Wikipedia before 2012/13; Scotland, Belgium, Turkey,
-     Greece throughout, with new competition codes `SCO-SC`, `BEL-BC`, `TUR-TC`, `GRE-GC`), pass
-     `neutral_rounds` for Scottish semi-finals (Hampden), validate, calibrate, reload. Cups count at full
-     weight, so the effect is real but modest (Barcelona's whole 2008/09 Copa run moved them 4 points).
-     New amateur clubs take the cup's country.
+   - **Linked and loaded (2026-10-24).** `tools/link_cup_names.py` links cup keys: resolved title →
+     existing wikipedia/DataRozhlas alias; name via every known club name (incl. Transfermarkt/ESPN display
+     names); fixtures 2012–14; near-identical spellings; else a new club (one per display name per cup).
+     Unlinked names are keyed `<country>:<name>`, reserve sides `<article> [<label>]`. Review list:
+     `data/silver/cup_alias_review.csv`. 4,883 alias rows written.
+   - **Alex's rule: only ties with a league club on one side** (`silver.league_ties`, Wikipedia cup rows
+     only; Transfermarkt/ESPN 2012+ cups unchanged). About 8,700 amateur-only matches dropped (Belgium
+     3,871: its pages list the amateur rounds from about 2010). Kept: 31,249 Wikipedia cup matches;
+     2,614 new clubs (3,383 → 5,996), lower-league and reserve sides that met a league club.
+   - New competitions `SCO-SC`, `BEL-BC`, `TUR-TC`, `GRE-GC` (Wikipedia throughout); the six other cups take
+     Wikipedia before 2012/13 (Coupe de France before 2015/16). Scottish semi-finals neutral. Trophies:
+     migration `20261024000000_cup_history.sql` adds the four cups and, for Wikipedia seasons, only counts a
+     last match whose round is the final (10 seasons have no final on the page). The site's `format.ts`
+     names the new cups.
+   - Weekly update: the current season's cup pages re-download each run; clubs new in later rounds are
+     auto-registered like ESPN's (review them with `tools/link_cup_names.py`). CI's first run after the
+     push downloads all ~860 pages (cached after).
+   - **Effect:** against Club Elo, bias +13.2 → +24.8, RMSE 32.9 → 39.7, but RMSE with bias removed only
+     30.1 → 31.1 and Spearman 0.9894 → 0.9890: a level shift at the top, not a reordering. Mean change for
+     clubs rated before: −3 (1965), 0 (1980), +5 (1995), +17 (2010), +4 (2025); the big clubs are about
+     +12 in 2025. New clubs leak only ~16,000 points in total, so the likely cause is spread: top clubs
+     play many more cup ties against weaker sides. Not yet judged with `tools/pool_experiment.py` (log
+     loss, bias between leagues) — do that next; if the spread matters, the new clubs' start rating or a
+     lower cup K for ties against non-league sides are the levers. Individual moves worth a look: Bayern
+     +53 and Real Madrid −31 in 1965 (cups 1955–65 now count; the Oberligen still aren't modelled).
+   - Gaps left: Coppa Italia group stages 1960s–80s, Coupe de France before 1990 beyond the last 32/64,
+     KNVB before 1969, Taça 1955–61/1969–89 (except 1982), Belgian Cup before 1989, Turkish Cup before 1987:
+     RSSSF next.
 2. **Leagues of the other European trophy winners.** Clubs from unmodelled countries are rated only from
    European games: Steaua and Red Star (European Cup), Dinamo Kyiv, Dinamo Tbilisi, Slovan Bratislava,
    Magdeburg (Cup Winners' Cup), Göteborg, Ferencváros, Dinamo Zagreb, Shakhtar, Zenit (UEFA/Fairs Cup),
@@ -58,11 +80,12 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 
 - **Pipeline:** `python -m football_elo build | load | update | validate | calibrate | export`.
   - Coverage: England tiers 1–4; Spain, Germany, Italy, France, Netherlands tiers 1–2; top flights of
-    Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other countries'
-    cups from 2012/13; German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 520,000 matches and 3,383 clubs. Tests: 36, all passing (`pytest`).
+    Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
+    countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
+    German championship final rounds 1955–63; UEFA competitions from 1955.
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 44, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
-- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 20 on 2026-10-23.
+- **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
     transaction with a 15-minute statement timeout, so a failure rolls back cleanly.
   - The DB connector in Claude sessions is signed in to a different org; use `football_elo.db.connect()`.
@@ -174,7 +197,9 @@ update the dashboard.
    - Trophies: 11 unresolved two-legged European finals (UEL 7, FAIRS 3, UCWC 1). They need an away-goals
      rule, or a hand-entered list of winners.
    - Play-offs: 2019/20 has only 5 of 15 matches.
-   - Dates: 210 clashes in the sources, listed in `data/silver/data_quality.csv`.
+   - Dates: 3,784 club-days with two matches since run 21 (210 before): cup rounds without a printed date
+    often land on a league matchday. Only match order is affected; moving estimated cup dates to the
+    nearest Wednesday would clear most. Listed in `data/silver/data_quality.csv`.
    - ESPN, the live source for cups and Europe, is unofficial.
 
 ## Things that bit us (check these when adding data)

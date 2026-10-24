@@ -88,6 +88,13 @@ class SourceReader:
     @cache
     def _wikipedia(self, competition: str) -> pd.DataFrame:
         country = self.cfg["competitions"][competition]["country"]
+        cups = self.cfg["sources"]["wikipedia"].get("cups", {})
+        if competition in cups:
+            specs = cups[competition]
+            seasons = {y for s in specs for y in range(s["seasons"][0], s["seasons"][1] + 1)}
+            df = sources.wikipedia_cup(self.bronze / "wikipedia" / specs[0]["folder"], competition, country,
+                                       next((s["neutral_rounds"] for s in specs if "neutral_rounds" in s), None))
+            return df[df["season"].isin(seasons)].reset_index(drop=True)
         parts = []
         for spec in self.cfg["sources"]["wikipedia"]["leagues"][competition]:
             df = sources.wikipedia_league(self.bronze / "wikipedia" / spec["folder"], competition, country, spec["tier"])
@@ -227,6 +234,9 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
             df = df.fillna({"home_country": spec["country"], "away_country": spec["country"]})
         for src, part in df.groupby("source"):
             auto = new_aliases if src in auto_new_sources else None
+            if src == "wikipedia" and spec["type"] == "cup":
+                part = league_ties(part, aliases, frames, cfg)
+                auto = new_aliases       # clubs new in a live season's later rounds (tools/link_cup_names.py links history)
             frames.append(apply_aliases(part, aliases, src, auto_new=auto))
     df = pd.concat(frames, ignore_index=True)
     df["comp_type"] = df["competition"].map({c: s["type"] for c, s in cfg["competitions"].items()})
@@ -248,6 +258,22 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
     source_rows = source_rows[source_rows["match_date"] >= start]
     return {"matches": df[MATCH_COLUMNS], "clubs": clubs, "aliases": all_aliases,
             "new_aliases": new_aliases_df, "source_rows": source_rows}
+
+
+def league_ties(part: pd.DataFrame, aliases: pd.DataFrame, frames: list, cfg: dict) -> pd.DataFrame:
+    """Wikipedia cup matches where at least one side has played in a modelled
+    league (in any season): ties between two cup-only (amateur) clubs are
+    dropped, so thousands of clubs seen only in early rounds aren't rated.
+    Leagues come before cups in the config, so `frames` already holds them."""
+    leagues = {c for c, s in cfg["competitions"].items() if s["type"] == "league"}
+    played = [f for f in frames if f["competition"].isin(leagues).any()]
+    league_clubs = set(pd.concat(played)["home_club"]) | set(pd.concat(played)["away_club"]) if played else set()
+    mapping = aliases[aliases["source"] == "wikipedia"].set_index("source_name")["club"]
+    keep = part["home_club"].map(mapping).isin(league_clubs) | part["away_club"].map(mapping).isin(league_clubs)
+    if (~keep).any():
+        log.info("%s: %d of %d Wikipedia cup matches dropped (no league club)", part["competition"].iloc[0],
+                 int((~keep).sum()), len(part))
+    return part[keep]
 
 
 def warn_thin_seasons(df: pd.DataFrame, share: float = 0.5) -> pd.DataFrame:

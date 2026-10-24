@@ -116,9 +116,15 @@ def plain(s: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(s)).strip()
 
 
+RESERVE = re.compile(r"(?:^|\s)(?:B|C|II|III|2|Jong|Young|Reserves?|Amateure|Atl[eè]tic|U-?\d{2})(?:\s|$)")
+
+
 def club(cell: str) -> tuple[str, str] | None:
     """(key, display name) for a team cell: the article its first link points
-    to (stable across seasons), else the plain name; None for byes/blanks."""
+    to (stable across seasons), else "~" + the plain name (sources prefixes the
+    country, so an unlinked "Olympic" in one cup isn't another country's);
+    None for byes/blanks. A reserve side linked to its first team's article
+    ("[[PSV Eindhoven|Jong PSV]]") is keyed "PSV Eindhoven [Jong PSV]"."""
     s = re.sub(r"\{\{\s*(?:flagicon|flag|fb|fbaicon|flagdeco)[^{}]*\}\}", "", cell, flags=re.I)
     s = re.sub(r"\[\[(?:File|Image):[^\]]*\]\]", "", s, flags=re.I)
     name = re.sub(r"\s*\([^)]*\)\s*$", "", plain(s)).strip()          # "(D1)", "(3)", "(HL)"
@@ -132,8 +138,12 @@ def club(cell: str) -> tuple[str, str] | None:
         label = plain(m.group(2) if m.group(2) is not None else target)
         target = target.split("#")[0].replace("_", " ").strip()
         if target:
-            return target[0].upper() + target[1:], label or name
-    return name, name
+            target = target[0].upper() + target[1:]
+            label = label or name
+            if RESERVE.search(label) and not RESERVE.search(target):
+                return f"{target} [{label}]", label
+            return target, label
+    return "~" + name, name
 
 
 def score(cell: str) -> dict | None:

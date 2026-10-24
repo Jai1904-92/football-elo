@@ -98,7 +98,7 @@ def test_expand_uses_onlyinclude(tmp_path: Path):
 
 def test_reader_dates_rounds_in_order_and_makes_single_finals_neutral(tmp_path: Path):
     (tmp_path / "1975.txt").write_text(PAGE, encoding="utf-8")
-    df = sources.wikipedia_cup(tmp_path, "GER-DFB")
+    df = sources.wikipedia_cup(tmp_path, "GER-DFB", "GER")
     by = df.set_index(["home_club", "away_club"])
     first = by.loc[("ASV Landau", "Hannover 96"), "match_date"]
     replay = by.loc[("FC Bayern Munich", "Hamburger SV"), "match_date"]
@@ -120,3 +120,9 @@ def test_expand_reads_labelled_sections(tmp_path: Path):
     ms = wikicups.parse_page(text, 1985)
     assert [(m["home"], m["hg"], m["ag"], m["leg"]) for m in ms] == [("A", 1, 0, None), ("B", 2, 2, 2)]
     assert "7–7" not in text
+
+
+def test_unlinked_names_and_reserve_sides_get_their_own_keys():
+    assert wikicups.club("[[PSV Eindhoven|Jong PSV]]") == ("PSV Eindhoven [Jong PSV]", "Jong PSV")
+    assert wikicups.club("[[Real Madrid Castilla|Castilla]]") == ("Real Madrid Castilla", "Castilla")
+    assert wikicups.club("'''Schijndel''' (A)") == ("~Schijndel", "Schijndel")
