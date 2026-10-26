@@ -306,6 +306,37 @@ def test_evidence_scaled_pooling_shares():
     assert rated.away_offset.iloc[0] == pytest.approx(-0.6 * rated.elo_delta.iloc[0])
 
 
+LEAGUE = _matches([
+    ("2020-08-01", 2020, 1, "A", "B", 3, 0), ("2020-08-01", 2020, 1, "C", "D", 0, 0),
+    ("2020-08-08", 2020, 1, "A", "C", 2, 0), ("2020-08-08", 2020, 1, "B", "D", 1, 1),
+    ("2020-08-15", 2020, 1, "A", "D", 4, 1), ("2020-08-15", 2020, 1, "C", "B", 1, 0),
+    ("2021-08-01", 2021, 1, "B", "A", 0, 1), ("2021-08-01", 2021, 1, "D", "C", 2, 2),
+    ("2021-08-08", 2021, 1, "C", "A", 1, 1), ("2021-08-08", 2021, 1, "D", "B", 0, 1),
+])
+PR = engine.EloParams(k=20, hfa=70, season_regress=0.5, countries=P.countries)
+
+
+def test_season_regression_pulls_towards_last_seasons_league_average():
+    rated, _ = engine.run(LEAGUE, PR)
+    r20 = rated[rated.season == 2020].sort_values("match_date")
+    end20 = {c: r20.home_elo_post.where(r20.home_club == c, r20.away_elo_post)[(r20.home_club == c) | (r20.away_club == c)].iloc[-1]
+             for c in "ABCD"}
+    avg = sum(end20.values()) / 4
+    first = rated[(rated.season == 2021) & (rated.away_club == "A")].iloc[0]
+    assert first.away_elo_pre == pytest.approx(end20["A"] - 0.5 * (end20["A"] - avg))
+
+
+def test_incremental_equals_full_across_a_season_start():
+    full, _ = engine.run(LEAGUE, PR)
+    cut = pd.Timestamp("2021-08-01")
+    first, state = engine.run(LEAGUE[LEAGUE.match_date < cut], PR)
+    rest, _ = engine.run(LEAGUE[LEAGUE.match_date >= cut], PR, initial=state, last_season=engine.run.last_season,
+                         membership=engine.league_membership(LEAGUE))
+    both = pd.concat([first, rest]).set_index("match_id").sort_index()
+    pd.testing.assert_frame_equal(both[["home_elo_post", "away_elo_post"]],
+                                  full.set_index("match_id").sort_index()[["home_elo_post", "away_elo_post"]])
+
+
 def test_calibration_targets_load_without_the_club_elo_history(tmp_path):
     # CI has only the committed snapshots, not the large Club Elo history file
     from football_elo import calibrate

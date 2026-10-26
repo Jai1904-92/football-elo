@@ -49,6 +49,10 @@ class EloParams:
     # league_pool and pool_cap. 0 games = a flat league_pool.
     pool_games: float = 0.0
     pool_cap: float = 0.0
+    # Season regression: at a club's first match of a new season its rating
+    # moves this share of the way to the average of the league (country and
+    # tier) it played in the season before. 0 = off.
+    season_regress: float = 0.0
     # Provisional ratings: a club's first `provisional_matches` rated matches
     # use K x `provisional_k`, so a new club (a foreign side entering Europe,
     # a newly promoted club) reaches its level quickly. 0 matches = off.
@@ -86,6 +90,7 @@ class EloParams:
                    league_pool=float(e.get("league_pool", 0.0)),
                    pool_games=float(e.get("pool_evidence", {}).get("games", 0.0)),
                    pool_cap=float(e.get("pool_evidence", {}).get("cap", 0.0)),
+                   season_regress=float(e.get("season_regress", 0.0)),
                    provisional_matches=int(e.get("provisional", {}).get("matches", 0)),
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
                    hfa_eta=float(e.get("hfa_dynamic", {}).get("eta", 0.0)),
@@ -222,7 +227,8 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         initial_base: dict[str, float] | None = None,
         played: dict[str, int] | None = None,
         hfa_state: dict[str, float] | None = None,
-        eu_games: pd.Series | None = None) -> tuple[pd.DataFrame, dict[str, float]]:
+        eu_games: pd.Series | None = None,
+        last_season: dict[str, int] | None = None) -> tuple[pd.DataFrame, dict[str, float]]:
     """Rate matches in order. `initial` holds ratings carried in from an earlier
     run (incremental updates); clubs not in it get their start rating.
 
@@ -236,7 +242,9 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     "europe") from an earlier run.
     `played` carries each club's count of rated matches before this run
     (for provisional K); clubs carried in without a count are treated as
-    established.
+    established. `last_season` carries each club's last season played
+    before this run, and `membership` the league tiers of earlier seasons,
+    so season regression applies when a replay crosses a season start.
 
     Returns (per-match frame with pre/post ratings and each side's country
     offset after the match, final full ratings). Final offsets are left in
@@ -283,6 +291,37 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     # per-match pooling shares (columns pool_home / pool_away) override league_pool when present
     pool_h = m["pool_home"].to_numpy(dtype=float) if "pool_home" in m else np.full(n, lam)
     pool_a = m["pool_away"].to_numpy(dtype=float) if "pool_away" in m else np.full(n, lam)
+    seasons_ = m["season"].to_numpy()
+    reg = params.season_regress
+    if reg:
+        ht, at_ = m["home_tier"].to_numpy(dtype=float), m["away_tier"].to_numpy(dtype=float)
+        tier_of, members = {}, {}
+        for clubs, cs, ts in ((homes, hc_arr, ht), (aways, ac_arr, at_)):
+            for c, cc, s_, t in zip(clubs, cs, seasons_, ts):
+                if t == t:                                     # not NaN: in a modelled league
+                    tier_of[(c, s_)] = t
+                    members.setdefault((cc, s_, t), set()).add(c)
+        if membership is not None:                            # earlier seasons (an incremental run)
+            latest = ({} if club_country is None else
+                      (club_country.groupby(level=0).last() if club_country.index.nlevels > 1 else club_country).to_dict())
+            for (c, s_), t in membership.items():
+                if t == t and (c, s_) not in tier_of:
+                    tier_of[(c, s_)] = float(t)
+                    members.setdefault((country_of.get(c, latest.get(c)), s_, float(t)), set()).add(c)
+        last_season = dict(last_season or {})
+
+    def regress(c, b, s_):
+        """`b` (club c's base part) pulled towards last season's league average."""
+        prev = last_season.get(c)
+        last_season[c] = s_
+        if prev is None or prev == s_ or (c, prev) not in tier_of:
+            return b
+        group = members.get((country_of.get(c), prev, tier_of[(c, prev)]), ())
+        full = [base[g] + off.get(country_of.get(g), 0.0) for g in group if g in base]
+        if len(full) < 4:
+            return b
+        own = b + off.get(country_of.get(c), 0.0)
+        return b - reg * (own - sum(full) / len(full))
 
     for i in range(n):
         h, a = homes[i], aways[i]
@@ -294,14 +333,24 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         bh = base.get(h)
         if bh is None:
             bh = hs[i]
-        elif country_of.get(h, ch) != ch:
-            # the club changed country (USSR -> Ukraine): its rating carries over
-            bh += off.get(country_of[h], 0.0) - oh
+            if reg:
+                last_season[h] = seasons_[i]
+        else:
+            if reg and last_season.get(h) != seasons_[i]:
+                bh = regress(h, bh, seasons_[i])
+            if country_of.get(h, ch) != ch:
+                # the club changed country (USSR -> Ukraine): its rating carries over
+                bh += off.get(country_of[h], 0.0) - oh
         ba = base.get(a)
         if ba is None:
             ba = as_[i]
-        elif country_of.get(a, ca) != ca:
-            ba += off.get(country_of[a], 0.0) - oa
+            if reg:
+                last_season[a] = seasons_[i]
+        else:
+            if reg and last_season.get(a) != seasons_[i]:
+                ba = regress(a, ba, seasons_[i])
+            if country_of.get(a, ca) != ca:
+                ba += off.get(country_of[a], 0.0) - oa
         country_of[h], country_of[a] = ch, ca
         rh, ra = bh + oh, ba + oa
         hkey = None
@@ -349,6 +398,7 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     run.last_offsets = off
     run.last_played = n_played
     run.last_hfa = hstate
+    run.last_season = last_season if reg else {}
     return out, final
 
 

@@ -206,7 +206,14 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
 
 - **League pooling:** 30% of every European rating change also moves the club's whole country (more for a
   country whose clubs played few European games the season before: 0.3 × √(50 / games), at most 60%; since
-  2026-10-26, `pool_evidence` in config). A league
+  2026-10-26, `pool_evidence` in config).
+- **Season regression:** at a club's first match of each season its rating moves 20% of the way to the
+  average of the league (country and tier) it played in the season before (`season_regress`, since
+  2026-10-26). Without it, clubs far above their league were overrated in Europe (−3.5pp for clubs 300+
+  above their league's average) and clubs below it underrated (+3.2pp); domestic dominance over weak sides
+  inflated the top. It improves league, cup and European prediction in fitted and held-out years. The weekly
+  update carries each club's last season (`db.last_season_before`) so a replay across a season start matches
+  a full build. A league
   that over- or under-performs in Europe is re-levelled within seasons rather than decades. A club's rating
   is its own part plus its country's level; the level history is in `gold.league_offsets`.
 - **Provisional ratings:** a club's first 40 rated matches use K × 2. A foreign club on its European debut,

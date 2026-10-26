@@ -174,6 +174,12 @@ def fetch_europe_games(cur: psycopg.Cursor) -> pd.Series:
     return df.set_index(["country", "season"])["n"]
 
 
+def last_season_before(cur: psycopg.Cursor, day) -> dict[str, int]:
+    """club -> season of its last rated match before `day` (season regression)."""
+    cur.execute("select club, max(season) from gold.club_ratings where valid_from <= %s group by club", (day,))
+    return {c: int(s) for c, s in cur.fetchall()}
+
+
 def fetch_membership(cur: psycopg.Cursor) -> pd.Series:
     """(club, season) -> league tier, all seasons (needed to spot newcomers)."""
     cur.execute("""

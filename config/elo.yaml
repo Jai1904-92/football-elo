@@ -713,6 +713,13 @@ elo:
   # European log loss fitted on 1965-94 and checked on 1995-2026 (both improve:
   # 0.53122 -> 0.53016, 0.59255 -> 0.59218); caps above 0.6 gained nothing.
   pool_evidence: {games: 50, cap: 0.6}
+  # Season regression (2026-10-26): at a club's first match of a new season its rating
+  # moves 20% of the way to the average of the league (country and tier) it played in
+  # the season before. Clubs far above their league were overrated in Europe (-3.5pp
+  # for 300+ above) and those below it underrated (+3.2pp); at 20% both vanish.
+  # Fitted on 1965-94, checked on 1995-2026: league log loss 0.61145 -> 0.60846 and
+  # 0.63851 -> 0.63496, European 0.53016 -> 0.52663 and 0.59218 -> 0.59081.
+  season_regress: 0.2
   # Provisional ratings: a club's first 40 rated matches use K x 2.
   provisional: {matches: 40, k_multiplier: 2.0}
   # K multiplier by competition type
