@@ -31,11 +31,11 @@ def load_targets(cfg: dict, burn_in_until: str | None = None) -> pd.DataFrame:
     cal = cfg["paths"]["calibration"]
     alias = _clubelo_aliases(cfg)
     frames = []
+    countries = list(cfg["elo"]["countries"])
 
     # the large Club Elo history isn't committed: without it (e.g. in CI) only the snapshots below are used
     if (cal / "clubelo-club-rankings.csv").exists():
         eh = pd.read_csv(cal / "clubelo-club-rankings.csv", usecols=["Club", "Country", "Elo", "date"])
-        countries = list(cfg["elo"]["countries"])
         eh = eh[eh["Country"].isin(countries)]
         eh["date"] = pd.to_datetime(eh["date"])
         keep = eh["date"].drop_duplicates().sort_values()

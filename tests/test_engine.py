@@ -304,3 +304,15 @@ def test_evidence_scaled_pooling_shares():
     assert rated.pool_away.iloc[0] == pytest.approx(0.6)            # thin evidence: the cap
     assert rated.home_offset.iloc[0] == pytest.approx(0.3 * rated.elo_delta.iloc[0])
     assert rated.away_offset.iloc[0] == pytest.approx(-0.6 * rated.elo_delta.iloc[0])
+
+
+def test_calibration_targets_load_without_the_club_elo_history(tmp_path):
+    # CI has only the committed snapshots, not the large Club Elo history file
+    from football_elo import calibrate
+    (tmp_path / "wayback").mkdir()
+    pd.DataFrame({"Club": ["Arsenal"], "Country": ["ENG"], "Elo": [2000]}).to_csv(tmp_path / "wayback" / "table_2024-09-02.csv", index=False)
+    aliases = tmp_path / "aliases.csv"
+    pd.DataFrame({"source": ["clubelo"], "source_name": ["Arsenal"], "club": ["Arsenal"]}).to_csv(aliases, index=False)
+    cfg = {"paths": {"calibration": tmp_path}, "aliases": aliases, "elo": {"countries": {"ENG": {}}}}
+    t = calibrate.load_targets(cfg)
+    assert t[["club", "clubelo_elo"]].values.tolist() == [["Arsenal", 2000]]
