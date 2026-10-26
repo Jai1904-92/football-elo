@@ -136,6 +136,14 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
      (`tools/club_branding.py`). The site lists 16 more countries (`web/src/lib/format.ts`); the league
      strength chart may need a filter.
 
+**Model changes 2026-10-26 (runs 26-27).** Evidence-scaled pooling (`pool_evidence`: 0.3 x sqrt(50 / last
+season's European games), cap 0.6) and season regression (`season_regress` 0.2 towards last season's league
+average). Both tuned on 1965-94 and checked on 1995-2026; regression improved league, cup and European log
+loss and removed the dominant-club bias (clubs 300+ above their league were -3.5pp in Europe). Top ratings
+are 50-110 points lower; 5 of 61 season #1s changed (e.g. Man Utd 1998/99, Arsenal 2025/26). England's
+ban seasons slide towards its 1991-95 average (`gap_after: 4`). Not yet re-checked under these: the
+whole-season measure's settings (15 virtual draws), and the starting levels.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results
