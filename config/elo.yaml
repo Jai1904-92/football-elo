@@ -707,6 +707,12 @@ elo:
   # League pooling: share of each European rating change that also moves the
   # club's whole country, so league levels follow European results quickly.
   league_pool: 0.3
+  # Evidence-scaled pooling (2026-10-26): a country whose clubs played few European
+  # games last season pools more of each European result: 0.3 x sqrt(50 / games),
+  # capped at 0.6 (about 0.3 for today's big leagues, 0.4 for 1980s Italy). Chosen on
+  # European log loss fitted on 1965-94 and checked on 1995-2026 (both improve:
+  # 0.53122 -> 0.53016, 0.59255 -> 0.59218); caps above 0.6 gained nothing.
+  pool_evidence: {games: 50, cap: 0.6}
   # Provisional ratings: a club's first 40 rated matches use K x 2.
   provisional: {matches: 40, k_multiplier: 2.0}
   # K multiplier by competition type

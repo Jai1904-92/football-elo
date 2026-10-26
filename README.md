@@ -204,7 +204,9 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
   | 1980s | 95 | 160 | 200 |
   | 2020s | 43 | 70 | 72 |
 
-- **League pooling:** 30% of every European rating change also moves the club's whole country. A league
+- **League pooling:** 30% of every European rating change also moves the club's whole country (more for a
+  country whose clubs played few European games the season before: 0.3 × √(50 / games), at most 60%; since
+  2026-10-26, `pool_evidence` in config). A league
   that over- or under-performs in Europe is re-levelled within seasons rather than decades. A club's rating
   is its own part plus its country's level; the level history is in `gold.league_offsets`.
 - **Provisional ratings:** a club's first 40 rated matches use K × 2. A foreign club on its European debut,

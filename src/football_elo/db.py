@@ -162,6 +162,18 @@ def fetch_club_country(cur: psycopg.Cursor) -> pd.Series:
     return pd.DataFrame(cur.fetchall(), columns=["club", "country"]).set_index("club")["country"]
 
 
+def fetch_europe_games(cur: psycopg.Cursor) -> pd.Series:
+    """(country, season) -> European games, from the rated history (each
+    club's country that season), for evidence-scaled pooling."""
+    cur.execute("""
+        with cs as (select distinct club, season, country from gold.club_ratings where country is not null),
+        e as (select season, home_club as club from silver.matches where comp_type = 'europe'
+              union all select season, away_club from silver.matches where comp_type = 'europe')
+        select cs.country, e.season, count(*) from e join cs using (club, season) group by cs.country, e.season""")
+    df = pd.DataFrame(cur.fetchall(), columns=["country", "season", "n"])
+    return df.set_index(["country", "season"])["n"]
+
+
 def fetch_membership(cur: psycopg.Cursor) -> pd.Series:
     """(club, season) -> league tier, all seasons (needed to spot newcomers)."""
     cur.execute("""

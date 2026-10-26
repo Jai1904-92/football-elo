@@ -162,7 +162,8 @@ def incremental_update(cfg: dict) -> int | None:
 
         rated, _ = engine.run(to_rate, engine.EloParams.from_config(cfg), initial_base=base, offsets=offsets,
                               hfa_state=hfa_state, played=played,
-                              club_country=db.fetch_club_country(cur), membership=membership)
+                              club_country=db.fetch_club_country(cur), membership=membership,
+                              eu_games=db.fetch_europe_games(cur))
         per = engine.periods(rated, burn_in_until=cfg["elo"]["burn_in_until"])
         db.write_match_ratings(cur, rated, run_id, cfg["elo"]["burn_in_until"])
         db.write_club_ratings(cur, per, run_id)

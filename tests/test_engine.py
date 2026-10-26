@@ -291,3 +291,16 @@ def test_country_seasons_follow_the_league():
     cs = silver.country_seasons(df, cfg)
     assert cs[("Kyiv", 1990)] == "URS" and cs[("Kyiv", 1992)] == "UKR"
     assert cs[("Tbilisi", 1990)] == "URS" and cs[("Tbilisi", 1993)] == "GEO"
+
+
+def test_evidence_scaled_pooling_shares():
+    m = _matches([("2001-09-01", 2001, 1, "A", "F", 1, 0)]).assign(comp_type="europe")
+    p = engine.EloParams(k=20, hfa=0, league_pool=0.3, pool_games=50, pool_cap=0.6,
+                         countries={"X": {"start_ratings": {1: 1500}, "nonleague": 1300}})
+    country = pd.Series({"A": "X", "F": "Z"})
+    games = pd.Series({("X", 2000): 200, ("Z", 2000): 8})           # last season's European games
+    rated, _ = engine.run(m, p, club_country=country, eu_games=games)
+    assert rated.pool_home.iloc[0] == pytest.approx(0.3)            # plenty of evidence: the floor
+    assert rated.pool_away.iloc[0] == pytest.approx(0.6)            # thin evidence: the cap
+    assert rated.home_offset.iloc[0] == pytest.approx(0.3 * rated.elo_delta.iloc[0])
+    assert rated.away_offset.iloc[0] == pytest.approx(-0.6 * rated.elo_delta.iloc[0])

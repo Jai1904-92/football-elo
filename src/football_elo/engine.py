@@ -43,6 +43,12 @@ class EloParams:
     # under-performs in Europe is re-levelled quickly instead of over decades.
     # 0 switches it off (plain Club Elo).
     league_pool: float = 0.0
+    # Evidence-scaled pooling: a country whose clubs played few European games
+    # last season pools more of each European result, since its level rests
+    # on thin evidence: share = league_pool * sqrt(pool_games / games), between
+    # league_pool and pool_cap. 0 games = a flat league_pool.
+    pool_games: float = 0.0
+    pool_cap: float = 0.0
     # Provisional ratings: a club's first `provisional_matches` rated matches
     # use K x `provisional_k`, so a new club (a foreign side entering Europe,
     # a newly promoted club) reaches its level quickly. 0 matches = off.
@@ -78,6 +84,8 @@ class EloParams:
                    k_multiplier={t: float(v) for t, v in e["k_multiplier"].items()},
                    newcomer_from_below=bool(e.get("newcomer_from_below", False)),
                    league_pool=float(e.get("league_pool", 0.0)),
+                   pool_games=float(e.get("pool_evidence", {}).get("games", 0.0)),
+                   pool_cap=float(e.get("pool_evidence", {}).get("cap", 0.0)),
                    provisional_matches=int(e.get("provisional", {}).get("matches", 0)),
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
                    hfa_eta=float(e.get("hfa_dynamic", {}).get("eta", 0.0)),
@@ -116,8 +124,16 @@ def league_membership(matches: pd.DataFrame) -> pd.Series:
     return long.groupby(["club", "season"])["tier"].agg(lambda s: s.value_counts().index[0])
 
 
+def europe_games(matches: pd.DataFrame) -> pd.Series:
+    """(country, season) -> European games its clubs played, from prepared
+    matches (each club's country that season)."""
+    e = matches[matches["comp_type"] == "europe"]
+    return pd.concat([e[["home_country", "season"]].set_axis(["country", "season"], axis=1),
+                      e[["away_country", "season"]].set_axis(["country", "season"], axis=1)]).value_counts()
+
+
 def prepare(matches: pd.DataFrame, params: EloParams, club_country: pd.Series | None = None,
-            membership: pd.Series | None = None) -> pd.DataFrame:
+            membership: pd.Series | None = None, eu_games: pd.Series | None = None) -> pd.DataFrame:
     """Add the per-match inputs the rating loop needs: home/away tier and
     country, start ratings, HFA on/off and K multiplier.
 
@@ -126,7 +142,9 @@ def prepare(matches: pd.DataFrame, params: EloParams, club_country: pd.Series | 
     silver.country_seasons); clubs or seasons it doesn't cover fall back to
     the club's latest listed country. Default: every club belongs to the
     first modelled country. `membership` maps (club, season) -> tier
-    (default: derived from the league matches given)."""
+    (default: derived from the league matches given). `eu_games` maps
+    (country, season) -> European games (default: counted from the matches
+    given; an incremental run passes the full history's)."""
     m = matches.copy()
     if "comp_type" not in m:
         m["comp_type"] = "league"
@@ -142,6 +160,10 @@ def prepare(matches: pd.DataFrame, params: EloParams, club_country: pd.Series | 
                                 if club_country is not None else default_country)
         m[f"{side}_newcomer"] = newcomer.reindex(key).fillna(False).to_numpy(dtype=bool)
     m["hfa_on"] = ~m["neutral"].astype(bool)
+    eu_games = europe_games(m) if eu_games is None else eu_games
+    for side in ("home", "away"):        # last season's European games of the club's country
+        key = pd.MultiIndex.from_arrays([m[f"{side}_country"], m["season"] - 1])
+        m[f"{side}_eu_prev"] = eu_games.reindex(key).fillna(0).to_numpy()
     return assign_params(m, params)
 
 
@@ -183,6 +205,13 @@ def assign_params(m: pd.DataFrame, params: EloParams) -> pd.DataFrame:
         lookup = {(c, t): params.start_rating(c, t) for c, t in zip(uniq["c"], uniq["t"])}
         m[f"{side}_start"] = [lookup[(c, t)] for c, t in zip(pairs["c"], pairs["t"])]
     m["k_mult"] = m["comp_type"].map(params.k_multiplier).fillna(1.0)
+    if params.pool_games and "home_eu_prev" in m:
+        lam = params.league_pool
+        for side in ("home", "away"):
+            m[f"pool_{side}"] = np.clip(lam * np.sqrt(params.pool_games / np.maximum(m[f"{side}_eu_prev"], 1)),
+                                        lam, max(lam, params.pool_cap))
+    else:
+        m = m.drop(columns=["pool_home", "pool_away"], errors="ignore")
     return m
 
 
@@ -192,7 +221,8 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         offsets: dict[str, float] | None = None,
         initial_base: dict[str, float] | None = None,
         played: dict[str, int] | None = None,
-        hfa_state: dict[str, float] | None = None) -> tuple[pd.DataFrame, dict[str, float]]:
+        hfa_state: dict[str, float] | None = None,
+        eu_games: pd.Series | None = None) -> tuple[pd.DataFrame, dict[str, float]]:
     """Rate matches in order. `initial` holds ratings carried in from an earlier
     run (incremental updates); clubs not in it get their start rating.
 
@@ -212,7 +242,7 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     offset after the match, final full ratings). Final offsets are left in
     `run.last_offsets`."""
     if "home_tier" not in matches:
-        matches = prepare(matches, params, club_country, membership)
+        matches = prepare(matches, params, club_country, membership, eu_games)
     else:
         matches = assign_params(matches, params)
     sort = ["match_date", "match_id"] if "match_id" in matches else ["match_date", "home_club"]
@@ -250,6 +280,9 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     hs = m["home_start"].to_numpy(dtype=float); as_ = m["away_start"].to_numpy(dtype=float)
     hfa_on = m["hfa_on"].to_numpy(dtype=bool); km = m["k_mult"].to_numpy(dtype=float)
     europe = (m["comp_type"] == "europe").to_numpy() if "comp_type" in m else np.zeros(n, bool)
+    # per-match pooling shares (columns pool_home / pool_away) override league_pool when present
+    pool_h = m["pool_home"].to_numpy(dtype=float) if "pool_home" in m else np.full(n, lam)
+    pool_a = m["pool_away"].to_numpy(dtype=float) if "pool_away" in m else np.full(n, lam)
 
     for i in range(n):
         h, a = homes[i], aways[i]
@@ -297,11 +330,11 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
             n_played[h], n_played[a] = nh + 1, na + 1
         base[h] = bh + dh
         base[a] = ba - da
-        if lam and europe[i] and ch != ca:
+        if europe[i] and ch != ca:
             if ch is not None:
-                off[ch] = oh + lam * dh
+                off[ch] = oh + pool_h[i] * dh
             if ca is not None:
-                off[ca] = oa - lam * da
+                off[ca] = oa - pool_a[i] * da
         pre_h[i], pre_a[i], exp_h[i], delta[i] = rh, ra, we, d
         off_h[i], off_a[i] = off.get(ch, 0.0), off.get(ca, 0.0)
         post_h[i] = base[h] + off_h[i]
