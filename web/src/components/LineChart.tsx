@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 export type Point = { x: Date; y: number };
 export type Series = { key: string; label: string; color: string; points: Point[] };
-export type Marker = { key: string; x: Date; y: number; color: string; shape: 'diamond' | 'ring'; label: string };
+export type Marker = { key: string; x: Date; y: number; color: string; shape: 'diamond' | 'ring' | 'square'; label: string };
 
 type Props = {
   series: Series[];
@@ -83,6 +83,8 @@ export default function LineChart({ series, markers = [], height = 380, invert, 
         g.append('title').text(mk.label);
         if (mk.shape === 'diamond') g.append('rect').attr('x', -4.5).attr('y', -4.5).attr('width', 9).attr('height', 9)
           .attr('transform', 'rotate(45)').attr('fill', mk.color).attr('stroke', '#05080f').attr('stroke-width', 1.5);
+        else if (mk.shape === 'square') g.append('rect').attr('x', -3.5).attr('y', -3.5).attr('width', 7).attr('height', 7)
+          .attr('fill', mk.color).attr('stroke', '#05080f').attr('stroke-width', 1.5);
         else g.append('circle').attr('r', 4.5).attr('fill', '#05080f').attr('stroke', mk.color).attr('stroke-width', 2);
       });
 

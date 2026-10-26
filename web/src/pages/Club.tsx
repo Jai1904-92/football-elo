@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { loadClub, useAsync, useCompetitions, useView, type ClubIndex, type Match } from '../lib/data';
-import { Badge, Card, ClubName, ClubPicker, Ring, Status, Table } from '../components/ui';
+import { loadClub, useAsync, useCompetitions, useJSON, useView, type ClubIndex, type Match } from '../lib/data';
+import { Badge, Card, ClubName, ClubPicker, Ring, Seg, Status, Table } from '../components/ui';
 import LineChart, { type Marker } from '../components/LineChart';
 import { clubColors, clubStyle } from '../lib/color';
 import { COMP_SHORT, COUNTRIES, DOMESTIC_CUPS, EUROPEAN, int, LEAGUE_TITLES, pct, seasonLabel, signed } from '../lib/format';
@@ -32,16 +32,27 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
     return { best: by.slice(0, 10), worst: by.slice(-10).reverse() };
   }, [file.data]);
 
+  // rating history: the month-end rating, or how far it sits above the average top-flight club that month
+  const [view, setView] = useState<'elo' | 'above'>('elo');
+  const field = useJSON<Record<string, number>>('field.json');
+  const points = useMemo(() => (file.data?.months ?? []).flatMap(([m, v]) => {
+    const f = field.data?.[m];
+    if (view === 'above' && f == null) return [];
+    return [{ month: m, x: new Date(m + '-15T00:00:00Z'), y: view === 'above' ? v - f! : v }];
+  }), [file.data, field.data, view]);
+  const leagueName = useMemo(() => new Map(LEAGUE_TITLES), []);
+
   const markers: Marker[] = useMemo(() => {
-    if (!file.data) return [];
-    const months = new Map(file.data.months);
-    return won.filter((t) => t.competition === 'UCL' || EUROPEAN.includes(t.competition)).map((t) => {
+    const at = new Map(points.map((p) => [p.month, p.y]));
+    return won.filter((t) => t.competition === 'UCL' || EUROPEAN.includes(t.competition) || leagueName.has(t.competition)).map((t) => {
       const key = `${t.season + 1}-05`;
-      const y = months.get(key) ?? months.get(`${t.season + 1}-04`) ?? months.get(`${t.season + 1}-06`);
+      const y = at.get(key) ?? at.get(`${t.season + 1}-04`) ?? at.get(`${t.season + 1}-06`);
+      const league = leagueName.has(t.competition);
       return y == null ? null : { key: t.competition + t.season, x: new Date(key + '-15T00:00:00Z'), y, color: colors.second,
-        shape: t.competition === 'UCL' ? 'diamond' : 'ring', label: `${COMP_SHORT[t.competition]} ${seasonLabel(t.season)}` } as Marker;
+        shape: t.competition === 'UCL' ? 'diamond' : league ? 'square' : 'ring',
+        label: `${league ? leagueName.get(t.competition) : COMP_SHORT[t.competition]} ${seasonLabel(t.season)}` } as Marker;
     }).filter(Boolean) as Marker[];
-  }, [won, file.data, colors.second]);
+  }, [won, points, leagueName, colors.second]);
 
   if (!club) return <Status error={`no club "${slug}"`} />;
   const latest = file.data?.months.at(-1);
@@ -91,9 +102,13 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
         </div>
       </Card>
 
-      <Card club={club} title="Rating history" note="Month-end Elo rating. Diamonds mark European Cup wins and rings other European trophies.">
+      <Card club={club} title="Rating history" note="Month-end Elo rating, or how far it sits above the average top-flight club that month. Diamonds mark European Cup wins, rings other European trophies and squares league titles.">
+        <div className="controls" style={{ marginTop: 0 }}>
+          <Seg label="Show" value={view} onChange={setView} options={[['elo', 'Rating'], ['above', 'Above average']]} />
+        </div>
         {file.data ? <LineChart height={340} markers={markers} shadeBefore={new Date(Date.UTC(1965, 6, 1))}
-          series={[{ key: club.slug, label: club.name, color: colors.accent, points: file.data.months.map(([m, v]) => ({ x: new Date(m + '-15T00:00:00Z'), y: v })) }]} />
+          zero={view === 'above'} format={view === 'above' ? signed : int} yLabel={view === 'above' ? 'Above average' : 'Rating'}
+          series={[{ key: club.slug, label: club.name, color: colors.accent, points }]} />
           : <Status error={file.error} />}
       </Card>
 
