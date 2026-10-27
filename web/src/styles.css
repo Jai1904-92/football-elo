@@ -105,6 +105,7 @@ h2::before { content: ''; width: 10px; height: 11px; background: var(--club); cl
 .input:focus, .select:focus { border-color: var(--cyan); box-shadow: inset 0 0 0 1px var(--cyan); }
 .btn { cursor: pointer; font-family: var(--head); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
 .btn:hover { background: rgba(63, 208, 255, .12); }
+.btn:disabled { opacity: .4; cursor: default; background: none; }
 .seg { display: inline-flex; border: 1px solid var(--line-strong); clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px); }
 .seg button { font: 600 0.82rem var(--head); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: transparent; border: 0; padding: 7px 14px; cursor: pointer; }
 .seg button[aria-pressed='true'] { background: var(--club); color: #03101c; }
@@ -113,6 +114,7 @@ input[type='range'] { accent-color: var(--cyan); width: 120px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; gap: 8px; padding: 3px 10px 3px 4px; background: rgba(255,255,255,.04); border: 1px solid var(--line); font-size: .86rem; }
 .chip button { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 0 0 2px; }
+.chip-line { width: 22px; height: 10px; flex: none; }
 .chip i { width: 10px; height: 10px; display: inline-block; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
 
 /* ------------------------------------------------------------ tables */

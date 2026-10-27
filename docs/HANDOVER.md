@@ -7,11 +7,12 @@ Club Elo RMSE; show the effect on familiar clubs and seasons before switching.
 
 ## Start here: next jobs (Alex's queue)
 
-Site requests, added 2026-10-27, not started:
-- **Rise and fall (`web/src/pages/Eras.tsx`):** the selected line should always be drawn in that team's
-  own colour (`config/club_branding.csv`).
-- **World top 100 by season:** a new view of the world top 100 for any season, with the end / whole-season
-  (`measure` 'end' / 'perf') toggle, so the top 100's standings can be compared year to year.
+Site requests of 2026-10-27, done the same day:
+- **Rise and fall (`web/src/pages/Rise.tsx`):** every line is in its club's own colour (`color.clubLines`);
+  clubs whose colours clash keep them and get a dash pattern, shown in the chips too.
+- **World top 100 by season (`web/src/pages/Top100.tsx`, nav "Top 100"):** any season's world top 100 with
+  the end / whole-season toggle, move against the season before, and the rank under the other measure.
+  Data: `season_top100.json` from the export.
 
 1. **Domestic cups going way back.** English cups already run from 1955; the other ten countries' cups
    only from 2012/13 (Coupe de France 2015/16; Scotland, Belgium, Turkey and Greece have none yet).

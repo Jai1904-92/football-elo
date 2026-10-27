@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { loadClub, useAsync, useView, type ClubIndex } from '../lib/data';
 import { Card, ClubName, ClubPicker, Seg, Status, Table } from '../components/ui';
 import LineChart, { type Marker, type Series } from '../components/LineChart';
-import { seriesColors } from '../lib/color';
+import { clubLines } from '../lib/color';
 import { EUROPEAN, int, seasonLabel, signed } from '../lib/format';
 import { careerFigures, MeasureNote, seasonFigures, useMeasure } from '../lib/measure';
 
@@ -30,12 +30,13 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
   const files = useAsync(() => Promise.all(slugs.map(loadClub)), [slugs.join(',')]);
   const trophies = useView<Trophy>('trophies');
   const sel = slugs.map((s) => clubs.bySlug.get(s)!);
-  const colors = useMemo(() => seriesColors(sel), [slugs.join(',')]); // eslint-disable-line react-hooks/exhaustive-deps
+  const lines = useMemo(() => clubLines(sel), [slugs.join(',')]); // eslint-disable-line react-hooks/exhaustive-deps
+  const colors = lines.map((l) => l.color);
 
   const { series, markers } = useMemo(() => {
     if (!files.data) return { series: [] as Series[], markers: [] as Marker[] };
     const series: Series[] = files.data.map((f, i) => ({
-      key: sel[i].slug, label: sel[i].name, color: colors[i],
+      key: sel[i].slug, label: sel[i].name, color: colors[i], dash: lines[i].dash,
       points: measure === 'elo'
         ? f.months.map(([m, v]) => ({ x: new Date(m + '-15T00:00:00Z'), y: v }))
         : f.seasons.map((s) => { const v = seasonFigures(s, sm); return { x: new Date(Date.UTC(s.season + 1, 4, 31)), y: measure === 'above' ? v.above : v.world }; }),
@@ -52,7 +53,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
         shape: t.competition === 'UCL' ? 'diamond' : 'ring', label: `${sel[i].name} — ${t.competition} ${seasonLabel(t.season)}` });
     });
     return { series, markers };
-  }, [files.data, trophies.data, measure, colors, sm]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [files.data, trophies.data, measure, lines, sm]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const counts = (id: number) => {
     const won = (trophies.data ?? []).filter((t) => t.winner === id);
@@ -76,7 +77,8 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
         </div>
         <div className="chips" style={{ marginBottom: 10 }}>
           {sel.map((c, i) => (
-            <span className="chip" key={c.slug}><i style={{ background: colors[i] }} /><ClubName club={c} size={20} />
+            <span className="chip" key={c.slug}>
+              <svg className="chip-line" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5" stroke={colors[i]} strokeWidth="2.5" strokeDasharray={lines[i].dash ?? undefined} /></svg><ClubName club={c} size={20} />
               <button aria-label={`Remove ${c.name}`} onClick={() => set(slugs.filter((s) => s !== c.slug))}>×</button></span>))}
         </div>
         {measure !== 'elo' && <MeasureNote />}
@@ -87,7 +89,7 @@ export default function Rise({ clubs }: { clubs: ClubIndex }) {
                      format={measure === 'above' ? signed : int} height={420}
                      xFormat={measure === 'elo' ? undefined : (d) => 'Season ' + seasonLabel(d.getUTCFullYear() - 1)} />
         ) : <Status error={files.error} />}
-        <p className="note">Diamonds mark European Cup wins and rings other European trophies. Shaded: 1955–64, the burn-in decade while starting ratings settle. Gaps are summers and seasons outside the modelled leagues.</p>
+        <p className="note">Diamonds mark European Cup wins and rings other European trophies. Shaded: 1955–64, the burn-in decade while starting ratings settle. Gaps are summers and seasons outside the modelled leagues. Each line is in its club's colour; clubs that share a colour are told apart by dashes.</p>
       </Card>
 
       <Card title="Head to head" note="Career numbers since 1965/66.">

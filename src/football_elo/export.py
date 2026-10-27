@@ -13,6 +13,9 @@ compact JSON under `out`:
                        config/league_champions.csv, competition = the league)
   club/<slug>.json     one league club: monthly ratings, seasons, matches
   tables/<year>.json   month-end rankings of league clubs in that year
+  season_top100.json   the world top 100 of each season under each measure
+                       ('end', 'perf'), with the club's world rank the
+                       season before
 
 Monthly ratings, month-end tables and field.json carry the hindsight country
 levels before 2000 (gold.country_hindsight, as the season views do): each
@@ -131,6 +134,11 @@ def export(out: Path = DEFAULT_OUT) -> Path:
                     "e.league_rank, p.rating as perf, p.above_field as above_perf, p.world_rank as world_rank_perf, "
                     "p.league_rank as league_rank_perf from gold.mv_club_seasons e left join gold.mv_club_seasons p "
                     "on p.club = e.club and p.season = e.season and p.measure = 'perf' where e.measure = 'end'")
+        top100 = q("select s.measure, s.season, s.world_rank as rank, s.club, round(s.rating) as rating, "
+                   "round(s.above_field) as above, s.tier, s.league_rank, p.world_rank as prev_rank "
+                   "from gold.mv_club_seasons s left join gold.mv_club_seasons p on p.club = s.club "
+                   "and p.measure = s.measure and p.season = s.season - 1 "
+                   "where s.world_rank <= 100 order by s.measure, s.season, s.world_rank")
         hindsight = q("select country, season, correction from gold.country_hindsight")
         ratings = with_hindsight(q("select club, country, season, valid_from, valid_to, elo, tier "
                                    "from gold.club_ratings"), hindsight)
@@ -185,6 +193,9 @@ def export(out: Path = DEFAULT_OUT) -> Path:
         for col in [c for c in df.columns if c in ("club", "runner_up", "winner", "loser", "home_club", "away_club")]:
             df[col] = df[col].map(cid)
         _write(out / f"{name}.json", _rows(df))
+    top100["club"] = top100["club"].map(cid)
+    top100 = top100.astype({c: "Int64" for c in ["rating", "above", "tier", "league_rank", "prev_rank"]})
+    _write(out / "season_top100.json", _rows(top100))
 
     # month-end tables and the top-flight field average
     tables = month_tables(ratings)

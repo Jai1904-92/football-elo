@@ -50,6 +50,19 @@ export function seriesColors(clubs: (Club | undefined)[]): string[] {
   return out;
 }
 
+const DASHES = ['7 4', '2 4', '12 4 2 4', '4 7'];
+
+/** Each club's own colour; clubs whose colours clash keep them and get a dash pattern instead. */
+export function clubLines(clubs: (Club | undefined)[]): { color: string; dash: string | null }[] {
+  const out: { color: string; dash: string | null }[] = [];
+  clubs.forEach((c) => {
+    const { accent } = clubColors(c);
+    const clashes = out.filter((o) => dist(rgb(o.color), rgb(accent)) <= 90).length;
+    out.push({ color: accent, dash: clashes ? DASHES[(clashes - 1) % DASHES.length] : null });
+  });
+  return out;
+}
+
 export function clubStyle(club: Club | undefined): CSSProperties {
   const { accent, second } = clubColors(club);
   return { ['--club' as string]: accent, ['--club-2' as string]: second };

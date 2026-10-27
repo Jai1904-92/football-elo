@@ -10,11 +10,12 @@ import Eras from './pages/Eras';
 import ClubPage from './pages/Club';
 import Matchups from './pages/Matchups';
 import Rankings from './pages/Rankings';
+import Top100 from './pages/Top100';
 import Greatest from './pages/Greatest';
 
 const NAV: [string, string][] = [
   ['/rise', 'Rise & fall'], ['/alltime', 'All-time'], ['/eras', 'Eras'], ['/club', 'Club'],
-  ['/matchups', 'Matchups'], ['/rankings', 'Rankings'], ['/greatest', 'Greatest'],
+  ['/matchups', 'Matchups'], ['/rankings', 'Rankings'], ['/top100', 'Top 100'], ['/greatest', 'Greatest'],
 ];
 
 function Mark() {
@@ -69,6 +70,7 @@ function Shell() {
               <Route path="/club/:slug" element={<ClubPage clubs={clubs.data} />} />
               <Route path="/matchups" element={<Matchups clubs={clubs.data} />} />
               <Route path="/rankings" element={<Rankings clubs={clubs.data} />} />
+              <Route path="/top100" element={<Top100 clubs={clubs.data} />} />
               <Route path="/greatest" element={<Greatest clubs={clubs.data} />} />
               <Route path="*" element={<Home clubs={clubs.data} />} />
             </Routes>

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
 export type Point = { x: Date; y: number };
-export type Series = { key: string; label: string; color: string; points: Point[] };
+export type Series = { key: string; label: string; color: string; dash?: string | null; points: Point[] };
 export type Marker = { key: string; x: Date; y: number; color: string; shape: 'diamond' | 'ring' | 'square'; label: string };
 
 type Props = {
@@ -74,7 +74,7 @@ export default function LineChart({ series, markers = [], height = 380, invert, 
         runs.forEach((r) => {
           if (r.length === 1) g.append('circle').attr('cx', x(r[0].x)).attr('cy', y(r[0].y)).attr('r', 2).attr('fill', s.color);
           else g.append('path').attr('d', line(r)).attr('fill', 'none').attr('stroke', s.color).attr('stroke-width', 2)
-            .attr('filter', 'url(#glow)').attr('stroke-linejoin', 'round');
+            .attr('stroke-dasharray', s.dash ?? null).attr('filter', 'url(#glow)').attr('stroke-linejoin', 'round');
         });
       });
       markers.forEach((mk) => {
