@@ -14,8 +14,8 @@ import Top100 from './pages/Top100';
 import Greatest from './pages/Greatest';
 
 const NAV: [string, string][] = [
-  ['/rise', 'Rise & fall'], ['/alltime', 'All-time'], ['/eras', 'Eras'], ['/club', 'Club'],
-  ['/matchups', 'Matchups'], ['/rankings', 'Rankings'], ['/top100', 'Top 100'], ['/greatest', 'Greatest'],
+  ['/club', 'Club'], ['/top100', 'Top 100'], ['/rise', 'Rise & fall'], ['/alltime', 'All-time'], ['/eras', 'Eras'],
+  ['/matchups', 'Matchups'], ['/rankings', 'Rankings'], ['/greatest', 'Greatest'],
 ];
 
 function Mark() {
