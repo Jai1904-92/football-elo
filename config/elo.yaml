@@ -280,7 +280,10 @@ sources:
 # order: each source contributes rows inside its date window, but only for
 # (season, tier) blocks that no earlier source already covers, except that a
 # window with `replace_partial: x` takes over blocks where the earlier sources
-# have under x times its own match count (a season they hold only part of).
+# have under x times its own match count (a season they hold only part of),
+# and one with `extend: <date>` adds its matches from that date that fall after
+# the earlier sources' last one in a block (Transfermarkt's 2025/26 stops in
+# April or May 2026, before the finals).
 # `tiers` limits a window to those tiers (sources whose tier-1 sections are
 # read only to link club names). So gaps in an
 # earlier source (e.g. engsoccerdata has no 2022/23 league season) are filled
@@ -513,7 +516,7 @@ competitions:
     windows:
       - {source: engsoccerdata}
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn}
+      - {source: espn, extend: "2026-04-01"}
   ENG-LC:
     name: League Cup
     type: cup
@@ -535,7 +538,7 @@ competitions:
     windows:
       - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn, replace_partial: 0.9}
+      - {source: espn, replace_partial: 0.9, extend: "2026-04-01"}
   GER-DFB:
     name: DFB-Pokal
     type: cup
@@ -543,7 +546,7 @@ competitions:
     windows:
       - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn, replace_partial: 0.9}
+      - {source: espn, replace_partial: 0.9, extend: "2026-04-01"}
   ITA-CI:
     name: Coppa Italia
     type: cup
@@ -551,7 +554,7 @@ competitions:
     windows:
       - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn, replace_partial: 0.9}
+      - {source: espn, replace_partial: 0.9, extend: "2026-04-01"}
   FRA-CDF:
     name: Coupe de France
     type: cup
@@ -566,7 +569,7 @@ competitions:
     windows:
       - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn, replace_partial: 0.9}
+      - {source: espn, replace_partial: 0.9, extend: "2026-04-01"}
   POR-TP:
     name: Taça de Portugal
     type: cup
@@ -574,7 +577,7 @@ competitions:
     windows:
       - {source: wikipedia, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}   # some seasons from the last 8 only
-      - {source: espn, replace_partial: 0.9}            # from 2021/22
+      - {source: espn, replace_partial: 0.9, extend: "2026-04-01"}   # from 2021/22
   # Cups of the top-flight-only countries: Wikipedia season articles throughout
   # (sources.wikipedia.cups lists the seasons that have one).
   SCO-SC:
@@ -607,20 +610,20 @@ competitions:
     windows:
       - {source: engsoccerdata, until: "2016-06-30"}   # its 2016/17 and 2017/18 hold only the finals
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn}
+      - {source: espn, extend: "2026-04-01"}
   UEL:
     name: UEFA Cup / Europa League (incl. qualifying)
     type: europe
     windows:
       - {source: datarozhlas, until: "2012-06-30"}
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn}
+      - {source: espn, extend: "2026-04-01"}
   UECL:
     name: Conference League (incl. qualifying)
     type: europe
     windows:
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn}
+      - {source: espn, extend: "2026-04-01"}
   UCWC:
     name: Cup Winners' Cup
     type: europe
@@ -636,7 +639,7 @@ competitions:
     type: europe
     windows:
       - {source: transfermarkt, until: "2026-06-30"}
-      - {source: espn}
+      - {source: espn, extend: "2026-04-01"}
 
 aliases: config/club_aliases.csv
 

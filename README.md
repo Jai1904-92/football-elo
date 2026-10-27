@@ -63,9 +63,11 @@ How sources combine:
 - Each competition lists its sources in priority order. A later source only fills (season, tier) blocks
   that an earlier one lacks, so overlaps are never double counted. All source rows are still kept in bronze,
   so the overlaps can be checked.
-- Two window options: `replace_partial: x` lets a later source take over a block where the earlier sources
-  hold under x times its match count (football-data's partial Segunda 2001/02–2003/04), and `tiers` limits a
-  window to some tiers (RSSSF and Wikipedia tier-1 sections are read only to link club names).
+- Three window options: `replace_partial: x` lets a later source take over a block where the earlier sources
+  hold under x times its match count (football-data's partial Segunda 2001/02–2003/04), `extend: <date>` lets
+  it add its matches from that date that fall after the earlier sources' last one in a block (Transfermarkt's 2025/26 stops in late
+  April or early May 2026, before the cup and European finals), and `tiers` limits a window to some tiers
+  (RSSSF and Wikipedia tier-1 sections are read only to link club names).
 - Transfermarkt is [dcaribou/transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets). Its
   updates stopped in July 2026, so the 2026/27 season onward comes from ESPN's public scoreboard API. That API
   is unofficial and undocumented, so expect occasional breakage.

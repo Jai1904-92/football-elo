@@ -154,6 +154,20 @@ def test_replace_partial_takes_over_thin_seasons_only():
     assert out.groupby("season")["source"].agg(set).to_dict() == {1990: {"b"}, 2000: {"a"}, 2001: {"b"}}
 
 
+def test_extend_adds_only_matches_after_the_earlier_source_stops():
+    def frame(source, dates, season=2025):
+        return pd.DataFrame({"season": season, "tier": None, "match_date": pd.to_datetime(dates),
+                             "competition": "X", "source": source, "home_club": range(len(dates)),
+                             "away_club": range(len(dates))})
+    cfg = {"competitions": {"X": {"windows": [{"source": "a"}, {"source": "b", "extend": "2026-01-01"}]}}}
+    reader = _Reader({"a": frame("a", ["2025-09-01", "2026-05-06"]),
+                      "b": pd.concat([frame("b", ["2025-09-01", "2026-05-06", "2026-05-30"]),
+                                      frame("b", ["2026-09-01"], season=2026)])})
+    out = silver.combine_windows(cfg, "X", reader)
+    assert sorted(zip(out["source"], out["match_date"].dt.strftime("%Y-%m-%d"))) == [
+        ("a", "2025-09-01"), ("a", "2026-05-06"), ("b", "2026-05-30"), ("b", "2026-09-01")]
+
+
 def test_match_ids_drop_accented_letters_whatever_the_pandas_version():
     df = pd.DataFrame({"match_date": pd.to_datetime(["2025-09-28"]), "home_club": ["Kayserispor"],
                        "away_club": ["Gençlerbirliği"]})

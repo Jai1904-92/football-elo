@@ -213,6 +213,20 @@ def combine_windows(cfg: dict, competition: str, reader: SourceReader) -> pd.Dat
                       for f in frames]
             taken -= partial
         keep = ~block.isin(taken)
+        if "extend" in w and frames:
+            # in blocks already taken, add our matches from the `extend` date that fall after the
+            # earlier sources' last one (a source that stopped mid-season, like Transfermarkt in
+            # May 2026); the date keeps out late-June qualifiers that sources put in different seasons
+            have = pd.concat(frames)
+            have_block = pd.Series(list(zip(have["season"], have["tier"].fillna(0))), index=have.index)
+            last = have["match_date"].groupby(have_block).max()
+            after = block.map(last)
+            extra = (block.isin(taken) & (df["match_date"] > after)
+                     & (df["match_date"] >= pd.Timestamp(w["extend"])))
+            for b, n in block[extra].value_counts().sort_index().items():
+                log.info("%s: %s extends season %d tier %d by %d matches after %s", competition,
+                         w["source"], b[0], b[1], n, last[b].date())
+            keep |= extra
         df = df[keep]
         if df.empty:
             continue
