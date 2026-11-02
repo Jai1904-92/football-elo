@@ -163,6 +163,30 @@ over its own league by 15% (migration `20261102000000_league_shrink.sql`, README
 monthly ratings and rankings on a date are not shrunk. Also left: Celtic/Rangers 1960s partly a data gap: the
 Fairs Cup is about half missing 1963-70 (being filled in a separate session).
 
+**Season regression only forwards (2026-11-02, built locally, not loaded).** Regression fired on every change of
+a club's season label, backwards too, so a match from an earlier season played after a later one regressed
+the club towards the later league, then again on the way back. In the local build (main's bronze at 6e5cc81,
+without the Fairs Cup fill) there were 338 backward steps; 673 regressions no longer fire, across 62 clubs. Causes: Turkey 2006/07
+from engsoccerdata has its second half dated 2006 instead of 2007 (114 backward steps, Turkish clubs
+regressed 12–15 times in 2005/06: Fenerbahçe and Galatasaray end 2005/06 about 150 points higher now);
+European finals after the new season began (Ferencváros 1967/68 +113, Göteborg 1981/82 +86, CSKA Moskva
+2004 +109); the 1955–58 and 1958–60 Fairs Cups (Barcelona). Everyone else moves up about 3–4 points (fewer
+regressions overall), a level shift. Log loss, before → after:
+
+| | 1965–94 | 1995–2026 |
+|---|---|---|
+| League | 0.60831 → 0.60828 | 0.63487 → 0.63485 |
+| Domestic cups | 0.58514 → 0.58506 | 0.59926 → 0.59900 |
+| Europe | 0.52403 → 0.52370 | 0.58953 → 0.58921 |
+
+`pool_experiment 0.3`: European bias RMS 1.882 → 1.852pp, Club Elo debiased RMSE 47.18 → 46.88 (bias
+11.5 → 14.2), Spearman 0.9841 → 0.9839, league 0.6225 either way, Europe 0.5723 → 0.5720. Season #1s
+(hindsight and 15% league shrink applied as in `mv_club_seasons`): none change from 1960 on; end-of-season
+1958/59 and 1959/60 go from Real Madrid to Barcelona, whole-season 1959/60 likewise. Familiar clubs since
+1960: Liverpool, Man Utd, Arsenal, Juventus, Milan, Bayern, Celtic, Benfica +1 to +12 in every season (mean about +4);
+Leeds 1967/68 end 1711 → 1738 (6th → 2nd). An engine change does not alter `run_params`, so CI won't
+rebuild by itself: this needs a manual full `load`. Left: correct Turkey 2006/07's dates (the year of the January–May rows).
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

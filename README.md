@@ -224,7 +224,12 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
   above their league's average) and clubs below it underrated (+3.2pp); domestic dominance over weak sides
   inflated the top. It improves league, cup and European prediction in fitted and held-out years. The weekly
   update carries each club's last season (`db.last_season_before`) so a replay across a season start matches
-  a full build. A league
+  a full build. It fires only when a club moves on to a later season (since 2026-11-02): a match from an
+  earlier season played after a later one (a European final after the new season began, the 1955–58 Fairs
+  Cup, Turkey's 2006/07 rows dated a year early) used to regress the club back and forth, up to 15 times in
+  a season. 673 regressions dropped (338 backward steps and the returns after them, 62 clubs); log loss
+  better for leagues, cups and Europe in 1965–94 and 1995–2026 (Europe 0.52403 → 0.52370 and
+  0.58953 → 0.58921). A league
   that over- or under-performs in Europe is re-levelled within seasons rather than decades. A club's rating
   is its own part plus its country's level; the level history is in `gold.league_offsets`.
 - **Provisional ratings:** a club's first 40 rated matches use K × 2. A foreign club on its European debut,

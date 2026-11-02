@@ -327,8 +327,12 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         last_season = dict(last_season or {})
 
     def regress(c, b, s_):
-        """`b` (club c's base part) pulled towards last season's league average."""
+        """`b` (club c's base part) pulled towards last season's league average.
+        Only on moving forward: a match from an earlier season played after a
+        later one (a final played after the next season began) leaves it alone."""
         prev = last_season.get(c)
+        if prev is not None and s_ < prev:
+            return b
         last_season[c] = s_
         if prev is None or prev == s_ or (c, prev) not in tier_of:
             return b

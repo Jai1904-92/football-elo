@@ -328,6 +328,17 @@ def test_season_regression_pulls_towards_last_seasons_league_average():
     assert first.away_elo_pre == pytest.approx(end20["A"] - 0.5 * (end20["A"] - avg))
 
 
+def test_a_late_match_from_last_season_does_not_regress_again():
+    # A's 2020 final is played after its first 2021 match: one regression, not three
+    late = pd.concat([LEAGUE, _matches([("2021-08-05", 2020, 1, "A", "C", 1, 0)])], ignore_index=True)
+    rated, _ = engine.run(late, PR)
+    a = rated[(rated.home_club == "A") | (rated.away_club == "A")].sort_values("match_date")
+    pre = a.home_elo_pre.where(a.home_club == "A", a.away_elo_pre).to_numpy()
+    post = a.home_elo_post.where(a.home_club == "A", a.away_elo_post).to_numpy()
+    assert pre[4] == pytest.approx(post[3])          # the 2020 final, after 2021 began
+    assert pre[5] == pytest.approx(post[4])          # back to 2021
+
+
 def test_incremental_equals_full_across_a_season_start():
     full, _ = engine.run(LEAGUE, PR)
     cut = pd.Timestamp("2021-08-01")
