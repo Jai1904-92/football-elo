@@ -5,7 +5,6 @@ import { MEASURE_NOTE, MeasureProvider, useMeasure, type Measure } from './lib/m
 import { dateLong } from './lib/format';
 import Home from './pages/Home';
 import Rise from './pages/Rise';
-import AllTime from './pages/AllTime';
 import Eras from './pages/Eras';
 import ClubPage from './pages/Club';
 import Matchups from './pages/Matchups';
@@ -14,7 +13,7 @@ import Top100 from './pages/Top100';
 import Greatest from './pages/Greatest';
 
 const NAV: [string, string][] = [
-  ['/club', 'Club'], ['/top100', 'Top 100'], ['/rise', 'Rise & fall'], ['/alltime', 'All-time'], ['/eras', 'Eras'],
+  ['/club', 'Club'], ['/top100', 'Top 100'], ['/rise', 'Rise & fall'], ['/eras', 'Eras'],
   ['/matchups', 'Matchups'], ['/rankings', 'Rankings'], ['/greatest', 'Greatest'],
 ];
 
@@ -64,7 +63,6 @@ function Shell() {
             <Routes>
               <Route path="/" element={<Home clubs={clubs.data} />} />
               <Route path="/rise" element={<Rise clubs={clubs.data} />} />
-              <Route path="/alltime" element={<AllTime clubs={clubs.data} />} />
               <Route path="/eras" element={<Eras clubs={clubs.data} />} />
               <Route path="/club" element={<ClubPage clubs={clubs.data} />} />
               <Route path="/club/:slug" element={<ClubPage clubs={clubs.data} />} />

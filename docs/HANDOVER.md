@@ -187,6 +187,13 @@ regressions overall), a level shift. Log loss, before → after:
 Leeds 1967/68 end 1711 → 1738 (6th → 2nd). An engine change does not alter `run_params`, so CI won't
 rebuild by itself: this needs a manual full `load`. Left: correct Turkey 2006/07's dates (the year of the January–May rows).
 
+**Run 31 (2026-11-02, evening).** Loaded together: the Fairs Cup 1961/62 and 1963/64-1970/71 fill (branch
+merged), season regression only on moving to a later season (a7e4e01), and `season_regress` re-tuned
+0.2 -> 0.15 on the merged model (better in 1965-94 and 1995-2026; Europe 1965-94 a near tie). Whole-season
+#1 changes against run 30: only 1959/60 Real Madrid -> Barcelona. 146 of 720 top-10 places moved, mostly in
+the 1960s (Fairs Cup finalists up: Ferencvaros, Leeds, Ujpest; Ajax and Feyenoord down a few places).
+The site's All-time tab was removed (Alex: not valuable); `gold.mv_alltime_parts` stays in the database.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

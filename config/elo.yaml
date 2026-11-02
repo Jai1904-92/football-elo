@@ -771,7 +771,11 @@ elo:
   # 0.63851 -> 0.63496, European 0.53016 -> 0.52663 and 0.59218 -> 0.59081.
   # Since 2026-11-02 only on moving to a later season, not back to an earlier one
   # (engine change, not a setting: needs a full load).
-  season_regress: 0.2
+  # Re-tuned 2026-11-02 to 15% after the margin correction and the forward-only fix
+  # (which already curb strong clubs' inflation). 1965-94: league 0.60827 -> 0.60819,
+  # cups 0.58512 -> 0.58487, Europe 0.52249 -> 0.52253; 1995-2026: league 0.63485 ->
+  # 0.63468, cups 0.59900 -> 0.59825, Europe 0.58915 -> 0.58876. No season #1 changes.
+  season_regress: 0.15
   # Provisional ratings: a club's first 40 rated matches use K x 2.
   provisional: {matches: 40, k_multiplier: 2.0}
   # K multiplier by competition type

@@ -8,7 +8,7 @@ compact JSON under `out`:
                        career summary and branding (logo, colours)
   field.json           average top-flight rating at each month end
   <view>.json          number_ones, decade_kings, league_strength,
-                       greatest_seasons, upsets, trophies, alltime_parts,
+                       greatest_seasons, upsets, trophies,
                        dynasties (trophies adds the league champions of
                        config/league_champions.csv, competition = the league)
   club/<slug>.json     one league club: monthly ratings, seasons, matches
@@ -129,7 +129,7 @@ def export(out: Path = DEFAULT_OUT) -> Path:
                           suffixes=("", "_perf")))
         views = {v: q(f"select * from gold.mv_{v}") for v in
                  ["number_ones", "decade_kings", "league_strength", "greatest_seasons", "upsets",
-                  "trophies", "alltime_parts", "dynasties"]}
+                  "trophies", "dynasties"]}
         seasons = q("select e.club, e.season, e.tier, e.elo_end, e.elo_peak, e.above_field, e.world_rank, "
                     "e.league_rank, p.rating as perf, p.above_field as above_perf, p.world_rank as world_rank_perf, "
                     "p.league_rank as league_rank_perf from gold.mv_club_seasons e left join gold.mv_club_seasons p "
