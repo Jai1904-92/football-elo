@@ -548,7 +548,7 @@ datarozhlas,Domžale,NK Domzale
 datarozhlas,Drita,Drita Gjilan
 datarozhlas,Drogheda_United_F.C.,Drogheda United
 datarozhlas,Drumcondra_F.C.,Drumcondra Dublin
-datarozhlas,Drumcondra_FC,Drumcondra FC
+datarozhlas,Drumcondra_FC,Drumcondra Dublin
 datarozhlas,Dudelange,Dudelange
 datarozhlas,Dukagjini,Dukagjini
 datarozhlas,Dukla_Bansk%C3%A1_Bystrica,Dukla Banská Bystrica
@@ -979,7 +979,7 @@ datarozhlas,FK_Leotar,FK Leotar
 datarozhlas,FK_Liep%C4%81ja,FK Liepaja
 datarozhlas,FK_Liep%C4%81jas_Metalurgs,Liepajas Metalurgs
 datarozhlas,FK_Lov%C4%87en,Lovćen Cetinje
-datarozhlas,FK_Lyn,Lyn
+datarozhlas,FK_Lyn,Lyn Oslo
 datarozhlas,FK_MKT_Araz,MKT Araz
 datarozhlas,FK_Makedonija_G.P.,Makedonija
 datarozhlas,FK_Metalurg_Skopje,Metalurg Skopje
@@ -2086,7 +2086,7 @@ datarozhlas,UE_Santa_Coloma,UE Santa Coloma
 datarozhlas,UNA Strassen,UNA Strassen
 datarozhlas,UN_K%C3%A4erj%C3%A9ng_97,Käerjéng 97
 datarozhlas,USV_Eschen/Mauren,Eschen/Mauren
-datarozhlas,US_Luxembourg,US Luxembourg
+datarozhlas,US_Luxembourg,Union Luxembourg
 datarozhlas,US_Rumelange,Rumelange
 datarozhlas,UWIC_Inter_Cardiff_F.C.,Inter CableTel AFC
 datarozhlas,Udinese_Calcio,Udinese
@@ -14036,3 +14036,142 @@ espn,2991,Terek Grozny
 espn,3850,Krylya Sovetov Samara
 espn,7424,Khimki
 espn,21927,Rodina Moscow
+datarozhlas,Drumcondra FC,Drumcondra Dublin
+wikipedia,1. FC Brno,Zbrojovka Brno
+wikipedia,AIK Stockholm,AIK Solna
+wikipedia,Aberdeen F.C,Aberdeen
+wikipedia,Académica de Coimbra (football),Academica
+wikipedia,Angoulême Charente FC,AS Angouleme
+wikipedia,Aris Thessaloniki,Aris
+wikipedia,Arsenal F.C.,Arsenal
+wikipedia,Arsenal FC,Arsenal
+wikipedia,B1909,B 1909 Odense
+wikipedia,Barcelona FC,Barcelona
+wikipedia,Basel,Basel
+wikipedia,Belgrade,Belgrade XI
+wikipedia,Birmingham City F.C.,Birmingham City
+wikipedia,Boldklubben 1901,B 1901 Nykøbing
+wikipedia,Boldklubben 1909 [B 1909],B 1909 Odense
+wikipedia,Boldklubben 1913 [B 1913],B 1913 Odense
+wikipedia,Burnley F.C.,Burnley
+wikipedia,CA Spora Luxembourg,Spora Luxemburg
+wikipedia,Chelsea F.C,Chelsea
+wikipedia,Chelsea F.C.,Chelsea
+wikipedia,Chelsea FC,Chelsea
+wikipedia,Coleraine F.C.,Coleraine
+wikipedia,Cologne,Cologne XI
+wikipedia,Copenhagen XI,Copenhagen XI
+wikipedia,Cork Hibernians F.C.,Cork Hibernians
+wikipedia,Coventry City F.C.,Coventry City
+wikipedia,DOS Utrecht,DOS Utrecht
+wikipedia,DWS Amsterdam,DWS Amsterdam
+wikipedia,Daring Brussels,Daring Club
+wikipedia,Daring Club Bruxelles,Daring Club
+wikipedia,Drumcondra F.C.,Drumcondra Dublin
+wikipedia,Drumcondra FC,Drumcondra Dublin
+wikipedia,Dundalk F.C.,Dundalk
+wikipedia,Dundee FC,Dundee
+wikipedia,Dundee United FC,Dundee United
+wikipedia,Dunfermline Athletic,Dunfermline Athletic
+wikipedia,EUR:AEK Athens,AEK Athens
+wikipedia,Espanyol,Espanyol Barcelona
+wikipedia,Everton F.C.,Everton
+wikipedia,Everton FC,Everton
+wikipedia,FC Argeş Piteşti,Arges Pitesti
+wikipedia,FC Aris Bonnevoie,Aris Bonnevoie
+wikipedia,FC Barreirense,Barreirense
+wikipedia,FC Köln,Koln
+wikipedia,FC Nürnberg,Nurnberg
+wikipedia,FK Lyn,Lyn Oslo
+wikipedia,FK Red Star,Crvena Zvezda
+wikipedia,Floriana F.C.,Floriana
+wikipedia,Frigg Oslo FK,SK Frigg
+wikipedia,GKS Katowice,GKS Katowice
+wikipedia,Girondins Bordeaux,Girondins Bordeaux
+wikipedia,Glasgow Rangers,Rangers
+wikipedia,Glentoran F.C.,Glentoran
+wikipedia,Glentoran FC,Glentoran
+wikipedia,Greenock Morton,Morton
+wikipedia,Grupo Desportivo Fabril,GD CUF
+wikipedia,Gwardia Warszawa,Gwardia Warszawa
+wikipedia,Hajduk Split,Hajduk Split
+wikipedia,Heart Of Midlothian,Hearts
+wikipedia,Heart Of Midlothian F.C.,Hearts
+wikipedia,Hibernians F.C.,Hibernians
+wikipedia,Ilves-Kissat,Ilves-Kissat
+wikipedia,Iraklis Thessaloniki,Iraklis
+wikipedia,Jeunesse Esch,Jeunesse Esch
+wikipedia,Kilmarnock FC,Kilmarnock
+wikipedia,Lausanne Sports,Lausanne-Sport
+wikipedia,Lausanne-Sports,Lausanne-Sport
+wikipedia,Leeds United,Leeds United
+wikipedia,Leeds United A.F.C.,Leeds United
+wikipedia,Leeds United F.C.,Leeds United
+wikipedia,Legia Warsaw,Legia Warsaw
+wikipedia,Legia Warszawa,Legia Warsaw
+wikipedia,Leipzig,Leipzig XI
+wikipedia,Linfield F.C.,Linfield
+wikipedia,Liverpool F.C.,Liverpool
+wikipedia,Lokomotiv Leipzig,VfB Leipzig
+wikipedia,Manchester United F.C.,Manchester United
+wikipedia,NK Dinamo Zagreb,Dinamo Zagreb
+wikipedia,NK Olimpija Ljubljana,Olimpija Ljubljana
+wikipedia,NK Olimpija Ljubljana (1911),Olimpija Ljubljana
+wikipedia,Newcastle United,Newcastle United
+wikipedia,Newcastle United F.C.,Newcastle United
+wikipedia,Nottingham Forest,Nottingham Forest
+wikipedia,Nottingham Forest F.C.,Nottingham Forest
+wikipedia,Novi Sad,Vojvodina
+wikipedia,Odense,Odense XI
+wikipedia,Olympique Marseille,Olympique Marseille
+wikipedia,PFC Botev Plovdiv,Trakia Plovdiv
+wikipedia,PFC Lokomotiv Plovdiv,PFC Lokomotiv Plovdiv
+wikipedia,PFC Slavia Sofia,PFC Slavia Sofia
+wikipedia,PFC Spartak Plovdiv,Spartak Plovdiv
+wikipedia,Panathanaikos,Panathinaikos
+wikipedia,Panathinaikos,Panathinaikos
+wikipedia,Partick Thistle,Partick Thistle
+wikipedia,RFC Liege,RFC Liège
+wikipedia,Raba ETO Győr,Gyori ETO
+wikipedia,Rangers FC,Rangers
+wikipedia,Rosenborg BK,Rosenborg BK
+wikipedia,Royal Antwerp,Royal Antwerp FC
+wikipedia,Ruch Chorzów,Ruch Chorzow
+wikipedia,SC Leipzig,VfB Leipzig
+wikipedia,Sarpsborg FK,Sarpsborg FK
+wikipedia,Servette FC Geneve,Servette Geneve
+wikipedia,Shamrock Rovers,Shamrock Rovers
+wikipedia,Sheffield Wednesday,Sheffield Wednesday
+wikipedia,Sheffield Wednesday F.C.,Sheffield Wednesday
+wikipedia,Shelbourne F.C.,Shelbourne
+wikipedia,Skeid Fotball,Skeid
+wikipedia,Slavia Praha,Slavia Praha
+wikipedia,Slavia Sofia,PFC Slavia Sofia
+wikipedia,Sliema Wanderers F.C.,Sliema Wanderers
+wikipedia,Southampton F.C.,Southampton
+wikipedia,Sparta Prague,Sparta Praha
+wikipedia,Spartak Brno KPS,Spartak KPS Brno
+wikipedia,St. Patrick's Athletic,St Patrick's Athletic
+wikipedia,Stade Français (association football),Stade Francais FC
+wikipedia,Standard Liege,Standard Liege
+wikipedia,Stævnet,Copenhagen XI
+wikipedia,US Luxembourg,Union Luxembourg
+wikipedia,US Rumelange,Rumelange
+wikipedia,Union Luxembourg,Union Luxembourg
+wikipedia,Utrecht,Utrecht XI
+wikipedia,Utrecht (city),Utrecht XI
+wikipedia,Valencia,Valencia CF
+wikipedia,Valur men's football,Valur Reykjavik
+wikipedia,Vitória FC,Vitória de Setúbal
+wikipedia,Vojvodina Novi Sad,Vojvodina
+wikipedia,Vålerenga Fotball,Valerenga IF
+wikipedia,Vålerenga I.F. Fotball,Valerenga IF
+wikipedia,Wacker Innsbruck,SSW Innsbruck
+wikipedia,Waregem,Waregem
+wikipedia,West Berlin,West Berlin XI
+wikipedia,West Bromwich Albion F.C.,West Bromwich Albion
+wikipedia,Wiener Sportklub,Wiener Sport-Club
+wikipedia,Zagreb,Zagreb XI
+wikipedia,Íþróttabandalag Akraness,IA Akranes
+wikipedia,Željezničar Sarajevo,Zeljeznicar Sarajevo
+wikipedia,Lyn,Lyn Oslo

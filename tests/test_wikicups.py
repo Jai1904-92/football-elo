@@ -126,3 +126,36 @@ def test_unlinked_names_and_reserve_sides_get_their_own_keys():
     assert wikicups.club("[[PSV Eindhoven|Jong PSV]]") == ("PSV Eindhoven [Jong PSV]", "Jong PSV")
     assert wikicups.club("[[Real Madrid Castilla|Castilla]]") == ("Real Madrid Castilla", "Castilla")
     assert wikicups.club("'''Schijndel''' (A)") == ("~Schijndel", "Schijndel")
+
+
+EUROPE = """==First round==
+{{TwoLeg start}}
+{{TwoLegResult|[[FK Vojvodina|Vojvodina]]|YUG|1–2|'''[[Gwardia Warszawa]]'''|POL|0–1|1–1}}
+|align=right|[[UD Las Palmas|Las Palmas]] {{flagicon|Spain|1945}}||align=center|0–1||align=left|{{flagicon|FRG}} '''[[Hertha BSC]]'''||align=center|0–0||align=center|0–1
+{{TwoLegResult|'''[[AIK Fotboll|AIK]]'''|SWE|3–1|[[Servette FC]]|SUI|2–1|1–0}}
+|}
+===First leg===
+{{football box
+|date=17 September 1969
+|team1=[[AIK Stockholm]] {{flagicon|SWE}}
+|score=2–1
+|team2={{flagicon|SUI}} [[Servette FC Geneve|Servette]]
+}}
+"""
+
+
+def test_european_pages_tie_rows_with_countries_and_plain_rows(tmp_path: Path):
+    ms = wikicups.parse_page(EUROPE, 1969, loose=True)
+    got = {(m["home"], m["away"], m["hg"], m["ag"], m["fmt"]) for m in ms}
+    assert ("FK Vojvodina", "Gwardia Warszawa", 0, 1, "twoleg") in got
+    assert ("Gwardia Warszawa", "FK Vojvodina", 1, 1, "twoleg") in got
+    assert ("UD Las Palmas", "Hertha BSC", 0, 0, "table") in got
+    assert ("Hertha BSC", "UD Las Palmas", 1, 0, "table") in got
+    # the box and the tie row link AIK and Servette to different articles: one match
+    aik = [m for m in ms if m["home"] in ("AIK Fotboll", "AIK Stockholm")]
+    assert [(m["fmt"], m["hg"], m["ag"]) for m in aik] == [("box", 2, 1)]
+    assert len(wikicups.parse_page(EUROPE, 1969)) == len(ms) + 1      # not loose: kept twice
+    (tmp_path / "1969.txt").write_text(EUROPE, encoding="utf-8")
+    df = sources.wikipedia_cup(tmp_path, "FAIRS", None, europe=True)
+    second = df[(df["home_club"] == "Servette FC") & (df["away_club"] == "AIK Fotboll")]
+    assert second["match_date"].tolist() == [pd.Timestamp("1969-10-01")]   # 14 days after the dated first leg

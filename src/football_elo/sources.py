@@ -704,22 +704,63 @@ def _cup_dates(rows: list[dict], season: int, span: tuple) -> None:
             latest[base] = max(latest.get(base, r["match_date"]), r["match_date"])
 
 
-def wikipedia_cup(folder: Path, competition: str, country: str, neutral_rounds: str | None = None) -> pd.DataFrame:
+def _leg_dates(rows: list[dict]) -> None:
+    """An undated leg of a two-legged tie whose other leg has a printed date
+    goes 14 days after (or before) it, not on its round's date; 7 days when
+    either club has a dated match within 3 days of that (a semi-final's
+    second leg a week before the final). European cup pages print a
+    {{TwoLegResult}} row for every tie but a dated box for only some legs."""
+    from .wikicups import _ids, _words
+
+    def names(side, r):          # article/label ids and distinctive words (see wikicups._same)
+        team = (r[side], r[f"{side}_name"])
+        return _ids(team), _words(team)
+
+    def meet(x, y):
+        return bool(x[0] & y[0] or x[1] & y[1])
+
+    dated = [r for r in rows if r["dating"] == "cup"]
+    for r in rows:
+        if r["dating"] == "cup" or r["leg"] not in (1, 2):
+            continue
+        h, a = names("home", r), names("away", r)
+        other = [k for k in dated if k["round"] == r["round"] and k is not r
+                 and meet(h, names("away", k)) and meet(a, names("home", k))]
+        if len(other) != 1:
+            continue
+        busy = [k["match_date"] for k in dated
+                if any(c[0] & names(s, k)[0] for c in (h, a) for s in ("home", "away"))]
+        for days in (14, 7):
+            when = other[0]["match_date"] + pd.Timedelta(days=days if r["leg"] == 2 else -days)
+            if not any(abs((when - d).days) <= 3 for d in busy):
+                break
+        r["match_date"], r["dating"] = when, "cup (date from other leg)"
+
+
+def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_rounds: str | None = None,
+                  europe: bool = False) -> pd.DataFrame:
     """Wikipedia cup season articles saved as <start year>.txt; see wikicups
     for the layouts read. A single-match final is neutral, as is a one-leg
     bracket tie (venue not given) and any round matching `neutral_rounds`
     (e.g. Scottish Cup semi-finals at Hampden). Clubs are keyed by the
-    article they link to, unlinked names by "<country>:<name>"; their country
-    is filled from the cup's in silver."""
+    article they link to, unlinked names by "<country>:<name>" ("EUR:" for a
+    European cup); a domestic cup's country is filled in silver. `europe`:
+    a European cup's pages, read with wikicups.parse_page(loose=True) and
+    _leg_dates."""
     from . import wikicups
     out = []
     for path in sorted(folder.glob("*.txt")):
         season = int(path.stem)
         text = wikicups.expand(path.read_text(encoding="utf-8"), folder / "transcluded")
-        rows = wikicups.parse_page(text, season)
+        rows = wikicups.parse_page(text, season, loose=europe)
         if not rows:
             continue
-        _cup_dates(rows, season, wikicups.page_span(text, season))
+        span = wikicups.page_span(text, season)
+        if europe:          # the lead's dates are the first round's: undated finals go after the last printed date
+            span = (span[0], None)
+        _cup_dates(rows, season, span)
+        if europe:
+            _leg_dates(rows)
         finals = [r for r in rows if re.fullmatch(r"\s*finals?\s*", r["round"], re.I)]
         two_leg_final = any(r["leg"] for r in finals)
         for r in rows:
@@ -734,7 +775,7 @@ def wikipedia_cup(folder: Path, competition: str, country: str, neutral_rounds: 
         return _frame("wikipedia")
     df = pd.DataFrame(out)
     for side in ("home", "away"):
-        df[side] = df[side].str.replace(r"^~", f"{country}:", regex=True)
+        df[side] = df[side].str.replace(r"^~", f"{country or 'EUR'}:", regex=True)
     same = df["home"] == df["away"]        # both sides linked to one article (a reserve side unmarked)
     for r in df[same].itertuples():
         log.warning("%s %s: %s v %s link to the same article %r; dropped", competition, r.season,

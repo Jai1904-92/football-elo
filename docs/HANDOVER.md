@@ -282,10 +282,40 @@ update the dashboard.
 5. **Smaller items:**
    - Trophies: the 11 unresolved European finals are hand-entered in the trophies view since 2026-10-24
      (migration `20261024010000_european_finals.sql`: away goals, shoot-outs the source lacks, a 35-day
-     final). Two data gaps found there change ratings, so they wait for the next reload: the Fairs Cup
-     1966/67 semi-finals and final (Dinamo Zagreb v Eintracht Frankfurt, Leeds v Kilmarnock, Dinamo v
-     Leeds) are missing from DataRozhlas, and its Juventus v Leeds 0–0 of 26 May 1971 was abandoned and
-     replayed, so it shouldn't be rated.
+     final). Two data gaps found there (the Fairs Cup 1966/67 semi-finals and final missing from
+     DataRozhlas; its abandoned Juventus v Leeds 0–0 of 26 May 1971) are fixed by the Fairs Cup item below.
+   - **Fairs Cup 1961/62 and 1963/64–1970/71 from Wikipedia (built locally 2026-11-02, not loaded yet,
+     waiting for Alex's go-ahead).** DataRozhlas held 22–59 matches a season to 1969/70 (98 in 1970/71); the
+     real tournaments had 63–127. The season pages (`wikipedia.cups.FAIRS`, folder
+     `data/bronze/wikipedia/cup-fairs`, 1960–70) now fill the seasons where DataRozhlas holds under 90% of
+     theirs (`replace_partial: 0.9` in the FAIRS windows): 56, 63, 98, 104, 92, 96, 120, 127, 126 matches,
+     every tie with its two legs (three with a play-off). Rangers' 1967/68 ties with Dresden and Köln and their
+     1968/69 tie with Vojvodina are in.
+     - Parser (`wikicups.py`, domestic cups unchanged, checked row by row): `{{TwoLegResult}}` rows with
+       country cells, plain rows inside a `{{TwoLeg start}}` table; for European pages (`europe=True`) a
+       box and a tie row count as one match when both clubs share a distinctive word ("AIK"/"AIK Fotboll"),
+       an undated leg goes 14 days from its dated other leg (7 if that clashes), and an undated final goes
+       after the last printed date.
+     - Silver: `match_fixes` in `elo.yaml` drops or re-dates single source rows (the abandoned 1971 final
+       match, a Malmö v Hibernian box printed 3–1 for 2–3, a Daring v Panathinaikos leg printed twice) and
+       files the 1966/67 final (30 Aug / 6 Sep 1967) in season 1967, so the 1966/67 season-end ratings aren't
+       read after it (trophies has the winner by hand). European rows without a country take the club's
+       from its nearest-season European row (`silver.fill_europe_countries`), else `club_countries`.
+     - Linking: `tools/link_cup_names.py FAIRS` (European competitions link clubs of any country, and on
+       fixtures against DataRozhlas); 137 aliases, 8 hand links (city XIs, Daring, SC Leipzig, B 1913),
+       DOS Utrecht `corrections` (the pages link FC Utrecht's article). Duplicate scan merged three
+       DataRozhlas duplicates: Drumcondra FC into Drumcondra Dublin, Lyn into Lyn Oslo, US Luxembourg into
+       Union Luxembourg.
+     - **Effect** (same bronze files, configured pool 0.3, `pool_experiment` measures): European log loss on
+       the same matches 1965–94 0.52671 → 0.52657 (1965–74 0.50409 → 0.50375), 1995–2026 0.59080 → 0.59077;
+       league unchanged (0.60852, 0.63493); domestic cups 1965–94 0.58679 → 0.58690; European bias RMS
+       2.09 → 2.05pp; Club Elo debiased RMSE 36.39 → 36.53. Season #1s unchanged to 1969/70: on the
+       whole-season measure Celtic #1 in 1965/66–1967/68 (−9, −7, −3), Rangers still #2 in 1967/68
+       (1836 → 1819) and 4th → 5th in 1965/66 (#2 Atlético Madrid both times). Leeds 1966/67 season end
+       #6 → #5. 1970/71 whole-season: Leeds (1845) and Arsenal (1845, was 1872) now level at the top.
+     - Engine quirk seen on the way (not changed): season regression fires whenever a club's season label
+       changes, also backwards (344 back-steps already: the multi-year Fairs editions of 1955–60, late-dated
+       European rows, 183 in the Turkish league), so such clubs regress twice.
    - Play-offs: 2019/20 has only 5 of 15 matches.
    - Dates: 3,784 club-days with two matches since run 21 (210 before): cup rounds without a printed date
     often land on a league matchday. Only match order is affected; moving estimated cup dates to the
