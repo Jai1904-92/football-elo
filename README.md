@@ -429,6 +429,22 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
   in 14 of 61 seasons.
 - **Where it doesn't apply:** the monthly rating charts and the Rankings tab are point-in-time and unchanged.
 
+### League-lead shrink (season views, both measures, since 2026-11-02)
+
+Before the world ranking, each club's lead over its own league's average (country and tier, that season) is
+cut by 15% (`supabase/migrations/20261102000000_league_shrink.sql`; it also applies to `elo_end` and
+`elo_peak` in the views). Clubs far above their league did 2–4pp worse in Europe than rated, and runaway
+second-tier champions dropped about 16 points more than other top seasons the year after.
+- **Tested** on matches between clubs of different leagues or divisions, against run 30's forward ratings
+  (log loss, no shrink → 15%): Europe 1965–94 0.56126 → 0.55935, 1995–2026 0.61177 → 0.61125; cup ties
+  between divisions 0.59495 → 0.59473 and 0.58594 → 0.58570 (10% was marginally best for cups).
+- **Effect:** league averages and the order within each league don't change. Champions of lopsided leagues
+  lose most: Serbia, Romania and Ukraine about 45–50 points, Portugal and Greece about 40, the big five
+  25–30. Runaway second-tier champions drop several places (Middlesbrough 1973/74 10th → 16th, Blauw Wit
+  1960/61 36th → 62nd). Whole-season #1s changed in four seasons: 1976/77 Liverpool, 2002/03 Real Madrid,
+  2003/04 Valencia, 2023/24 Manchester City.
+- **Not applied** to the monthly ratings, the rankings on a date or the match ratings.
+
 ### Hindsight country levels (season and date views before 2000)
 
 Ratings run forwards, so a country's level in a season reflects only European results up to then. With few

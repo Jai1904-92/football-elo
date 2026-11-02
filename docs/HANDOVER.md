@@ -158,8 +158,9 @@ points 1985-90); (2) `margin.autocorr` 1.1: favourites were overrated everywhere
 −3.3pp); log loss better in 1965-94 and 1995-2026; (3) hindsight gaps by level with `auto_gaps`: seasons
 with no European games take the country's later level (Serbia 1992-94 about −65, USSR 1955-64 about +20).
 Whole-season #1s changed: 1963/64 Inter, 1979/80 Bayern, 1986/87 Bayern, 1990/91 Sampdoria, 2023/24 Real
-Madrid. Left: clubs far above their league still do 2-4pp worse in Europe than predicted (shrinking that
-edge by ~10% helps prediction only a little, not built); Celtic/Rangers 1960s partly a data gap: the
+Madrid. Then (same day, Alex's call after seeing every season's top 10) the season views cut each club's lead
+over its own league by 15% (migration `20261102000000_league_shrink.sql`, README "League-lead shrink");
+monthly ratings and rankings on a date are not shrunk. Also left: Celtic/Rangers 1960s partly a data gap: the
 Fairs Cup is about half missing 1963-70 (being filled in a separate session).
 
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
