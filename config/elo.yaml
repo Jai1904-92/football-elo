@@ -40,7 +40,8 @@ sources:
                  SC1: SCO-L, BE1: BEL-L, TR1: TUR-L, GR1: GRE-L}
   datarozhlas:
     # Wikipedia-scraped European club results (github.com/DataRozhlas/evropske-pohary).
-    # Known gaps: Fairs Cup 1963-66, Cup Winners' Cup 1980/81 first round.
+    # Known gaps: Fairs Cup 1961/62 and 1963/64-1970/71 (half missing, filled from
+    # Wikipedia), Cup Winners' Cup 1980/81 first round.
     url: https://raw.githubusercontent.com/DataRozhlas/evropske-pohary/master/data/matches.csv
     competitions: {UCL: UCL, EL: UEL, CWC: UCWC, ICFC: FAIRS, UECL: UECL}
   rsssf:
@@ -259,6 +260,10 @@ sources:
         - {folder: cup-turkey, title_template: "{season}–{endw} Turkish Cup", seasons: [1987, 2025]}
       GRE-GC:
         - {folder: cup-greece, title_template: "{season}–{endw} Greek Football Cup", seasons: [1955, 2025]}
+      # Fairs Cup pages: a {{TwoLegResult}} row (with countries) for every tie, dated
+      # boxes for most legs. Fill the seasons DataRozhlas holds only part of.
+      FAIRS:
+        - {folder: cup-fairs, title_template: "{season}–{endw} Inter-Cities Fairs Cup", seasons: [1960, 1970]}
   espn:
     # Unofficial public scoreboard API, one request per league per calendar year.
     url_template: https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard
@@ -634,6 +639,10 @@ competitions:
     type: europe
     windows:
       - {source: datarozhlas}
+      # Wikipedia's season pages take over the seasons where DataRozhlas holds under 90%
+      # of their matches: 1961/62 and 1963/64-1970/71 (DataRozhlas has 22-59 a season
+      # to 1969/70, Wikipedia 63-127). 1966/67 gains the semi-finals and final.
+      - {source: wikipedia, replace_partial: 0.9}
   USC:
     name: UEFA Super Cup
     type: europe
@@ -647,8 +656,10 @@ aliases: config/club_aliases.csv
 # because their league games were abroad (Cypriot champions entered the Greek
 # league 1967/68-1973/74), so their European results count for their own country.
 # Vaduz plays in the Swiss league but in Europe for Liechtenstein.
+# The last three played only in Fairs Cup seasons that Wikipedia's pages fill, which
+# name no association.
 club_countries: {Omonia Nicosia: CYP, APOEL Nikosia: CYP, AEL Limassol: CYP, EPA Larnaca: CYP, Olympiakos Nicosia: CYP,
-                 FC Vaduz: LIE}
+                 FC Vaduz: LIE, SK Frigg: NOR, Ilves-Kissat: FIN, West Berlin XI: GER}
 
 # Source errors that a plain alias can't fix (they only apply to some seasons).
 # Applied to the source's own club keys before aliasing.
@@ -689,6 +700,36 @@ corrections:
   # DataRozhlas keys every Sedan as CS_Sedan_Ardennes; the 1961/62 Cup Winners'
   # Cup side was UA Sedan-Torcy
   - {source: datarozhlas, competition: UCWC, season: 1961, club: CS_Sedan_Ardennes, to: UA_Sedan-Torcy}
+  # Wikipedia's Fairs Cup pages of 1964/65-1968/69 link DOS Utrecht to FC Utrecht's
+  # article (FC Utrecht was formed from DOS, Elinkwijk and Velox in 1970)
+  - {source: wikipedia, competition: FAIRS, season: 1964, club: FC Utrecht, to: VV DOS}
+  - {source: wikipedia, competition: FAIRS, season: 1966, club: FC Utrecht, to: VV DOS}
+  - {source: wikipedia, competition: FAIRS, season: 1967, club: FC Utrecht, to: VV DOS}
+  - {source: wikipedia, competition: FAIRS, season: 1968, club: FC Utrecht, to: VV DOS}
+
+# Single source rows that are wrong, by the source's own club keys after
+# `corrections` (and `date` when the pair met twice): dropped (drop: true), or
+# given another score (score: [home, away]), date (to_date) or season (to_season).
+match_fixes:
+  # the 1966/67 Fairs Cup final was held over to the start of 1967/68 (the page has no
+  # dates). It counts in the clubs' 1967/68 season, so the 1966/67 season-end ratings
+  # aren't read after it; the trophies view has the winner by hand.
+  - {source: wikipedia, competition: FAIRS, season: 1966, home: NK Dinamo Zagreb, away: Leeds United A.F.C.,
+     to_date: "1967-08-30", to_season: 1967}
+  - {source: wikipedia, competition: FAIRS, season: 1966, home: Leeds United A.F.C., away: NK Dinamo Zagreb,
+     to_date: "1967-09-06", to_season: 1967}
+  # the first leg of the 1971 Fairs Cup final was abandoned at 0-0 after 51 minutes
+  # (waterlogged pitch) and replayed two days later
+  - {source: wikipedia, competition: FAIRS, season: 1970, home: Juventus FC, away: Leeds United F.C.,
+     date: "1971-05-26", drop: true}
+  # Malmö v Hibernian, second leg: the box prints 3-1, but its scorers, the tie row
+  # and the 9-2 aggregate give 2-3 (the tie row's match is kept)
+  - {source: wikipedia, competition: FAIRS, season: 1970, home: Malmö FF, away: Hibernian F.C.,
+     date: "1970-10-01", drop: true}
+  # Daring v Panathinaikos, first leg: printed twice under different links (the box,
+  # dated, is kept)
+  - {source: wikipedia, competition: FAIRS, season: 1968, home: R. Daring Club Molenbeek,
+     away: Panathinaikos F.C., drop: true}
 
 elo:
   start_date: "1955-08-01"        # first match rated

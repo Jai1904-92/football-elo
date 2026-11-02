@@ -37,6 +37,21 @@ class SourceReader:
                 hit = df["season"] == c["season"]
                 for col in ("home_club", "away_club"):
                     df.loc[hit & (df[col] == c["club"]), col] = c["to"]
+        for f in self.cfg.get("match_fixes", []):
+            if f["source"] == source and f["competition"] == competition:
+                hit = (df["season"] == f["season"]) & (df["home_club"] == f["home"]) & (df["away_club"] == f["away"])
+                if "date" in f:
+                    hit &= df["match_date"] == pd.Timestamp(f["date"])
+                if hit.sum() != 1:
+                    log.warning("match fix %s matches %d rows", f, hit.sum())
+                if f.get("drop"):
+                    df = df[~hit]
+                if "score" in f:
+                    df.loc[hit, ["home_goals", "away_goals"]] = f["score"]
+                if "to_date" in f:
+                    df.loc[hit, "match_date"] = pd.Timestamp(f["to_date"])
+                if "to_season" in f:
+                    df.loc[hit, "season"] = f["to_season"]
         return df
 
     def _read(self, source: str, competition: str) -> pd.DataFrame:
@@ -91,13 +106,14 @@ class SourceReader:
 
     @cache
     def _wikipedia(self, competition: str) -> pd.DataFrame:
-        country = self.cfg["competitions"][competition]["country"]
+        country = self.cfg["competitions"][competition].get("country")
         cups = self.cfg["sources"]["wikipedia"].get("cups", {})
         if competition in cups:
             specs = cups[competition]
             seasons = {y for s in specs for y in range(s["seasons"][0], s["seasons"][1] + 1)}
             df = sources.wikipedia_cup(self.bronze / "wikipedia" / specs[0]["folder"], competition, country,
-                                       next((s["neutral_rounds"] for s in specs if "neutral_rounds" in s), None))
+                                       next((s["neutral_rounds"] for s in specs if "neutral_rounds" in s), None),
+                                       europe=self.cfg["competitions"][competition]["type"] == "europe")
             return df[df["season"].isin(seasons)].reset_index(drop=True)
         parts = []
         specs = self.cfg["sources"]["wikipedia"]["leagues"][competition]
@@ -267,6 +283,7 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
             frames.append(apply_aliases(part, aliases, src, auto_new=auto))
     df = pd.concat(frames, ignore_index=True)
     df["comp_type"] = df["competition"].map({c: s["type"] for c, s in cfg["competitions"].items()})
+    df = fill_europe_countries(df, cfg.get("club_countries", {}))
     df = df.drop_duplicates(subset=["match_date", "home_club", "away_club"], keep="first")
     df = df.sort_values(["match_date", "competition", "home_club"]).reset_index(drop=True)
     df["match_id"] = match_ids(df)
@@ -290,6 +307,27 @@ def build(cfg: dict, aliases: pd.DataFrame | None = None, auto_new_sources=("esp
     source_rows = source_rows[source_rows["match_date"] >= start]
     return {"matches": df[MATCH_COLUMNS], "clubs": clubs, "club_seasons": seasons, "aliases": all_aliases,
             "new_aliases": new_aliases_df, "source_rows": source_rows}
+
+
+def fill_europe_countries(df: pd.DataFrame, fixed: dict) -> pd.DataFrame:
+    """European rows from Wikipedia name no association: a club takes the one
+    its other European rows give in the nearest season (Dinamo Zagreb is
+    Yugoslav in the 1960s, Croatian later), else its `club_countries` entry."""
+    europe = df["comp_type"] == "europe"
+    cols = ["club", "season", "country"]
+    known = pd.concat([df.loc[europe, [f"{s}_club", "season", f"{s}_country"]].set_axis(cols, axis=1)
+                       for s in ("home", "away")]).dropna()
+    known = known.groupby(["club", "season"])["country"].agg(_mode).reset_index().sort_values("season")
+    out = df.copy()
+    for side in ("home", "away"):
+        miss = europe & out[f"{side}_country"].isna()
+        if not miss.any():
+            continue
+        want = out.loc[miss, [f"{side}_club", "season"]].set_axis(["club", "season"], axis=1)
+        want = want.reset_index().sort_values("season")
+        got = pd.merge_asof(want, known, on="season", by="club", direction="nearest").set_index("index")
+        out.loc[got.index, f"{side}_country"] = got["country"].fillna(got["club"].map(fixed))
+    return out
 
 
 def _mode(s: pd.Series):

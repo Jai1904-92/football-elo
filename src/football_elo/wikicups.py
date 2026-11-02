@@ -5,12 +5,14 @@ Five layouts, often mixed on one page:
     usually dated
   - {{OneLegResult|team1||score|team2}}: one match, team1 at home
   - {{TwoLegResult|team1||agg|team2||leg1|leg2}}: a two-legged tie; both leg
-    scores are from team1's side, and team1 is at home in the first leg
+    scores are from team1's side, and team1 is at home in the first leg (the
+    European cup pages fill the blank cells with countries)
   - bracket templates ({{16TeamBracket}} etc.): RDn-teamNN paired 1-2, 3-4...,
     with RDn-scoreNN or RDn-scoreNN-L per leg. Venues aren't given: a two-leg
     tie has the upper team at home first, a one-leg tie counts as neutral
   - wikitables: one row per match (home, score, away) or per two-legged tie
-    (team1, agg, team2, leg 1, leg 2)
+    (team1, agg, team2, leg 1, leg 2), also plain rows among the
+    {{TwoLegResult}} rows of a {{TwoLeg start}} table
 
 A match printed in more than one layout is kept once, from the most detailed
 (box, then result row or table, then bracket). parse_page returns plain dicts;
@@ -297,6 +299,8 @@ def _twolegs(text: str) -> list[dict]:
     for m in re.finditer(r"\{\{\s*TwoLegResult\s*\|", text, re.I):
         pos, _ = params(template_at(text, m.start()))
         cells = [c for c in pos if c.strip()]           # team1, agg, team2, leg1, leg2 (blank cells between)
+        if len(cells) >= 7 and not _is_score_cell(cells[1]) and _is_score_cell(cells[2]):
+            cells = [cells[i] for i in (0, 2, 3, 5, 6)]  # country cells filled in (European cups)
         if len(cells) < 5:
             continue
         t1, t2 = club(cells[0]), club(cells[2])
@@ -395,11 +399,13 @@ def _table_rows(table: str) -> tuple[list[str], list[list[str]]]:
 
 def _tables(text: str) -> list[dict]:
     out = []
-    for m in re.finditer(r"^\{\|", text, re.M):
+    for m in re.finditer(r"^(?:\{\||\{\{\s*TwoLeg start\s*\}\})", text, re.M | re.I):
         end = text.find("\n|}", m.start())
         table = text[m.start(): end + 3 if end > 0 else len(text)]
-        if re.search(r"#invoke|Football box|TwoLegResult|OneLegResult", table, re.I):
+        if re.search(r"#invoke|Football box|OneLegResult", table, re.I):
             continue
+        # plain rows mixed in among {{TwoLegResult}} rows (_twolegs reads those): each template ends a row
+        table = re.sub(r"^\{\{\s*TwoLegResult\s*\|.*$", "|-", table, flags=re.M | re.I)
         header, rows = _table_rows(table)
         hl = [h.lower() for h in header]
         if any(re.search(r"\b(?:pld|pts|points|w\b|gd)", h) for h in hl) or "team" in hl and "pts" in hl:
@@ -465,22 +471,39 @@ def _ids(team: tuple[str, str]) -> set[str]:
     return {team[0], _key(team), re.sub(r"[^a-z0-9]", "", team[0].lower())}
 
 
-def _same(r: dict, k: dict) -> bool:
-    """r repeats kept match k (see parse_page)."""
+GENERIC_WORDS = {"club", "city", "united", "athletic", "real", "royal", "sport", "sports", "football",
+                 "fotboll", "fotball", "calcio", "the", "afc", "acf", "rcd", "ssc", "fbc", "cfc"}
+
+
+def _words(team: tuple[str, str]) -> set[str]:
+    """Distinctive words of a club's article and label: "AIK Fotboll" and "AIK"
+    share "aik", "RCD Espanyol" and "Espanyol" share "espanyol"."""
+    words = re.split(r"[^a-z0-9]+", f"{team[0]} {team[1]}".lower())
+    return {w for w in words if len(w) >= 3 and not w.isdigit() and w not in GENERIC_WORDS}
+
+
+def _same(r: dict, k: dict, loose: bool = False) -> bool:
+    """r repeats kept match k (see parse_page). `loose`: two clubs that each
+    share a distinctive word also count (both sides must)."""
     if r["fmt"] != "bracket" and k["fmt"] != "bracket" and r.get("round") != k.get("round"):
         return False
     rh, ra, kh, ka = _ids(r["home"]), _ids(r["away"]), _ids(k["home"]), _ids(k["away"])
     if (rh & kh or ra & ka) and (r["hg"], r["ag"]) == (k["hg"], k["ag"]):
         return True
+    if (loose and (r["hg"], r["ag"]) == (k["hg"], k["ag"])
+            and _words(r["home"]) & _words(k["home"]) and _words(r["away"]) & _words(k["away"])):
+        return True
     return r["fmt"] == "bracket" and bool(rh & ka or ra & kh) and (r["hg"], r["ag"]) == (k["ag"], k["hg"])
 
 
-def parse_page(text: str, season: int) -> list[dict]:
+def parse_page(text: str, season: int, loose: bool = False) -> list[dict]:
     """Every played match on a cup season page, once each, in page order.
     Dicts: home, away, home_name, away_name, hg, ag, aet, pens, leg, fmt,
     round (level-2 heading, or the bracket's round label), slot (the round
     plus a replay/second-leg sub-heading, for dating), date (Timestamp or
-    None), neutral (None unless the layout says), pos."""
+    None), neutral (None unless the layout says), pos. `loose`: see _same
+    (the European cup pages, whose boxes and tie rows often link a club to
+    different articles)."""
     text = clean(text)
     heads = _headings(text)
     found = _boxes(text) + _onelegs(text) + _twolegs(text) + _tables(text) + _brackets(text)
@@ -505,7 +528,7 @@ def parse_page(text: str, season: int) -> list[dict]:
     kept: list[dict] = []
     out = []
     for r in found:
-        if r["fmt"] != "box" and any(_same(r, k) for k in kept):
+        if r["fmt"] != "box" and any(_same(r, k, loose) for k in kept):
             continue
         kept.append(r)
         out.append(r)

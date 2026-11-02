@@ -30,6 +30,9 @@ through Wikipedia's redirects (cached in data/bronze/wikipedia/redirects.json):
 Two keys that meet in a match must not share a club: those links are
 dropped and the keys become new clubs. Existing alias rows win.
 
+A European competition (FAIRS) links clubs of any country, and against its
+other sources (DataRozhlas) in step 3.
+
 Only cup matches with a league club on at least one side are rated (silver.league_ties),
 so new clubs are made, and alias rows written, only for keys in those matches;
 the rest show as "dropped" in the review. Every league key is linked.
@@ -42,6 +45,7 @@ go before their successors, so a club keeps one key across both.
     python tools/link_cup_names.py                    # all cups in config
     python tools/link_cup_names.py SCO-SC GRE-GC      # some
     python tools/link_cup_names.py URS-L UKR-L ...    # league grids
+    python tools/link_cup_names.py FAIRS              # the Fairs Cup pages
     python tools/link_cup_names.py --dry-run ...      # review only
 
 Uses the clubs and matches of the last build (data/silver). Writes new rows
@@ -90,6 +94,16 @@ MANUAL: dict[tuple[str, str], str] = {
     ("ROU-L", "FC U Craiova 1948"): "FC Universitatea Craiova",
     # founded 2012; the old NK Varaždin (Varteks) folded in 2015
     ("CRO-L", "NK Varaždin (2012)"): "NK Varaždin (2012)",
+    # Fairs Cup pages: city XIs, old names and typo links. DataRozhlas keys the
+    # 1961/62 Novi Sad XI as Vojvodina; "Daring Brussels" redirects to RWDM's article
+    ("FAIRS", "Novi Sad"): "Vojvodina",
+    ("FAIRS", "Utrecht"): "Utrecht XI",
+    ("FAIRS", "Utrecht (city)"): "Utrecht XI",
+    ("FAIRS", "Daring Brussels"): "Daring Club",
+    ("FAIRS", "SC Leipzig"): "VfB Leipzig",
+    ("FAIRS", "Boldklubben 1913 [B 1913]"): "B 1913 Odense",
+    ("FAIRS", "Aris Thessaloniki"): "Aris",
+    ("FAIRS", "Drumcondra F.C."): "Drumcondra Dublin",
 }
 
 
@@ -200,9 +214,13 @@ def main(competitions: list[str], dry_run: bool) -> None:
     taken_names = set(aliases["club"]) | set(clubs["club"])
     rows, report = [], []
     for comp in competitions:
-        country = cfg["competitions"][comp]["country"]
+        country = cfg["competitions"][comp].get("country")
         countries = {country} | SUCCESSORS.get(country, set())
         is_league = cfg["competitions"][comp]["type"] == "league"
+        europe = cfg["competitions"][comp]["type"] == "europe"     # clubs of any country
+
+        def mine(c, also=()):
+            return europe or club_country.get(c) in countries | set(also)
         src = srcs[comp]
         long = pd.concat([src[["home_club", "home_name", "season"]].set_axis(["key", "name", "season"], axis=1),
                           src[["away_club", "away_name", "season"]].set_axis(["key", "name", "season"], axis=1)])
@@ -211,10 +229,10 @@ def main(competitions: list[str], dry_run: bool) -> None:
         first = long.groupby("key")["season"].min()
         last = long.groupby("key")["season"].max()
         keys = set(display.index)
-        country_clubs = [c for c, k in club_country.items() if k in countries]
+        country_clubs = [c for c in club_country if mine(c)]
         index = {f: defaultdict(set) for f in (norm, loose)}
         variants = [(c, c) for c in country_clubs] + [
-            (n, c) for n, c in zip(names["name"], names["club"]) if club_country.get(c) in countries]
+            (n, c) for n, c in zip(names["name"], names["club"]) if mine(c)]
         for n, c in variants:
             for f, idx in index.items():
                 if f(bare_title(n)):
@@ -236,7 +254,7 @@ def main(competitions: list[str], dry_run: bool) -> None:
         for key in sorted(keys - set(links)):
             if not is_title(key):
                 continue
-            hits = {c for c in by_title.get(resolved.get(key, key), ()) if club_country.get(c) in countries | {None}}
+            hits = {c for c in by_title.get(resolved.get(key, key), ()) if mine(c, {None})}
             if len(hits) != 1:
                 continue
             club = next(iter(hits))
@@ -295,7 +313,7 @@ def main(competitions: list[str], dry_run: bool) -> None:
                     article[resolved.get(k, k)].add(c)
             for key in sorted(keys - set(links)):
                 hits = article.get(resolved.get(key, key), set()) if is_title(key) else set()
-                if len(hits) == 1 and club_country.get(next(iter(hits))) in countries | {None}:
+                if len(hits) == 1 and mine(next(iter(hits)), {None}):
                     links[key], how[key] = next(iter(hits)), "article"
         # keys that meet but share a club: keep the stronger link only
         rank = {"alias": 0, "manual": 0, "title": 1, "name": 2, "fixtures": 2, "article": 2}
@@ -310,7 +328,7 @@ def main(competitions: list[str], dry_run: bool) -> None:
                 how[weak] = "new (met its link)"
         # keys in matches that will be rated: a league club on one side
         lg = src["home_club"].map(links).isin(league_clubs) | src["away_club"].map(links).isin(league_clubs)
-        needed = keys if is_league else set(src.loc[lg, "home_club"]) | set(src.loc[lg, "away_club"])
+        needed = keys if is_league or europe else set(src.loc[lg, "home_club"]) | set(src.loc[lg, "away_club"])
         for key in keys - needed:
             links.pop(key, None)
             how[key] = "dropped"
