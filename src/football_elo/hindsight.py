@@ -11,9 +11,8 @@ country offsets that best explain European results in the seasons around it
 The correction is added to season ratings only (season views, both measures),
 in full up to `full_until`, fading to nothing by `fade_until`; afterwards the
 forward ratings are already well levelled. Seasons in which a country played no
-European football (`gaps`, England's ban) step evenly from the correction before
-the gap to the one after it: the average over the first `gap_after` seasons
-back (default 1), steadier than one thinly played season.
+European football (`gaps`, England's ban; with `auto_gaps` every such run) are
+filled from the country's level either side of the gap (see fill_gaps).
 
 Checked on seasons left out of the fit (each predicted from its neighbours only):
 European log loss 1958-74 0.5480 -> 0.5404, 1975-94 0.5498 -> 0.5476.
@@ -76,16 +75,69 @@ def corrections(rated: pd.DataFrame, countries: list[str], spec: dict) -> pd.Dat
         scale = 1.0 if s <= full_until else (fade_until + 1 - s) / (fade_until + 1 - full_until)
         rows += [{"country": k, "season": s, "correction": c[k] * scale} for k in countries]
     out = pd.DataFrame(rows)
-    # seasons a country sat out of Europe: step evenly from before the gap to after it
-    n_after = int(spec.get("gap_after", 1))
-    for country, (first, last) in spec.get("gaps", {}).items():
-        sel = out["country"] == country
-        val = out[sel].set_index("season")["correction"]
-        back = [val[s] for s in range(last + 1, last + 1 + n_after) if s in val.index]
-        before, after = val.get(first - 1), (sum(back) / len(back) if back else None)
-        if before is None or after is None:
-            continue
-        for s in range(first, last + 1):
-            out.loc[sel & (out["season"] == s), "correction"] = before + (after - before) * (s - first + 1) / (last - first + 2)
+    out = fill_gaps(out, rated, countries, spec)
     out["correction"] = out["correction"].round(1)
     return out[out["correction"] != 0].reset_index(drop=True)
+
+
+def gap_runs(rated: pd.DataFrame, countries: list[str], spec: dict) -> dict[str, list[tuple[int, int]]]:
+    """country -> runs of league seasons (first, last) to fill: the configured
+    `gaps`, plus with `auto_gaps` every run of seasons in which the country's
+    clubs played no European games (sanctions, a new country, a league before
+    its clubs entered Europe)."""
+    runs = {c: [tuple(g)] for c, g in spec.get("gaps", {}).items()}
+    if not spec.get("auto_gaps"):
+        return runs
+    lg = rated[rated["comp_type"] == "league"]
+    leagues = set(zip(lg["home_country"], lg["season"])) | set(zip(lg["away_country"], lg["season"]))
+    e = rated[rated["comp_type"] == "europe"]
+    played = set(zip(e["home_country"], e["season"])) | set(zip(e["away_country"], e["season"]))
+    for c in countries:
+        quiet = sorted(s for (cc, s) in leagues if cc == c and (c, s) not in played and s <= int(spec["fade_until"]))
+        for s in quiet:
+            if any(a <= s <= b for a, b in runs.get(c, [])):
+                continue
+            if runs.get(c) and runs[c][-1][1] == s - 1 and (c, s - 1) not in played:
+                runs[c][-1] = (runs[c][-1][0], s)
+            else:
+                runs.setdefault(c, []).append((s, s))
+    return runs
+
+
+def fill_gaps(out: pd.DataFrame, rated: pd.DataFrame, countries: list[str], spec: dict) -> pd.DataFrame:
+    """Corrections for seasons a country sat out of Europe, from its level
+    (forward league offset + correction) either side of the gap: the average
+    over the first `gap_after` seasons back (default 1), and the season before.
+    With a season before, the level steps evenly from one to the other
+    (England's ban); without one (a new country such as Serbia in 1992, or the
+    USSR before its clubs entered Europe) the level after applies throughout.
+    Counting the forward offset matters: after a gap, pooling moves a country's
+    offset for several seasons, and that change belongs to the gap years too."""
+    n_after = int(spec.get("gap_after", 1))
+    lg = rated[rated["comp_type"] == "league"]
+    off = (pd.concat([lg[["home_country", "season", "home_offset"]].set_axis(["country", "season", "off"], axis=1),
+                      lg[["away_country", "season", "away_offset"]].set_axis(["country", "season", "off"], axis=1)]
+                     ).groupby(["country", "season"])["off"].mean()
+           if "home_offset" in rated else pd.Series(dtype=float))   # no pooling: offsets all 0
+    leagues = set(zip(lg["home_country"], lg["season"])) | set(zip(lg["away_country"], lg["season"]))
+    out = out.copy()
+    for country, runs in gap_runs(rated, countries, spec).items():
+        sel = out["country"] == country
+        corr = out[sel].set_index("season")["correction"]
+        # seasons the country had a league (all of them when the matches carry no league rows)
+        level = {s: off.get((country, s), 0.0) + corr[s] for s in corr.index
+                 if not leagues or (country, s) in leagues}
+        for first, last in runs:
+            back = [level[s] for s in range(last + 1, last + 1 + n_after) if s in level]
+            if not back:
+                continue
+            after, before = sum(back) / len(back), level.get(first - 1)
+            for s in range(first, last + 1):
+                target = after if before is None else before + (after - before) * (s - first + 1) / (last - first + 2)
+                row = (out["country"] == country) & (out["season"] == s)
+                if row.any():
+                    out.loc[row, "correction"] = target - off.get((country, s), 0.0)
+                else:   # a gap before the first season with any European games
+                    out.loc[len(out)] = {"country": country, "season": s,
+                                         "correction": target - off.get((country, s), 0.0)}
+    return out

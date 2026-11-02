@@ -151,6 +151,17 @@ are 50-110 points lower; 5 of 61 season #1s changed (e.g. Man Utd 1998/99, Arsen
 ban seasons slide towards its 1991-95 average (`gap_after: 4`). Not yet re-checked under these: the
 whole-season measure's settings (15 virtual draws), and the starting levels. Re-checked 2026-10-27: starting levels fine (every country's early European bias within ~2 s.e.); goal margin still worse at every draw count; 25 draws would restore the promoted-club balance and predict slightly better (0.63446 vs 0.63557) but changes three #1s (Inter 1988/89 to Real Madrid among them). Alex kept 15.
 
+**Thin-evidence fixes 2026-11-02 (run 30).** Alex asked why English clubs topped the ban years and
+Partizan was 2nd in 1992/93. Three causes, three fixes, all loaded: (1) `pool_top_tier_only`: Welsh clubs
+in the English lower divisions pooled their Cup Winners' Cup results into England during the ban (+23
+points 1985-90); (2) `margin.autocorr` 1.1: favourites were overrated everywhere (league −1.4pp, Europe
+−3.3pp); log loss better in 1965-94 and 1995-2026; (3) hindsight gaps by level with `auto_gaps`: seasons
+with no European games take the country's later level (Serbia 1992-94 about −65, USSR 1955-64 about +20).
+Whole-season #1s changed: 1963/64 Inter, 1979/80 Bayern, 1986/87 Bayern, 1990/91 Sampdoria, 2023/24 Real
+Madrid. Left: clubs far above their league still do 2-4pp worse in Europe than predicted (shrinking that
+edge by ~10% helps prediction only a little, not built); Celtic/Rangers 1960s partly a data gap: the
+Fairs Cup is about half missing 1963-70 (being filled in a separate session).
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

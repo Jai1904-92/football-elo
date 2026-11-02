@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -347,3 +349,27 @@ def test_calibration_targets_load_without_the_club_elo_history(tmp_path):
     cfg = {"paths": {"calibration": tmp_path}, "aliases": aliases, "elo": {"countries": {"ENG": {}}}}
     t = calibrate.load_targets(cfg)
     assert t[["club", "clubelo_elo"]].values.tolist() == [["Arsenal", 2000]]
+
+
+def test_margin_autocorrelation_shrinks_a_favourites_big_win():
+    big = _matches([("2020-08-01", 2020, 1, "A", "B", 4, 0)])
+    plain, _ = engine.run(big, P)
+    damped, _ = engine.run(big, replace(P, margin_autocorr=1.1))
+    edge = 70   # level clubs: the home side's edge is home advantage
+    assert damped.elo_delta[0] == pytest.approx(plain.elo_delta[0] * 1.1 / (1.1 + 0.001 * edge))
+    upset = _matches([("2020-08-01", 2020, 1, "A", "B", 0, 4)])
+    plain, _ = engine.run(upset, P)
+    damped, _ = engine.run(upset, replace(P, margin_autocorr=1.1))
+    assert abs(damped.elo_delta[0]) > abs(plain.elo_delta[0])     # the underdog's win counts more
+
+
+def test_lower_tier_clubs_do_not_move_their_countrys_level():
+    m = _matches([("2020-08-01", 2020, 1, "A", "B", 1, 0), ("2020-08-01", 2020, 2, "C", "D", 1, 0),
+                  ("2020-09-01", 2020, None, "C", "X", 3, 0)])
+    m["comp_type"] = ["league", "league", "europe"]
+    country = pd.Series({"A": "ENG", "B": "ENG", "C": "ENG", "D": "ENG", "X": "FRA"})
+    p = replace(P, league_pool=0.3)
+    with_pool, _ = engine.run(m, p, club_country=country)
+    top_only, _ = engine.run(m, replace(p, pool_top_tier_only=True), club_country=country)
+    assert with_pool.home_offset.iloc[-1] > 0
+    assert top_only.home_offset.iloc[-1] == 0 and top_only.away_offset.iloc[-1] < 0   # X's country still pools

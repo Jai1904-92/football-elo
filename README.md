@@ -208,7 +208,16 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
 
 - **League pooling:** 30% of every European rating change also moves the club's whole country (more for a
   country whose clubs played few European games the season before: 0.3 × √(50 / games), at most 60%; since
-  2026-10-26, `pool_evidence` in config).
+  2026-10-26, `pool_evidence` in config). Since 2026-11-02 only top-flight clubs (and clubs of countries
+  whose leagues aren't modelled) pool (`pool_top_tier_only`): Welsh clubs in the English lower divisions
+  kept playing in the Cup Winners' Cup through England's ban, and their results lifted the whole English
+  level by about 23 points from 1985 to 1990. Prediction is unchanged.
+- **Margin autocorrelation correction (since 2026-11-02, `margin.autocorr`):** the √(goal diff) multiplier
+  is scaled by 1.1 / (1.1 + 0.001 × the winner's edge, home advantage included), as in FiveThirtyEight's
+  Elo. Big wins come mostly from favourites, so without it strong clubs gained more than their results
+  justified: favourites won 1.4pp less often than predicted in leagues and 3.3pp less in Europe (now about 0
+  and −0.8pp). Chosen on 1965–94 among 0.6, 1.1, 2.2 and 4.4; league, cup and European log loss improve in
+  1965–94 and 1995–2026 (Europe 0.52665 → 0.52403 and 0.59080 → 0.58953). Top ratings sit 30–80 points lower.
 - **Season regression:** at a club's first match of each season its rating moves 20% of the way to the
   average of the league (country and tier) it played in the season before (`season_regress`, since
   2026-10-26). Without it, clubs far above their league were overrated in Europe (−3.5pp for clubs 300+
@@ -436,6 +445,14 @@ through the 1985–90 ban and came back about 25 points too high.
   −25 (was +6, +1, −3, −8, −12, −17 towards 1991/92 alone); predictions are unaffected. That's
   England 1985/86–1990/91, counting 1990/91 when only Manchester United and Aston Villa were back (Liverpool returned in 1991/92). England returns at the
   lower level instead of jumping to it.
+- **Gaps by level (since 2026-11-02):** the step now runs between the country's *level*, its forward pooling
+  offset plus correction, not the correction alone. After a gap, pooling keeps moving a country's offset for
+  several seasons (England 107 → 80 by 1992), and that change belongs to the gap years too. `auto_gaps`
+  treats every run of league seasons with no European games the same way. With no season before the gap (a
+  new country, or a league before its clubs entered Europe) the level after it applies throughout: Serbia
+  1992–94 under sanctions (about −65; Partizan 1992/93 from 2nd to 11th), the USSR 1955–64 (about +20: Soviet
+  clubs beat predictions when they entered Europe). These seasons can't be checked on prediction, since they
+  have no European games. Russia from 2022 is outside the hindsight years and has no later evidence anyway.
 - **Tested on left-out seasons** (each predicted from its neighbours only), European log loss:
 
   | Period | Forward only | With hindsight |

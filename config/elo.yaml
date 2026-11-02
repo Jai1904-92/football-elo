@@ -716,6 +716,12 @@ elo:
   # European log loss fitted on 1965-94 and checked on 1995-2026 (both improve:
   # 0.53122 -> 0.53016, 0.59255 -> 0.59218); caps above 0.6 gained nothing.
   pool_evidence: {games: 50, cap: 0.6}
+  # Only top-flight clubs (and clubs of unmodelled countries) move their country's
+  # level (2026-11-02). Welsh clubs in the English lower divisions kept playing in
+  # Europe through England's ban, and their results lifted all of English football
+  # by about 23 points from 1985 to 1990. Prediction unchanged (European log loss
+  # 0.52665 -> 0.52654 on 1965-94, 0.59080 -> 0.59084 on 1995-2026).
+  pool_top_tier_only: true
   # Season regression (2026-10-26): at a club's first match of a new season its rating
   # moves 20% of the way to the average of the league (country and tier) it played in
   # the season before. Clubs far above their league were overrated in Europe (-3.5pp
@@ -737,6 +743,12 @@ elo:
     #   table:  explicit values, last value repeated for larger margins
     method: sqrt
     exponent: 0.5
+    # Margin autocorrelation correction (2026-11-02, engine.EloParams.margin_autocorr):
+    # favourites won 1.4pp less often than predicted in leagues and 3.3pp less in
+    # Europe, since big wins come mostly from them. Chosen on 1965-94 (tried 0.6, 1.1,
+    # 2.2, 4.4); league, cup and European log loss improve in both periods (Europe
+    # 0.52665 -> 0.52403 and 0.59080 -> 0.58953). Top ratings sit 30-80 points lower.
+    autocorr: 1.1
     table: [1.0, 1.0, 1.5, 1.75, 1.875]
   # Result after extra time counts; a penalty shoot-out is a draw.
   # Starting rating when a club is first rated. All five countries start
@@ -844,6 +856,12 @@ elo:
   # evenly from the pre-ban to the post-ban level.
   # The ban seasons slide towards England's average over its first four seasons back (1991/92-1994/95),
   # not 1991/92 alone (Alex, 2026-10-24: English clubs underperformed in Europe through 1991-96).
-  hindsight: {window: 3, ridge: 60, full_until: 1994, fade_until: 1999, gaps: {ENG: [1985, 1990]}, gap_after: 4}
+  # Since 2026-11-02 gaps are filled from the country's level (forward offset plus
+  # correction), and `auto_gaps` treats every run of seasons with no European games
+  # the same way: Serbia under sanctions (1992-94), the USSR before its clubs entered
+  # Europe, new countries' first seasons. With no season before the gap, the level
+  # after it applies throughout (Partizan 1992/93: 2nd -> 11th).
+  hindsight: {window: 3, ridge: 60, full_until: 1994, fade_until: 1999, gaps: {ENG: [1985, 1990]}, gap_after: 4,
+              auto_gaps: true}
   # Clubs from countries whose leagues are not modelled (met in Europe).
   foreign_start: {default: 1311}

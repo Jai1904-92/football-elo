@@ -30,6 +30,11 @@ class EloParams:
     margin_method: str = "power"
     margin_exponent: float = 0.5
     margin_table: list[float] = field(default_factory=lambda: [1.0, 1.0, 1.5, 1.75, 1.875])
+    # Margin autocorrelation correction (as in FiveThirtyEight's Elo): big wins
+    # come mostly from favourites, so a plain margin multiplier lets strong
+    # clubs gain more than their results justify. The multiplier is scaled by
+    # c / (c + 0.001 x the winner's rating edge incl. home advantage). 0 = off.
+    margin_autocorr: float = 0.0
     # country -> {"start_ratings": {tier: rating}, "nonleague": rating}
     countries: dict = field(default_factory=lambda: {
         "ENG": {"start_ratings": {1: 1650.0, 2: 1450.0, 3: 1300.0, 4: 1200.0}, "nonleague": 1050.0}})
@@ -49,6 +54,10 @@ class EloParams:
     # league_pool and pool_cap. 0 games = a flat league_pool.
     pool_games: float = 0.0
     pool_cap: float = 0.0
+    # Only clubs in their country's top tier move its level: Welsh clubs in the
+    # English lower divisions kept playing in Europe through England's ban, and
+    # their results moved all of English football.
+    pool_top_tier_only: bool = False
     # Season regression: at a club's first match of a new season its rating
     # moves this share of the way to the average of the league (country and
     # tier) it played in the season before. 0 = off.
@@ -83,6 +92,7 @@ class EloParams:
                    margin_method=e["margin"]["method"],
                    margin_exponent=e["margin"].get("exponent", 0.5),
                    margin_table=list(e["margin"].get("table", [1.0])),
+                   margin_autocorr=float(e["margin"].get("autocorr", 0.0)),
                    countries=countries,
                    foreign_start={str(c): float(r) for c, r in e["foreign_start"].items()},
                    k_multiplier={t: float(v) for t, v in e["k_multiplier"].items()},
@@ -90,6 +100,7 @@ class EloParams:
                    league_pool=float(e.get("league_pool", 0.0)),
                    pool_games=float(e.get("pool_evidence", {}).get("games", 0.0)),
                    pool_cap=float(e.get("pool_evidence", {}).get("cap", 0.0)),
+                   pool_top_tier_only=bool(e.get("pool_top_tier_only", False)),
                    season_regress=float(e.get("season_regress", 0.0)),
                    provisional_matches=int(e.get("provisional", {}).get("matches", 0)),
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
@@ -272,6 +283,7 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     k, hfa, scale, lam = params.k, params.hfa, params.scale, params.league_pool
     prov_n, prov_k = params.provisional_matches, params.provisional_k
     eta, hfa_sep = params.hfa_eta, params.hfa_europe_separate
+    mac = params.margin_autocorr
     hstate = dict(hfa_state or {})
     n_played = dict(played or {})
     for c in (initial_base or initial or {}):
@@ -291,6 +303,10 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     # per-match pooling shares (columns pool_home / pool_away) override league_pool when present
     pool_h = m["pool_home"].to_numpy(dtype=float) if "pool_home" in m else np.full(n, lam)
     pool_a = m["pool_away"].to_numpy(dtype=float) if "pool_away" in m else np.full(n, lam)
+    if params.pool_top_tier_only and "home_tier" in m:
+        # (no tier: a country whose league isn't modelled, which still pools)
+        pool_h = np.where(m["home_tier"].to_numpy(dtype=float) > 1, 0.0, pool_h)
+        pool_a = np.where(m["away_tier"].to_numpy(dtype=float) > 1, 0.0, pool_a)
     seasons_ = m["season"].to_numpy()
     reg = params.season_regress
     if reg:
@@ -368,7 +384,11 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         if hkey is not None:
             hstate[hkey] = h_adv + eta * (res - we)
             hfa_keys[i], hfa_after[i] = hkey, hstate[hkey]
-        d = k * km[i] * mult[abs(gd)] * (res - we)
+        mm = mult[abs(gd)]
+        if mac and gd:
+            edge = rh - ra + h_adv if gd > 0 else ra - rh - h_adv
+            mm *= mac / max(mac + 0.001 * edge, 0.5 * mac)
+        d = k * km[i] * mm * (res - we)
         dh = da = d
         if prov_n:
             nh, na = n_played.get(h, 0), n_played.get(a, 0)
