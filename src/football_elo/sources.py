@@ -738,7 +738,8 @@ def _leg_dates(rows: list[dict]) -> None:
 
 
 def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_rounds: str | None = None,
-                  europe: bool = False) -> pd.DataFrame:
+                  europe: bool = False, final_pages: bool = False,
+                  neutral_venue: str | None = None) -> pd.DataFrame:
     """Wikipedia cup season articles saved as <start year>.txt; see wikicups
     for the layouts read. A single-match final is neutral, as is a one-leg
     bracket tie (venue not given) and any round matching `neutral_rounds`
@@ -746,7 +747,11 @@ def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_r
     article they link to, unlinked names by "<country>:<name>" ("EUR:" for a
     European cup); a domestic cup's country is filled in silver. `europe`:
     a European cup's pages, read with wikicups.parse_page(loose=True) and
-    _leg_dates."""
+    _leg_dates. `final_pages`: each page is one final (the Super Cup's
+    yearly articles): its matches are round "Final", legs 1 and 2 in date
+    order when there are two. `neutral_venue`: neutral is then decided by
+    the box's stadium alone (Monaco's Super Cups, not Juventus at home in
+    1985)."""
     from . import wikicups
     out = []
     for path in sorted(folder.glob("*.txt")):
@@ -755,6 +760,10 @@ def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_r
         rows = wikicups.parse_page(text, season, loose=europe)
         if not rows:
             continue
+        if final_pages:
+            rows.sort(key=lambda r: (r["date"] is None, r["date"], r["pos"]))
+            for i, r in enumerate(rows):
+                r.update(round="Final", slot="Final", leg=i + 1 if len(rows) > 1 else None)
         span = wikicups.page_span(text, season)
         if europe:          # the lead's dates are the first round's: undated finals go after the last printed date
             span = (span[0], None)
@@ -769,6 +778,8 @@ def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_r
                 neutral = True
             if neutral_rounds and re.search(neutral_rounds, r["round"], re.I):
                 neutral = True
+            if neutral_venue:
+                neutral = bool(re.search(neutral_venue, r["venue"], re.I))
             r.update(neutral=neutral, season=season, file_name=f"wikipedia/{folder.name}/{path.name}")
         out.extend(rows)
     if not out:

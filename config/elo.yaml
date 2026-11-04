@@ -264,6 +264,19 @@ sources:
       # boxes for most legs. Fill the seasons DataRozhlas holds only part of.
       FAIRS:
         - {folder: cup-fairs, title_template: "{season}–{endw} Inter-Cities Fairs Cup", seasons: [1960, 1970]}
+      # Super Cup articles, one per edition (two legs to 1997, one Monaco final 1998-2011),
+      # filed under the season of the edition's year (1973's legs in January 1974,
+      # 1986's final in February 1987). Not played 1974, 1981, 1985: their titles
+      # redirect to another page or don't exist. 1972 was unofficial (Ajax v Rangers).
+      # Each page is the final; neutral only in Monaco (1986, 1998-2011), so Juventus
+      # (Turin, 1985) and Manchester United (Old Trafford, 1991) are at home.
+      USC:
+        - {folder: cup-supercup, title_template: "{season} European Super Cup", seasons: [1972, 1973],
+           final_pages: true, neutral_venue: Monaco}
+        - {folder: cup-supercup, title_template: "{season} European Super Cup", seasons: [1975, 1980]}
+        - {folder: cup-supercup, title_template: "{season} European Super Cup", seasons: [1982, 1984]}
+        - {folder: cup-supercup, title_template: "{season} European Super Cup", seasons: [1986, 1994]}
+        - {folder: cup-supercup, title_template: "{season} UEFA Super Cup", seasons: [1995, 2011]}
   espn:
     # Unofficial public scoreboard API, one request per league per calendar year.
     url_template: https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard
@@ -647,6 +660,7 @@ competitions:
     name: UEFA Super Cup
     type: europe
     windows:
+      - {source: wikipedia, until: "2012-06-30"}        # 1972/73-2011/12, the yearly articles
       - {source: transfermarkt, until: "2026-06-30"}
       - {source: espn, extend: "2026-04-01"}
 

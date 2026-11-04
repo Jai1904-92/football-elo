@@ -194,6 +194,17 @@ merged), season regression only on moving to a later season (a7e4e01), and `seas
 the 1960s (Fairs Cup finalists up: Ferencvaros, Leeds, Ujpest; Ajax and Feyenoord down a few places).
 The site's All-time tab was removed (Alex: not valuable); `gold.mv_alltime_parts` stays in the database.
 
+**Run 33 (2026-11-04).** UEFA Super Cup 1972-2011 added (Alex noticed Manchester United 1-0 Red Star of 1991
+missing; 2012 on was already there from Transfermarkt/ESPN). Source: Wikipedia's article per edition
+(`wikipedia.cups.USC`, folder `cup-supercup`), 57 matches; none played 1974, 1981, 1985 (1986's was, in
+February 1987). The unofficial 1972 Ajax v Rangers counts (Alex). Every page is the final (`final_pages`: legs
+1/2 by date); neutral by venue (`neutral_venue: Monaco`), so Juventus 1985 (Turin) and Manchester United 1991
+(Old Trafford) are home games; the 2000 golden goal counts as extra time (box `agget`). Whole-season #1 changes:
+1999/00 Manchester United -> Lazio, 2008/09 Manchester United -> Barcelona (by 1 point; Zenit 100th -> 82nd);
+11 seasons swap one top-10 club. Club Elo calibration unchanged. Found, not fixed: Transfermarkt's 2012-2025
+Super Cups carry the shoot-out in the score (Bayern 7-6 Chelsea 2013 and four more), and ESPN's 2026 final
+is not marked neutral.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

@@ -274,8 +274,9 @@ def _boxes(text: str) -> list[dict]:
         pm = SCORE.search(plain(pens))
         if pm:
             sc["pens"], sc["aet"] = (int(pm.group(1)), int(pm.group(2))), True
-        if re.search(r"yes|y|true|1", p.get("aet", ""), re.I) and p.get("aet", "").strip():
-            sc["aet"] = True
+        for k in ("aet", "agget", "asget"):        # golden / silver goal extra time too
+            if re.search(r"yes|y|true|1", p.get(k, ""), re.I) and p.get(k, "").strip():
+                sc["aet"] = True
         out.append(dict(sc, fmt="box", pos=m.start(), home=h, away=a, leg=None,
                         date=p.get("date", ""), venue=p.get("stadium", "")))
     return out

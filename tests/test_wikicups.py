@@ -159,3 +159,34 @@ def test_european_pages_tie_rows_with_countries_and_plain_rows(tmp_path: Path):
     df = sources.wikipedia_cup(tmp_path, "FAIRS", None, europe=True)
     second = df[(df["home_club"] == "Servette FC") & (df["away_club"] == "AIK Fotboll")]
     assert second["match_date"].tolist() == [pd.Timestamp("1969-10-01")]   # 14 days after the dated first leg
+
+
+def _super_cup_box(date, home, score, away, stadium, extra=""):
+    return (f"{{{{football box\n|date={date}\n|team1=[[{home}]]\n|score={score}\n{extra}"
+            f"|team2=[[{away}]]\n|stadium={stadium}\n}}}}\n")
+
+
+def test_final_pages_number_legs_and_take_neutral_from_the_venue(tmp_path: Path):
+    folder = tmp_path / "cup-supercup"
+    folder.mkdir()
+    # an edition's article: second leg printed first, under headings that name no round
+    (folder / "1991.txt").write_text(
+        "==Match details==\n" + _super_cup_box("19 November 1991", "Manchester United F.C.", "1–0",
+                                                 "Red Star Belgrade", "[[Old Trafford]], [[Manchester]]"),
+        encoding="utf-8")
+    (folder / "1993.txt").write_text(
+        "==Matches==\n"
+        + _super_cup_box("2 February 1994", "AC Milan", "0–2", "Parma Calcio 1913", "[[San Siro]]", "|aet=yes\n")
+        + _super_cup_box("12 January 1994", "Parma Calcio 1913", "0–1", "AC Milan", "[[Stadio Ennio Tardini]]"),
+        encoding="utf-8")
+    (folder / "2000.txt").write_text(
+        "===Details===\n" + _super_cup_box("25 August 2000", "Real Madrid CF", "1–2", "Galatasaray S.K. (football)",
+                                           "[[Stade Louis II]], [[Monaco]]", "|agget = yes\n"),
+        encoding="utf-8")
+    df = sources.wikipedia_cup(folder, "USC", None, europe=True, final_pages=True, neutral_venue="Monaco")
+    got = [(r.season, r.round, r.leg if isinstance(r.leg, str) else None, r.home_club, r.neutral, r.extra_time)
+           for r in df.itertuples()]
+    assert got == [(1991, "Final", None, "Manchester United F.C.", False, False),   # a single final at home
+                   (1993, "Final", "1", "Parma Calcio 1913", False, False),
+                   (1993, "Final", "2", "AC Milan", False, True),
+                   (2000, "Final", None, "Real Madrid CF", True, True)]         # golden goal: extra time
