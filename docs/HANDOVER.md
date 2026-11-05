@@ -205,6 +205,15 @@ February 1987). The unofficial 1972 Ajax v Rangers counts (Alex). Every page is 
 Super Cups carry the shoot-out in the score (Bayern 7-6 Chelsea 2013 and four more), and ESPN's 2026 final
 is not marked neutral.
 
+**Run 34 (2026-11-05).** Super Cup fixes. Wikipedia now supplies 2012-2025 too (`until: 2026-06-30`; the
+Transfermarkt window is gone), so shoot-outs are draws with `home_pens`/`away_pens` (2013, 2019, 2021, 2023,
+2025). The 2023 and 2025 articles use `{{#invoke:football box|main}}`, which `wikicups._boxes` now reads.
+`neutral_venue: Monaco` became `home_finals: [1984, 1991]` (single finals are neutral otherwise, since they
+move city from 2013); ESPN's USC rows are neutral. 72 USC matches (71 Wikipedia, 1 ESPN). Whole-season #1
+changes: 2013/14 Bayern -> Real Madrid, 2023/24 Manchester City -> Real Madrid; 2019/20 Chelsea into the top
+10 for Juventus. Found, not fixed: Transfermarkt adds the shoot-out to the score in every competition (573 of
+594 ESPN shoot-outs since 2016, e.g. the 2016 CL final stored 6-4).
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

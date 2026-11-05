@@ -166,7 +166,7 @@ def _super_cup_box(date, home, score, away, stadium, extra=""):
             f"|team2=[[{away}]]\n|stadium={stadium}\n}}}}\n")
 
 
-def test_final_pages_number_legs_and_take_neutral_from_the_venue(tmp_path: Path):
+def test_final_pages_number_legs_and_single_finals_are_neutral_unless_at_home(tmp_path: Path):
     folder = tmp_path / "cup-supercup"
     folder.mkdir()
     # an edition's article: second leg printed first, under headings that name no round
@@ -183,10 +183,17 @@ def test_final_pages_number_legs_and_take_neutral_from_the_venue(tmp_path: Path)
         "===Details===\n" + _super_cup_box("25 August 2000", "Real Madrid CF", "1–2", "Galatasaray S.K. (football)",
                                            "[[Stade Louis II]], [[Monaco]]", "|agget = yes\n"),
         encoding="utf-8")
-    df = sources.wikipedia_cup(folder, "USC", None, europe=True, final_pages=True, neutral_venue="Monaco")
+    (folder / "2013.txt").write_text(      # the module form of the box, with a shoot-out
+        "==Match==\n{{#invoke:football box|main\n|date=30 August 2013\n|team1=[[FC Bayern Munich]]\n"
+        "|score=2–2\n|aet=yes\n|penaltyscore=5–4\n|team2=[[Chelsea F.C.]]\n|stadium=[[Eden Arena]], [[Prague]]\n}}\n",
+        encoding="utf-8")
+    df = sources.wikipedia_cup(folder, "USC", None, europe=True, final_pages=True, home_finals=[1991])
     got = [(r.season, r.round, r.leg if isinstance(r.leg, str) else None, r.home_club, r.neutral, r.extra_time)
            for r in df.itertuples()]
     assert got == [(1991, "Final", None, "Manchester United F.C.", False, False),   # a single final at home
                    (1993, "Final", "1", "Parma Calcio 1913", False, False),
                    (1993, "Final", "2", "AC Milan", False, True),
-                   (2000, "Final", None, "Real Madrid CF", True, True)]         # golden goal: extra time
+                   (2000, "Final", None, "Real Madrid CF", True, True),         # golden goal: extra time
+                   (2013, "Final", None, "FC Bayern Munich", True, True)]
+    assert df.loc[df["season"] == 2013, ["home_goals", "away_goals", "home_pens", "away_pens"]].values.tolist() == \
+        [[2, 2, 5, 4]]

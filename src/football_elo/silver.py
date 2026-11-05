@@ -115,7 +115,7 @@ class SourceReader:
                                        next((s["neutral_rounds"] for s in specs if "neutral_rounds" in s), None),
                                        europe=self.cfg["competitions"][competition]["type"] == "europe",
                                        final_pages=any(s.get("final_pages") for s in specs),
-                                       neutral_venue=next((s["neutral_venue"] for s in specs if "neutral_venue" in s), None))
+                                       home_finals=[y for s in specs for y in s.get("home_finals", [])])
             return df[df["season"].isin(seasons)].reset_index(drop=True)
         parts = []
         specs = self.cfg["sources"]["wikipedia"]["leagues"][competition]

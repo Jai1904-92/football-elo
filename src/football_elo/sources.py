@@ -273,9 +273,10 @@ def espn(folder: Path, slugs: dict[str, str], playoffs_only: bool = True,
                     "home_club": h["team"]["id"], "away_club": a["team"]["id"],
                     "home_name": h["team"]["displayName"], "away_name": a["team"]["displayName"],
                     "home_goals": int(h["score"]), "away_goals": int(a["score"]),
-                    # finals are at neutral venues, as are FA Cup semi-finals
+                    # finals are at neutral venues, as are FA Cup semi-finals and the
+                    # Super Cup (its stage is "2026-uefa-super-cup", not "final")
                     "neutral": bool(c.get("neutralSite")) or (not league and stage.endswith("final"))
-                               or (comp == "ENG-FAC" and "semi" in stage),
+                               or (comp == "ENG-FAC" and "semi" in stage) or comp == "USC",
                     "extra_time": status in ("STATUS_FINAL_AET", "STATUS_FINAL_PEN"),
                     "home_pens": h.get("shootoutScore"), "away_pens": a.get("shootoutScore"),
                     "season": (ev.get("season") or {}).get("year") if league else None,
@@ -739,7 +740,7 @@ def _leg_dates(rows: list[dict]) -> None:
 
 def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_rounds: str | None = None,
                   europe: bool = False, final_pages: bool = False,
-                  neutral_venue: str | None = None) -> pd.DataFrame:
+                  home_finals: list[int] | None = None) -> pd.DataFrame:
     """Wikipedia cup season articles saved as <start year>.txt; see wikicups
     for the layouts read. A single-match final is neutral, as is a one-leg
     bracket tie (venue not given) and any round matching `neutral_rounds`
@@ -749,9 +750,8 @@ def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_r
     a European cup's pages, read with wikicups.parse_page(loose=True) and
     _leg_dates. `final_pages`: each page is one final (the Super Cup's
     yearly articles): its matches are round "Final", legs 1 and 2 in date
-    order when there are two. `neutral_venue`: neutral is then decided by
-    the box's stadium alone (Monaco's Super Cups, not Juventus at home in
-    1985)."""
+    order when there are two. `home_finals`: seasons whose single final was
+    at one finalist's ground, so not neutral (Juventus in Turin in 1985)."""
     from . import wikicups
     out = []
     for path in sorted(folder.glob("*.txt")):
@@ -778,8 +778,8 @@ def wikipedia_cup(folder: Path, competition: str, country: str | None, neutral_r
                 neutral = True
             if neutral_rounds and re.search(neutral_rounds, r["round"], re.I):
                 neutral = True
-            if neutral_venue:
-                neutral = bool(re.search(neutral_venue, r["venue"], re.I))
+            if home_finals and season in home_finals:
+                neutral = False
             r.update(neutral=neutral, season=season, file_name=f"wikipedia/{folder.name}/{path.name}")
         out.extend(rows)
     if not out:

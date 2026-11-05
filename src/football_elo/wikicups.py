@@ -1,8 +1,8 @@
 """Knockout-cup results as English Wikipedia season articles print them.
 
 Five layouts, often mixed on one page:
-  - {{Football box}} / {{Football box collapsible}}: one match, team1 at home,
-    usually dated
+  - {{Football box}} / {{Football box collapsible}} / {{#invoke:football box|main}}:
+    one match, team1 at home, usually dated
   - {{OneLegResult|team1||score|team2}}: one match, team1 at home
   - {{TwoLegResult|team1||agg|team2||leg1|leg2}}: a two-legged tie; both leg
     scores are from team1's side, and team1 is at home in the first leg (the
@@ -261,7 +261,8 @@ def _round_of(path: list[str]) -> tuple[str, str]:
 
 def _boxes(text: str) -> list[dict]:
     out = []
-    for m in re.finditer(r"\{\{\s*football ?box(?:[ _]collapsible)?\s*\|", text, re.I):
+    # also the module form, {{#invoke:football box|main|...}}
+    for m in re.finditer(r"\{\{\s*(?:#invoke:\s*)?football ?box(?:[ _]collapsible)?\s*\|", text, re.I):
         body = template_at(text, m.start())
         _, p = params(body)
         h, a = club(p.get("team1", "")), club(p.get("team2", ""))
