@@ -171,12 +171,15 @@ table.t { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
 
 /* ------------------------------------------------------------ decade grid, honours, misc */
-.decades { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
-.decade { border: 1px solid var(--line); background: rgba(5, 10, 20, .6); padding: 10px; }
-.decade h3 { font-size: 1.1rem; color: var(--cyan); margin-bottom: 6px; }
-.decade ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .84rem; }
-.decade li { display: flex; align-items: center; gap: 6px; }
-.decade li .num { margin-left: auto; color: var(--muted); }
+.decades { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.decade { border: 1px solid var(--line); background: rgba(5, 10, 20, .6); padding: 10px 12px; min-width: 0; }
+.decade h3 { font-size: 1.1rem; color: var(--cyan); margin-bottom: 8px; }
+.decade ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; font-size: .84rem; }
+.decade li { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.decade li > * { flex-shrink: 0; }
+.decade li .pos { width: 18px; text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+.decade li .name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.decade li .num { color: var(--muted); font-variant-numeric: tabular-nums; }
 .honours { display: flex; flex-wrap: wrap; gap: 10px; }
 .honour { border: 1px solid var(--line); padding: 8px 12px; background: rgba(5,10,20,.6); min-width: 150px; }
 .honour b { font: 700 1.4rem var(--head); color: var(--club); margin-right: 6px; }

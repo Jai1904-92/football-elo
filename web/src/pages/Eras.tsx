@@ -91,8 +91,8 @@ export default function Eras({ clubs }: { clubs: ClubIndex }) {
             <div className="decade" key={dec}>
               <h3>{dec}s</h3>
               <ol>{list.map((k) => (
-                <li key={k.club}><span className="muted" style={{ width: 16 }}>{k.pos}</span><Badge club={clubs.byId[k.club]} size={18} />
-                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{clubs.byId[k.club]?.name}</span>
+                <li key={k.club}><span className="pos">{k.pos}</span><Badge club={clubs.byId[k.club]} size={18} />
+                  <span className="name" title={clubs.byId[k.club]?.name}>{clubs.byId[k.club]?.name}</span>
                   <span className="num">+{Math.round(k.avg_above_field)}</span></li>))}</ol>
             </div>))}
           </div>
