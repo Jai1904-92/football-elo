@@ -56,12 +56,22 @@ def season_from_date(d: pd.Series) -> pd.Series:
 
 
 # ------------------------------------------------------------ engsoccerdata
+def _es_dates(df: pd.DataFrame) -> pd.Series:
+    """A few rows are dated a year early (Turkey's 2006/07 spring, a 1946/47
+    French round, the 2009/10 Inter v Barcelona semi-final): a date before
+    June of the season's first year moves on a year. Qualifiers in late June
+    are real."""
+    date = pd.to_datetime(df["Date"])
+    early = date < pd.to_datetime(df["Season"].astype(int).astype(str) + "-06-01")
+    return date.where(~early, date + pd.DateOffset(years=1))
+
+
 def es_league(path: Path, country: str, competition: str, max_tier: int) -> pd.DataFrame:
     df = pd.read_csv(path, low_memory=False)
     df = df[pd.to_numeric(df["tier"], errors="coerce").between(1, max_tier)]
     df = df[df["hgoal"].notna() & df["vgoal"].notna()]   # unplayed / abandoned (some non-English files)
     return _frame("engsoccerdata", file_name=_rel(path),
-                  match_date=pd.to_datetime(df["Date"]), season=df["Season"].astype(int),
+                  match_date=_es_dates(df), season=df["Season"].astype(int),
                   competition=competition, tier=df["tier"].astype(int), round="league",
                   home_club=df["home"].str.strip(), away_club=df["visitor"].str.strip(),
                   home_goals=df["hgoal"].astype(int), away_goals=df["vgoal"].astype(int),
@@ -73,7 +83,7 @@ def es_facup(path: Path) -> pd.DataFrame:
     df = df[df["nonmatch"].isna() & df["hgoal"].notna()]
     hp, ap = df["hp"], df["vp"]
     return _frame("engsoccerdata", file_name=_rel(path),
-                  match_date=pd.to_datetime(df["Date"]), season=df["Season"].astype(int),
+                  match_date=_es_dates(df), season=df["Season"].astype(int),
                   competition="ENG-FAC", round=df["round"].astype(str), leg=df["tie"],
                   home_club=df["home"].str.strip(), away_club=df["visitor"].str.strip(),
                   home_goals=df["hgoal"].astype(int), away_goals=df["vgoal"].astype(int),
@@ -89,7 +99,7 @@ def es_leaguecup(path: Path) -> pd.DataFrame:
     # one-off finals (leg 0) are at Wembley / Cardiff; 1961-66 finals were two-legged
     neutral = rnd.eq("final") & df["leg"].eq(0)
     return _frame("engsoccerdata", file_name=_rel(path),
-                  match_date=pd.to_datetime(df["Date"]), season=df["Season"].astype(int),
+                  match_date=_es_dates(df), season=df["Season"].astype(int),
                   competition="ENG-LC", round=rnd, leg=df["leg"].astype(str),
                   home_club=df["home"].str.strip(), away_club=df["visitor"].str.strip(),
                   home_goals=df["hgoal"].astype(int), away_goals=df["vgoal"].astype(int),
@@ -101,7 +111,7 @@ def es_playoffs(path: Path, max_tier: int) -> pd.DataFrame:
     df = df[(df["htier"] <= max_tier) & (df["vtier"] <= max_tier) & (df["Season"] >= 1986)]
     hp, ap = _pens(df["pens"])
     return _frame("engsoccerdata", file_name=_rel(path),
-                  match_date=pd.to_datetime(df["Date"]), season=df["Season"].astype(int),
+                  match_date=_es_dates(df), season=df["Season"].astype(int),
                   competition="ENG-PO", round=df["round"].astype(str), leg=df["tie"],
                   home_club=df["home"].str.strip(), away_club=df["visitor"].str.strip(),
                   home_goals=df["hgoal"].astype(int), away_goals=df["vgoal"].astype(int),
@@ -114,7 +124,7 @@ def es_champs(path: Path) -> pd.DataFrame:
     rnd = df["round"].astype(str)
     hp, ap = _pens(df["pens"])
     return _frame("engsoccerdata", file_name=_rel(path),
-                  match_date=pd.to_datetime(df["Date"]), season=df["Season"].astype(int),
+                  match_date=_es_dates(df), season=df["Season"].astype(int),
                   competition="UCL", round=rnd, leg=df["leg"].astype(str),
                   home_club=df["home"].str.strip(), away_club=df["visitor"].str.strip(),
                   home_goals=df["tothgoal"].astype(int), away_goals=df["totvgoal"].astype(int),
@@ -226,16 +236,54 @@ def transfermarkt(folder: Path, competitions: dict[str, str]) -> pd.DataFrame:
     rnd = g["round"].astype(str)
     neutral = (rnd.eq("Final") | g["competition_id"].eq("USC") |
                (comp.eq("ENG-FAC") & rnd.str.contains("Semi", case=False)))
+    hg, ag, hp, ap = _transfermarkt_shootouts(g, folder / "game_events.csv.gz")
     return _frame("transfermarkt", file_name=_rel(folder / "games.csv.gz"),
                   match_date=pd.to_datetime(g["date"]), season=g["season"].astype(int),
                   competition=comp, round=rnd,
                   home_club=g["home_club_id"].astype(int).astype(str),
                   away_club=g["away_club_id"].astype(int).astype(str),
-                  home_goals=g["home_club_goals"].astype(int), away_goals=g["away_club_goals"].astype(int),
-                  neutral=neutral,
+                  home_goals=hg, away_goals=ag, neutral=neutral, extra_time=hp.notna(),
+                  home_pens=hp, away_pens=ap,
                   home_country=g["home_club_id"].map(club_country),
                   away_country=g["away_club_id"].map(club_country),
                   home_name=g["home_club_name"], away_name=g["away_club_name"])
+
+
+def _transfermarkt_shootouts(g: pd.DataFrame, events_path: Path) -> tuple[pd.Series, ...]:
+    """Transfermarkt's score includes the shoot-out (Real Madrid 6-4 Atletico,
+    2016 final). Where a game has shoot-out kicks in game_events, the score is
+    the goal events (after extra time) and the pens are what is left of the
+    stored score, or the scored kicks when that is not a shoot-out result
+    (some games store the score without the shoot-out, a few only the pens).
+    Games with no kicks recorded (early Copa del Rey rounds, the 2023 League
+    Cup first round) count as shoot-outs when the goal events are level, it is
+    not a group game, and what is left of the score can only be a shoot-out.
+    Returns home goals, away goals, home pens, away pens."""
+    hg, ag = g["home_club_goals"].astype(int), g["away_club_goals"].astype(int)
+    nan = pd.Series(np.nan, index=g.index)
+    if not events_path.exists():
+        return hg, ag, nan, nan.copy()
+    e = pd.read_csv(events_path, usecols=["game_id", "type", "club_id", "description"])
+    e = e[e["game_id"].isin(g["game_id"])]
+    kicks = e[e["type"] == "Shootout"]
+    shot = g["game_id"].isin(kicks["game_id"])
+
+    def count(ev: pd.DataFrame, side: str) -> pd.Series:
+        n = ev.groupby(["game_id", "club_id"]).size()
+        key = pd.MultiIndex.from_arrays([g["game_id"], g[f"{side}_club_id"]])
+        return pd.Series(n.reindex(key, fill_value=0).to_numpy(), index=g.index)
+
+    goals = {s: count(e[e["type"] == "Goals"], s) for s in ("home", "away")}
+    scored = {s: count(kicks[kicks["description"].str.contains("Scored", na=False)], s) for s in ("home", "away")}
+    left = {"home": hg - goals["home"], "away": ag - goals["away"]}
+    use_left = (left["home"] >= 0) & (left["away"] >= 0) & (left["home"] != left["away"])
+    hi = np.maximum(left["home"], left["away"])
+    lo = np.minimum(left["home"], left["away"])
+    plausible = use_left & (hi >= 3) & (hi - lo <= 3) & ((lo < 5) | (hi - lo == 1))
+    shot |= (plausible & (goals["home"] == goals["away"]) & g["game_id"].isin(e["game_id"])
+             & ~g["round"].astype(str).str.contains("group", case=False))
+    pens = {s: scored[s].where(~use_left, left[s]).where(shot) for s in ("home", "away")}
+    return (goals["home"].where(shot, hg), goals["away"].where(shot, ag), pens["home"], pens["away"])
 
 
 # ------------------------------------------------------------ ESPN scoreboard

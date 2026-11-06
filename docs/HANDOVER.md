@@ -214,6 +214,18 @@ changes: 2013/14 Bayern -> Real Madrid, 2023/24 Manchester City -> Real Madrid; 
 10 for Juventus. Found, not fixed: Transfermarkt adds the shoot-out to the score in every competition (573 of
 594 ESPN shoot-outs since 2016, e.g. the 2016 CL final stored 6-4).
 
+**Run 35 (2026-11-06).** Transfermarkt shoot-outs: the reader now also reads `game_events` (fetched with the
+other Transfermarkt files) and, for games with shoot-out kicks, takes the score from the goal events and the
+pens from the rest of the stored score (`sources._transfermarkt_shootouts`); games with no kicks recorded
+count as shoot-outs when the goal events are level, it is not a group game, and the leftover can only be a
+shoot-out. 824 rows corrected 2012-2025 (per competition and season in the session notes). Against ESPN:
+598 of 606 shoot-outs since 2016 now agree, no false ones; the 8 left store the winner as one extra goal.
+engsoccerdata: a date before June of the season's first year moves on a year (`sources._es_dates`): Turkey
+2006/07 spring (153 games), a France 1946/47 round, the 2009/10 Inter v Barcelona semi, four 2010/11 League
+Cup ties, one 1878/79 FA Cup tie. Whole-season #1: 2023/24 Real Madrid -> Manchester City (City 1-1 Real,
+4-3 pens, had been a 5-4 Real win). Top-10 swaps 2009/10, 2012/13, 2014/15, 2019/20, 2024/25; Arsenal
+2022/23 4th -> 2nd.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

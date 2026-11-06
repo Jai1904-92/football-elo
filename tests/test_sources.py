@@ -247,3 +247,44 @@ def test_football_data_extra_reads_split_and_calendar_seasons(tmp_path):
     assert sorted(zip(df["competition"], df["season"], df["home_club"], df["away_goals"])) == [
         ("SUI-L", 2026, "Sion", 1), ("SWE-L", 2026, "AIK", 1)]
     assert df["match_date"].min() == pd.Timestamp("2026-04-05")
+
+
+def _transfermarkt_folder(tmp_path, games, events):
+    cols = ["game_id", "competition_id", "season", "round", "date", "home_club_id", "away_club_id",
+            "home_club_goals", "away_club_goals", "home_club_name", "away_club_name"]
+    pd.DataFrame(games, columns=cols).to_csv(tmp_path / "games.csv.gz", index=False)
+    pd.DataFrame(events, columns=["game_id", "type", "club_id", "description"]).to_csv(
+        tmp_path / "game_events.csv.gz", index=False)
+    pd.DataFrame({"club_id": [1, 2], "domestic_competition_id": ["ES1", "ES1"]}).to_csv(
+        tmp_path / "clubs.csv.gz", index=False)
+    pd.DataFrame({"competition_id": ["ES1"], "country_name": ["Spain"]}).to_csv(
+        tmp_path / "competitions.csv.gz", index=False)
+
+
+def test_transfermarkt_takes_the_shootout_out_of_the_score(tmp_path):
+    goal, kick, miss = ("Goals", ", Header"), ("Shootout", ", Scored"), ("Shootout", ", Missed")
+    games = [(10, "CL", 2015, "Final", "2016-05-28", 1, 2, 6, 4, "Real", "Atletico"),          # 1-1, 5-3 pens
+             (11, "CDR", 2013, "First Round", "2013-09-04", 1, 2, 5, 4, "A", "B"),            # no kicks recorded
+             (12, "CDR", 2013, "Second Round", "2013-10-04", 1, 2, 3, 0, "A", "B"),           # a goal event missing
+             (13, "CDR", 2013, "Third Round", "2013-11-04", 1, 2, 2, 2, "A", "B")]            # kicks not added
+    events = ([(10, *goal[:1], 1, goal[1]), (10, "Goals", 2, ", Shot")] + [(10, "Shootout", 1, ", Scored")] * 5
+              + [(10, "Shootout", 2, ", Scored")] * 3 + [(10, *miss[:1], 2, miss[1])]
+              + [(11, "Goals", 1, ""), (11, "Goals", 2, ""), (12, "Goals", 1, ""), (12, "Goals", 1, "")]
+              + [(13, "Goals", 1, ""), (13, "Goals", 1, ""), (13, "Goals", 2, ""), (13, "Goals", 2, "")]
+              + [(13, *kick[:1], 1, kick[1])] * 4 + [(13, *kick[:1], 2, kick[1])] * 3)
+    _transfermarkt_folder(tmp_path, games, events)
+    df = sources.transfermarkt(tmp_path, {"CL": "UCL", "CDR": "ESP-CDR"}).set_index("match_date")
+    got = df[["home_goals", "away_goals", "home_pens", "away_pens", "extra_time"]].astype(object)
+    assert got.loc[pd.Timestamp("2016-05-28")].tolist() == [1, 1, 5, 3, True]
+    assert got.loc[pd.Timestamp("2013-09-04")].tolist() == [1, 1, 4, 3, True]
+    assert got.loc[pd.Timestamp("2013-10-04"), ["home_goals", "away_goals", "extra_time"]].tolist() == [3, 0, False]
+    assert got.loc[pd.Timestamp("2013-11-04")].tolist() == [2, 2, 4, 3, True]
+
+
+def test_engsoccerdata_dates_a_year_early_move_on(tmp_path):
+    rows = pd.DataFrame({"Date": ["2006-08-04", "2006-02-03", "2009-06-30"], "Season": [2006, 2006, 2009],
+                         "home": ["A", "A", "C"], "visitor": ["B", "B", "D"], "hgoal": [1, 0, 2],
+                         "vgoal": [0, 0, 1], "tier": [1, 1, 1]})
+    rows.to_csv(tmp_path / "turkey.csv", index=False)
+    df = sources.es_league(tmp_path / "turkey.csv", "TUR", "TUR-L", 1)
+    assert df["match_date"].dt.strftime("%Y-%m-%d").tolist() == ["2006-08-04", "2007-02-03", "2009-06-30"]

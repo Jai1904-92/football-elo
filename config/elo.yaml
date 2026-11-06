@@ -31,7 +31,7 @@ sources:
   transfermarkt:
     # dcaribou/transfermarkt-datasets; 2012/13 to July 2026 (collection stopped then)
     url_template: https://pub-e682421888d945d684bcae8890b0ec20.r2.dev/data/{name}.csv.gz
-    files: [games, clubs, competitions]
+    files: [games, clubs, competitions, game_events]   # game_events: shoot-out kicks (sources.transfermarkt)
     competitions: {CL: UCL, CLQ: UCL, EL: UEL, ELQ: UEL, UCOL: UECL, ECLQ: UECL, USC: USC,
                    FAC: ENG-FAC, CGB: ENG-LC,
                    CDR: ESP-CDR, DFB: GER-DFB, CIT: ITA-CI, NLP: NED-KNVB, POCP: POR-TP}
