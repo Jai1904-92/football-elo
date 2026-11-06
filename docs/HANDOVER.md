@@ -238,6 +238,14 @@ which is rare where the tier below is modelled. Tested, not adopted: a summer pu
 clubs that changed tier. Halfway between the old and new league centres the promoted-club bias (big five
 +1.5/+0.7/−0.2/0.0pp by era) and improves league log loss, but cups get worse. It's waiting on Alex.
 
+**Run 37 (2026-11-07).** Alex adopted that halfway pull (`season_regress_new: 0.5`) together with a
+quarter-strength goal margin in the whole-season measure (`seasons.MARGIN_EXPONENT = 0.25`). The regression
+averages now include second-tier levels, which fixes a small run-36 skew: a club that had already changed tier
+counted at its own part only. #1 changes: 1963/64 Inter -> Real Madrid, 1970/71 Arsenal -> Leeds; 208 of 710
+top-10 places move. Promotion seasons drop about 6 places, first top-flight seasons rise about 3, and big
+winners gain back some through margin (Fulham 2000/01 70th -> 58th). Sunderland 1998/99 (105 pts) stays 5th
+among English clubs.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

@@ -797,6 +797,14 @@ elo:
   # cups 0.58512 -> 0.58487, Europe 0.52249 -> 0.52253; 1995-2026: league 0.63485 ->
   # 0.63468, cups 0.59900 -> 0.59825, Europe 0.58915 -> 0.58876. No season #1 changes.
   season_regress: 0.15
+  # Promoted and relegated clubs (2026-11-07) regress towards the point halfway between their
+  # old league's average and their new one's. Before, a promoted club was pulled towards the
+  # weaker league it had just left. Promoted clubs in the big five +2.0/+1.1/+0.3/+0.6pp
+  # (1966-94/95-09/10-17/18-26) -> +1.5/+0.7/-0.2/0.0. League log loss 0.60818 -> 0.60810
+  # and 0.63464 -> 0.63460, cups 0.58465 -> 0.58493 and 0.59877 -> 0.59879, Europe
+  # 0.52227 -> 0.52232 and 0.58854 -> 0.58850. All the way to the new league overshot (-1.6pp
+  # for English promoted clubs since 2018). Adopted with quarter-strength margin in seasons.py.
+  season_regress_new: 0.5
   # Provisional ratings: a club's first 40 rated matches use K x 2.
   provisional: {matches: 40, k_multiplier: 2.0}
   # K multiplier by competition type

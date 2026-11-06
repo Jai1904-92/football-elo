@@ -407,3 +407,27 @@ def test_second_tier_cup_wins_lift_the_whole_second_tier():
     per = engine.periods(pooled)
     d = per[(per.club == "D")].iloc[-1]
     assert d.country_offset == pytest.approx(cup.home_tier_offset)
+
+
+def test_a_promoted_club_regresses_halfway_towards_its_new_league():
+    m = _matches([("2020-08-01", 2020, 1, "A", "B", 3, 0), ("2020-08-01", 2020, 1, "C", "D", 0, 0),
+                  ("2020-08-08", 2020, 1, "E", "A", 0, 2), ("2020-08-08", 2020, 1, "B", "C", 1, 1),
+                  ("2020-08-15", 2020, 1, "D", "E", 2, 1),
+                  ("2020-08-01", 2020, 2, "F", "G", 4, 0), ("2020-08-01", 2020, 2, "H", "I", 1, 0),
+                  ("2020-08-08", 2020, 2, "J", "F", 0, 3), ("2020-08-08", 2020, 2, "G", "H", 2, 2),
+                  ("2020-08-15", 2020, 2, "I", "J", 1, 1),
+                  ("2021-08-01", 2021, 1, "F", "A", 1, 1), ("2021-08-08", 2021, 1, "B", "C", 0, 0),
+                  ("2021-08-08", 2021, 1, "D", "F", 0, 0), ("2021-08-08", 2021, 2, "E", "G", 1, 0),
+                  ("2021-08-15", 2021, 2, "H", "I", 0, 0), ("2021-08-15", 2021, 2, "J", "E", 0, 1)])
+    p = replace(PR, season_regress_new=0.5)
+    rated, _ = engine.run(m, p)
+    r20 = rated[rated.season == 2020]
+    end = {c: r20.home_elo_post.where(r20.home_club == c, r20.away_elo_post)[(r20.home_club == c) | (r20.away_club == c)].iloc[-1]
+           for c in "ABCDEFGHIJ"}
+    old = sum(end[c] for c in "FGHIJ") / 5
+    new = sum(end[c] for c in "ABCD") / 4          # F's new league, without F
+    first = rated[rated.season == 2021].iloc[0]
+    target = old + 0.5 * (new - old)
+    assert first.home_elo_pre == pytest.approx(end["F"] - 0.5 * (end["F"] - target))
+    plain, _ = engine.run(m, PR)                    # without it: towards the old league only
+    assert plain[plain.season == 2021].iloc[0].home_elo_pre == pytest.approx(end["F"] - 0.5 * (end["F"] - old))

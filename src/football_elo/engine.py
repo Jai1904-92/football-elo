@@ -68,6 +68,10 @@ class EloParams:
     # moves this share of the way to the average of the league (country and
     # tier) it played in the season before. 0 = off.
     season_regress: float = 0.0
+    # A club that changed tier (promoted or relegated) regresses towards a
+    # point this share of the way from its old league's average to its new
+    # one's. 0 = its old league, as for every other club.
+    season_regress_new: float = 0.0
     # Provisional ratings: a club's first `provisional_matches` rated matches
     # use K x `provisional_k`, so a new club (a foreign side entering Europe,
     # a newly promoted club) reaches its level quickly. 0 matches = off.
@@ -109,6 +113,7 @@ class EloParams:
                    pool_top_tier_only=bool(e.get("pool_top_tier_only", False)),
                    tier_pool=float(e.get("tier_pool", 0.0)),
                    season_regress=float(e.get("season_regress", 0.0)),
+                   season_regress_new=float(e.get("season_regress_new", 0.0)),
                    provisional_matches=int(e.get("provisional", {}).get("matches", 0)),
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
                    hfa_eta=float(e.get("hfa_dynamic", {}).get("eta", 0.0)),
@@ -340,22 +345,35 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
                     members.setdefault((country_of.get(c, latest.get(c)), s_, float(t)), set()).add(c)
         last_season = dict(last_season or {})
 
+    def league_avg(key, skip=None):
+        """Average full rating (own part, country and tier level) of a league's
+        clubs, or None with fewer than four rated."""
+        full = [base[g] + off.get(country_of.get(g), 0.0) + off.get(tkey_of.get(g), 0.0)
+                for g in members.get(key, ()) if g in base and g != skip]
+        return sum(full) / len(full) if len(full) >= 4 else None
+
     def regress(c, b, s_):
-        """`b` (club c's base part) pulled towards last season's league average.
-        Only on moving forward: a match from an earlier season played after a
-        later one (a final played after the next season began) leaves it alone."""
+        """`b` (club c's base part) pulled towards last season's league average,
+        or for a club that changed tier, a point `regress_new` of the way from
+        that average to its new league's. Only on moving forward: a match from
+        an earlier season played after a later one (a final played after the
+        next season began) leaves it alone."""
         prev = last_season.get(c)
         if prev is not None and s_ < prev:
             return b
         last_season[c] = s_
         if prev is None or prev == s_ or (c, prev) not in tier_of:
             return b
-        group = members.get((country_of.get(c), prev, tier_of[(c, prev)]), ())
-        full = [base[g] + off.get(country_of.get(g), 0.0) for g in group if g in base]
-        if len(full) < 4:
+        target = league_avg((country_of.get(c), prev, tier_of[(c, prev)]))
+        if target is None:
             return b
-        own = b + off.get(country_of.get(c), 0.0)
-        return b - reg * (own - sum(full) / len(full))
+        moved = (c, s_) in tier_of and tier_of[(c, s_)] != tier_of[(c, prev)]
+        if params.season_regress_new and moved:
+            new = league_avg((country_of.get(c), s_, tier_of[(c, s_)]), skip=c)
+            if new is not None:
+                target += params.season_regress_new * (new - target)
+        own = b + off.get(country_of.get(c), 0.0) + off.get(tkey_of.get(c), 0.0)
+        return b - reg * (own - target)
 
     for i in range(n):
         h, a = homes[i], aways[i]

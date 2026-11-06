@@ -5,7 +5,7 @@ over the whole season. For each club-season it is the one constant rating
 that best explains every result that season (expected score summed over the
 matches = actual score), against the opponents as they were rated at kick-off,
 with home advantage and league offsets as in the Elo run. Matches count with
-their K multiplier (cups half). A few virtual draws against a side of the
+their K multiplier, a little more for bigger wins. A few virtual draws against a side of the
 club's season-average rating pull short or freak seasons towards it.
 """
 from __future__ import annotations
@@ -18,6 +18,12 @@ import pandas as pd
 # 25+ removed that but dragged late-surging seasons back towards the lagging
 # season average. 15 splits it: promoted clubs +1.1pp overall, top quarter -0.9pp.
 VIRTUAL_DRAWS = 15
+# A match's weight grows with the goal margin: 1-0 x1, 2-0 x1.19, 3-0 x1.32,
+# 4-0 x1.41 (draws x1). Adopted 2026-11-07 with the halfway pull for promoted
+# and relegated clubs: next-season log loss 0.63417 -> 0.63393, promoted clubs
+# +1.5pp -> +1.0pp (strongest quarter +0.5 -> +0.1); half strength (0.5) predicted
+# worse and changed five #1s.
+MARGIN_EXPONENT = 0.25
 LN10_400 = np.log(10) / 400
 
 
@@ -48,6 +54,7 @@ def club_sides(rated: pd.DataFrame) -> pd.DataFrame:
     score_h = np.where(rated["home_goals"] > rated["away_goals"], 1.0,
                        np.where(rated["home_goals"] == rated["away_goals"], 0.5, 0.0))
     w = rated["k_mult"].astype(float) if "k_mult" in rated else 1.0
+    w = w * np.maximum((rated["home_goals"] - rated["away_goals"]).abs(), 1) ** MARGIN_EXPONENT
     h = pd.DataFrame({"club": rated["home_club"], "season": rated["season"], "pre": rated["home_elo_pre"],
                       "p": rated["home_win_exp"], "score": score_h, "w": w})
     a = pd.DataFrame({"club": rated["away_club"], "season": rated["season"], "pre": rated["away_elo_pre"],

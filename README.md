@@ -239,7 +239,11 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
   Cup, Turkey's 2006/07 rows dated a year early) used to regress the club back and forth, up to 15 times in
   a season. 673 regressions dropped (338 backward steps and the returns after them, 62 clubs); log loss
   better for leagues, cups and Europe in 1965–94 and 1995–2026 (Europe 0.52403 → 0.52370 and
-  0.58953 → 0.58921). A league
+  0.58953 → 0.58921). Since 2026-11-07 a club that changed tier (`season_regress_new: 0.5`) regresses
+  towards the point halfway between its old league's average and its new one's. Before, a promoted club was
+  pulled down towards the league it had just left. Promoted clubs in the big five went from
+  +2.0/+1.1/+0.3/+0.6pp (1966–94/95–09/10–17/18–26) to +1.5/+0.7/−0.2/0.0, and league log loss improves in
+  both periods (cups slightly worse). Pulling all the way to the new league overshot. A league
   that over- or under-performs in Europe is re-levelled within seasons rather than decades. A club's rating
   is its own part plus its country's level; the level history is in `gold.league_offsets`.
 - **Provisional ratings:** a club's first 40 rated matches use K × 2. A foreign club on its European debut,
@@ -439,6 +443,14 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
     draws predicted a little better (log loss 0.64564 against 0.64633) and changed the #1 in six seasons,
     Ajax 1972/73 among them. Full margin needed 40 draws, which dragged late-surging seasons down. Both
     were judged not worth it; the measure stays margin-free.
+- **Quarter-strength goal margin (since 2026-11-07, `MARGIN_EXPONENT` in `seasons.py`):** each match is
+  weighted by max(goal difference, 1)^0.25 (2-0 ×1.19, 3-0 ×1.32, 4-0 ×1.41). Adopted with the halfway pull
+  for promoted and relegated clubs (README "Elo engine"), which removed the bias that had ruled margin out.
+  With 15 draws, next-season log loss 0.63417 → 0.63393, promoted clubs +1.5pp → +1.0pp, strongest quarter
+  +0.5pp → +0.1pp. Two #1s change: 1963/64 Internazionale → Real Madrid and 1970/71 Arsenal → Leeds.
+  Half strength (0.5) predicted worse, overcorrected the strongest promoted clubs (−0.7pp) and changed five
+  #1s (Everton 1986/87 over Bayern among them). 25 draws predicted better still, but pushed promoted clubs up
+  again and changed five to seven #1s.
 - **Example:** Aston Villa finished 7th in 2022/23 after a strong spring, then 4th in 2023/24 after a weak
   finish. Season end ranks them 22nd and 31st in Europe; whole season ranks them 23rd and 17th.
 - **How much it matters:** since 1965/66 the two rank orders correlate at 0.99, but the European #1 differs
