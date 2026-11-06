@@ -779,6 +779,11 @@ elo:
   # by about 23 points from 1985 to 1990. Prediction unchanged (European log loss
   # 0.52665 -> 0.52654 on 1965-94, 0.59080 -> 0.59084 on 1995-2026).
   pool_top_tier_only: true
+  # Second-tier pooling (2026-11-06): each country's second tier has its own level, and
+  # 10% of a second-tier club's change in a domestic cup tie against another tier moves it.
+  # English promoted clubs since 2018: -2.3pp -> -0.1pp. Cup log loss 0.58488 -> 0.58465
+  # (1965-94) and 0.59939 -> 0.59877 (1995-2026); league and Europe also a hair better.
+  tier_pool: 0.1
   # Season regression (2026-10-26): at a club's first match of a new season its rating
   # moves 20% of the way to the average of the league (country and tier) it played in
   # the season before. Clubs far above their league were overrated in Europe (-3.5pp

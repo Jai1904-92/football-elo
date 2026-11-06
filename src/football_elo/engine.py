@@ -58,6 +58,12 @@ class EloParams:
     # English lower divisions kept playing in Europe through England's ban, and
     # their results moved all of English football.
     pool_top_tier_only: bool = False
+    # Second-tier pooling: each country's second tier has a level of its own
+    # (offset key "ENG:2"), and this share of a second-tier club's rating
+    # change in a cup tie against a top-flight club of its country also moves
+    # it, so the gap between the tiers follows the cup results instead of
+    # only what promoted and relegated clubs carry across. 0 = off.
+    tier_pool: float = 0.0
     # Season regression: at a club's first match of a new season its rating
     # moves this share of the way to the average of the league (country and
     # tier) it played in the season before. 0 = off.
@@ -101,6 +107,7 @@ class EloParams:
                    pool_games=float(e.get("pool_evidence", {}).get("games", 0.0)),
                    pool_cap=float(e.get("pool_evidence", {}).get("cap", 0.0)),
                    pool_top_tier_only=bool(e.get("pool_top_tier_only", False)),
+                   tier_pool=float(e.get("tier_pool", 0.0)),
                    season_regress=float(e.get("season_regress", 0.0)),
                    provisional_matches=int(e.get("provisional", {}).get("matches", 0)),
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
@@ -257,9 +264,12 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     before this run, and `membership` the league tiers of earlier seasons,
     so season regression applies when a replay crosses a season start.
 
+    With `tier_pool` a second-tier club's rating also carries its tier's
+    level (key "ENG:2" in `offsets`, and `initial_base` is net of it too).
+
     Returns (per-match frame with pre/post ratings and each side's country
-    offset after the match, final full ratings). Final offsets are left in
-    `run.last_offsets`."""
+    and tier offset after the match, final full ratings). Final offsets are
+    left in `run.last_offsets`."""
     if "home_tier" not in matches:
         matches = prepare(matches, params, club_country, membership, eu_games)
     else:
@@ -308,6 +318,10 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         pool_h = np.where(m["home_tier"].to_numpy(dtype=float) > 1, 0.0, pool_h)
         pool_a = np.where(m["away_tier"].to_numpy(dtype=float) > 1, 0.0, pool_a)
     seasons_ = m["season"].to_numpy()
+    tp = params.tier_pool
+    tt_h, tt_a = m["home_tier"].to_numpy(dtype=float), m["away_tier"].to_numpy(dtype=float)
+    tkey_of = {}    # club -> tier-level key it last played under (None: no tier level)
+    toff_h = np.zeros(n); toff_a = np.zeros(n)
     reg = params.season_regress
     if reg:
         ht, at_ = m["home_tier"].to_numpy(dtype=float), m["away_tier"].to_numpy(dtype=float)
@@ -372,7 +386,17 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
             if country_of.get(a, ca) != ca:
                 ba += off.get(country_of[a], 0.0) - oa
         country_of[h], country_of[a] = ch, ca
-        rh, ra = bh + oh, ba + oa
+        kh = f"{ch}:2" if tp and ch and tt_h[i] == 2 else None
+        ka = f"{ca}:2" if tp and ca and tt_a[i] == 2 else None
+        if tp:
+            # a club moving into or out of the second tier keeps its full rating
+            if h in tkey_of and tkey_of[h] != kh:
+                bh += off.get(tkey_of[h], 0.0) - off.get(kh, 0.0)
+            if a in tkey_of and tkey_of[a] != ka:
+                ba += off.get(tkey_of[a], 0.0) - off.get(ka, 0.0)
+            tkey_of[h], tkey_of[a] = kh, ka
+        th, ta = off.get(kh, 0.0), off.get(ka, 0.0)
+        rh, ra = bh + oh + th, ba + oa + ta
         hkey = None
         h_adv = 0.0
         if hfa_on[i]:
@@ -408,17 +432,24 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
                 off[ch] = oh + pool_h[i] * dh
             if ca is not None:
                 off[ca] = oa - pool_a[i] * da
+        if (kh or ka) and ch == ca and tt_h[i] == tt_h[i] and tt_a[i] == tt_a[i] and tt_h[i] != tt_a[i]:
+            if kh:
+                off[kh] = th + tp * dh
+            if ka:
+                off[ka] = ta - tp * da
         pre_h[i], pre_a[i], exp_h[i], delta[i] = rh, ra, we, d
         off_h[i], off_a[i] = off.get(ch, 0.0), off.get(ca, 0.0)
-        post_h[i] = base[h] + off_h[i]
-        post_a[i] = base[a] + off_a[i]
+        toff_h[i], toff_a[i] = off.get(kh, 0.0), off.get(ka, 0.0)
+        post_h[i] = base[h] + off_h[i] + toff_h[i]
+        post_a[i] = base[a] + off_a[i] + toff_a[i]
 
     out = m.assign(home_elo_pre=pre_h, away_elo_pre=pre_a,
                    home_elo_post=post_h, away_elo_post=post_a,
                    home_win_exp=exp_h, elo_delta=delta,
-                   home_offset=off_h, away_offset=off_a, hfa_used=hfa_used,
+                   home_offset=off_h, away_offset=off_a,
+                   home_tier_offset=toff_h, away_tier_offset=toff_a, hfa_used=hfa_used,
                    hfa_key=hfa_keys, hfa_after=hfa_after)
-    final = {c: b + off.get(country_of.get(c), 0.0) for c, b in base.items()}
+    final = {c: b + off.get(country_of.get(c), 0.0) + off.get(tkey_of.get(c), 0.0) for c, b in base.items()}
     run.last_offsets = off
     run.last_played = n_played
     run.last_hfa = hstate
@@ -443,6 +474,11 @@ def periods(rated: pd.DataFrame, season_ends: pd.Series | None = None,
     side_cols = ["club", "elo", "tier", "country", "country_offset"]
     h_off = "home_offset" if "home_offset" in rated else None
     rated = rated if h_off else rated.assign(home_offset=0.0, away_offset=0.0)
+    # country_offset is the whole pooled part (country plus second-tier level),
+    # so rating minus it is the club's own part an incremental run starts from
+    if "home_tier_offset" in rated:
+        rated = rated.assign(home_offset=rated["home_offset"] + rated["home_tier_offset"],
+                             away_offset=rated["away_offset"] + rated["away_tier_offset"])
     long = pd.concat([
         rated[cols + ["home_club", "home_elo_post", "home_tier", "home_country", "home_offset"]].set_axis(cols + side_cols, axis=1),
         rated[cols + ["away_club", "away_elo_post", "away_tier", "away_country", "away_offset"]].set_axis(cols + side_cols, axis=1),
@@ -476,12 +512,17 @@ def hfa_levels(rated: pd.DataFrame) -> pd.DataFrame:
 
 def league_offsets(rated: pd.DataFrame) -> pd.DataFrame:
     """Each country's pooling offset over time: one row per country per day
-    it changed (valid from the day after the match), from a run's output."""
+    it changed (valid from the day after the match), from a run's output.
+    Second-tier levels come as their own rows, keyed "ENG:2"."""
     e = rated[rated.get("comp_type", pd.Series("", index=rated.index)) == "europe"]
-    long = pd.concat([
-        e[["match_date", "match_id", "home_country", "home_offset"]].set_axis(["match_date", "match_id", "country", "offset"], axis=1),
-        e[["match_date", "match_id", "away_country", "away_offset"]].set_axis(["match_date", "match_id", "country", "offset"], axis=1),
-    ]).dropna(subset=["country"]).sort_values(["country", "match_date", "match_id"])
+    parts = [e[["match_date", "match_id", "home_country", "home_offset"]].set_axis(["match_date", "match_id", "country", "offset"], axis=1),
+             e[["match_date", "match_id", "away_country", "away_offset"]].set_axis(["match_date", "match_id", "country", "offset"], axis=1)]
+    if "home_tier_offset" in rated:
+        for side in ("home", "away"):
+            t = rated[rated[f"{side}_tier"] == 2]
+            parts.append(pd.DataFrame({"match_date": t["match_date"], "match_id": t["match_id"],
+                                       "country": t[f"{side}_country"] + ":2", "offset": t[f"{side}_tier_offset"]}))
+    long = pd.concat(parts).dropna(subset=["country"]).sort_values(["country", "match_date", "match_id"])
     long["valid_from"] = long["match_date"] + pd.Timedelta(days=1)
     long = long.drop_duplicates(["country", "valid_from"], keep="last")
     long = long[long.groupby("country")["offset"].diff().fillna(long["offset"]) != 0]

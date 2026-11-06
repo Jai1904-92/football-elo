@@ -384,3 +384,26 @@ def test_lower_tier_clubs_do_not_move_their_countrys_level():
     top_only, _ = engine.run(m, replace(p, pool_top_tier_only=True), club_country=country)
     assert with_pool.home_offset.iloc[-1] > 0
     assert top_only.home_offset.iloc[-1] == 0 and top_only.away_offset.iloc[-1] < 0   # X's country still pools
+
+
+def test_second_tier_cup_wins_lift_the_whole_second_tier():
+    m = _matches([("2020-08-01", 2020, 1, "A", "B", 1, 0), ("2020-08-01", 2020, 2, "C", "D", 1, 0),
+                  ("2020-09-01", 2020, None, "C", "A", 2, 0), ("2020-10-01", 2020, 2, "D", "E", 0, 0),
+                  ("2021-08-01", 2021, 1, "C", "B", 0, 0), ("2021-08-01", 2021, 2, "D", "E", 0, 0)])
+    m["comp_type"] = ["league", "league", "cup", "league", "league", "league"]
+    country = pd.Series({c: "ENG" for c in "ABCDE"})
+    plain, _ = engine.run(m, P, club_country=country)
+    pooled, final = engine.run(m, replace(P, tier_pool=0.25), club_country=country)
+    cup = pooled.iloc[2]
+    assert cup.home_tier_offset == pytest.approx(0.25 * cup.elo_delta)      # the second tier rose
+    # D did not play the tie but starts its next match higher; E (new to the tier) too
+    assert pooled.home_elo_pre.iloc[3] == pytest.approx(plain.home_elo_pre.iloc[3] + cup.home_tier_offset)
+    # C, promoted, keeps its full rating across the move up
+    assert pooled.home_elo_pre.iloc[4] == pytest.approx(pooled.home_elo_post.iloc[2])
+    assert pooled.home_tier_offset.iloc[4] == 0
+    offs = engine.league_offsets(pooled)
+    assert offs[offs.country == "ENG:2"].offset.iloc[-1] == pytest.approx(cup.home_tier_offset)
+    # the stored pooled part makes rating minus it the club's own part
+    per = engine.periods(pooled)
+    d = per[(per.club == "D")].iloc[-1]
+    assert d.country_offset == pytest.approx(cup.home_tier_offset)

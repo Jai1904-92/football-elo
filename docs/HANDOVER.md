@@ -226,6 +226,18 @@ Cup ties, one 1878/79 FA Cup tie. Whole-season #1: 2023/24 Real Madrid -> Manche
 4-3 pens, had been a 5-4 Real win). Top-10 swaps 2009/10, 2012/13, 2014/15, 2019/20, 2024/25; Arsenal
 2022/23 4th -> 2nd.
 
+**Run 36 (2026-11-06).** Second-tier pooling (`tier_pool: 0.1`, README "Elo engine"). Each country's second
+tier has a level (`gold.league_offsets` key `ENG:2`; `country_offset` in `gold.club_ratings` includes it, so
+`elo - country_offset` stays the club's own part for incremental runs). 10% of a second-tier club's change in
+a domestic cup tie against another tier moves it. Prompted by English promoted clubs underperforming since 2018
+(−2.3pp, now −0.1pp). Log loss better for leagues, cups and Europe in 1965–94 and 1995–2026. No #1 changes;
+the Championship is about 25 lower since 2014 (Fulham 2000/01 55th -> 70th). The DB matched the local preview
+on every top-10 place. The offset values themselves drift a long way (ENG:2 is −247 in 2026), because clubs
+keep their full rating when they change tier. Only a club first seen in a second tier inherits that value,
+which is rare where the tier below is modelled. Tested, not adopted: a summer pull towards the new league for
+clubs that changed tier. Halfway between the old and new league centres the promoted-club bias (big five
++1.5/+0.7/−0.2/0.0pp by era) and improves league log loss, but cups get worse. It's waiting on Alex.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results

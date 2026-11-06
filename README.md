@@ -212,6 +212,16 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
   whose leagues aren't modelled) pool (`pool_top_tier_only`): Welsh clubs in the English lower divisions
   kept playing in the Cup Winners' Cup through England's ban, and their results lifted the whole English
   level by about 23 points from 1985 to 1990. Prediction is unchanged.
+- **Second-tier pooling (since 2026-11-06, `tier_pool`):** each country's second tier has a level of its own
+  (`gold.league_offsets` key `ENG:2`). 10% of a second-tier club's rating change in a domestic cup tie
+  against a club from another tier of its country also moves it. Before, the gap between the tiers moved only
+  through promoted and relegated clubs carrying their ratings across, and it lagged: English promoted clubs
+  did 2.3pp worse than predicted in 2018–26 (now −0.1pp), and second-tier sides kept falling short in cup
+  ties. League, cup and European log loss improve in 1965–94 and 1995–2026 (cups 0.58488 → 0.58465 and
+  0.59939 → 0.59877). Pooling only ties against the top flight did nothing, so the ties against lower tiers
+  carry much of the signal. 0.1 was chosen on 1965–94 from 0.05, 0.1, 0.15, 0.2 and 0.3. Applying it to tiers
+  3 and 4 as well lifted League Two by about 40 points, so only second tiers have a level. The Championship
+  sits about 25 points lower since 2014 and 12 lower in 1980–99. No season #1 changes.
 - **Margin autocorrelation correction (since 2026-11-02, `margin.autocorr`):** the √(goal diff) multiplier
   is scaled by 1.1 / (1.1 + 0.001 × the winner's edge, home advantage included), as in FiveThirtyEight's
   Elo. Big wins come mostly from favourites, so without it strong clubs gained more than their results
@@ -253,6 +263,7 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
 | K multiplier | league 1.0, play-off 1.0, cup 0.5, Europe 1.0 |
 | Home advantage | dynamic, from 120 in 1955, eta 1.0, Europe shared |
 | League pooling | 0.3 |
+| Second-tier pooling | 0.1 (cup ties against other tiers) |
 | Provisional | first 40 matches at K × 2 |
 | Start ratings, every country | tier 1 1585, tier 2 1421 (England also 1257 / 1093), below 1257 (England 929) |
 | Foreign start | 1335 |
