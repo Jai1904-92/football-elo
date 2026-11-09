@@ -471,6 +471,11 @@ second-tier champions dropped about 16 points more than other top seasons the ye
   25–30. Runaway second-tier champions drop several places (Middlesbrough 1973/74 10th → 16th, Blauw Wit
   1960/61 36th → 62nd). Whole-season #1s changed in four seasons: 1976/77 Liverpool, 2002/03 Real Madrid,
   2003/04 Valencia, 2023/24 Manchester City.
+- **Size-neutral basis (since 2026-11-09, `20261109000000_league_shrink_top10.sql`):** the lead is measured
+  from the average of the league's 10 best clubs, not the whole league. A 10-club league's average leaves
+  out the weak clubs a 20-club league includes, so leaders of small leagues (Scotland's 10-club Premier
+  Division, Sweden, Switzerland, Austria) were shrunk about 8 points less than leaders of 18–20-club leagues.
+  No #1 changes; 94 top-10 places swap by one (1982/83: Benfica above Celtic, Anderlecht above Dundee United).
 - **Not applied** to the monthly ratings, the rankings on a date or the match ratings.
 
 ### Hindsight country levels (season and date views before 2000)

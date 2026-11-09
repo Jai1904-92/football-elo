@@ -246,6 +246,12 @@ top-10 places move. Promotion seasons drop about 6 places, first top-flight seas
 winners gain back some through margin (Fulham 2000/01 70th -> 58th). Sunderland 1998/99 (105 pts) stays 5th
 among English clubs.
 
+**Shrink basis (2026-11-09, views only, no reload).** `20261109000000_league_shrink_top10.sql` measures the
+15% league-lead shrink from each league's top-10 average, so small leagues' leaders no longer get off about 8
+points lighter. Prompted by Alex asking about Scotland's three top-10 clubs in 1982/83, which are backed by
+European results (70% of points, +10pp). Applied with psycopg; the live views matched the local preview on
+every top-10 place.
+
 **League titles in the honours (2026-10-24).** `tools/league_champions.py` writes
 `config/league_champions.csv` (1,542 titles, 1955/56–2025/26) from each country's Wikipedia "List of ...
 football champions", matched to that season's top-flight clubs and checked against a table from our results
