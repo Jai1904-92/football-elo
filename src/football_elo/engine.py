@@ -72,6 +72,10 @@ class EloParams:
     # point this share of the way from its old league's average to its new
     # one's. 0 = its old league, as for every other club.
     season_regress_new: float = 0.0
+    # Dead games: K multiplier for a match in which a side had already
+    # clinched its league title or promotion, or its place in the European
+    # knockouts before its last group game (see dead_matches). 1 = off.
+    dead_k: float = 1.0
     # Provisional ratings: a club's first `provisional_matches` rated matches
     # use K x `provisional_k`, so a new club (a foreign side entering Europe,
     # a newly promoted club) reaches its level quickly. 0 matches = off.
@@ -114,6 +118,7 @@ class EloParams:
                    tier_pool=float(e.get("tier_pool", 0.0)),
                    season_regress=float(e.get("season_regress", 0.0)),
                    season_regress_new=float(e.get("season_regress_new", 0.0)),
+                   dead_k=float(e.get("dead_k", 1.0)),
                    provisional_matches=int(e.get("provisional", {}).get("matches", 0)),
                    provisional_k=float(e.get("provisional", {}).get("k_multiplier", 1.0)),
                    hfa_eta=float(e.get("hfa_dynamic", {}).get("eta", 0.0)),
@@ -243,6 +248,117 @@ def assign_params(m: pd.DataFrame, params: EloParams) -> pd.DataFrame:
     return m
 
 
+def _win_points(country: str, season: int) -> int:
+    """3 points for a win from 1981/82 in England and 1994/95 elsewhere."""
+    return 3 if season >= (1981 if country == "ENG" else 1994) else 2
+
+
+def dead_matches(m: pd.DataFrame, membership: pd.Series | None = None) -> set:
+    """match_ids of games in which a side had nothing left to play for:
+    - league (8+ clubs, same country and tier): the side had already clinched
+      the title (more points than any rival can reach) or promotion (a top-k
+      place no longer catchable, k = the clubs its league promoted, and the
+      club among them);
+    - European group stage: the side's last group game, already sure of a
+      top-two place.
+    Status is read from results before the match day.
+
+    Needs prepared matches (tiers, countries), each league season complete
+    from its first match. `membership` ((club, season) -> tier, default from
+    `m`) says who was promoted. A country's latest season may be in progress:
+    games per club then come from the season before (scaled by league size)
+    and promotion places from the clubs that league promoted the season
+    before, any club eligible."""
+    membership = league_membership(m) if membership is None else membership
+    memb = membership.to_dict()
+    dead = set()
+    lg = m[(m["comp_type"] == "league") & m["home_tier"].notna()
+           & (m["home_country"] == m["away_country"]) & (m["home_tier"] == m["away_tier"])]
+    latest = lg.groupby("home_country")["season"].max().to_dict()
+    shape = {}   # (country, tier, season) -> (clubs, games per club)
+    for key, g in lg.groupby(["home_country", "home_tier", "season"]):
+        per = pd.concat([g["home_club"], g["away_club"]]).value_counts()
+        shape[key] = (len(per), int(per.max()))
+    for (c, t, s), g in lg.groupby(["home_country", "home_tier", "season"]):
+        clubs = sorted(set(g["home_club"]) | set(g["away_club"]))
+        n = len(clubs)
+        if n < 8:
+            continue
+        total = pd.concat([g["home_club"], g["away_club"]]).value_counts().to_dict()
+        live = s == latest.get(c)
+        if live and (c, t, s - 1) in shape:      # in progress: last season's fixture count by league size
+            pn, pg = shape[(c, t, s - 1)]
+            est = round(pg * (n - 1) / max(pn - 1, 1))
+            total = {cl: max(total[cl], est) for cl in clubs}
+        if t >= 2 and live:
+            k = sum(1 for (cl, ss), tt in memb.items() if ss == s - 1 and tt == t and memb.get((cl, s), t) < t)
+            up = set(clubs)
+        elif t >= 2:
+            up = {cl for cl in clubs if memb.get((cl, s + 1), t) < t}
+            k = len(up)
+        else:
+            k, up = 0, set()
+        w = _win_points(c, s)
+        pts = dict.fromkeys(clubs, 0)
+        played = dict.fromkeys(clubs, 0)
+        status = {}
+        for _, day in g.groupby("match_date", sort=True):
+            for mid, h, a in zip(day["match_id"], day["home_club"], day["away_club"]):
+                if h in status or a in status:
+                    dead.add(mid)
+            for h, a, hg, ag in zip(day["home_club"], day["away_club"], day["home_goals"], day["away_goals"]):
+                pts[h] += w if hg > ag else (1 if hg == ag else 0)
+                pts[a] += w if ag > hg else (1 if hg == ag else 0)
+                played[h] += 1
+                played[a] += 1
+            mx = {cl: pts[cl] + w * (total[cl] - played[cl]) for cl in clubs}
+            for cl in clubs:
+                if cl in status or played[cl] >= total[cl]:
+                    continue
+                others = [o for o in clubs if o != cl]
+                if all(pts[cl] > mx[o] for o in others):
+                    status[cl] = "champion"
+                elif k and cl in up and sum(mx[o] < pts[cl] for o in others) >= n - k:
+                    status[cl] = "promoted"
+    rd = m["round"].astype(str) if "round" in m else pd.Series("", index=m.index)
+    eu = m[(m["comp_type"] == "europe") & rd.str.contains("group", case=False)
+           & ~rd.str.contains("league", case=False)]
+    for (s, _, _), g in (eu.groupby(["season", "competition", "round"]) if len(eu) else []):
+        parent = {}
+
+        def find(a):
+            while parent.setdefault(a, a) != a:
+                a = parent[a]
+            return a
+        for h, a in zip(g["home_club"], g["away_club"]):
+            parent[find(h)] = find(a)
+        groups = {}
+        for cl in set(g["home_club"]) | set(g["away_club"]):
+            groups.setdefault(find(cl), []).append(cl)
+        for clubs in groups.values():
+            if len(clubs) not in (3, 4):
+                continue
+            gg = g[g["home_club"].isin(clubs)].sort_values(["match_date", "match_id"])
+            total = 2 * (len(clubs) - 1)
+            if pd.concat([gg["home_club"], gg["away_club"]]).value_counts().max() > total:
+                continue
+            w = 3 if s >= 1994 else 2
+            pts = dict.fromkeys(clubs, 0)
+            played = dict.fromkeys(clubs, 0)
+            for mid, h, a, hg, ag in zip(gg["match_id"], gg["home_club"], gg["away_club"],
+                                         gg["home_goals"], gg["away_goals"]):
+                for cl in (h, a):
+                    if played[cl] == total - 1:
+                        mx = {o: pts[o] + w * (total - played[o]) for o in clubs}
+                        if sum(mx[o] < pts[cl] for o in clubs if o != cl) >= len(clubs) - 2:
+                            dead.add(mid)
+                pts[h] += w if hg > ag else (1 if hg == ag else 0)
+                pts[a] += w if ag > hg else (1 if hg == ag else 0)
+                played[h] += 1
+                played[a] += 1
+    return dead
+
+
 def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | None = None,
         club_country: pd.Series | None = None,
         membership: pd.Series | None = None,
@@ -251,7 +367,8 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         played: dict[str, int] | None = None,
         hfa_state: dict[str, float] | None = None,
         eu_games: pd.Series | None = None,
-        last_season: dict[str, int] | None = None) -> tuple[pd.DataFrame, dict[str, float]]:
+        last_season: dict[str, int] | None = None,
+        dead: set | None = None) -> tuple[pd.DataFrame, dict[str, float]]:
     """Rate matches in order. `initial` holds ratings carried in from an earlier
     run (incremental updates); clubs not in it get their start rating.
 
@@ -272,6 +389,10 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
     With `tier_pool` a second-tier club's rating also carries its tier's
     level (key "ENG:2" in `offsets`, and `initial_base` is net of it too).
 
+    With `dead_k` the K multiplier of dead games (dead_matches) is scaled by
+    it. `dead` gives their match_ids (an incremental run works them out from
+    whole seasons); default: found from the matches given.
+
     Returns (per-match frame with pre/post ratings and each side's country
     and tier offset after the match, final full ratings). Final offsets are
     left in `run.last_offsets`."""
@@ -279,6 +400,10 @@ def run(matches: pd.DataFrame, params: EloParams, initial: dict[str, float] | No
         matches = prepare(matches, params, club_country, membership, eu_games)
     else:
         matches = assign_params(matches, params)
+    if params.dead_k != 1.0 and "match_id" in matches:
+        ids = dead_matches(matches, membership) if dead is None else dead
+        matches = matches.copy()
+        matches.loc[matches["match_id"].isin(ids), "k_mult"] *= params.dead_k
     sort = ["match_date", "match_id"] if "match_id" in matches else ["match_date", "home_club"]
     m = matches.sort_values(sort).reset_index(drop=True)
     off = dict(offsets or {})

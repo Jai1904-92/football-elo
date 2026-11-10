@@ -824,6 +824,15 @@ elo:
   # 0.52227 -> 0.52232 and 0.58854 -> 0.58850. All the way to the new league overshot (-1.6pp
   # for English promoted clubs since 2018). Adopted with quarter-strength margin in seasons.py.
   season_regress_new: 0.5
+  # Dead games (2026-11-10): half K for a match in which a side had already clinched its
+  # league title or promotion, or its European knockout place before its last group game
+  # (engine.dead_matches; 0.7% of matches). Champions scored 4.5pp below expectation after
+  # clinching (1995-2026; +8.6pp in their last 8 games before), sides already through
+  # 4.4pp below (live final group games +2.3pp); relegated clubs showed no extra drop, so
+  # they are not flagged. Log loss unchanged (1965-94 0.60410 -> 0.60411, 1995-2026
+  # 0.62891 -> 0.62889). Season #1s: Bayern 2013/14, Inter 1963/64. Ignoring them (0)
+  # moved too much (six #1s with the raw measure, Bayern 2013/14 to 2nd best ever).
+  dead_k: 0.5
   # Provisional ratings: a club's first 40 rated matches use K x 2.
   provisional: {matches: 40, k_multiplier: 2.0}
   # K multiplier by competition type

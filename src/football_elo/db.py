@@ -145,12 +145,15 @@ def upsert_matches(cur: psycopg.Cursor, matches: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def fetch_matches(cur: psycopg.Cursor, since=None) -> pd.DataFrame:
+def fetch_matches(cur: psycopg.Cursor, since=None, season_from: int | None = None) -> pd.DataFrame:
     sql = f"select {', '.join(MATCH_COLUMNS)} from silver.matches"
     args: tuple = ()
     if since is not None:
         sql += " where match_date >= %s"
         args = (since,)
+    elif season_from is not None:
+        sql += " where season >= %s"
+        args = (season_from,)
     cur.execute(sql, args)
     df = pd.DataFrame(cur.fetchall(), columns=[d.name for d in cur.description])
     df["match_date"] = pd.to_datetime(df["match_date"])

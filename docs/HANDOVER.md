@@ -271,7 +271,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
     countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
     German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 551,000 matches and 5,996 clubs. Tests: 50, all passing (`pytest`).
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 69, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
@@ -308,6 +308,20 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 
 ## Not done yet
 
+- Added 2026-11-10 (run 40): dead games at half K (`dead_k: 0.5`, `engine.dead_matches`, README "Elo
+  engine"). Flags titles and promotions already clinched, and last European group games already sure of
+  the knockouts; 4,851 matches. Log loss unchanged. Season #1s: Bayern 2013/14, Inter 1963/64. The weekly
+  update reads the flags from whole seasons (`db.fetch_matches(season_from=)`). A country's latest season
+  estimates its fixture count and promotion places from the season before; the next full load corrects
+  any miss.
+- Leads from the 2026-11-10 review (not started):
+  - League pooling may move dominant clubs' European gains onto their domestic rivals. Since 2005/06,
+    Bayern beat their European predictions by +7.3pp and the rest of the Bundesliga fell 0.6pp short;
+    PSG +8.3pp against France's rest −3.4pp. Every league is within 1.5pp overall.
+  - The whole-season prior is the club's season-average rating. Test a start-of-season or
+    last-season prior, and check whether clubs with many games (European runs) are pulled back too
+    little. Use next-season prediction, as for the 15 draws.
+  - Site: mark whole-season gaps under ~15 points as level (standard error about ±30).
 - Fixed 2026-11-10 (run 38): Accrington Stanley's cup games from 1962 on are the modern club's
   (`corrections` now take `from_season`); the 8 Copa del Rey shoot-outs Transfermarkt stored as wins are
   draws with pens (`match_fixes` now take `pens`); Hacettepe 1958/59 goes to the Keçiörengücü lineage (the

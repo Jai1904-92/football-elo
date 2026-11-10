@@ -431,3 +431,46 @@ def test_a_promoted_club_regresses_halfway_towards_its_new_league():
     assert first.home_elo_pre == pytest.approx(end["F"] - 0.5 * (end["F"] - target))
     plain, _ = engine.run(m, PR)                    # without it: towards the old league only
     assert plain[plain.season == 2021].iloc[0].home_elo_pre == pytest.approx(end["F"] - 0.5 * (end["F"] - old))
+
+
+def _round_robin(clubs, season, winner, tier=1, start="2020-08-01"):
+    """Double round robin; `winner` wins every game 1-0, the rest draw 0-0."""
+    cl, n, rows = list(clubs), len(clubs), []
+    day = pd.Timestamp(start)
+    for leg in range(2):
+        order = cl[:]
+        for _ in range(n - 1):
+            for i in range(n // 2):
+                h, a = order[i], order[n - 1 - i]
+                if leg:
+                    h, a = a, h
+                g = (1, 0) if h == winner else (0, 1) if a == winner else (0, 0)
+                rows.append((day.strftime("%Y-%m-%d"), season, tier, h, a, *g))
+            order = [order[0]] + [order[-1]] + order[1:-1]
+            day += pd.Timedelta(days=7)
+    return rows
+
+
+def test_games_after_clinching_the_title_are_dead():
+    m = _matches(_round_robin("ABCDEFGH", 2020, "A"))
+    prep = engine.prepare(m, PR)
+    dead = engine.dead_matches(prep)
+    a_games = m[(m.home_club == "A") | (m.away_club == "A")].sort_values("match_date")
+    # 3 a win: after 9 of 14 games A has 27, a rival at most 9 + 15 = 24
+    assert dead == set(a_games.match_id.iloc[9:])
+    rated, _ = engine.run(m, replace(PR, dead_k=0.5))
+    k = rated.set_index("match_id").k_mult
+    assert (k[list(dead)] == 0.5).all() and (k.drop(list(dead)) == 1.0).all()
+
+
+def test_last_group_game_is_dead_only_for_a_side_already_through():
+    rows = []
+    for i, (h, a, hg, ag) in enumerate([("W", "X", 2, 0), ("Y", "Z", 1, 1), ("X", "Y", 0, 0), ("Z", "W", 0, 1),
+                                        ("W", "Y", 3, 0), ("X", "Z", 1, 0), ("Y", "W", 0, 0), ("Z", "X", 2, 2),
+                                        ("X", "W", 1, 1), ("Z", "Y", 0, 1), ("W", "Z", 0, 2), ("Y", "X", 1, 0)]):
+        rows.append((f"2020-09-{1 + i:02d}", 2020, None, h, a, hg, ag))
+    m = _matches(rows).assign(comp_type="europe", competition="UCL", round="Group A")
+    dead = engine.dead_matches(engine.prepare(m, PR))
+    # W has 11 points after five games, out of reach of two rivals; its last game is dead.
+    # Y and X meet in the last game, both still live; Z's last game is W's.
+    assert dead == {m.match_id.iloc[10]}

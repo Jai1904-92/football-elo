@@ -248,6 +248,22 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
   is its own part plus its country's level; the level history is in `gold.league_offsets`.
 - **Provisional ratings:** a club's first 40 rated matches use K × 2. A foreign club on its European debut,
   or a newly promoted club, reaches its level quickly. New clubs also inherit their country's current level.
+- **Dead games at half K (since 2026-11-10, `dead_k: 0.5`, `engine.dead_matches`):** a match in which a
+  side had nothing left to play for counts half. That means a club had already clinched its league title
+  (more points than any rival can still reach) or promotion (a promotion place no rival can take), or it
+  played its last European group game already sure of a top-two place. Status comes from rebuilt tables,
+  using only results before the match day. About 0.7% of matches qualify.
+  - Why: champions scored 4.5pp below expectation after clinching in 1995–2026 (2.1pp in 1960–94), having
+    run 8.6pp above it in their last eight games before. Promoted clubs scored 3pp below. Sides already
+    through scored 4.4pp below in their last group game, against +2.3pp in live ones. Relegated clubs
+    showed no extra drop, so they aren't flagged.
+  - Log loss is unchanged: 1965–94 0.60410 → 0.60411, 1995–2026 0.62891 → 0.62889.
+  - Season views: #1 changes only in 2013/14 (Bayern over Real Madrid, who are ahead only through
+    the 5–0 semi-final) and 1963/64 (Inter over Madrid, a dead heat). Ignoring dead games altogether
+    moved too much.
+  - A country's latest season may be in progress. Its fixture count then comes from the season before
+    (scaled by league size), and its promotion places from the clubs that league promoted the season
+    before. The weekly update reads dead games from whole seasons, not just the replayed part.
 
 **Starting ratings**
 - **All five countries start level in 1955** with the same tier gap. European results then set their
@@ -268,6 +284,7 @@ We = 1 / (10^(-(elo_home - elo_away + HFA) / 400) + 1)     HFA = 0 at neutral ve
 | Home advantage | dynamic, from 120 in 1955, eta 1.0, Europe shared |
 | League pooling | 0.3 |
 | Second-tier pooling | 0.1 (cup ties against other tiers) |
+| Dead games | K × 0.5 (title or promotion clinched, already through a European group) |
 | Provisional | first 40 matches at K × 2 |
 | Start ratings, every country | tier 1 1585, tier 2 1421 (England also 1257 / 1093), below 1257 (England 929) |
 | Foreign start | 1335 |

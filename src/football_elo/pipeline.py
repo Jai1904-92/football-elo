@@ -154,17 +154,23 @@ def incremental_update(cfg: dict) -> int | None:
         played = db.played_before(cur, replay_from.date())
         to_rate = db.fetch_matches(cur, since=replay_from.date())
         membership = db.fetch_membership(cur)
+        club_country = db.fetch_club_country(cur)
+        eu_games = db.fetch_europe_games(cur)
+        elo = engine.EloParams.from_config(cfg)
+        dead = None
+        if elo.dead_k != 1.0:   # dead games are read from whole seasons, not just the replayed part
+            whole = db.fetch_matches(cur, season_from=int(to_rate["season"].min()))
+            dead = engine.dead_matches(engine.prepare(whole, elo, club_country, membership, eu_games), membership)
         run_id = db.start_run(cur, "incremental", params, replay_from.date())
         cur.execute("delete from gold.match_ratings where match_date >= %s", (replay_from.date(),))
         cur.execute("delete from gold.club_ratings where valid_from > %s", (replay_from.date(),))
         cur.execute("delete from gold.league_offsets where valid_from > %s", (replay_from.date(),))
         cur.execute("delete from gold.hfa_levels where valid_from > %s", (replay_from.date(),))
 
-        rated, _ = engine.run(to_rate, engine.EloParams.from_config(cfg), initial_base=base, offsets=offsets,
+        rated, _ = engine.run(to_rate, elo, initial_base=base, offsets=offsets,
                               hfa_state=hfa_state, played=played,
-                              club_country=db.fetch_club_country(cur), membership=membership,
-                              eu_games=db.fetch_europe_games(cur),
-                              last_season=db.last_season_before(cur, replay_from.date()))
+                              club_country=club_country, membership=membership, eu_games=eu_games,
+                              last_season=db.last_season_before(cur, replay_from.date()), dead=dead)
         per = engine.periods(rated, burn_in_until=cfg["elo"]["burn_in_until"])
         db.write_match_ratings(cur, rated, run_id, cfg["elo"]["burn_in_until"])
         db.write_club_ratings(cur, per, run_id)
