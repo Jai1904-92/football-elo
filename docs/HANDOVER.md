@@ -308,9 +308,11 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 
 ## Not done yet
 
-- Data bug: engsoccerdata's FA Cup and League Cup files call the modern Accrington Stanley (founded 1968,
-  league club "Accrington" from 2006) "Accrington Stanley", so about 75 cup games up to 2018 sit on the old
-  club (folded 1962). Fix with `corrections` per season or a dated alias.
+- Fixed 2026-11-10 (run 38): Accrington Stanley's cup games from 1962 on are the modern club's
+  (`corrections` now take `from_season`); the 8 Copa del Rey shoot-outs Transfermarkt stored as wins are
+  draws with pens (`match_fixes` now take `pens`); Hacettepe 1958/59 goes to the Keçiörengücü lineage (the
+  Keçiörengücü -> Hacettepe alias is right), and Oftasspor 2007/08 merges into Hacettepespor (same club).
+  No top-10 or #1 changes.
 - European-source aliases can be badly wrong (West Ham's record was on Reading, Lausanne's on Carlisle until
   2026-10-23). When a club's numbers look odd, scan for aliases whose source name doesn't resemble the club.
 

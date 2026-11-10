@@ -34,7 +34,7 @@ class SourceReader:
         df = self._read(source, competition)
         for c in self.cfg.get("corrections", []):
             if c["source"] == source and c["competition"] == competition:
-                hit = df["season"] == c["season"]
+                hit = df["season"] >= c["from_season"] if "from_season" in c else df["season"] == c["season"]
                 for col in ("home_club", "away_club"):
                     df.loc[hit & (df[col] == c["club"]), col] = c["to"]
         for f in self.cfg.get("match_fixes", []):
@@ -48,6 +48,9 @@ class SourceReader:
                     df = df[~hit]
                 if "score" in f:
                     df.loc[hit, ["home_goals", "away_goals"]] = f["score"]
+                if "pens" in f:
+                    df.loc[hit, ["home_pens", "away_pens"]] = f["pens"]
+                    df.loc[hit, "extra_time"] = True
                 if "to_date" in f:
                     df.loc[hit, "match_date"] = pd.Timestamp(f["to_date"])
                 if "to_season" in f:

@@ -678,8 +678,16 @@ club_countries: {Omonia Nicosia: CYP, APOEL Nikosia: CYP, AEL Limassol: CYP, EPA
                  FC Vaduz: LIE, SK Frigg: NOR, Ilves-Kissat: FIN, West Berlin XI: GER}
 
 # Source errors that a plain alias can't fix (they only apply to some seasons).
-# Applied to the source's own club keys before aliasing.
+# Applied to the source's own club keys before aliasing; `from_season` covers that
+# season and every later one.
 corrections:
+  # engsoccerdata's cup files call the modern Accrington Stanley (founded 1968, league
+  # club "Accrington" from 2006) by the name of the old club, which folded in 1962
+  - {source: engsoccerdata, competition: ENG-FAC, from_season: 1962, club: Accrington Stanley, to: Accrington}
+  - {source: engsoccerdata, competition: ENG-LC, from_season: 1962, club: Accrington Stanley, to: Accrington}
+  # Wikipedia's 1958/59 Süper Lig links Hacettepe to Hacettepe S.K. (founded 1949 as Sanayi
+  # Barbarosspor, top flight only 2007-09); the 1958-68 side is today's Keçiörengücü
+  - {source: wikipedia, competition: TUR-L, season: 1958, club: Hacettepe S.K., to: Keçiörengücü}
   # engsoccerdata labels Gazelec Ajaccio's 2015/16 Ligue 1 season as AC Ajaccio
   # (AC Ajaccio were in Ligue 2 that season)
   - {source: engsoccerdata, competition: FRA-L, season: 2015, club: AC Ajaccio, to: GFC Ajaccio}
@@ -725,8 +733,19 @@ corrections:
 
 # Single source rows that are wrong, by the source's own club keys after
 # `corrections` (and `date` when the pair met twice): dropped (drop: true), or
-# given another score (score: [home, away]), date (to_date) or season (to_season).
+# given another score (score: [home, away]), shoot-out (pens: [home, away], which also
+# marks extra time), date (to_date) or season (to_season).
 match_fixes:
+  # Copa del Rey shoot-outs where Transfermarkt stores the winner one goal up and has no
+  # kicks or goal events to correct it from (scores after extra time and pens from ESPN)
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "13222", away: "1531", score: [2, 2], pens: [3, 4]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "3708", away: "16575", score: [3, 3], pens: [2, 3]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "2687", away: "3368", score: [1, 1], pens: [3, 2]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "7077", away: "7971", score: [1, 1], pens: [5, 6]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "1176", away: "53286", score: [0, 0], pens: [4, 5]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "44129", away: "34559", score: [2, 2], pens: [10, 9]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2016, home: "29271", away: "44129", score: [0, 0], pens: [3, 4]}
+  - {source: transfermarkt, competition: ESP-CDR, season: 2024, home: "105712", away: "120577", score: [1, 1], pens: [4, 2]}
   # the 1966/67 Fairs Cup final was held over to the start of 1967/68 (the page has no
   # dates). It counts in the clubs' 1967/68 season, so the 1966/67 season-end ratings
   # aren't read after it; the trophies view has the winner by hand.
