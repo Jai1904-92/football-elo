@@ -314,14 +314,25 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
   update reads the flags from whole seasons (`db.fetch_matches(season_from=)`). A country's latest season
   estimates its fixture count and promotion places from the season before; the next full load corrects
   any miss.
-- Leads from the 2026-11-10 review (not started):
-  - League pooling may move dominant clubs' European gains onto their domestic rivals. Since 2005/06,
-    Bayern beat their European predictions by +7.3pp and the rest of the Bundesliga fell 0.6pp short;
-    PSG +8.3pp against France's rest −3.4pp. Every league is within 1.5pp overall.
-  - The whole-season prior is the club's season-average rating. Test a start-of-season or
-    last-season prior, and check whether clubs with many games (European runs) are pulled back too
-    little. Use next-season prediction, as for the 15 draws.
-  - Site: mark whole-season gaps under ~15 points as level (standard error about ±30).
+- Fixed 2026-11-11 (run 41): four clubs split across two names. engsoccerdata's European files had
+  "RSC Anderlecht" (193 games, 1955–2014), "KRC Genk" (22) and "Abderden" (12, Aberdeen 1980–85), and
+  Başakşehir's league games were on "Buyuksehyr" (football_data and engsoccerdata) while its European
+  games were on Istanbul Basaksehir. All four now alias to the real club (champions list and branding too).
+- Reviewed 2026-11-10/11, left as is: league pooling, the whole-season prior (start-of-season prior =
+  more draws; scaling draws to games does nothing), the 15% league-lead shrink (near-optimal), a gentler
+  summer pull for dominant clubs (all 14 variants cost 1965–94 Europe).
+- Known limitation, dominant clubs (2026-11-11): league #1s (by rating at season start) beat their
+  European predictions by +1.65pp in 1995–2026 (z 3.6; +0.9pp 1965–94) and their domestic ones by
+  +2.7pp when 100+ points clear of the league's top-10 average. Bayern (+7.3pp since 2005, z 3.2) and PSG
+  (+8.3pp, z 3.0) are the robust cases. The club-to-club spread is otherwise what chance gives.
+  - The domestic part comes from the margin autocorrelation correction (`autocorr: 1.1`): at 0 it goes,
+    but log loss worsens everywhere (1965–94 0.60407 → 0.60479) and the European part stays (+1.3pp).
+  - Upper bound (post hoc, no feedback): +15–20 points to the league #1's expectation in European games
+    improves European log loss in both periods (−0.00019 1965–94, −0.00035 1995–2026). Not built. In the
+    engine it would lower displayed leader ratings unless the bonus is part of the shown rating.
+  - Scotland is not overrated as a league: in Europe since 1995 −0.8pp overall (z −0.7); Rangers +2.5,
+    Celtic −0.6, the rest −3.9. Celtic's European shortfall is mostly before 1995 (−4.7pp).
+- Site: mark whole-season gaps under ~15 points as level (standard error about ±30). Not started.
 - Fixed 2026-11-10 (run 38): Accrington Stanley's cup games from 1962 on are the modern club's
   (`corrections` now take `from_season`); the 8 Copa del Rey shoot-outs Transfermarkt stored as wins are
   draws with pens (`match_fixes` now take `pens`); Hacettepe 1958/59 goes to the Keçiörengücü lineage (the

@@ -7487,7 +7487,7 @@ football_data,Beveren,Beveren
 football_data,Bodrumspor,Bodrumspor
 football_data,Bucaspor,Bucaspor
 football_data,Bursaspor,Bursaspor
-football_data,Buyuksehyr,Buyuksehyr
+football_data,Buyuksehyr,Istanbul Basaksehir
 football_data,Celtic,Celtic
 football_data,Cercle Brugge,Cercle Brugge
 football_data,Chalkidona,Chalkidona
@@ -12911,6 +12911,10 @@ datarozhlas,Zalgiris Vilnius,FK Zalgiris Vilnius
 datarozhlas,AGF Aarhus,Aarhus GF
 datarozhlas,Zalgiris Vilnius (LTU),FK Zalgiris Vilnius
 engsoccerdata,Zalgiris Vilnius,FK Zalgiris Vilnius
+engsoccerdata,RSC Anderlecht,Anderlecht
+engsoccerdata,KRC Genk,Genk
+engsoccerdata,Abderden,Aberdeen
+engsoccerdata,Buyuksehyr,Istanbul Basaksehir
 datarozhlas,Constructorul Chisinau,FC Tiraspol
 datarozhlas,Metalurh Zaporizhzhya,Metalurh Zaporizhya
 datarozhlas,Zhenis,Astana-64
@@ -14188,3 +14192,20 @@ football_data,Sheffield Utd,Sheffield United
 football_data,KV Mechelen,KV Mechelen
 espn,134140,Sporting Club Baie-Mahault
 espn,134141,Siroco Les Abymes
+espn,10167,AFC Hornchurch
+espn,132144,Salisbury FC
+espn,2589,Stafford Rangers
+espn,20770,Cray Wanderers
+espn,133370,Wimborne Town
+espn,132948,Plymouth Parkway
+espn,132415,AFC Rushden & Diamonds
+espn,649,Worcester City (ENG)
+espn,133366,Sholing
+espn,132350,Berkhamsted
+espn,133835,CD Pamplona
+espn,17573,Trival Valderas (ESP)
+espn,134139,Olympique De Cayenne
+espn,134137,AS Etoile Matoury
+wikipedia,Çerkezköyspor,Çerkezköy Profilospor
+wikipedia,Sapancaspor,Sapancaspor
+wikipedia,Diskispor,Diskispor (TUR)
