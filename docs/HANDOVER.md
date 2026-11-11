@@ -318,6 +318,10 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
   "RSC Anderlecht" (193 games, 1955–2014), "KRC Genk" (22) and "Abderden" (12, Aberdeen 1980–85), and
   Başakşehir's league games were on "Buyuksehyr" (football_data and engsoccerdata) while its European
   games were on Istanbul Basaksehir. All four now alias to the real club (champions list and branding too).
+  Site moves (whole-season, vs the old aliases): #1 1963/64 Inter → Real Madrid (the dead heat) and
+  1982/83 Aberdeen → Hamburg (the 1980 Liverpool defeats now count for Aberdeen). Belgian clubs of the
+  late 1960s fall 30–90 points (Anderlecht's European record now sits on Anderlecht, not a phantom).
+  Turkey 2018/19 #1: Galatasaray, not Başakşehir.
 - Reviewed 2026-11-10/11, left as is: league pooling, the whole-season prior (start-of-season prior =
   more draws; scaling draws to games does nothing), the 15% league-lead shrink (near-optimal), a gentler
   summer pull for dominant clubs (all 14 variants cost 1965–94 Europe).
@@ -328,8 +332,12 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
   - The domestic part comes from the margin autocorrelation correction (`autocorr: 1.1`): at 0 it goes,
     but log loss worsens everywhere (1965–94 0.60407 → 0.60479) and the European part stays (+1.3pp).
   - Upper bound (post hoc, no feedback): +15–20 points to the league #1's expectation in European games
-    improves European log loss in both periods (−0.00019 1965–94, −0.00035 1995–2026). Not built. In the
-    engine it would lower displayed leader ratings unless the bonus is part of the shown rating.
+    improves European log loss in both periods (−0.00019 1965–94, −0.00035 1995–2026). Built into the
+    engine (the leader's rating + bonus in the expected score of European games, so updates feed back), it
+    fails: European log loss 1965–94 0.52121 → 0.52126 (+10), 0.52145 (+20), 0.52180 (+30); 1995–2026
+    0.58842 → 0.58838 / 0.58846 / 0.58867. Ratings absorb it (leaders gain less in Europe); Bayern since
+    2005 only +7.3 → +6.2pp at +20. Capping the edge in the margin correction (150, 250) also fails
+    1965–94. Code not kept; treat Bayern/PSG as club-specific.
   - Scotland is not overrated as a league: in Europe since 1995 −0.8pp overall (z −0.7); Rangers +2.5,
     Celtic −0.6, the rest −3.9. Celtic's European shortfall is mostly before 1995 (−4.7pp).
 - Site: mark whole-season gaps under ~15 points as level (standard error about ±30). Not started.
