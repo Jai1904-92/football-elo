@@ -468,6 +468,19 @@ decade kings, greatest seasons, dynasties, league strength and the all-time rank
   Half strength (0.5) predicted worse, overcorrected the strongest promoted clubs (−0.7pp) and changed five
   #1s (Everton 1986/87 over Bayern among them). 25 draws predicted better still, but pushed promoted clubs up
   again and changed five to seven #1s.
+- **Club-history pull (since 2026-11-12, `HISTORY_DRAWS` in `seasons.py`):** ten more virtual draws
+  against the club's own level in the surrounding seasons: its whole-season rating (without this pull) two
+  seasons either side, the nearer counting double. A season out of line with the club's history is pulled
+  back; a run of strong seasons barely moves, since its neighbours agree.
+  - Tested on held-out games: each season fitted on half its matches, scored on the other half. Log loss
+    −0.00097 (1965–94) and −0.00107 (1995–2025), European games better too.
+  - 20 draws did a little better, and 20 without the league-lead shrink better still (−0.0016/−0.0018),
+    but they changed 11–12 world #1s and lifted dynasties well above the rest. 10 changes 3, all near-ties:
+    1979/80 Bayern → Liverpool, 1990/91 Sampdoria → Milan, 2005/06 Barcelona → Chelsea.
+  - One-off seasons drop about 20 points (Leicester 2015/16 9th → 11th, Verona 1984/85 11th → 16th,
+    Montpellier 2011/12 17th → 23rd); peak seasons of great sides about 10 (Bayern 2013/14 still 1st).
+  - It reads later seasons, so a season's rating moves a little as the next two are played. The weekly
+    update recomputes from two seasons before the first replayed one.
 - **Example:** Aston Villa finished 7th in 2022/23 after a strong spring, then 4th in 2023/24 after a weak
   finish. Season end ranks them 22nd and 31st in Europe; whole season ranks them 23rd and 17th.
 - **How much it matters:** since 1965/66 the two rank orders correlate at 0.99, but the European #1 differs

@@ -177,10 +177,11 @@ def incremental_update(cfg: dict) -> int | None:
         db.write_league_offsets(cur, engine.league_offsets(rated), run_id)
         db.write_hfa_levels(cur, engine.hfa_levels(rated), run_id)
         db.refresh_valid_to(cur)
-        # whole-season performance for every season the replay touched
-        from_season = int(rated["season"].min())
-        db.write_season_perf(cur, seasons.season_performance(*db.fetch_season_inputs(cur, from_season)),
-                             run_id, from_season=from_season)
+        # whole-season performance for every season the replay touched, and the two before
+        # (their club-history pull reads the next two seasons); inputs from two further back
+        from_season = int(rated["season"].min()) - 2
+        perf = seasons.season_performance(*db.fetch_season_inputs(cur, from_season - 2))
+        db.write_season_perf(cur, perf[perf["season"] >= from_season], run_id, from_season=from_season)
         db.finish_run(cur, run_id, len(rated), rated["match_date"].max().date())
         db.refresh_serving(cur)
         conn.commit()

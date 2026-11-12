@@ -271,7 +271,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
     countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
     German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 551,000 matches and 5,996 clubs. Tests: 69, all passing (`pytest`).
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 71, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
@@ -308,6 +308,12 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 
 ## Not done yet
 
+- Added 2026-11-12 (run 43): club-history pull in the whole-season measure (`HISTORY_DRAWS = 10`,
+  `seasons.club_history`, README "Judging a season"). Ten virtual draws at the club's whole-season level two
+  seasons either side (nearer double); the 15% league-lead shrink stays. Held-out log loss −0.00097/−0.00107;
+  three world #1s change (1979/80 Liverpool, 1990/91 Milan, 2005/06 Chelsea). Alex chose it over 20 draws
+  without the shrink (12 #1s changed, dynasties lifted). The weekly update now recomputes whole-season
+  numbers from two seasons before the first replayed one, reading inputs from four before.
 - Added 2026-11-10 (run 40): dead games at half K (`dead_k: 0.5`, `engine.dead_matches`, README "Elo
   engine"). Flags titles and promotions already clinched, and last European group games already sure of
   the knockouts; 4,851 matches. Log loss unchanged. Season #1s: Bayern 2013/14, Inter 1963/64. The weekly
