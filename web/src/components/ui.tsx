@@ -87,7 +87,7 @@ export function ClubDatalist({ clubs }: { clubs: ClubIndex }) {
   return <datalist id="clubs-list">{opts}</datalist>;
 }
 
-export type Col<T> = { key: string; label: string; num?: boolean; hideSm?: boolean; render?: (r: T) => ReactNode; sort?: (r: T) => number | string | null };
+export type Col<T> = { key: string; label: ReactNode; num?: boolean; hideSm?: boolean; render?: (r: T) => ReactNode; sort?: (r: T) => number | string | null };
 
 /** Sortable table. */
 export function Table<T>({ rows, cols, initial, limit, rowKey }:

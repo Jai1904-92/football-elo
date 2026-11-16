@@ -34,7 +34,7 @@ sources:
     files: [games, clubs, competitions, game_events]   # game_events: shoot-out kicks (sources.transfermarkt)
     competitions: {CL: UCL, CLQ: UCL, EL: UEL, ELQ: UEL, UCOL: UECL, ECLQ: UECL, USC: USC,
                    FAC: ENG-FAC, CGB: ENG-LC,
-                   CDR: ESP-CDR, DFB: GER-DFB, CIT: ITA-CI, NLP: NED-KNVB, POCP: POR-TP}
+                   CDR: ESP-CDR, DFB: GER-DFB, CIT: ITA-CI, NLP: NED-KNVB, POCP: POR-TL}   # POCP is the Taça da Liga, not the Taça de Portugal
     # top flights, used only to match club ids to names (tools/derive_aliases.py)
     match_only: {GB1: ENG-L, ES1: ESP-L, L1: GER-L, IT1: ITA-L, FR1: FRA-L, PO1: POR-L, NL1: NED-L,
                  SC1: SCO-L, BE1: BEL-L, TR1: TUR-L, GR1: GRE-L}
@@ -246,7 +246,7 @@ sources:
       POR-TP:
         - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1962, 1968]}
         - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1982, 1982]}
-        - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1990, 2014]}
+        - {folder: cup-portugal, title_template: "{season}–{endw} Taça de Portugal", seasons: [1990, 2020]}
       SCO-SC:
         # semi-finals at Hampden (or another neutral ground)
         - {folder: cup-scotland, title_template: "{season}–{endw} Scottish Cup", seasons: [1955, 2025],
@@ -596,9 +596,14 @@ competitions:
     type: cup
     country: POR
     windows:
-      - {source: wikipedia, until: "2012-06-30"}
-      - {source: transfermarkt, until: "2026-06-30"}   # some seasons from the last 8 only
-      - {source: espn, replace_partial: 0.9, extend: "2026-04-01"}   # from 2021/22
+      - {source: wikipedia, until: "2021-06-30"}   # Transfermarkt doesn't hold this cup
+      - {source: espn}                # from 2021/22
+  POR-TL:
+    name: Taça da Liga
+    type: cup
+    country: POR
+    windows:
+      - {source: transfermarkt, until: "2026-06-30"}   # from 2012/13; some seasons from the last 8 only
   # Cups of the top-flight-only countries: Wikipedia season articles throughout
   # (sources.wikipedia.cups lists the seasons that have one).
   SCO-SC:

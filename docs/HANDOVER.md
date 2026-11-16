@@ -271,7 +271,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
     countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
     German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 551,000 matches and 5,996 clubs. Tests: 71, all passing (`pytest`).
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 77, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
@@ -308,6 +308,21 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 
 ## Not done yet
 
+- Added 2026-11-16 (run 44): honours strip on the Top 100 page. `honours.py` rebuilds league tables from
+  results (champion from `league_champions.csv` forced first; splits, halved points, deductions and
+  head-to-head rules can leave other places one out) and places every club in each cup and European
+  competition by clubs still playing at its last match; winners and runners-up from `gold.mv_trophies`.
+  Export `season_honours.json`; page component `web/src/components/Honours.tsx`. League-cup slot: England,
+  Portugal (Taça da Liga, data 2012/13 on); Scotland and France shown as no data (not held yet).
+  - Data fix with it: Transfermarkt's Portuguese cup `POCP` is the Taça da Liga, so it is now `POR-TL`;
+    the Taça de Portugal comes from Wikipedia to 2020/21 (pages fetched to 2020) then ESPN. Its winners
+    2012/13-2019/20 and 2022/23 had been the Taça da Liga's. All 26 finals since 2012/13 checked.
+  - Migration `20261116000000_taca_da_liga.sql` adds POR-TL to `mv_trophies` and hand-enters 40 domestic
+    finals it couldn't settle (League Cup shoot-outs missing from engsoccerdata, away-goals Coppa Italia
+    finals, finals missing or mis-dated on Wikipedia). Still open: Coupe de France 1991/92 (not played),
+    Greek Cup 1961/62, 1963/64, 1965/66.
+  - Ratings: no season #1 changes; biggest top-20 move Porto 2022/23 whole season 17th to 13th.
+  - Next: Scottish League Cup and Coupe de la Ligue from Wikipedia would fill the striped slots.
 - Added 2026-11-12 (run 43): club-history pull in the whole-season measure (`HISTORY_DRAWS = 10`,
   `seasons.club_history`, README "Judging a season"). Ten virtual draws at the club's whole-season level two
   seasons either side (nearer double); the 15% league-lead shrink stays. Held-out log loss −0.00097/−0.00107;

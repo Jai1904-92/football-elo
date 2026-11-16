@@ -50,7 +50,8 @@ pytest
 | FA Cup (Round 1 on) | `ENG-FAC` | engsoccerdata to 2018/19 → Transfermarkt to 2025/26 → ESPN |
 | League Cup | `ENG-LC` | engsoccerdata to 2018/19 → ESPN |
 | Copa del Rey, DFB-Pokal, Coppa Italia, KNVB Cup | `ESP-CDR`, `GER-DFB`, `ITA-CI`, `NED-KNVB` | Transfermarkt 2012/13–2025/26 → ESPN |
-| Taça de Portugal | `POR-TP` | Transfermarkt 2012/13–2025/26 (some seasons from the last 8 only) → ESPN (2021/22 on, and 2026/27) |
+| Taça de Portugal | `POR-TP` | Wikipedia to 2020/21 → ESPN (2021/22 on) |
+| Taça da Liga | `POR-TL` | Transfermarkt 2012/13–2025/26 (some seasons from the last 8 only) |
 | Coupe de France (last 64 on) | `FRA-CDF` | ESPN from 2015/16 |
 | European Cup / Champions League | `UCL` | engsoccerdata to 2017/18 → Transfermarkt → ESPN |
 | UEFA Cup / Europa League | `UEL` | DataRozhlas to 2011/12 → Transfermarkt → ESPN |
@@ -130,7 +131,7 @@ How sources combine:
   - A few football-data files are empty (Ligue 2 1993–96, Serie B 1993–97), and some 2002–04 files are partial
     (filled from other sources, above).
   - Domestic cups outside England start in 2012/13 (the Coupe de France in 2015/16); earlier seasons have no
-    source yet. The Taça de Portugal 2020/21 has only its last 8 (Transfermarkt; ESPN starts a season later).
+    source yet.
 - **engsoccerdata naming:** it names some clubs differently across seasons (e.g. "TSV 1860 Munchen" vs
   "1860 Munchen", "SV Bayer 04 Leverkusen" vs "Bayer Leverkusen"). These are merged through `engsoccerdata`
   alias rows. Successor clubs are kept separate, e.g. ESTAC Troyes vs Troyes AF.
@@ -423,7 +424,8 @@ querying Supabase, so no database keys reach the browser.
 - **Snapshot:** `python -m football_elo export` reads the serving views, ratings and matches from Supabase
   and writes `web/public/data/` (about 60 MB, not committed): `clubs.json`, one file per summary view, one
   file per league club (`club/<slug>.json`: monthly ratings, seasons, every match) and month-end rankings
-  per year (`tables/<year>.json`).
+  per year (`tables/<year>.json`), plus `season_top100.json` and `season_honours.json` (league place,
+  domestic cup, league cup and best European run of each top-100 club-season, `honours.py`).
 - **Crests and colours:** `python tools/club_branding.py` writes `config/club_branding.csv` from ESPN team
   records (crest, primary and alternate colour), falling back to Transfermarkt crests and to colours taken
   from the crest. Crests are linked from those sites, not stored in the repo. Clubs without one get a

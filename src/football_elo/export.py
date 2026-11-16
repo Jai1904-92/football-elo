@@ -16,6 +16,8 @@ compact JSON under `out`:
   season_top100.json   the world top 100 of each season under each measure
                        ('end', 'perf'), with the club's world rank the
                        season before
+  season_honours.json  league place, cup and European runs of each top-100
+                       club-season (honours.py)
 
 Monthly ratings, month-end tables and field.json carry the hindsight country
 levels before 2000 (gold.country_hindsight, as the season views do): each
@@ -40,7 +42,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from . import db
+from . import db, honours
 from .config import ROOT
 
 log = logging.getLogger(__name__)
@@ -78,6 +80,26 @@ def _rows(df: pd.DataFrame) -> dict:
 def _write(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
+
+
+def season_honours(matches: pd.DataFrame, trophies: pd.DataFrame, top100: pd.DataFrame, clubs: pd.DataFrame,
+                   comps: pd.DataFrame) -> pd.DataFrame:
+    """Honours strip of every club-season in a world top 100 (either measure)."""
+    matches = matches.assign(match_date=pd.to_datetime(matches["match_date"]))
+    champs = pd.read_csv(CHAMPIONS) if CHAMPIONS.exists() else pd.DataFrame(columns=["competition", "season", "club"])
+    tables = honours.league_tables(matches, dict(zip(comps["competition"], comps["country"])), champs)
+    runs = honours.runs(matches, trophies, int(matches["season"].max()))
+    want = (top100[["club", "season"]].drop_duplicates()
+            .merge(clubs[["club", "country"]], on="club", how="left"))
+    return honours.strip(want, tables, runs, comps)
+
+
+def _run_ids(v, cid: dict):
+    """A run [competition, stage, by club] with the club as its id; other slot values as they are."""
+    if not isinstance(v, list):
+        return v
+    by = v[2]
+    return [v[0], v[1], None if by is None or (isinstance(by, float) and np.isnan(by)) else cid.get(by)]
 
 
 def with_hindsight(ratings: pd.DataFrame, hindsight: pd.DataFrame) -> pd.DataFrame:
@@ -139,6 +161,8 @@ def export(out: Path = DEFAULT_OUT) -> Path:
                    "from gold.mv_club_seasons s left join gold.mv_club_seasons p on p.club = s.club "
                    "and p.measure = s.measure and p.season = s.season - 1 "
                    "where s.world_rank <= 100 order by s.measure, s.season, s.world_rank")
+        hon_matches = q("select match_id, match_date, season, competition, comp_type, tier, round, home_club, "
+                        "away_club, home_goals, away_goals, home_pens, away_pens, source from silver.matches")
         hindsight = q("select country, season, correction from gold.country_hindsight")
         ratings = with_hindsight(q("select club, country, season, valid_from, valid_to, elo, tier "
                                    "from gold.club_ratings"), hindsight)
@@ -189,6 +213,7 @@ def export(out: Path = DEFAULT_OUT) -> Path:
         champs = champs.assign(season_label=champs["season"].map(lambda s: f"{s}/{(s + 1) % 100:02d}"),
                                runner_up=None, legs=None)
         views["trophies"] = pd.concat([views["trophies"], champs[views["trophies"].columns]], ignore_index=True)
+    hon = season_honours(hon_matches, views["trophies"], top100, clubs, comps)
     for name, df in views.items():
         for col in [c for c in df.columns if c in ("club", "runner_up", "winner", "loser", "home_club", "away_club")]:
             df[col] = df[col].map(cid)
@@ -196,6 +221,11 @@ def export(out: Path = DEFAULT_OUT) -> Path:
     top100["club"] = top100["club"].map(cid)
     top100 = top100.astype({c: "Int64" for c in ["rating", "above", "tier", "league_rank", "prev_rank"]})
     _write(out / "season_top100.json", _rows(top100))
+    hon["club"] = hon["club"].map(cid)
+    for col in ("cup", "lcup", "europe"):
+        hon[col] = hon[col].map(lambda v: _run_ids(v, cid))
+    hon["runs"] = hon["runs"].map(lambda rs: [_run_ids(r, cid) for r in rs])
+    _write(out / "season_honours.json", {"cols": list(hon.columns), "rows": hon.values.tolist()})
 
     # month-end tables and the top-flight field average
     tables = month_tables(ratings)
