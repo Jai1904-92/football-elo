@@ -251,6 +251,14 @@ sources:
         # semi-finals at Hampden (or another neutral ground)
         - {folder: cup-scotland, title_template: "{season}–{endw} Scottish Cup", seasons: [1955, 2025],
            neutral_rounds: '^semi[- ]?finals?'}
+      # League cups (added 2026-11-17): the Scottish League Cup (sectional groups
+      # to the 1980s and again from 2016/17, knockout between) and the Coupe de la
+      # Ligue (1994/95-2019/20; the 2019/20 page is the last edition, final 2020).
+      SCO-LC:
+        - {folder: cup-scotland-lc, title_template: "{season}–{endw} Scottish League Cup", seasons: [1955, 2026],
+           neutral_rounds: '^semi[- ]?finals?'}
+      FRA-CDL:
+        - {folder: cup-france-cdl, title_template: "{season}–{endw} Coupe de la Ligue", seasons: [1994, 2019]}
       BEL-BC:
         - {folder: cup-belgium, title_template: "{season}–{endw} Belgian Cup", seasons: [1978, 1978]}
         - {folder: cup-belgium, title_template: "{season}–{endw} Belgian Cup", seasons: [1989, 2025]}
@@ -612,6 +620,18 @@ competitions:
     country: SCO
     windows:
       - {source: wikipedia}
+  SCO-LC:
+    name: Scottish League Cup
+    type: cup
+    country: SCO
+    windows:
+      - {source: wikipedia}
+  FRA-CDL:
+    name: Coupe de la Ligue
+    type: cup
+    country: FRA
+    windows:
+      - {source: wikipedia}           # 1994/95-2019/20 (abolished after 2019/20)
   BEL-BC:
     name: Belgian Cup
     type: cup

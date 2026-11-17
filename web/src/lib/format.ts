@@ -34,6 +34,7 @@ export const COMP_SHORT: Record<string, string> = {
   UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', USC: 'Super Cup', 'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal',
   'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça',
   'SCO-SC': 'Scottish Cup', 'BEL-BC': 'Belgian Cup', 'TUR-TC': 'Turkish Cup', 'GRE-GC': 'Greek Cup',
+  'POR-TL': 'Taça da Liga', 'SCO-LC': 'League Cup', 'FRA-CDL': 'Coupe de la Ligue',
 };
 export const EUROPEAN = ['UEL', 'UCWC', 'FAIRS', 'UECL'];
 // League titles (config/league_champions.csv), in country order: competition -> honours label.
@@ -44,8 +45,8 @@ const DEMONYM: Record<string, string> = {
   GDR: 'East German', RUS: 'Russian', UKR: 'Ukrainian', CZE: 'Czech', SVK: 'Slovak', SRB: 'Serbian', CRO: 'Croatian',
 };
 export const LEAGUE_TITLES: [string, string][] = COUNTRY_ORDER.map((c) => [`${c}-L`, `${DEMONYM[c]} champions`]);
-export const DOMESTIC_CUPS = ['ENG-FAC', 'ENG-LC', 'ESP-CDR', 'GER-DFB', 'ITA-CI', 'FRA-CDF', 'NED-KNVB', 'POR-TP',
-  'SCO-SC', 'BEL-BC', 'TUR-TC', 'GRE-GC'];
+export const DOMESTIC_CUPS = ['ENG-FAC', 'ENG-LC', 'ESP-CDR', 'GER-DFB', 'ITA-CI', 'FRA-CDF', 'FRA-CDL', 'NED-KNVB', 'POR-TP',
+  'POR-TL', 'SCO-SC', 'SCO-LC', 'BEL-BC', 'TUR-TC', 'GRE-GC'];
 
 export const initials = (name: string) =>
   name.replace(/\b(FC|AC|AS|SC|CF|CD|SL|SV|VfB|VfL|US|SSC|AFC|RC|UD|SD|1\.)\b/g, '').trim().split(/[\s-]+/)

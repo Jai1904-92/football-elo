@@ -40,7 +40,7 @@ BYE = re.compile(r"^\s*(?:bye|\(?bye\)?|walkover|w/o|—|-|–)?\s*$", re.I)
 PRIORITY = {"box": 0, "oneleg": 1, "twoleg": 1, "table": 1, "bracket": 2}
 # headings that hold rounds rather than name one
 GENERIC = re.compile(r"^(?:matches|results|fixtures|schedule|competition|tournament|main (?:draw|tournament|"
-                     r"competition)|competition proper|rounds|knockout(?: stage| phase| rounds)?|final (?:stage|phase|"
+                     r"competition)|competition proper|rounds|(?:fixtures|results) (?:and|&) (?:fixtures|results)|final draw(?: results)?|knockout(?: stage| phase| rounds)?|final (?:stage|phase|"
                      r"rounds|tournament)|draw|proper rounds?|bracket|overview|format|.* stages?|.* phases?|.* rounds)$", re.I)
 SUBSLOT = re.compile(r"replay|second leg|2nd leg|return leg|play-?off", re.I)
 
@@ -497,7 +497,7 @@ def _is_score_cell(cell: str) -> bool:
     s = plain(cell)
     if VOID.search(s):
         return bool(SCORE.search(s))     # kept as a score position, dropped by score()
-    return bool(re.fullmatch(r"\(?\s*(?:\(a\)\s*)?\d{1,2}\s*[–—−:-]\s*\d{1,2}\b.{0,40}", s)) and not re.search(
+    return bool(re.fullmatch(r"\(?\s*(?:\((?:a|p)\)\s*)?\d{1,2}\s*[–—−:-]\s*\d{1,2}\b.{0,40}", s)) and not re.search(
         r"\d{4}", s)
 
 

@@ -271,7 +271,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
     countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
     German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 551,000 matches and 5,996 clubs. Tests: 80, all passing (`pytest`).
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 81, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
@@ -308,12 +308,20 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
 
 ## Not done yet
 
+- Added 2026-11-17 (run 47): Scottish League Cup (`SCO-LC`, Wikipedia 1955/56 on) and Coupe de la Ligue
+  (`FRA-CDL`, Wikipedia 1994/95-2019/20), rated like the other cups and in the strip's league-cup slot.
+  +5,404 matches (SCO-LC 4,296, FRA-CDL 1,108). All 97 finals checked against the real winners. Migration
+  `20261117000000_league_cups.sql` adds both to `mv_trophies`; the club page lists them (and the Taça da
+  Liga). `wikicups`: "Fixtures and results" / "Final draw results" headings hold rounds, and a "(p)0 – 0"
+  score cell (shoot-out winner marked, score not printed) is read. Ayr F.C. on the 2003/04 page is Ayr United.
+  - Ratings: 1968/69 #1 moves from Leeds to Celtic on both measures (treble year); Scottish and French top
+    20s move a few places. SCO-LC from 2016/17 holds the knockout only (the group tables aren't parsed).
 - Added 2026-11-16 (run 44): honours strip on the Top 100 page. `honours.py` rebuilds league tables from
   results (champion from `league_champions.csv` forced first; splits, halved points, deductions and
   head-to-head rules can leave other places one out) and places every club in each cup and European
   competition by clubs still playing at its last match; winners and runners-up from `gold.mv_trophies`.
   Export `season_honours.json`; page component `web/src/components/Honours.tsx`. League-cup slot: England,
-  Portugal (Taça da Liga, data 2012/13 on); Scotland and France shown as no data (not held yet).
+  Portugal (Taça da Liga, data 2012/13 on); Scotland and France added in run 47.
   - Data fix with it: Transfermarkt's Portuguese cup `POCP` is the Taça da Liga, so it is now `POR-TL`;
     the Taça de Portugal comes from Wikipedia to 2020/21 (pages fetched to 2020) then ESPN. Its winners
     2012/13-2019/20 and 2022/23 had been the Taça da Liga's. All 26 finals since 2012/13 checked.
@@ -322,7 +330,6 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     finals, finals missing or mis-dated on Wikipedia). Still open: Coupe de France 1991/92 (not played),
     Greek Cup 1961/62, 1963/64, 1965/66.
   - Ratings: no season #1 changes; biggest top-20 move Porto 2022/23 whole season 17th to 13th.
-  - Next: Scottish League Cup and Coupe de la Ligue from Wikipedia would fill the striped slots.
 - Added 2026-11-17 (run 46): `wikicups` reads `{{OneLeg/TwoLeg with notes result}}` (named fields, each
   leg home side first; 13 Copa del Rey pages 1979-2000 had only their late rounds before) and
   `{{ThreeLegResult}}` (a replay, neutral). +2,643 cup matches (Copa 2,289, Taça 303, Coupe 51); 44 new

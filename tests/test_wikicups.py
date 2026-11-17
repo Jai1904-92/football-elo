@@ -224,3 +224,19 @@ def test_three_leg_rows_add_a_neutral_replay():
     assert [(r["home_name"], r["hg"], r["ag"]) for r in rows] == [
         ("Angers SCO", 1, 0), ("Olympique Lyonnais", 2, 1), ("Angers SCO", 1, 1)]
     assert rows[2]["neutral"] is True and rows[0]["neutral"] is None
+
+
+def test_shootout_marked_p_is_a_score_and_fixtures_and_results_holds_rounds():
+    page = """==Fixtures and results==
+===Quarter-finals===
+{| class="wikitable"
+!Home team !! Score !! Away team
+|-
+|[[Airdrieonians F.C. (1878)|Airdrieonians]]
+|([[Kicks from the penalty mark|p]])0 – 0
+|[[Celtic F.C.|Celtic]]
+|}
+"""
+    rows = wikicups.parse_page(page, 1991)
+    assert len(rows) == 1 and (rows[0]["hg"], rows[0]["ag"]) == (0, 0)
+    assert rows[0]["round"] == "Quarter-finals"

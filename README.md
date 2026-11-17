@@ -53,6 +53,8 @@ pytest
 | Taça de Portugal | `POR-TP` | Wikipedia to 2020/21 → ESPN (2021/22 on) |
 | Taça da Liga | `POR-TL` | Transfermarkt 2012/13–2025/26 (some seasons from the last 8 only) |
 | Coupe de France (last 64 on) | `FRA-CDF` | ESPN from 2015/16 |
+| Coupe de la Ligue | `FRA-CDL` | Wikipedia 1994/95–2019/20 (its whole run) |
+| Scottish League Cup | `SCO-LC` | Wikipedia 1955/56 on (from 2016/17 the knockout rounds only, not the groups) |
 | European Cup / Champions League | `UCL` | engsoccerdata to 2017/18 → Transfermarkt → ESPN |
 | UEFA Cup / Europa League | `UEL` | DataRozhlas to 2011/12 → Transfermarkt → ESPN |
 | Conference League | `UECL` | Transfermarkt → ESPN |

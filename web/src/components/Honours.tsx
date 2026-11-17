@@ -13,7 +13,7 @@ export type League = [string, number, number, number, number, number, number, nu
 export type Slot = Run | '-' | 'early' | 'na' | null;
 export type Honours = { club: number; season: number; league: League | null; cup: Slot; lcup: Slot; europe: Run | '-'; runs: Run[] };
 
-const LEAGUE_CUPS = new Set(['ENG-LC', 'POR-TL']);
+const LEAGUE_CUPS = new Set(['ENG-LC', 'POR-TL', 'SCO-LC', 'FRA-CDL']);
 const EUROPE = new Set(['UCL', 'UEL', 'UCWC', 'FAIRS', 'UECL']);
 const SHORT: Record<string, string> = { UCL: 'CL', UEL: 'EL', UCWC: 'CW', FAIRS: 'FC', UECL: 'CO' };
 const STAGE: Record<Stage, string> = { W: 'Won', F: 'Final', SF: 'Semi-final', QF: 'Quarter-final', R16: 'Last 16', in: 'Still in', out: 'Earlier round' };
@@ -24,7 +24,7 @@ export const compName = (c: string, s: number) => ({
   UCWC: "Cup Winners' Cup", FAIRS: 'Fairs Cup', UECL: 'Conference League',
   'ENG-FAC': 'FA Cup', 'ENG-LC': 'League Cup', 'POR-TL': 'Taça da Liga', 'ESP-CDR': 'Copa del Rey', 'GER-DFB': 'DFB-Pokal',
   'ITA-CI': 'Coppa Italia', 'FRA-CDF': 'Coupe de France', 'NED-KNVB': 'KNVB Cup', 'POR-TP': 'Taça de Portugal',
-  'SCO-SC': 'Scottish Cup', 'BEL-BC': 'Belgian Cup', 'GRE-GC': 'Greek Cup', 'TUR-TC': 'Turkish Cup',
+  'SCO-SC': 'Scottish Cup', 'SCO-LC': 'Scottish League Cup', 'FRA-CDL': 'Coupe de la Ligue', 'BEL-BC': 'Belgian Cup', 'GRE-GC': 'Greek Cup', 'TUR-TC': 'Turkish Cup',
 } as Record<string, string>)[c] ?? c;
 
 const SUFFIX = ['th', 'st', 'nd', 'rd'];

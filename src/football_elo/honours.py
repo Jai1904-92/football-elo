@@ -30,7 +30,7 @@ RANK = {"W": 7, "F": 6, "SF": 5, "QF": 4, "R16": 3, "in": 2.5, "out": 1}
 EUROPE_ORDER = {"UCL": 4, "UEL": 3, "UCWC": 3, "FAIRS": 2, "UECL": 1}
 # League cups the strip gives a slot: country -> (first season, last season, competition or None if not held)
 LEAGUE_CUPS = {"ENG": (1960, 9999, "ENG-LC"), "POR": (2007, 9999, "POR-TL"),
-               "SCO": (1946, 9999, None), "FRA": (1994, 2019, None)}
+               "SCO": (1946, 9999, "SCO-LC"), "FRA": (1994, 2019, "FRA-CDL")}
 NOT_A_RUN = r"^3pp$|third place|3rd place|uefa cup playoff"
 STILL_IN_DAYS = 14
 FULL_COVERAGE = 0.75   # a cup season holding this share of the top flight counts as complete
