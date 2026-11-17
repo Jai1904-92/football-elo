@@ -232,6 +232,3 @@ table.t { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
   .top100 .t td { white-space: normal; }
   .pip small { display: none; }
 }
-@media (min-width: 641px) {   /* Top 100: spare width goes to the club column, keeping the strip beside the rating */
-  .top100 .t th:nth-child(3), .top100 .t td:nth-child(3) { width: 100%; }
-}

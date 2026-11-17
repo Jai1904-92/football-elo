@@ -57,7 +57,7 @@ export default function Top100({ clubs }: { clubs: ClubIndex }) {
   return (
     <div className="page top100">
       <Card title={season == null ? 'World top 100' : `World top 100 · ${seasonLabel(season)}`}
-            note="The 100 highest-rated clubs across every modelled league that season. Move is against the club's world rank the season before. The season strip shows where each club actually finished: league place, domestic cup, league cup and best European run. Tap a strip for the detail, including the club's rank under the other season measure.">
+            note="The 100 highest-rated clubs across every modelled league that season. Move is against the club's world rank the season before; rank in league is its rating rank among the clubs of its own league. The season strip shows where each club actually finished: league place, domestic cup, league cup and best European run. Tap a strip for the detail, including the club's rank under the other season measure.">
         <div className="controls">
           <button className="btn" type="button" disabled={i <= 0} onClick={() => go(seasons[i - 1])} aria-label="Previous season">‹</button>
           <select className="select" aria-label="Season" value={season ?? ''} onChange={(e) => go(+e.target.value)}>
@@ -93,7 +93,11 @@ export default function Top100({ clubs }: { clubs: ClubIndex }) {
           </> },
           { key: 'honours', label: <StripHead />, hideSm: true, sort: (r) => { const l = hon(r.club)?.league; return l ? -(l[1] * 100 + l[2]) : null; },
             render: cell },
+          { key: 'country', label: 'Country', hideSm: true, sort: (r) => clubs.byId[r.club].country, render: (r) => COUNTRIES[clubs.byId[r.club].country ?? ''] ?? '' },
+          { key: 'league_rank', label: 'Rank in league', num: true, hideSm: true,
+            render: (r) => `${ordinal(r.league_rank)}${r.tier > 1 ? ` (tier ${r.tier})` : ''}` },
           { key: 'rating', label: 'Rating', num: true, render: (r) => int(r.rating) },
+          { key: 'above', label: 'Above average', num: true, hideSm: true, render: (r) => signed(r.above) },
         ]} /> : <Status error={view.error} />}
       </Card>
     </div>
