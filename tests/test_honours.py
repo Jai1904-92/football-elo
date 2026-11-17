@@ -69,3 +69,16 @@ def test_strip_slots():
     assert s.loc["A", "lcup"] is None            # no League Cup matches held for 2010/11 here
     assert s.loc["B", "europe"] == "-" and s.loc["C", "lcup"] == "na" and s.loc["C", "cup"] is None
     assert s.loc["D", "lcup"] == "na"            # before the League Cup began
+
+
+def test_a_club_missing_from_a_partial_cup_season_went_out_early():
+    comps = pd.DataFrame([{"competition": "ESP-L", "comp_type": "league", "country": "ESP"},
+                          {"competition": "ESP-CDR", "comp_type": "cup", "country": "ESP"}])
+    top = [f"T{i}" for i in range(8)]
+    tables = pd.DataFrame([dict(competition="ESP-L", tier=1, season=2000, club=c, pos=i + 1, n=8, p=0, w=0, d=0, l=0,
+                                gf=0, ga=0, pts=0) for i, c in enumerate(top)])
+    want = pd.DataFrame([("T0", 2000, "ESP")], columns=["club", "season", "country"])
+    part = pd.DataFrame([("ESP-CDR", 2000, c, "QF", None) for c in top[1:4]], columns=["competition", "season", "club", "stage", "by"])
+    assert honours.strip(want, tables, part, comps).iloc[0]["cup"] == "early"
+    full = pd.DataFrame([("ESP-CDR", 2000, c, "out", None) for c in top[1:]], columns=part.columns)
+    assert honours.strip(want, tables, full, comps).iloc[0]["cup"] == "-"

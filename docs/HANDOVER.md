@@ -271,7 +271,7 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Portugal, Scotland, Belgium, Turkey, Greece; English cups and play-offs from 1955; the other ten
     countries' cups from 1955 where Wikipedia has them (league-club ties only before 2012/13, see job 1);
     German championship final rounds 1955–63; UEFA competitions from 1955.
-  - Size: about 551,000 matches and 5,996 clubs. Tests: 77, all passing (`pytest`).
+  - Size: about 551,000 matches and 5,996 clubs. Tests: 80, all passing (`pytest`).
   - Install with `pip install -e . -c constraints.txt` (pinned versions, see below).
 - **Supabase:** project `football-elo`, ref `mukyuvlvwozeihsrjjis`. Last full load: run 21 on 2026-10-24.
   - Loads use `SUPABASE_DB_URL` from `.env` (psycopg) and take about 6–10 minutes; they run in one
@@ -323,6 +323,15 @@ Known issues to keep in mind: the Accrington cup bug (below), "Keçiörengücü"
     Greek Cup 1961/62, 1963/64, 1965/66.
   - Ratings: no season #1 changes; biggest top-20 move Porto 2022/23 whole season 17th to 13th.
   - Next: Scottish League Cup and Coupe de la Ligue from Wikipedia would fill the striped slots.
+- Added 2026-11-17 (run 46): `wikicups` reads `{{OneLeg/TwoLeg with notes result}}` (named fields, each
+  leg home side first; 13 Copa del Rey pages 1979-2000 had only their late rounds before) and
+  `{{ThreeLegResult}}` (a replay, neutral). +2,643 cup matches (Copa 2,289, Taça 303, Coupe 51); 44 new
+  aliases pointed at existing clubs (Real Valladolid CF had split off). No whole-season #1 changes;
+  end-of-season 2008/09 flips Barcelona to Chelsea on a level 1,879.
+  - Strip: a club missing from a cup season that holds under 75% of its top flight shows "out before the
+    rounds we hold" (`early`), not "didn't take part". Thin seasons left: Coupe de France before 1989
+    (last 32/16 only), Coppa Italia 1970s (group stages are standings only), Taça de Portugal 1990s, Belgian
+    and Turkish cups missing before the late 1980s.
 - Added 2026-11-12 (run 43): club-history pull in the whole-season measure (`HISTORY_DRAWS = 10`,
   `seasons.club_history`, README "Judging a season"). Ten virtual draws at the club's whole-season level two
   seasons either side (nearer double); the 15% league-lead shrink stays. Held-out log loss −0.00097/−0.00107;

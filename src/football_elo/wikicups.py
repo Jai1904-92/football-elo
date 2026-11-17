@@ -3,7 +3,9 @@
 Five layouts, often mixed on one page:
   - {{Football box}} / {{Football box collapsible}} / {{#invoke:football box|main}}:
     one match, team1 at home, usually dated
-  - {{OneLegResult|team1||score|team2}}: one match, team1 at home
+  - {{OneLegResult|team1||score|team2}}: one match, team1 at home; {{OneLeg with notes result}} and
+    {{TwoLeg with notes result}} name their fields (team1=, score1=, date1=...), each leg home side first
+  - {{ThreeLegResult}}: a {{TwoLegResult}} with a replay after it (neutral, from team1's side)
   - {{TwoLegResult|team1||agg|team2||leg1|leg2}}: a two-legged tie; both leg
     scores are from team1's side, and team1 is at home in the first leg (the
     European cup pages fill the blank cells with countries)
@@ -296,12 +298,47 @@ def _onelegs(text: str) -> list[dict]:
     return out
 
 
+def _noted(text: str) -> list[dict]:
+    """{{OneLeg with notes result|team1=|score=|team2=|date=}} and {{TwoLeg with notes result|team1=|agg=|
+    team2=|date1=|score1=|date2=|score2=}} (Copa del Rey pages). Each leg's score is printed home side
+    first; where the aggregate says otherwise the second leg is turned round."""
+    out = []
+    for m in re.finditer(r"\{\{\s*(One|Two)Leg with notes result\s*\|", text, re.I):
+        _, p = params(template_at(text, m.start()))
+        t1, t2 = club(p.get("team1", "")), club(p.get("team2", ""))
+        if not (t1 and t2):
+            continue
+        if m.group(1).lower() == "one":
+            sc = score(p.get("score", ""))
+            if sc:
+                out.append(dict(sc, fmt="oneleg", pos=m.start(), home=t1, away=t2, leg=None,
+                                date=p.get("date", ""), venue=""))
+            continue
+        agg, s1, s2 = score(p.get("agg", "")), score(p.get("score1", "")), score(p.get("score2", ""))
+        if s1 and s2 and agg and (s1["hg"] + s2["ag"], s1["ag"] + s2["hg"]) != (agg["hg"], agg["ag"])                 and (s1["hg"] + s2["hg"], s1["ag"] + s2["ag"]) == (agg["hg"], agg["ag"]):
+            s2["hg"], s2["ag"] = s2["ag"], s2["hg"]      # printed from team1's side after all
+        if s2 and agg and agg["pens"] and not s2["pens"]:
+            s2["pens"], s2["aet"] = agg["pens"][::-1], True
+        for leg, sc, home, away in ((1, s1, t1, t2), (2, s2, t2, t1)):
+            if sc:
+                out.append(dict(sc, fmt="twoleg", pos=m.start(), home=home, away=away, leg=leg,
+                                date=p.get(f"date{leg}", ""), venue=""))
+    return out
+
+
 def _twolegs(text: str) -> list[dict]:
     out = []
-    for m in re.finditer(r"\{\{\s*TwoLegResult\s*\|", text, re.I):
+    for m in re.finditer(r"\{\{\s*(Two|Three)LegResult\s*\|", text, re.I):
         pos, _ = params(template_at(text, m.start()))
         cells = [c for c in pos if c.strip()]           # team1, agg, team2, leg1, leg2 (blank cells between)
-        if len(cells) >= 7 and not _is_score_cell(cells[1]) and _is_score_cell(cells[2]):
+        if m.group(1).lower() == "three":               # ... and a replay, from team1's side, on neutral ground
+            if len(cells) >= 6 and _is_score_cell(cells[5]):
+                t1, t2, sc = club(cells[0]), club(cells[2]), score(cells[5])
+                if t1 and t2 and sc:
+                    out.append(dict(sc, fmt="twoleg", pos=m.start(), home=t1, away=t2, leg=3, date="",
+                                    venue="", neutral=True))
+            cells = cells[:5]
+        elif len(cells) >= 7 and not _is_score_cell(cells[1]) and _is_score_cell(cells[2]):
             cells = [cells[i] for i in (0, 2, 3, 5, 6)]  # country cells filled in (European cups)
         if len(cells) < 5:
             continue
@@ -508,7 +545,7 @@ def parse_page(text: str, season: int, loose: bool = False) -> list[dict]:
     different articles)."""
     text = clean(text)
     heads = _headings(text)
-    found = _boxes(text) + _onelegs(text) + _twolegs(text) + _tables(text) + _brackets(text)
+    found = _boxes(text) + _onelegs(text) + _noted(text) + _twolegs(text) + _tables(text) + _brackets(text)
     for r in found:
         rnd, slot = _round_of(_path(heads, r["pos"]))
         if r.get("round"):                     # a bracket's own label

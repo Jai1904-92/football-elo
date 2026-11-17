@@ -9,7 +9,8 @@ export type Run = [comp: string, stage: Stage, by: number | null];
 /** competition, tier, place, clubs, played, won, drawn, lost, for, against, points */
 export type League = [string, number, number, number, number, number, number, number, number, number, number];
 /** A run, '-' (not in the rounds we hold), null (no data for that cup season) or 'na' (the country has no league cup). */
-export type Slot = Run | '-' | 'na' | null;
+/** ... 'early' (missing from a cup season we hold only from its later rounds: out before them). */
+export type Slot = Run | '-' | 'early' | 'na' | null;
 export type Honours = { club: number; season: number; league: League | null; cup: Slot; lcup: Slot; europe: Run | '-'; runs: Run[] };
 
 const LEAGUE_CUPS = new Set(['ENG-LC', 'POR-TL']);
@@ -46,6 +47,7 @@ function SlotPip({ v, europe }: { v: Slot; europe?: boolean }) {
   if (v === 'na') return <span className="pip na" />;
   if (v === null) return <span className="pip n">–</span>;
   if (v === '-') return <span className="pip h">–</span>;
+  if (v === 'early') return <span className="pip x">·</span>;
   return <span className={`pip ${medal(v[1])}`}>{stageText(v[1])}{europe && <small>{SHORT[v[0]]}</small>}</span>;
 }
 
@@ -94,10 +96,12 @@ function Detail({ h, rank, rating, clubs, country, current }:
         </Line>
       ) : <Line pip={<LeaguePip l={null} />} k="League">No table for this season</Line>}
       {h.cup === null && <Line pip={<SlotPip v={null} />} k="Domestic cup">No data for this cup season</Line>}
-      {h.cup === '-' && <Line pip={<SlotPip v="-" />} k="Domestic cup">{current ? 'Not played yet' : 'Not in the rounds we hold'}</Line>}
+      {h.cup === '-' && <Line pip={<SlotPip v="-" />} k="Domestic cup">{current ? 'Not played yet' : "Didn't take part"}</Line>}
+      {h.cup === 'early' && <Line pip={<SlotPip v="early" />} k="Domestic cup">{current ? 'Not played yet' : 'Out before the rounds we hold'}</Line>}
       {cups.map((r) => run(r))}
       {h.lcup === null && <Line pip={<SlotPip v={null} />} k={LC_NAME[country] ?? 'League cup'}>No data yet</Line>}
-      {h.lcup === '-' && <Line pip={<SlotPip v="-" />} k={LC_NAME[country] ?? 'League cup'}>{current ? 'Not played yet' : 'Not in the rounds we hold'}</Line>}
+      {h.lcup === '-' && <Line pip={<SlotPip v="-" />} k={LC_NAME[country] ?? 'League cup'}>{current ? 'Not played yet' : "Didn't take part"}</Line>}
+      {h.lcup === 'early' && <Line pip={<SlotPip v="early" />} k={LC_NAME[country] ?? 'League cup'}>{current ? 'Not played yet' : 'Out before the rounds we hold'}</Line>}
       {Array.isArray(h.lcup) && run(h.lcup, 'lcup')}
       {europe.length ? europe.map((r) => run(r)) : <Line pip={<SlotPip v="-" />} k="Europe">Not in Europe</Line>}
     </>

@@ -197,3 +197,30 @@ def test_final_pages_number_legs_and_single_finals_are_neutral_unless_at_home(tm
                    (2013, "Final", None, "FC Bayern Munich", True, True)]
     assert df.loc[df["season"] == 2013, ["home_goals", "away_goals", "home_pens", "away_pens"]].values.tolist() == \
         [[2, 2, 5, 4]]
+
+
+def test_noted_templates_read_named_fields_home_side_first():
+    text = """== Round of 64 ==
+{{OneLeg with notes result
+|team1='''[[CD Toledo]]''' |score= '''2–1'''<ref>x</ref> |team2 = [[Real Madrid CF]]
+|date=13 Dec 2000 }}
+== Second round ==
+{{TwoLeg with notes result
+|team1=[[CD Coslada]]&nbsp;&nbsp;|agg=1–5|team2=&nbsp;&nbsp;'''[[CD Mensajero]]'''
+|date1=30 Aug 2000|score1=0–1|ref1=
+|date2=6 Sep 2000|score2=4–1|ref2=
+}}"""
+    rows = wikicups.parse_page(text, 2000)
+    one = [r for r in rows if r["round"] == "Round of 64"][0]
+    assert (one["home_name"], one["hg"], one["ag"], one["away_name"]) == ("CD Toledo", 2, 1, "Real Madrid CF")
+    assert one["date"] == pd.Timestamp("2000-12-13")
+    legs = sorted((r for r in rows if r["round"] == "Second round"), key=lambda r: r["leg"])
+    assert [(r["home_name"], r["hg"], r["ag"]) for r in legs] == [("CD Coslada", 0, 1), ("CD Mensajero", 4, 1)]
+
+
+def test_three_leg_rows_add_a_neutral_replay():
+    text = "== Round of 16 ==\n{{ThreeLegResult| '''[[Angers SCO]]''' || 3–3 | [[Olympique Lyonnais]] || 1–0 | 1–2 | 1–1 }}"
+    rows = sorted(wikicups.parse_page(text, 1968), key=lambda r: r["leg"])
+    assert [(r["home_name"], r["hg"], r["ag"]) for r in rows] == [
+        ("Angers SCO", 1, 0), ("Olympique Lyonnais", 2, 1), ("Angers SCO", 1, 1)]
+    assert rows[2]["neutral"] is True and rows[0]["neutral"] is None

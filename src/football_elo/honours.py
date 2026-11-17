@@ -33,6 +33,7 @@ LEAGUE_CUPS = {"ENG": (1960, 9999, "ENG-LC"), "POR": (2007, 9999, "POR-TL"),
                "SCO": (1946, 9999, None), "FRA": (1994, 2019, None)}
 NOT_A_RUN = r"^3pp$|third place|3rd place|uefa cup playoff"
 STILL_IN_DAYS = 14
+FULL_COVERAGE = 0.75   # a cup season holding this share of the top flight counts as complete
 FINAL = re.compile(r"^\s*finals?\s*$", re.I)   # Wikipedia pages: the last match is the final only if so named
 
 
@@ -112,9 +113,10 @@ def strip(club_seasons: pd.DataFrame, tables: pd.DataFrame, run: pd.DataFrame,
           comps: pd.DataFrame) -> pd.DataFrame:
     """The four honours slots for each (club, country, season) asked for.
 
-    league: table row or None. cup / lcup: a run, "-" (not in the rounds we
-    hold), None (no data for that cup season) or, lcup only, "na" (no league
-    cup). europe: the best European run or "-". runs: every cup and European
+    league: table row or None. cup / lcup: a run, "early" (not in the rounds
+    we hold, which miss some of the top flight: out before them), "-" (not in
+    a cup season we hold in full: didn't take part), None (no data for that
+    cup season) or, lcup only, "na" (no league cup). europe: the best European run or "-". runs: every cup and European
     run, for the detail card."""
     held = set(zip(run["competition"], run["season"]))
     cups = comps[comps["comp_type"] == "cup"]
@@ -126,11 +128,20 @@ def strip(club_seasons: pd.DataFrame, tables: pd.DataFrame, run: pd.DataFrame,
     for r in run.itertuples():
         by_cs.setdefault((r.club, r.season), []).append((r.competition, r.stage, r.by))
 
+    # share of each country's top flight seen in each cup season: under FULL_COVERAGE, the early rounds are missing
+    top = tables[tables["tier"] == 1].assign(country=lambda d: d["competition"].map(
+        dict(zip(comps["competition"], comps["country"]))))
+    top_sets = {k: set(g["club"]) for k, g in top.groupby(["country", "season"])}
+    cup_country = dict(zip(cups["competition"], cups["country"]))
+    seen = {k: set(g["club"]) for k, g in run.groupby(["competition", "season"])}
+    full = {(c, s) for (c, s), clubs in seen.items() if c in cup_country
+            and len(clubs & top_sets.get((cup_country[c], s), set())) >= FULL_COVERAGE * max(len(top_sets.get((cup_country[c], s), ())), 1)}
+
     def slot(comp, rs, season):
         if comp is None or (comp, season) not in held:
             return None
         got = [x for x in rs if x[0] == comp]
-        return list(got[0]) if got else "-"
+        return list(got[0]) if got else ("-" if (comp, season) in full else "early")
 
     rows = []
     for c in club_seasons.itertuples():
