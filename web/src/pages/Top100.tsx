@@ -45,12 +45,19 @@ export default function Top100({ clubs }: { clubs: ClubIndex }) {
     return Object.entries(n).sort((a, b) => b[1] - a[1]);
   }, [rows, clubs]);
 
-  const cell = (r: Row) => <HonoursCell h={hon(r.club)} rank={r.rank} rating={r.rating} clubs={clubs} current={season === seasons.at(-1)} />;
+  const facts = (r: Row & { other: number | null }) => [
+    COUNTRIES[clubs.byId[r.club].country ?? ''],
+    `${ordinal(r.league_rank)} by rating in its league${r.tier > 1 ? ` (tier ${r.tier})` : ''}`,
+    `${signed(r.above)} above average`,
+    `${other === 'end' ? 'end-of-season' : 'whole-season'} rank ${r.other ?? '>100'}`,
+  ].filter(Boolean).join(' · ');
+  const cell = (r: Row & { other: number | null }) => <HonoursCell h={hon(r.club)} rank={r.rank} rating={r.rating} clubs={clubs}
+    current={season === seasons.at(-1)} facts={facts(r)} />;
   const i = season == null ? -1 : seasons.indexOf(season);
   return (
     <div className="page top100">
       <Card title={season == null ? 'World top 100' : `World top 100 · ${seasonLabel(season)}`}
-            note="The 100 highest-rated clubs across every modelled league that season. Move is against the club's world rank the season before; Other view is its rank under the other season measure. The season strip shows where each club actually finished: league place, domestic cup, league cup and best European run. Tap a strip for the detail.">
+            note="The 100 highest-rated clubs across every modelled league that season. Move is against the club's world rank the season before. The season strip shows where each club actually finished: league place, domestic cup, league cup and best European run. Tap a strip for the detail, including the club's rank under the other season measure.">
         <div className="controls">
           <button className="btn" type="button" disabled={i <= 0} onClick={() => go(seasons[i - 1])} aria-label="Previous season">‹</button>
           <select className="select" aria-label="Season" value={season ?? ''} onChange={(e) => go(+e.target.value)}>
@@ -86,12 +93,7 @@ export default function Top100({ clubs }: { clubs: ClubIndex }) {
           </> },
           { key: 'honours', label: <StripHead />, hideSm: true, sort: (r) => { const l = hon(r.club)?.league; return l ? -(l[1] * 100 + l[2]) : null; },
             render: cell },
-          { key: 'country', label: 'Country', hideSm: true, sort: (r) => clubs.byId[r.club].country, render: (r) => COUNTRIES[clubs.byId[r.club].country ?? ''] ?? '' },
-          { key: 'league_rank', label: 'Rating rank in league', num: true, hideSm: true,
-            render: (r) => `${ordinal(r.league_rank)}${r.tier > 1 ? ` (tier ${r.tier})` : ''}` },
           { key: 'rating', label: 'Rating', num: true, render: (r) => int(r.rating) },
-          { key: 'above', label: 'Above average', num: true, hideSm: true, render: (r) => signed(r.above) },
-          { key: 'other', label: 'Other view', num: true, hideSm: true, sort: (r) => r.other ?? 999, render: (r) => r.other ?? '>100' },
         ]} /> : <Status error={view.error} />}
       </Card>
     </div>

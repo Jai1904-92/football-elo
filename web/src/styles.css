@@ -206,7 +206,7 @@ table.t { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .pip.g { background: #e6b93d; color: #2a1d00; box-shadow: 0 0 10px rgba(230, 185, 61, .35); }
 .pip.s { background: #bcc5d0; color: #111827; }
 .pip.b { background: #cd8a55; color: #2b1405; }
-.pip.x { background: rgba(125, 143, 169, .2); color: var(--text); }
+.pip.x { background: rgba(125, 143, 169, .1); color: var(--muted); font-weight: 600; }
 .pip.live { border: 1.5px solid var(--cyan); color: var(--cyan); }
 .pip.h { border: 1.5px solid var(--faint); color: var(--muted); font-weight: 500; }
 .pip.n { background: repeating-linear-gradient(45deg, rgba(125, 143, 169, .22) 0 4px, transparent 4px 8px); color: var(--muted); font-weight: 500; }
@@ -231,4 +231,7 @@ table.t { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
   .pip { width: 34px; }
   .top100 .t td { white-space: normal; }
   .pip small { display: none; }
+}
+@media (min-width: 641px) {   /* Top 100: spare width goes to the club column, keeping the strip beside the rating */
+  .top100 .t th:nth-child(3), .top100 .t td:nth-child(3) { width: 100%; }
 }

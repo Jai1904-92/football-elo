@@ -74,8 +74,8 @@ function Line({ pip, k, children }: { pip: ReactNode; k: string; children: React
   return <div className="hd-line">{pip}<div><div className="hd-k">{k}</div>{children}</div></div>;
 }
 
-function Detail({ h, rank, rating, clubs, country, current }:
-  { h: Honours; rank: number; rating: number; clubs: ClubIndex; country: string; current: boolean }) {
+function Detail({ h, rank, rating, clubs, country, current, facts }:
+  { h: Honours; rank: number; rating: number; clubs: ClubIndex; country: string; current: boolean; facts?: string }) {
   const name = (id: number | null) => (id == null ? '' : clubs.byId[id]?.name ?? '');
   const run = (r: Run, key?: string) => (
     <Line key={key ?? r[0]} pip={<SlotPip v={r} />} k={compName(r[0], h.season)}>
@@ -88,7 +88,7 @@ function Detail({ h, rank, rating, clubs, country, current }:
   return (
     <>
       <h4>{clubs.byId[h.club].name}</h4>
-      <div className="hd-meta">{seasonLabel(h.season)} · world #{rank} · rating {rating}</div>
+      <div className="hd-meta">{seasonLabel(h.season)} · world #{rank} · rating {rating}{facts && <><br />{facts}</>}</div>
       {l ? (
         <Line pip={<LeaguePip l={l} />} k={`League${l[1] > 1 ? ` (tier ${l[1]})` : ''}`}>
           {ordinal(l[2])} of {l[3]} · {l[10]} pts{current && ' so far'}
@@ -109,7 +109,7 @@ function Detail({ h, rank, rating, clubs, country, current }:
 }
 
 /** The strip as a button; tapping it opens the detail card beside it. */
-export function HonoursCell(props: { h?: Honours; rank: number; rating: number; clubs: ClubIndex; current: boolean }) {
+export function HonoursCell(props: { h?: Honours; rank: number; rating: number; clubs: ClubIndex; current: boolean; facts?: string }) {
   const { h, clubs } = props;
   const [open, setOpen] = useState(false);
   const btn = useRef<HTMLButtonElement>(null);
