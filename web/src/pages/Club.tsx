@@ -115,7 +115,7 @@ export default function ClubPage({ clubs }: { clubs: ClubIndex }) {
       <Card club={club} title="Honours" note="League titles from Wikipedia's lists of champions, checked against the rated results; cups and European trophies worked out from the finals in the rated data.">
         {won.length ? (
           <div className="honours">{HONOURS.map(([code, name]) => {
-            const list = won.filter((t) => t.competition === code);
+            const list = won.filter((t) => t.competition === code).sort((a, b) => a.season - b.season);
             return list.length ? <div className="honour" key={code}><b>{list.length}</b>{name}<small>{list.map((t) => seasonLabel(t.season)).join(', ')}</small></div> : null;
           })}</div>
         ) : <p className="muted">No league titles, European trophies or domestic cups in the rated data.</p>}
